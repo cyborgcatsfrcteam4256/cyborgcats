@@ -2,6 +2,12 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/components/HeroSection';
 import { ImpactSection } from '@/components/ImpactSection';
+import { StatsShowcase } from '@/components/StatsShowcase';
+import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { NewsSection } from '@/components/NewsSection';
+import { PhotoGallery } from '@/components/PhotoGallery';
+import { FAQSection } from '@/components/FAQSection';
+import { NewsletterSection } from '@/components/NewsletterSection';
 
 const Index = () => {
   return (
@@ -9,6 +15,12 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <ImpactSection />
+      <StatsShowcase />
+      <TestimonialsSection />
+      <NewsSection />
+      <PhotoGallery />
+      <FAQSection />
+      <NewsletterSection />
       <Footer />
     </div>
   );
