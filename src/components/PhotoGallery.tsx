@@ -11,45 +11,66 @@ export const PhotoGallery = () => {
   const photos = [
     {
       id: 1,
-      title: "2025 Impact Award Ceremony",
-      category: "awards",
-      description: "Team celebration after winning the FIRST Impact Award at Missouri State Championship",
-      imageUrl: "/api/placeholder/400/300"
+      title: "World Championship Venue",
+      category: "competition",
+      description: "The massive FIRST World Championship venue filled with thousands of spectators and teams",
+      imageUrl: "/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png"
     },
     {
       id: 2,
-      title: "Robot in Action",
-      category: "competition",
-      description: "Our 2025 robot performing at the Greater St. Louis Regional",
-      imageUrl: "/api/placeholder/400/300"
+      title: "Team Celebration",
+      category: "team",
+      description: "Cyborg Cats team members celebrating and high-fiving during competition",
+      imageUrl: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png"
     },
     {
       id: 3,
-      title: "Women in STEM Seminar",
-      category: "outreach",
-      description: "Students participating in our monthly Women in STEM workshop",
-      imageUrl: "/api/placeholder/400/300"
+      title: "Robot Demonstration",
+      category: "competition",
+      description: "Team 4256 explaining their robot design and strategy to judges and visitors",
+      imageUrl: "/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png"
     },
     {
       id: 4,
-      title: "Team Building Session",
+      title: "Pit Area Collaboration",
       category: "team",
-      description: "Engineering subteam collaborating on robot design",
-      imageUrl: "/api/placeholder/400/300"
+      description: "Team members working together in the pit area during competition",
+      imageUrl: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png"
     },
     {
       id: 5,
-      title: "Legislative Meeting",
-      category: "outreach",
-      description: "Team members presenting STEM advocacy to Missouri legislators",
-      imageUrl: "/api/placeholder/400/300"
+      title: "Victory Celebration",
+      category: "awards",
+      description: "Cyborg Cats team members waving to the crowd after a successful match",
+      imageUrl: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png"
     },
     {
       id: 6,
-      title: "Competition Alliance",
+      title: "Robot Interview",
       category: "competition",
-      description: "Strategic alliance meeting during regional competition",
-      imageUrl: "/api/placeholder/400/300"
+      description: "Team members being interviewed about their robot and competition strategy",
+      imageUrl: "/lovable-uploads/e3cf82cd-0326-4b2e-94d5-3d34ef99d632.png"
+    },
+    {
+      id: 7,
+      title: "Match Action",
+      category: "competition",
+      description: "Our robot 4256 in action during an intense competition match",
+      imageUrl: "/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png"
+    },
+    {
+      id: 8,
+      title: "Drive Team",
+      category: "team",
+      description: "Our skilled drive team operating the robot controls during competition",
+      imageUrl: "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png"
+    },
+    {
+      id: 9,
+      title: "Team Workspace",
+      category: "team",
+      description: "Behind the scenes in our pit area with sponsors and team organization",
+      imageUrl: "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
     }
   ];
 
@@ -121,10 +142,12 @@ export const PhotoGallery = () => {
               onClick={() => setSelectedImage(index)}
             >
               <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
+                <img 
+                  src={photo.imageUrl} 
+                  alt={photo.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Camera className="w-16 h-16 text-primary/40" />
-                </div>
                 
                 {/* Overlay Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform">
@@ -181,10 +204,12 @@ export const PhotoGallery = () => {
 
               {/* Image and Details */}
               <div className="bg-card rounded-xl overflow-hidden shadow-elevated">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Camera className="w-24 h-24 text-primary/40" />
-                  </div>
+                <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
+                  <img 
+                    src={filteredPhotos[selectedImage].imageUrl} 
+                    alt={filteredPhotos[selectedImage].title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                 </div>
                 
                 <div className="p-6">
