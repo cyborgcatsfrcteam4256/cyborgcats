@@ -7,7 +7,7 @@ export const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
+          src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
           alt="Cyborg Cats robot in competition" 
           className="w-full h-full object-cover opacity-30"
         />
@@ -75,8 +75,8 @@ export const HeroSection = () => {
           <div className="relative animate-scale-in">
             <div className="relative rounded-2xl overflow-hidden shadow-elevated glow-primary">
               <img 
-                src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
-                alt="Cyborg Cats competitive robot" 
+                src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
+                alt="Cyborg Cats team celebrating at competition" 
                 className="w-full h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
