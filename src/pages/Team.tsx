@@ -3,7 +3,6 @@ import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Users, Code, Briefcase, Heart, Zap, Award } from 'lucide-react';
-import teamPhoto from '@/assets/team-photo.jpg';
 
 const Team = () => {
   const subteams = [
@@ -101,7 +100,7 @@ const Team = () => {
           {/* Team Photo */}
           <div className="relative max-w-4xl mx-auto mb-16 animate-scale-in">
             <img 
-              src={teamPhoto} 
+              src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
               alt="Cyborg Cats FRC Team 4256" 
               className="w-full h-[400px] object-cover rounded-xl shadow-elevated"
             />

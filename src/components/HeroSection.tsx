@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Zap } from 'lucide-react';
-import heroRobot from '@/assets/hero-robot.jpg';
 
 export const HeroSection = () => {
   return (
@@ -8,7 +7,7 @@ export const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroRobot} 
+          src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
           alt="Cyborg Cats robot in competition" 
           className="w-full h-full object-cover opacity-30"
         />
@@ -76,7 +75,7 @@ export const HeroSection = () => {
           <div className="relative animate-scale-in">
             <div className="relative rounded-2xl overflow-hidden shadow-elevated glow-primary">
               <img 
-                src={heroRobot} 
+                src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
                 alt="Cyborg Cats competitive robot" 
                 className="w-full h-[600px] object-cover"
               />

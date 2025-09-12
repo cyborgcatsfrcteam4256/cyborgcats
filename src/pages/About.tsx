@@ -2,7 +2,6 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Award, MapPin, Users, Zap, Target, Lightbulb } from 'lucide-react';
-import teamPhoto from '@/assets/team-photo.jpg';
 
 const About = () => {
   return (
@@ -112,7 +111,7 @@ const About = () => {
 
             <div className="relative animate-scale-in">
               <img 
-                src={teamPhoto} 
+                src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
                 alt="Cyborg Cats team collaboration" 
                 className="w-full h-[500px] object-cover rounded-xl shadow-elevated"
               />
