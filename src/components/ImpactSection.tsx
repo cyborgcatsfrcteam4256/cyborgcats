@@ -21,9 +21,9 @@ export const ImpactSection = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           <StatCounter value={48} label="Team Members" />
-          <StatCounter value={20} label="Legislators Met" suffix="+" />
-          <StatCounter value={1000} label="Students Reached" suffix="+" />
-          <StatCounter value={100} label="Budget (K)" prefix="$" />
+          <StatCounter value={19} label="Legislators Met" suffix="+" />
+          <StatCounter value={2000} label="Students Reached" suffix="+" />
+          <StatCounter value={90} label="Budget (K)" prefix="$" />
         </div>
 
         {/* Impact Cards */}
@@ -34,7 +34,7 @@ export const ImpactSection = () => {
             </div>
             <h3 className="font-orbitron font-semibold text-lg mb-2">STEM Companion Initiative</h3>
             <p className="text-muted-foreground font-inter">
-              Supporting special-needs students through hands-on STEM activities and mentorship.
+              Connecting children with special needs to STEM through 5+ demonstrations and stemcompanion.org.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export const ImpactSection = () => {
             </div>
             <h3 className="font-orbitron font-semibold text-lg mb-2">Women in STEM</h3>
             <p className="text-muted-foreground font-inter">
-              Hosting seminars and workshops to encourage female participation in engineering.
+              Public seminars reaching 100+ attendees over 3 years. All upper leadership is female.
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export const ImpactSection = () => {
             </div>
             <h3 className="font-orbitron font-semibold text-lg mb-2">Global Outreach</h3>
             <p className="text-muted-foreground font-inter">
-              International partnerships with teams in South Korea and Ethiopia.
+              Helped establish South Korea's 4th FRC team and reached 115 students in Ethiopia.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export const ImpactSection = () => {
             </div>
             <h3 className="font-orbitron font-semibold text-lg mb-2">Legislative Advocacy</h3>
             <p className="text-muted-foreground font-inter">
-              Advocating for STEM education policy with Missouri state legislators.
+              Met with 19 representatives and Lieutenant Governor supporting SB 33 and HB 265.
             </p>
           </div>
         </div>

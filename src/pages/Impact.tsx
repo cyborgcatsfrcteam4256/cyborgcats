@@ -31,9 +31,9 @@ const Impact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatCounter value={48} label="Team Members" />
-            <StatCounter value={20} label="Legislators Met" suffix="+" />
-            <StatCounter value={1000} label="Students Reached" suffix="+" />
-            <StatCounter value={100} label="Participants in Seminars" suffix="+" />
+            <StatCounter value={19} label="Legislators Met" suffix="+" />
+            <StatCounter value={2000} label="Students Reached" suffix="+" />
+            <StatCounter value={115} label="Ethiopian Students" />
           </div>
         </div>
       </section>
@@ -58,22 +58,22 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">STEM Companion Initiative</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Our flagship program supporting special-needs students through hands-on STEM activities, 
-                mentorship, and inclusive learning environments. We believe every student deserves access 
-                to quality STEM education.
+                Our flagship program connecting children with special needs to STEM through robot demonstrations, 
+                STEM games, and activities including Easter egg hunts. Over 5 demonstrations and events held, 
+                with resources available at stemcompanion.org.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Weekly hands-on STEM workshops</span>
+                  <span className="font-inter">Robot demonstrations and activities</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">One-on-one mentorship programs</span>
+                  <span className="font-inter">Special events including Easter egg hunts</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Adaptive learning technologies</span>
+                  <span className="font-inter">Website: stemcompanion.org</span>
                 </div>
               </div>
             </div>
@@ -87,9 +87,9 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">Women in STEM Seminars</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Empowering the next generation of female engineers through seminars, workshops, 
-                and mentorship. Over 100 participants have joined our programs, learning from 
-                industry professionals and our own female team leaders.
+                Hosting public seminars at Westminster with industry professionals. Over 100 attendees 
+                in the past three years. All of our business and engineering upper leadership is female, 
+                demonstrating our commitment to women in STEM.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
@@ -118,21 +118,22 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">International Partnerships</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Building bridges across continents through STEM education. Our partnerships with 
-                teams in South Korea and Ethiopia demonstrate that innovation knows no borders.
+                International impact spanning continents. Helped establish South Korea's 4th FRC team 
+                at Samuel School, and conducted STEM activities for 115 students in Ethiopia, 
+                providing robotics jerseys and promoting sustainability in STEM.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">South Korean robotics collaboration</span>
+                  <span className="font-inter">South Korea: Samuel School FRC team founding</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Ethiopian STEM education support</span>
+                  <span className="font-inter">Ethiopia: 115 students sustainability projects</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Virtual exchange programs</span>
+                  <span className="font-inter">Only 2 active FRC teams in all of Africa before our work</span>
                 </div>
               </div>
             </div>
@@ -146,21 +147,149 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">STEM Advocacy</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Advocating for STEM education policy with over 20 Missouri state legislators. 
-                Supporting bills SB 33 and HB 256 to expand STEM opportunities statewide.
+                Met with 19 representatives and the Lieutenant Governor at Missouri Capitol. 
+                Supporting Sen. Travis Fitzwater's SB 33 and Rep. Bishop Davidson's HB 265 
+                for FIRST robotics funding. Participated in STEM Day at The Capitol March 6th, 2025.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Capitol Hill presentations</span>
+                  <span className="font-inter">Missouri Capitol meetings with 19+ officials</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Policy research and development</span>
+                  <span className="font-inter">STEM Day at The Capitol participation</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">Educational impact studies</span>
+                  <span className="font-inter">SB 33 and HB 265 advocacy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Major Events & Partnerships */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-orbitron font-bold mb-6 text-glow">Major Events & Partnerships</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
+              Annual events and collaborations that amplify our impact across the STEM community.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* St. Louis Events */}
+            <div className="bg-card border border-border rounded-xl p-8 hover-glow transition-cyber">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center glow-subtle">
+                  <MapPin className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-orbitron font-bold">St. Louis Area Events</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="p-4 bg-muted/20 rounded-lg">
+                  <h4 className="font-orbitron font-semibold text-lg mb-2">St. Louis FLL Season Kickoff</h4>
+                  <p className="text-muted-foreground font-inter text-sm mb-2">
+                    Annual event hosted at Westminster for 4 years
+                  </p>
+                  <div className="text-2xl font-orbitron font-bold text-primary">900+ Attendees</div>
+                  <div className="text-sm text-muted-foreground">Over 3 years</div>
+                </div>
+                <div className="p-4 bg-muted/20 rounded-lg">
+                  <h4 className="font-orbitron font-semibold text-lg mb-2">Westminster Open House</h4>
+                  <p className="text-muted-foreground font-inter text-sm mb-2">
+                    Annual demonstration event for 3 years
+                  </p>
+                  <div className="text-2xl font-orbitron font-bold text-primary">1,500+</div>
+                  <div className="text-sm text-muted-foreground">Total attendees</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Regional Outreach */}
+            <div className="bg-card border border-border rounded-xl p-8 hover-glow transition-cyber">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center glow-subtle">
+                  <Globe className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-orbitron font-bold">Regional Impact</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="p-4 bg-muted/20 rounded-lg">
+                  <h4 className="font-orbitron font-semibold text-lg mb-2">Spirit of St. Louis Airshow</h4>
+                  <p className="text-muted-foreground font-inter text-sm mb-2">
+                    Organized FIRST space, showcased robot with other FRC teams
+                  </p>
+                  <div className="text-2xl font-orbitron font-bold text-primary">2,000+</div>
+                  <div className="text-sm text-muted-foreground">People reached over 2 years</div>
+                </div>
+                <div className="p-4 bg-muted/20 rounded-lg">
+                  <h4 className="font-orbitron font-semibold text-lg mb-2">Camp Westminster</h4>
+                  <p className="text-muted-foreground font-inter text-sm mb-2">
+                    Annual FIRST Robotics class
+                  </p>
+                  <div className="text-2xl font-orbitron font-bold text-primary">120</div>
+                  <div className="text-sm text-muted-foreground">Students over 3 years</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Team Mentoring & Partnerships */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
+              <h4 className="font-orbitron font-semibold text-lg mb-4">Team Mentoring</h4>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Covenant Christian: Hedgehog Hackers (Champion's Award winners)</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Twin Oaks: Electric Eagles FLL Challenge</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Thursday morning robotics classes</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
+              <h4 className="font-orbitron font-semibold text-lg mb-4">Special Projects</h4>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Only high school licensed to grow Atlanta coral</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Patent assistance for Hedgehog Hackers invention</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">FSI chemical company partnerships</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
+              <h4 className="font-orbitron font-semibold text-lg mb-4">Team Partnerships</h4>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">U-City Robolions collaboration</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Practice field for 70+ FRC teams</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="font-inter text-sm">Hand-written letter campaigns at regionals</span>
                 </div>
               </div>
             </div>
@@ -174,7 +303,7 @@ const Impact = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-orbitron font-bold mb-6 text-glow">Impact Timeline</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              Key milestones in our journey to make STEM accessible to all.
+              Key milestones in our 14-year journey to make STEM accessible to all.
             </p>
           </div>
 
@@ -193,7 +322,7 @@ const Impact = () => {
                     <span className="text-primary font-orbitron text-sm">2025</span>
                   </div>
                   <p className="text-muted-foreground font-inter">
-                    Recognized for our comprehensive community impact and outreach programs.
+                    Recognized for comprehensive community impact, reaching over 2,000 students and meeting with 19+ legislators.
                   </p>
                 </div>
               </div>
@@ -204,11 +333,11 @@ const Impact = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-4 mb-2">
-                    <h3 className="text-xl font-orbitron font-bold">100+ Women in STEM Participants</h3>
-                    <span className="text-primary font-orbitron text-sm">2024</span>
+                    <h3 className="text-xl font-orbitron font-bold">Team Planting Workshops</h3>
+                    <span className="text-primary font-orbitron text-sm">2025</span>
                   </div>
                   <p className="text-muted-foreground font-inter">
-                    Reached our goal of engaging over 100 young women in our STEM seminars.
+                    Successful FLL Team Planting Workshops in February and March, helping establish new teams.
                   </p>
                 </div>
               </div>
@@ -219,11 +348,11 @@ const Impact = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-4 mb-2">
-                    <h3 className="text-xl font-orbitron font-bold">International Partnerships</h3>
-                    <span className="text-primary font-orbitron text-sm">2023</span>
+                    <h3 className="text-xl font-orbitron font-bold">International Expansion</h3>
+                    <span className="text-primary font-orbitron text-sm">2023-2024</span>
                   </div>
                   <p className="text-muted-foreground font-inter">
-                    Established partnerships with robotics teams in South Korea and Ethiopia.
+                    Helped establish South Korea's 4th FRC team and conducted STEM activities for 115 students in Ethiopia.
                   </p>
                 </div>
               </div>
@@ -235,10 +364,10 @@ const Impact = () => {
                 <div className="flex-1">
                   <div className="flex items-center space-x-4 mb-2">
                     <h3 className="text-xl font-orbitron font-bold">Legislative Advocacy Launch</h3>
-                    <span className="text-primary font-orbitron text-sm">2022</span>
+                    <span className="text-primary font-orbitron text-sm">2020-2025</span>
                   </div>
                   <p className="text-muted-foreground font-inter">
-                    Began our advocacy work with Missouri state legislators for STEM education policy.
+                    14-year team history culminating in strong advocacy work for STEM education policy in Missouri.
                   </p>
                 </div>
               </div>

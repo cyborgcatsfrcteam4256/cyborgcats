@@ -18,8 +18,8 @@ const About = () => {
               <span className="block text-primary-glow">Cyborg Cats</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              We are FRC Team 4256, a passionate group of 48 students from Westminster Christian Academy 
-              in St. Louis, Missouri, dedicated to building robots and building futures.
+              We are FRC Team 4256, a 14-year-old team with 48 students, 22 mentors, and 8 corporate sponsors 
+              from Westminster Christian Academy in St. Louis, Missouri, dedicated to building robots and building futures.
             </p>
           </div>
         </div>
@@ -49,11 +49,11 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-orbitron font-bold mb-4">Our Team</h3>
               <p className="text-muted-foreground font-inter mb-4">
-                48 dedicated students working across engineering, business, and outreach, 
-                supported by experienced mentors and strong female leadership.
+                48 dedicated students, 22 mentors, 8 corporate sponsors, 2 foundations working together. 
+                All business and engineering upper leadership is female, demonstrating our commitment to inclusion.
               </p>
               <div className="text-sm text-primary font-orbitron font-medium">
-                48 Active Members
+                48 Students + 22 Mentors
               </div>
             </div>
 
@@ -84,11 +84,13 @@ const About = () => {
                   <Target className="w-8 h-8 text-primary" />
                   <h2 className="text-3xl font-orbitron font-bold text-glow">Our Mission</h2>
                 </div>
+                <p className="text-lg text-muted-foreground font-inter mb-4">
+                  "We cultivate relationships, put God and others before self, and achieve our potential 
+                  as we build a safe and cohesive community, focusing our talents on building our best robot."
+                </p>
                 <p className="text-lg text-muted-foreground font-inter">
-                  To inspire and empower the next generation of STEM leaders through hands-on robotics 
-                  education, community outreach, and advocacy for inclusive engineering practices. 
-                  We believe that when young people are given the tools and support to innovate, 
-                  they can change the world.
+                  To secure funding so that every child has the opportunity to join a FIRST team, 
+                  embodying Christian values of selfless service and prioritizing the needs of others.
                 </p>
               </div>
 
