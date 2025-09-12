@@ -7,59 +7,73 @@ import { Building, Handshake, Award, TrendingUp, Users, Globe, Download, DollarS
 const Sponsors = () => {
   const sponsorTiers = [
     {
-      name: "Title Sponsor",
-      investment: "$15,000+",
+      name: "Foundational Partner",
+      investment: "$10,000+",
       benefits: [
-        "Company logo on robot and team shirts",
-        "Naming rights to major team initiatives",
-        "Speaking opportunities at events",
-        "Exclusive partnership announcements",
-        "Custom collaboration projects",
-        "Year-round social media recognition"
+        "Company name in team title (if donated by Feb 6th)",
+        "Logo on robot, banners, and team shirts",
+        "Featured on website and all communications",
+        "Makes competitive participation possible",
+        "Highest level of recognition and visibility",
+        "Priority partnership opportunities"
       ],
       color: "gradient-cyber",
       highlight: true
     },
     {
-      name: "Gold Sponsor", 
-      investment: "$5,000 - $14,999",
+      name: "Sustainable Partner", 
+      investment: "$5,000",
       benefits: [
-        "Large logo placement on robot",
-        "Recognition at all competitions",
-        "Featured in press releases",
-        "Access to competition footage",
-        "Quarterly impact reports",
-        "Employee engagement opportunities"
+        "Prominent logo placement on robot",
+        "Featured on banners and team shirts",
+        "Website and communication recognition",
+        "Essential funding for team operations",
+        "Sustains our competitive readiness",
+        "Community event recognition"
       ],
       color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
       highlight: false
     },
     {
-      name: "Silver Sponsor",
-      investment: "$1,000 - $4,999", 
+      name: "Development Partner",
+      investment: "$2,500", 
       benefits: [
-        "Medium logo on robot and materials",
-        "Social media recognition",
-        "Newsletter mentions",
-        "Competition result updates",
-        "Team visit opportunities",
-        "STEM partnership programs"
+        "Logo on banners and team shirts",
+        "Website and communication mentions",
+        "Enables expanded outreach programs",
+        "Supports community robotics initiatives",
+        "Recognition at community events",
+        "Partnership in STEM education growth"
       ],
       color: "gradient-silver",
       highlight: false
     },
     {
-      name: "Bronze Sponsor",
-      investment: "$500 - $999",
+      name: "Competition Partner",
+      investment: "$1,000",
       benefits: [
-        "Small logo placement",
-        "Website listing",
-        "Thank you social posts", 
-        "Competition photos access",
-        "Annual impact summary",
-        "Community recognition"
+        "Logo on website and team shirts",
+        "Recognition in all communications",
+        "Supports competition materials creation",
+        "Enables professional team presentation",
+        "Quarterly team updates",
+        "Competition result sharing"
       ],
       color: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+      highlight: false
+    },
+    {
+      name: "Associate Partner",
+      investment: "Any Amount",
+      benefits: [
+        "Logo on website",
+        "Recognition in all communications",
+        "Support through gifts or services welcome",
+        "Valuable community partnership",
+        "Flexible contribution options",
+        "Grassroots team support"
+      ],
+      color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
       highlight: false
     }
   ];
@@ -214,8 +228,8 @@ const Sponsors = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {sponsorTiers.map((tier, index) => (
+          <div className="grid lg:grid-cols-3 gap-8">
+            {sponsorTiers.slice(0, 3).map((tier, index) => (
               <div 
                 key={index}
                 className={`bg-card border border-border rounded-xl p-8 hover-glow transition-cyber relative ${
@@ -250,6 +264,34 @@ const Sponsors = () => {
                   className="w-full"
                 >
                   {tier.highlight ? "Choose This Plan" : "Learn More"}
+                </Button>
+              </div>
+            ))}
+          </div>
+          
+          {/* Additional Partnership Levels */}
+          <div className="grid lg:grid-cols-2 gap-8 mt-8">
+            {sponsorTiers.slice(3).map((tier, index) => (
+              <div 
+                key={index + 3}
+                className="bg-card border border-border rounded-xl p-8 hover-glow transition-cyber relative"
+              >
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-orbitron font-bold mb-2">{tier.name}</h3>
+                  <div className="text-3xl font-orbitron font-bold text-primary mb-4">{tier.investment}</div>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {tier.benefits.map((benefit, idx) => (
+                    <div key={idx} className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                      <span className="font-inter text-muted-foreground">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button variant="silver" size="lg" className="w-full">
+                  Learn More
                 </Button>
               </div>
             ))}
