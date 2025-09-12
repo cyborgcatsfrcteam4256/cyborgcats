@@ -8,7 +8,7 @@ export const NewsSection = () => {
   const news = [
     {
       title: "Cyborg Cats Win 2025 FIRST Impact Award",
-      excerpt: "Our team has been awarded the prestigious FIRST Impact Award at the Missouri State Championship, recognizing our comprehensive community outreach programs and legislative advocacy efforts.",
+      excerpt: "Our team has been awarded the prestigious FIRST Impact Award at the Missouri State Championship, recognizing our comprehensive community outreach programs including the STEM Companion Initiative, 19 legislative meetings, and international partnerships spanning South Korea and Ethiopia.",
       date: "March 15, 2025",
       category: "Award",
       featured: true,
@@ -26,7 +26,7 @@ export const NewsSection = () => {
     },
     {
       title: "100th Woman in STEM Seminar Participant",
-      excerpt: "We celebrated a major milestone as our Women in STEM seminars welcomed their 100th participant, expanding opportunities for young women in engineering and technology.",
+      excerpt: "We celebrated a major milestone as our Women in STEM seminars welcomed their 100th participant over the past three years. All of our business and engineering upper leadership is female.",
       date: "February 28, 2025",
       category: "Outreach",
       featured: false,
@@ -34,8 +34,8 @@ export const NewsSection = () => {
       readTime: "4 min read"
     },
     {
-      title: "New International Partnership with South Korea",
-      excerpt: "Team 4256 has established an exciting new collaboration with robotics teams in South Korea, fostering global connections in STEM education.",
+      title: "International STEM Impact: South Korea & Ethiopia",
+      excerpt: "Helped establish South Korea's 4th FRC team at Samuel School and conducted STEM activities for 115 students in Ethiopia, addressing the gap where only 2 active FRC teams existed in all of Africa.",
       date: "February 10, 2025",
       category: "Partnership",
       featured: false,

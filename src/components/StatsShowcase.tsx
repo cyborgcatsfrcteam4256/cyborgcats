@@ -42,7 +42,7 @@ export const StatsShowcase = () => {
       suffix: ""
     },
     {
-      value: 1000,
+      value: 2000,
       label: "Students Reached",
       description: "Through our outreach programs",
       icon: Globe,
@@ -50,9 +50,9 @@ export const StatsShowcase = () => {
       suffix: "+"
     },
     {
-      value: 20,
+      value: 19,
       label: "Legislators Engaged",
-      description: "STEM education advocates",
+      description: "Plus Lieutenant Governor",
       icon: TrendingUp,
       color: "from-purple-500 to-pink-500",
       suffix: "+"
@@ -182,8 +182,8 @@ export const StatsShowcase = () => {
             
             <div className="grid md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-orbitron font-bold text-primary mb-2">2022</div>
-                <div className="text-sm text-muted-foreground font-inter">Team Founded</div>
+                <div className="text-3xl font-orbitron font-bold text-primary mb-2">2011</div>
+                <div className="text-sm text-muted-foreground font-inter">Team Founded (14 years)</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-orbitron font-bold text-primary mb-2">2023</div>

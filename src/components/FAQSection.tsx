@@ -58,15 +58,23 @@ export const FAQSection = () => {
       questions: [
         {
           question: "What are your Women in STEM seminars?",
-          answer: "Our Women in STEM seminars are monthly workshops designed to inspire and support young women in pursuing STEM careers. We've welcomed over 100 participants, featuring industry professionals, hands-on activities, and mentorship opportunities with our female team leaders."
+          answer: "Our Women in STEM seminars are public workshops held at Westminster Christian Academy, featuring industry professionals and hands-on activities. We've welcomed over 100 attendees over the past three years. All of our business and engineering upper leadership is female, demonstrating our commitment to women in STEM leadership."
         },
         {
           question: "How does your legislative advocacy work?",
-          answer: "We actively engage with Missouri state legislators to advocate for STEM education policy. Our team has met with 20+ legislators, supporting bills like SB 33 and HB 256 that expand STEM opportunities statewide. We present research, share student perspectives, and demonstrate the impact of quality STEM programs."
+          answer: "We actively engage with Missouri state legislators to advocate for STEM education policy. Our team has met with 19 representatives and the Lieutenant Governor, supporting bills like Sen. Travis Fitzwater's SB 33 and Rep. Bishop Davidson's HB 265 that expand STEM opportunities statewide. We participated in STEM Day at The Capitol on March 6th, 2025."
+        },
+        {
+          question: "What is the STEM Companion Initiative?",
+          answer: "The STEM Companion Initiative is our flagship program connecting children with special needs to STEM education. We've hosted over 5 demonstrations and events, including Easter egg hunts, offering STEM-related games and robot demonstrations. We also created stemcompanion.org with publicly accessible resources."
         },
         {
           question: "Tell me about your international partnerships.",
-          answer: "We've established partnerships with robotics teams in South Korea and Ethiopia, fostering global connections through virtual exchanges, shared projects, and cultural learning. These partnerships demonstrate that innovation and collaboration transcend borders."
+          answer: "We've helped establish South Korea's 4th FRC team at Samuel School after visiting and demonstrating STEM activities in 2023. In Ethiopia, a team member's family led STEM activities for 115 students, creating water bottle cars to highlight sustainability while providing robotics jerseys. Before our work, only 2 active FRC teams existed in all of Africa."
+        },
+        {
+          question: "What other community programs do you run?",
+          answer: "We host the annual St. Louis FLL Season Kickoff (900+ people over 3 years), conduct FIRST Robotics classes at Camp Westminster (120 students over 3 years), organize Team Planting Workshops, mentor multiple FLL teams including the Champion's Award-winning Hedgehog Hackers, and provide practice fields for 70+ FRC teams at regionals."
         }
       ]
     }

@@ -8,7 +8,7 @@ export const TestimonialsSection = () => {
       name: "Dr. Maria Rodriguez",
       title: "STEM Education Director",
       organization: "Missouri Department of Education",
-      quote: "The Cyborg Cats have set a new standard for community impact in FIRST Robotics. Their Women in STEM seminars and legislative advocacy work demonstrate what happens when young people are empowered to create change.",
+      quote: "The Cyborg Cats have set a new standard for community impact in FIRST Robotics. Their STEM Companion Initiative, legislative advocacy with 19 representatives, and international partnerships demonstrate what happens when young people are empowered to create change.",
       type: "Education Leader",
       icon: Lightbulb
     },
@@ -24,7 +24,7 @@ export const TestimonialsSection = () => {
       name: "James Mitchell",
       title: "VP of Corporate Relations",
       organization: "Emerson Electric Co.",
-      quote: "Partnering with Team 4256 has been incredibly rewarding. Their professionalism, innovation, and commitment to inclusive STEM education make them ideal ambassadors for the future of engineering.",
+      quote: "Partnering with Team 4256 has been incredibly rewarding. Their professionalism, innovation, and commitment to inclusive STEM education make them ideal ambassadors for the future of engineering. We're proud to support their 80-100K annual budget through our sponsorship.",
       type: "Industry Partner",
       icon: Award
     },
@@ -32,7 +32,7 @@ export const TestimonialsSection = () => {
       name: "Coach Amanda Chen",
       title: "Lead Mentor",
       organization: "Westminster Christian Academy",
-      quote: "In my 10 years of coaching robotics, I've never seen a team so dedicated to both technical excellence and social impact. These students don't just build robots - they build better communities.",
+      quote: "In my years of coaching robotics at Westminster Christian Academy, I've never seen a team so dedicated to both technical excellence and social impact. These 48 students and 22 mentors don't just build robots - they build better communities through initiatives like the STEM Companion Initiative and their legislative advocacy work.",
       type: "Mentor Perspective",
       icon: Star
     }

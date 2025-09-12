@@ -92,8 +92,8 @@ const Sponsors = () => {
 
   const impactStats = [
     { metric: "80-100K", label: "Annual Budget", icon: DollarSign },
-    { metric: "1000+", label: "Students Reached", icon: Users },
-    { metric: "20+", label: "Legislators Met", icon: Building },
+    { metric: "2000+", label: "Students Reached", icon: Users },
+    { metric: "19", label: "Legislators Met", icon: Building },
     { metric: "Global", label: "Outreach Impact", icon: Globe }
   ];
 
