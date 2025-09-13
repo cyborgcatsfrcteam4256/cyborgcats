@@ -147,9 +147,8 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">STEM Advocacy</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Met with 19 representatives and the Lieutenant Governor at Missouri Capitol. 
-                Supporting Sen. Travis Fitzwater's SB 33 and Rep. Bishop Davidson's HB 265 
-                for FIRST robotics funding. Participated in STEM Day at The Capitol March 6th, 2025.
+                Met with 19 representatives and the Lieutenant Governor at Missouri Capitol 
+                supporting HB 256 for STEM education funding. Participated in STEM advocacy events.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
@@ -162,7 +161,7 @@ const Impact = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter">SB 33 and HB 265 advocacy</span>
+                  <span className="font-inter">HB 256 advocacy</span>
                 </div>
               </div>
             </div>
@@ -318,11 +317,11 @@ const Impact = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-4 mb-2">
-                    <h3 className="text-xl font-orbitron font-bold">FIRST Impact Award Win</h3>
+                    <h3 className="text-xl font-orbitron font-bold">Growing Community Impact</h3>
                     <span className="text-primary font-orbitron text-sm">2025</span>
                   </div>
                   <p className="text-muted-foreground font-inter">
-                    Recognized for comprehensive community impact, reaching over 2,000 students and meeting with 19+ legislators.
+                    Continuing to expand outreach programs, reaching over 2,000 students and meeting with 19+ legislators.
                   </p>
                 </div>
               </div>

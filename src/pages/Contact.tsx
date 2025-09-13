@@ -153,10 +153,10 @@ const Contact = () => {
                       <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orbitron font-semibold mb-1">Email</h4>
-                      <p className="text-muted-foreground font-inter">
-                        team@cyborgcats4256.org
-                      </p>
+                  <h4 className="font-orbitron font-semibold mb-1">Email</h4>
+                  <p className="text-muted-foreground font-inter">
+                    Contact available upon request
+                  </p>
                     </div>
                   </div>
 
@@ -165,10 +165,10 @@ const Contact = () => {
                       <Instagram className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orbitron font-semibold mb-1">Social Media</h4>
-                      <p className="text-muted-foreground font-inter">
-                        @cyborgcats4256
-                      </p>
+                  <h4 className="font-orbitron font-semibold mb-1">Social Media</h4>
+                  <p className="text-muted-foreground font-inter">
+                    Follow us online
+                  </p>
                     </div>
                   </div>
                 </div>

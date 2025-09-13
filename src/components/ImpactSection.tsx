@@ -23,7 +23,7 @@ export const ImpactSection = () => {
           <StatCounter value={48} label="Team Members" />
           <StatCounter value={19} label="Legislators Met" suffix="+" />
           <StatCounter value={2000} label="Students Reached" suffix="+" />
-          <StatCounter value={90} label="Budget (K)" prefix="$" />
+          <StatCounter value={22} label="Mentors" />
         </div>
 
         {/* Impact Cards */}
@@ -64,7 +64,7 @@ export const ImpactSection = () => {
             </div>
             <h3 className="font-orbitron font-semibold text-lg mb-2">Legislative Advocacy</h3>
             <p className="text-muted-foreground font-inter">
-              Met with 19 representatives and Lieutenant Governor supporting SB 33 and HB 265.
+              Met with 19 representatives and Lieutenant Governor supporting HB 256 advocacy.
             </p>
           </div>
         </div>
@@ -76,13 +76,8 @@ export const ImpactSection = () => {
               Empowering the Next Generation
             </h3>
             <p className="text-lg text-muted-foreground font-inter">
-              Our team is more than just robotics – we're a movement. With strong female leadership 
-              and a diverse group of passionate students, we're proving that engineering is for everyone.
-            </p>
-            <p className="text-lg text-muted-foreground font-inter">
-              From our FIRST Impact Award win to qualifying for the World Championship in Houston, 
-              we're showing that when you combine technical excellence with genuine care for your 
-              community, extraordinary things happen.
+              Our team continues growing and making community impact through 
+              STEM education and advocacy for students statewide.
             </p>
             <Button variant="cyber" size="lg">
               Learn More About Our Mission

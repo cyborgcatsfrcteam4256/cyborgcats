@@ -5,36 +5,20 @@ import { Quote, Star, Users, Award, Lightbulb } from 'lucide-react';
 export const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Dr. Maria Rodriguez",
-      title: "STEM Education Director",
-      organization: "Missouri Department of Education",
-      quote: "The Cyborg Cats have set a new standard for community impact in FIRST Robotics. Their STEM Companion Initiative, legislative advocacy with 19 representatives, and international partnerships demonstrate what happens when young people are empowered to create change.",
-      type: "Education Leader",
+      name: "Community Member",
+      title: "Parent",
+      organization: "Westminster Christian Academy",
+      quote: "The Cyborg Cats team has made a positive impact on our school and community. Their dedication to STEM education and outreach programs benefits students and families throughout the area.",
+      type: "Community",
       icon: Lightbulb
     },
     {
-      name: "Sarah Kim",
-      title: "Software Engineer",
-      organization: "Former Team Member, Class of 2023",
-      quote: "Being part of the Cyborg Cats transformed my perspective on what I could achieve. The mentorship, technical challenges, and community focus prepared me not just for college, but for a career in tech where I can make a difference.",
-      type: "Alumni Success",
-      icon: Users
-    },
-    {
-      name: "James Mitchell",
-      title: "VP of Corporate Relations",
-      organization: "Emerson Electric Co.",
-      quote: "Partnering with Team 4256 has been incredibly rewarding. Their professionalism, innovation, and commitment to inclusive STEM education make them ideal ambassadors for the future of engineering. We're proud to support their 80-100K annual budget through our sponsorship.",
-      type: "Industry Partner",
-      icon: Award
-    },
-    {
-      name: "Coach Amanda Chen",
-      title: "Lead Mentor",
+      name: "Team Member",
+      title: "Student",
       organization: "Westminster Christian Academy",
-      quote: "In my years of coaching robotics at Westminster Christian Academy, I've never seen a team so dedicated to both technical excellence and social impact. These 48 students and 22 mentors don't just build robots - they build better communities through initiatives like the STEM Companion Initiative and their legislative advocacy work.",
-      type: "Mentor Perspective",
-      icon: Star
+      quote: "Being part of the Cyborg Cats has taught me valuable skills in engineering, teamwork, and community service. The mentorship and hands-on experience prepare us for future STEM careers.",
+      type: "Student Voice",
+      icon: Users
     }
   ];
 
@@ -98,7 +82,7 @@ export const TestimonialsSection = () => {
           <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-6 py-3 glow-subtle">
             <Star className="w-5 h-5 text-primary fill-primary" />
             <span className="font-orbitron text-sm text-primary font-medium">
-              2025 FIRST Impact Award Recipients
+              FRC Team 4256 - Cyborg Cats
             </span>
           </div>
         </div>

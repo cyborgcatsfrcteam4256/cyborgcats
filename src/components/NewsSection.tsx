@@ -7,17 +7,17 @@ import { ArrowRight, Calendar, Trophy, Users, Globe, Award } from 'lucide-react'
 export const NewsSection = () => {
   const news = [
     {
-      title: "Cyborg Cats Win 2025 FIRST Impact Award",
-      excerpt: "Our team has been awarded the prestigious FIRST Impact Award at the Missouri State Championship, recognizing our comprehensive community outreach programs including the STEM Companion Initiative, 19 legislative meetings, and international partnerships spanning South Korea and Ethiopia.",
+      title: "Team Continues STEM Advocacy Work",
+      excerpt: "Our team continues to engage with Missouri legislators about STEM education funding, building on our meetings with 19 representatives and the Lieutenant Governor to support bills that expand STEM opportunities statewide.",
       date: "March 15, 2025",
-      category: "Award",
+      category: "Outreach",
       featured: true,
-      icon: Trophy,
+      icon: Users,
       readTime: "3 min read"
     },
     {
-      title: "World Championship Qualification Secured",
-      excerpt: "Following our Impact Award win, we've officially qualified for the 2025 FIRST World Championship in Houston, Texas. This marks our biggest achievement yet as a team.",
+      title: "New Competition Season Begins",
+      excerpt: "The 2025 FIRST Robotics Competition season is underway. Our team is preparing for regional competitions with our new robot design and strategy.",
       date: "March 15, 2025", 
       category: "Competition",
       featured: false,

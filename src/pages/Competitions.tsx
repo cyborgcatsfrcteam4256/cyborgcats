@@ -7,67 +7,37 @@ import { Trophy, Calendar, MapPin, Award, Zap, Users, Target } from 'lucide-reac
 const Competitions = () => {
   const competitions = [
     {
-      event: "FIRST World Championship",
-      location: "Houston, TX",
-      date: "April 2025",
-      status: "Qualified",
+      event: "Regional Competition",
+      location: "Missouri",
+      date: "Spring 2025",
+      status: "Upcoming",
       rank: "TBD",
-      highlight: true,
-      description: "The ultimate robotics competition featuring teams from around the world."
+      highlight: false,
+      description: "Preparing for regional FIRST Robotics competitions in the 2025 season."
     },
     {
-      event: "FIRST Missouri State Championship",
+      event: "Previous Regional",
       location: "St. Louis, MO", 
-      date: "March 2025",
-      status: "Impact Award Winner",
-      rank: "1st Place Impact",
-      highlight: true,
-      description: "Won the prestigious FIRST Impact Award for our community outreach programs."
-    },
-    {
-      event: "Greater St. Louis Regional",
-      location: "St. Charles, MO",
-      date: "February 2025",
-      status: "Regional Finalist",
-      rank: "Top 8",
-      highlight: false,
-      description: "Strong performance earning qualification for state championship."
-    },
-    {
-      event: "Midwest Regional",
-      location: "Chicago, IL",
       date: "March 2024",
-      status: "Completed",
-      rank: "Top 16",
+      status: "Competed",
+      rank: "Participated",
       highlight: false,
-      description: "Valuable experience competing against top-tier teams."
+      description: "Gained valuable experience competing against regional teams."
     }
   ];
 
   const achievements = [
     {
       year: "2025",
-      award: "FIRST Impact Award",
-      level: "State Championship",
-      description: "Recognized for comprehensive community outreach and STEM advocacy programs."
+      award: "Active Competition Season",
+      level: "FIRST Robotics",
+      description: "Continuing to compete and engage in community outreach programs."
     },
     {
-      year: "2025", 
-      award: "World Championship Qualification",
-      level: "Houston, Texas",
-      description: "Earned qualification to compete at the highest level of FIRST Robotics."
-    },
-    {
-      year: "2024",
-      award: "Engineering Excellence Award",
-      level: "Regional Competition",
-      description: "Honored for innovative robot design and engineering documentation."
-    },
-    {
-      year: "2023",
-      award: "Gracious Professionalism Award",
-      level: "Regional Competition", 
-      description: "Recognized for embodying FIRST values of cooperation and respect."
+      year: "2024", 
+      award: "Community Outreach Programs",
+      level: "Local and International",
+      description: "Expanded STEM programs including Women in STEM seminars and international partnerships."
     }
   ];
 
@@ -85,8 +55,8 @@ const Competitions = () => {
               <span className="block text-primary-glow">Competitions</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              From regional competitions to the World Championship - tracking our journey 
-              to the top of FIRST Robotics Competition.
+              Following our team through regional FIRST Robotics competitions 
+              and tracking our progress in the 2025 season.
             </p>
           </div>
 
@@ -96,8 +66,8 @@ const Competitions = () => {
               <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 glow-subtle">
                 <Trophy className="w-10 h-10 text-primary" />
               </div>
-              <div className="text-3xl font-orbitron font-bold text-primary mb-2">2025</div>
-              <div className="text-muted-foreground font-inter">Impact Award</div>
+              <div className="text-3xl font-orbitron font-bold text-primary mb-2">14</div>
+              <div className="text-muted-foreground font-inter">Years Active</div>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 glow-subtle">
@@ -110,15 +80,15 @@ const Competitions = () => {
               <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 glow-subtle">
                 <Target className="w-10 h-10 text-primary" />
               </div>
-              <div className="text-3xl font-orbitron font-bold text-primary mb-2">Top 8</div>
-              <div className="text-muted-foreground font-inter">Best Rank</div>
+              <div className="text-3xl font-orbitron font-bold text-primary mb-2">48</div>
+              <div className="text-muted-foreground font-inter">Team Members</div>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 glow-subtle">
                 <Award className="w-10 h-10 text-primary" />
               </div>
-              <div className="text-3xl font-orbitron font-bold text-primary mb-2">5+</div>
-              <div className="text-muted-foreground font-inter">Awards</div>
+              <div className="text-3xl font-orbitron font-bold text-primary mb-2">22</div>
+              <div className="text-muted-foreground font-inter">Mentors</div>
             </div>
           </div>
         </div>
@@ -232,15 +202,14 @@ const Competitions = () => {
             <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 glow-primary animate-glow-pulse">
               <Trophy className="w-12 h-12 text-primary" />
             </div>
-            <h3 className="text-3xl font-orbitron font-bold mb-4">FIRST World Championship 2025</h3>
+            <h3 className="text-3xl font-orbitron font-bold mb-4">2025 Competition Season</h3>
             <p className="text-xl text-muted-foreground font-inter mb-6">
-              Houston, Texas • April 2025
+              Preparing for Regional Competition
             </p>
-            <p className="text-lg text-muted-foreground font-inter mb-8 max-w-2xl mx-auto">
-              After winning the FIRST Impact Award, we're heading to Houston to compete against 
-              the best robotics teams from around the world. This is the culmination of years 
-              of hard work and dedication.
-            </p>
+        <p className="text-lg text-muted-foreground font-inter mb-8 max-w-2xl mx-auto">
+          Our team continues to work hard and prepare for upcoming regional competitions. 
+          We appreciate all the support from our community as we continue our robotics journey.
+        </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg">
                 Follow Our Journey

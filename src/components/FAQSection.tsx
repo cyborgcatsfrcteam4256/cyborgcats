@@ -39,16 +39,12 @@ export const FAQSection = () => {
       icon: Award,
       questions: [
         {
-          question: "What makes the FIRST Impact Award so significant?",
-          answer: "The FIRST Impact Award is the most prestigious award in FIRST Robotics, recognizing teams that best embody the mission of FIRST. Our 2025 win highlights our comprehensive community outreach, legislative advocacy, and commitment to making STEM accessible to all students."
+          question: "What competitions does the team participate in?",
+          answer: "We participate in regional FIRST Robotics competitions throughout the season. These events feature alliance-based matches where teams work together to complete game challenges using robots they designed and built."
         },
         {
-          question: "How does the World Championship work?",
-          answer: "The FIRST World Championship brings together 400+ teams from around the globe in Houston, Texas. Teams compete in alliance-based matches, and awards are given for various achievements including robot performance, engineering excellence, and community impact."
-        },
-        {
-          question: "What other competitions does the team participate in?",
-          answer: "We participate in 2-3 regional competitions each season, the Missouri State Championship, and now the World Championship. We also engage in off-season events and community demonstrations throughout the year."
+          question: "How can I support the team?",
+          answer: "There are many ways to support our team - from sponsorship opportunities to volunteering at events. We welcome community partnerships and are always looking for mentors with technical or business expertise."
         }
       ]
     },
@@ -62,7 +58,7 @@ export const FAQSection = () => {
         },
         {
           question: "How does your legislative advocacy work?",
-          answer: "We actively engage with Missouri state legislators to advocate for STEM education policy. Our team has met with 19 representatives and the Lieutenant Governor, supporting bills like Sen. Travis Fitzwater's SB 33 and Rep. Bishop Davidson's HB 265 that expand STEM opportunities statewide. We participated in STEM Day at The Capitol on March 6th, 2025."
+          answer: "We actively engage with Missouri state legislators to advocate for STEM education policy. Our team has met with 19 representatives and the Lieutenant Governor, supporting bills like HB 256 that expand STEM opportunities statewide."
         },
         {
           question: "What is the STEM Companion Initiative?",

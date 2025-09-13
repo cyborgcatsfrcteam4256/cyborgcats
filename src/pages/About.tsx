@@ -18,8 +18,8 @@ const About = () => {
               <span className="block text-primary-glow">Cyborg Cats</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              We are FRC Team 4256, a 14-year-old team with 48 students, 22 mentors, and 8 corporate sponsors 
-              from Westminster Christian Academy in St. Louis, Missouri, dedicated to building robots and building futures.
+              Based in St. Louis, Missouri at Westminster Christian Academy, FRC Team 4256 
+              has been active in FIRST Robotics for 14 years.
             </p>
           </div>
         </div>
@@ -49,8 +49,8 @@ const About = () => {
               </div>
               <h3 className="text-2xl font-orbitron font-bold mb-4">Our Team</h3>
               <p className="text-muted-foreground font-inter mb-4">
-                48 dedicated students, 22 mentors, 8 corporate sponsors, 2 foundations working together. 
-                All business and engineering upper leadership is female, demonstrating our commitment to inclusion.
+                48 dedicated students, 22 mentors working together across engineering, 
+                business, and outreach. All business and engineering upper leadership is female.
               </p>
               <div className="text-sm text-primary font-orbitron font-medium">
                 48 Students + 22 Mentors
@@ -61,13 +61,13 @@ const About = () => {
               <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6 glow-subtle">
                 <Award className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-orbitron font-bold mb-4">Our Achievements</h3>
+              <h3 className="text-2xl font-orbitron font-bold mb-4">Our Status</h3>
               <p className="text-muted-foreground font-inter mb-4">
-                2025 FIRST Impact Award winners and World Championship qualifiers, 
-                recognized for our community impact and technical excellence.
+                FRC Team 4256 competing in FIRST Robotics competitions 
+                and engaging in community outreach programs.
               </p>
               <div className="text-sm text-primary font-orbitron font-medium">
-                Impact Award Winners
+                Active Competition Team
               </div>
             </div>
           </div>

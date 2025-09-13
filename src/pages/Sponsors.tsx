@@ -10,71 +10,48 @@ const Sponsors = () => {
   const [showQuickContact, setShowQuickContact] = useState(false);
   const sponsorTiers = [
     {
-      name: "Foundational Partner",
-      investment: "$10,000+",
+      name: "Partner",
+      investment: "$5,000+",
       benefits: [
-        "Company name in team title (if donated by Feb 6th)",
-        "Logo on robot, banners, and team shirts",
-        "Featured on website and all communications",
-        "Makes competitive participation possible",
-        "Highest level of recognition and visibility",
-        "Priority partnership opportunities"
+        "Logo placement on team materials",
+        "Recognition at events",
+        "Website acknowledgment",
+        "Community event presence",
+        "Partnership opportunities"
       ],
       color: "gradient-cyber",
       highlight: true
     },
     {
-      name: "Sustainable Partner", 
-      investment: "$5,000",
+      name: "Supporter", 
+      investment: "$2,500",
       benefits: [
-        "Prominent logo placement on robot",
-        "Featured on banners and team shirts",
-        "Website and communication recognition",
-        "Essential funding for team operations",
-        "Sustains our competitive readiness",
-        "Community event recognition"
-      ],
-      color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-      highlight: false
-    },
-    {
-      name: "Development Partner",
-      investment: "$2,500", 
-      benefits: [
-        "Logo on banners and team shirts",
-        "Website and communication mentions",
-        "Enables expanded outreach programs",
-        "Supports community robotics initiatives",
-        "Recognition at community events",
-        "Partnership in STEM education growth"
+        "Team communications recognition",
+        "Website listing",
+        "Event acknowledgment",
+        "Community partnerships"
       ],
       color: "gradient-silver",
       highlight: false
     },
     {
-      name: "Competition Partner",
-      investment: "$1,000",
+      name: "Contributor",
+      investment: "$1,000", 
       benefits: [
-        "Logo on website and team shirts",
-        "Recognition in all communications",
-        "Supports competition materials creation",
-        "Enables professional team presentation",
-        "Quarterly team updates",
-        "Competition result sharing"
+        "Website recognition",
+        "Thank you communications",
+        "Community supporter status"
       ],
       color: "bg-orange-500/20 text-orange-400 border-orange-500/30",
       highlight: false
     },
     {
-      name: "Associate Partner",
+      name: "Friend",
       investment: "Any Amount",
       benefits: [
-        "Logo on website",
-        "Recognition in all communications",
-        "Support through gifts or services welcome",
-        "Valuable community partnership",
-        "Flexible contribution options",
-        "Grassroots team support"
+        "Website listing",
+        "Team appreciation",
+        "Community support"
       ],
       color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
       highlight: false
@@ -82,19 +59,16 @@ const Sponsors = () => {
   ];
 
   const currentSponsors = [
-    { name: "Microsoft", tier: "Gold", logo: "🟢", industry: "Technology" },
-    { name: "Boeing", tier: "Silver", logo: "✈️", industry: "Aerospace" },
-    { name: "Emerson", tier: "Gold", logo: "⚡", industry: "Engineering" },
-    { name: "Anheuser-Busch", tier: "Silver", logo: "🍺", industry: "Manufacturing" },
-    { name: "Edward Jones", tier: "Bronze", logo: "💼", industry: "Financial Services" },
-    { name: "Centene", tier: "Bronze", logo: "🏥", industry: "Healthcare" }
+    { name: "Community Partner A", tier: "Partner", logo: "🏢", industry: "Technology" },
+    { name: "Local Business B", tier: "Supporter", logo: "🏪", industry: "Manufacturing" },
+    { name: "Sponsor C", tier: "Contributor", logo: "💼", industry: "Services" }
   ];
 
   const impactStats = [
-    { metric: "80-100K", label: "Annual Budget", icon: DollarSign },
+    { metric: "48", label: "Team Members", icon: Users },
     { metric: "2000+", label: "Students Reached", icon: Users },
     { metric: "19", label: "Legislators Met", icon: Building },
-    { metric: "Global", label: "Outreach Impact", icon: Globe }
+    { metric: "14", label: "Years Active", icon: Globe }
   ];
 
   return (
@@ -111,37 +85,10 @@ const Sponsors = () => {
               <span className="block text-primary-glow">With Us</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter mb-8">
-              Join industry leaders supporting STEM education and community impact. 
-              Partner with the 2025 FIRST Impact Award winners.
+              Join community partners supporting STEM education and youth development. 
+              Partner with FRC Team 4256 - Cyborg Cats.
             </p>
             
-            {/* Urgent CTA Banner */}
-            <div className="bg-gradient-to-r from-primary/20 to-primary-glow/20 border border-primary/30 rounded-xl p-6 mb-8 animate-pulse">
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <Zap className="w-6 h-6 text-primary animate-bounce" />
-                <span className="text-lg font-orbitron font-bold text-primary">DEADLINE APPROACHING!</span>
-                <Zap className="w-6 h-6 text-primary animate-bounce" />
-              </div>
-              <p className="text-muted-foreground font-inter mb-4">
-                Foundational Partners who donate by <strong className="text-primary">February 6th</strong> get their company name in our team title!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button 
-                  variant="hero" 
-                  size="lg" 
-                  className="group animate-bounce hover:animate-none"
-                  onClick={() => setShowQuickContact(true)}
-                >
-                  <Star className="w-5 h-5 mr-2 group-hover:rotate-180 transition-transform duration-300" />
-                  Become a Foundational Partner
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button variant="silver" size="lg" className="group">
-                  <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Quick Contact
-                </Button>
-              </div>
-            </div>
           </div>
 
           {/* Impact Stats */}
@@ -177,13 +124,13 @@ const Sponsors = () => {
               </div>
               <h3 className="text-2xl font-orbitron font-bold mb-4">Proven Impact</h3>
               <p className="text-muted-foreground font-inter mb-4">
-                2025 FIRST Impact Award winners with demonstrated community influence, 
-                reaching over 1,000 students through our programs.
+                14-year robotics team with demonstrated community influence, 
+                reaching over 2,000 students through our programs.
               </p>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="font-inter text-sm">World Championship qualified</span>
+                  <span className="font-inter text-sm">Active competition team</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>

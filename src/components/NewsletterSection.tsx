@@ -119,20 +119,20 @@ export const NewsletterSection = () => {
           {/* Social Stats */}
           <div className="mt-16 pt-8 border-t border-border">
             <p className="text-muted-foreground font-inter mb-6">
-              Join 500+ supporters following our robotics journey
+              Join our community of supporters following our robotics journey
             </p>
             <div className="flex justify-center space-x-8">
               <div className="text-center">
-                <div className="text-2xl font-orbitron font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">Newsletter Subscribers</div>
+                <div className="text-2xl font-orbitron font-bold text-primary">48</div>
+                <div className="text-sm text-muted-foreground">Team Members</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-orbitron font-bold text-primary">1.2K</div>
-                <div className="text-sm text-muted-foreground">Instagram Followers</div>
+                <div className="text-2xl font-orbitron font-bold text-primary">22</div>
+                <div className="text-sm text-muted-foreground">Mentors</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-orbitron font-bold text-primary">20+</div>
-                <div className="text-sm text-muted-foreground">Partner Organizations</div>
+                <div className="text-2xl font-orbitron font-bold text-primary">14</div>
+                <div className="text-sm text-muted-foreground">Years Active</div>
               </div>
             </div>
           </div>

@@ -92,7 +92,7 @@ const Team = () => {
               <span className="block text-primary-glow">Team</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              48 passionate students, 22 dedicated mentors, and 8 corporate sponsors working together 
+              48 passionate students, 22 dedicated mentors working together 
               across engineering, business, and outreach to build robots and build futures.
             </p>
           </div>

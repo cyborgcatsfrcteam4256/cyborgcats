@@ -34,9 +34,9 @@ export const StatsShowcase = () => {
       suffix: ""
     },
     {
-      value: 2025,
-      label: "Impact Award Winners",
-      description: "FIRST's most prestigious award",
+      value: 14,
+      label: "Years Competing",
+      description: "Years in FIRST Robotics",
       icon: Award,
       color: "from-yellow-500 to-orange-500",
       suffix: ""
@@ -66,12 +66,12 @@ export const StatsShowcase = () => {
       suffix: "+"
     },
     {
-      value: 5,
-      label: "Competition Awards",
-      description: "Regional and state recognition",
+      value: 22,
+      label: "Mentors",
+      description: "Dedicated adult mentors",
       icon: Trophy,
       color: "from-red-500 to-pink-500",
-      suffix: "+"
+      suffix: ""
     }
   ];
 
@@ -195,12 +195,12 @@ export const StatsShowcase = () => {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-orbitron font-bold text-primary mb-2">2025</div>
-                <div className="text-sm text-muted-foreground font-inter">Impact Award & Worlds</div>
+                <div className="text-sm text-muted-foreground font-inter">Current Season</div>
               </div>
             </div>
             
             <p className="text-muted-foreground font-inter max-w-2xl mx-auto">
-              From a small team with big dreams to FIRST Impact Award winners - 
+              From a small team with big dreams to a growing community impact - 
               our journey continues to expand STEM opportunities for all.
             </p>
           </div>

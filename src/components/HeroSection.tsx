@@ -23,7 +23,7 @@ export const HeroSection = () => {
             <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 glow-subtle">
               <Award className="w-5 h-5 text-primary" />
               <span className="font-orbitron text-sm text-primary font-medium">
-                2025 FIRST Impact Award Winners
+                FRC Team 4256
               </span>
             </div>
 
@@ -65,8 +65,8 @@ export const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Legislators Met</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">2025</div>
-                <div className="text-sm text-muted-foreground">Worlds Qualified</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">14</div>
+                <div className="text-sm text-muted-foreground">Years Active</div>
               </div>
             </div>
           </div>

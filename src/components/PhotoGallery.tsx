@@ -76,10 +76,8 @@ export const PhotoGallery = () => {
 
   const categories = [
     { key: 'all', label: 'All Photos', icon: Camera },
-    { key: 'awards', label: 'Awards', icon: Award },
-    { key: 'competition', label: 'Competition', icon: Wrench },
-    { key: 'outreach', label: 'Outreach', icon: Users },
-    { key: 'team', label: 'Team Life', icon: Users }
+    { key: 'team', label: 'Team Life', icon: Users },
+    { key: 'outreach', label: 'Outreach', icon: Users }
   ];
 
   const filteredPhotos = activeCategory === 'all' 
