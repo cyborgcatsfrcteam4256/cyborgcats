@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { StatCounter } from '@/components/StatCounter';
-import { Heart, Globe, Users, Trophy } from 'lucide-react';
+import { Heart, Globe, Users, Trophy, Star } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedCard } from '@/components/EnhancedCard';
 
@@ -11,10 +11,15 @@ export const ImpactSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-6">
-            <span className="text-glow">Our Impact</span>
+          <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
+            <Trophy className="w-5 h-5 text-primary" />
+            <span className="font-orbitron text-sm text-primary font-medium">Making a Difference</span>
+            <Star className="w-4 h-4 text-primary-glow animate-pulse" />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
+            <span className="text-holographic">Our Impact</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter leading-relaxed">
             Beyond building robots, we're building a better future through STEM education, 
             community outreach, and advocacy for inclusive engineering.
           </p>

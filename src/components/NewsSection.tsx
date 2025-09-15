@@ -61,13 +61,14 @@ export const NewsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between mb-16 animate-slide-up">
           <div>
-            <Badge variant="outline" className="mb-4 font-orbitron">
-              Latest Updates
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-glow">
-              Team News & Updates
+            <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
+              <Trophy className="w-5 h-5 text-primary" />
+              <span className="font-orbitron text-sm text-primary font-medium">Latest Updates</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-orbitron font-bold">
+              <span className="text-holographic">Team News & Updates</span>
             </h2>
-            <p className="text-xl text-muted-foreground mt-4 font-inter">
+            <p className="text-xl text-muted-foreground mt-4 font-inter leading-relaxed">
               Stay up to date with our latest achievements and initiatives.
             </p>
           </div>

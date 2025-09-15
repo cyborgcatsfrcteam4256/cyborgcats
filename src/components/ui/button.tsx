@@ -5,25 +5,29 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-cyber focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        cyber: "gradient-cyber text-primary-foreground shadow-cyber hover:glow-electric hover:scale-105 font-orbitron font-medium",
-        hero: "bg-primary text-primary-foreground glow-primary hover:glow-electric hover:scale-105 font-orbitron font-semibold",
-        electric: "bg-primary-electric text-cyborg-dark hover:bg-primary-electric/90 glow-electric font-orbitron",
-        silver: "gradient-silver text-cyborg-dark hover:glow-subtle hover:scale-105",
+        default:
+          "bg-primary text-primary-foreground shadow-elevated hover:bg-primary/90 hover:shadow-luxury hover:scale-105",
+        destructive:
+          "bg-destructive text-destructive-foreground shadow-elevated hover:bg-destructive/90 hover:shadow-luxury",
+        outline:
+          "border border-input bg-background/80 backdrop-blur-lg shadow-elevated hover:bg-accent hover:text-accent-foreground hover:shadow-luxury hover:scale-105",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-elevated hover:bg-secondary/80 hover:shadow-luxury hover:scale-105",
+        ghost: "hover:bg-accent hover:text-accent-foreground hover:scale-105 transition-all duration-300",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary-glow",
+        cyber: "bg-gradient-to-r from-primary via-primary-glow to-primary text-white border border-primary/30 shadow-cyber hover:shadow-glow hover:scale-110 glow-interactive font-orbitron font-semibold",
+        hero: "bg-gradient-to-r from-primary via-primary-glow to-primary text-white border border-primary/40 shadow-luxury hover:shadow-glow hover:scale-110 glow-interactive font-orbitron font-bold text-base",
+        silver: "bg-gradient-to-r from-cyborg-silver/30 via-cyborg-silver/20 to-cyborg-silver/30 text-foreground border border-cyborg-silver/40 hover:bg-gradient-to-r hover:from-cyborg-silver/50 hover:via-cyborg-silver/40 hover:to-cyborg-silver/50 hover:shadow-luxury hover:scale-105 transition-all duration-300",
+        electric: "bg-primary-electric text-cyborg-dark hover:bg-primary-electric/90 glow-electric font-orbitron"
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: "h-10 px-6 py-2",
+        sm: "h-8 rounded-md px-4 text-xs",
+        lg: "h-12 rounded-lg px-10 text-base",
         icon: "h-10 w-10",
       },
     },
@@ -31,7 +35,7 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
+  }
 );
 
 export interface ButtonProps

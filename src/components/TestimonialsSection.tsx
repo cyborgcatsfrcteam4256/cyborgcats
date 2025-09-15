@@ -28,13 +28,14 @@ export const TestimonialsSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16 animate-slide-up">
-          <Badge variant="outline" className="mb-4 font-orbitron">
-            Community Impact
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-glow">
-            What People Are Saying
+          <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
+            <Quote className="w-5 h-5 text-primary" />
+            <span className="font-orbitron text-sm text-primary font-medium">Community Voices</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
+            <span className="text-shimmer">What People Are Saying</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter leading-relaxed">
             Hear from educators, industry leaders, and alumni about the impact 
             of the Cyborg Cats program.
           </p>

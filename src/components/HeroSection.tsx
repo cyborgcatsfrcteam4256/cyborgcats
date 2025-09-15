@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Award, Users, Zap, Star, Cpu } from 'lucide-react';
+import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart } from 'lucide-react';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { ScrollReveal } from '@/components/ScrollReveal';
 
@@ -38,8 +38,8 @@ export const HeroSection = () => {
 
             {/* Main Headline */}
             <h1 className="text-5xl md:text-7xl font-orbitron font-bold leading-tight">
-              <span className="text-glow">Cyborg Cats</span>
-              <span className="block text-primary-glow">4256</span>
+              <span className="text-shimmer">Cyborg Cats</span>
+              <span className="block text-holographic bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-glow to-primary-electric">4256</span>
             </h1>
 
             <p className="text-xl md:text-2xl font-orbitron font-light text-muted-foreground">
@@ -54,14 +54,15 @@ export const HeroSection = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="group relative overflow-hidden shadow-luxury hover:shadow-glow">
+              <Button variant="hero" size="lg" className="group relative overflow-hidden">
                 <span className="relative z-10">Meet Our Team</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </Button>
-              <Button variant="silver" size="lg" className="group relative overflow-hidden">
+              <Button variant="cyber" size="lg" className="group relative overflow-hidden">
                 <span className="relative z-10">Support Our Mission</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <Heart className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </Button>
             </div>
 
