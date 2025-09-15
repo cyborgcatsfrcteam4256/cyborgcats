@@ -9,20 +9,37 @@ import { PhotoGallery } from '@/components/PhotoGallery';
 import { InstagramFeed } from '@/components/InstagramFeed';
 import { FAQSection } from '@/components/FAQSection';
 import { NewsletterSection } from '@/components/NewsletterSection';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
-      <ImpactSection />
-      <StatsShowcase />
-      <TestimonialsSection />
-      <NewsSection />
-      <PhotoGallery />
-      <InstagramFeed />
-      <FAQSection />
-      <NewsletterSection />
+      <ScrollReveal>
+        <ImpactSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <StatsShowcase />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <TestimonialsSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <NewsSection />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <PhotoGallery />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <InstagramFeed />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <FAQSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <NewsletterSection />
+      </ScrollReveal>
       <Footer />
     </div>
   );

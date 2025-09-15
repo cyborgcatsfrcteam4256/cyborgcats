@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { StatCounter } from '@/components/StatCounter';
 import { Heart, Globe, Users, Trophy } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
+import { EnhancedCard } from '@/components/EnhancedCard';
 
 export const ImpactSection = () => {
   return (
@@ -26,47 +28,55 @@ export const ImpactSection = () => {
           <StatCounter value={22} label="Mentors" />
         </div>
 
-        {/* Impact Cards */}
+        {/* Enhanced Impact Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
-            <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-              <Heart className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-orbitron font-semibold text-lg mb-2">STEM Companion Initiative</h3>
-            <p className="text-muted-foreground font-inter">
-              Connecting children with special needs to STEM through 5+ demonstrations and stemcompanion.org.
-            </p>
-          </div>
+          <ScrollReveal delay={100}>
+            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
+                <Heart className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-orbitron font-semibold text-lg mb-2">STEM Companion Initiative</h3>
+              <p className="text-muted-foreground font-inter">
+                Connecting children with special needs to STEM through 5+ demonstrations and stemcompanion.org.
+              </p>
+            </EnhancedCard>
+          </ScrollReveal>
 
-          <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
-            <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-              <Users className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-orbitron font-semibold text-lg mb-2">Women in STEM</h3>
-            <p className="text-muted-foreground font-inter">
-              Public seminars reaching 100+ attendees over 3 years. All upper leadership is female.
-            </p>
-          </div>
+          <ScrollReveal delay={200}>
+            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
+                <Users className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-orbitron font-semibold text-lg mb-2">Women in STEM</h3>
+              <p className="text-muted-foreground font-inter">
+                Public seminars reaching 100+ attendees over 3 years. All upper leadership is female.
+              </p>
+            </EnhancedCard>
+          </ScrollReveal>
 
-          <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
-            <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-              <Globe className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-orbitron font-semibold text-lg mb-2">Global Outreach</h3>
-            <p className="text-muted-foreground font-inter">
-              Helped establish South Korea's 4th FRC team and reached 115 students in Ethiopia.
-            </p>
-          </div>
+          <ScrollReveal delay={300}>
+            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
+                <Globe className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-orbitron font-semibold text-lg mb-2">Global Outreach</h3>
+              <p className="text-muted-foreground font-inter">
+                Helped establish South Korea's 4th FRC team and reached 115 students in Ethiopia.
+              </p>
+            </EnhancedCard>
+          </ScrollReveal>
 
-          <div className="bg-card border border-border rounded-xl p-6 hover-glow transition-cyber">
-            <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-              <Trophy className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-orbitron font-semibold text-lg mb-2">Legislative Advocacy</h3>
-            <p className="text-muted-foreground font-inter">
-              Met with 19 representatives and Lieutenant Governor supporting HB 256 advocacy.
-            </p>
-          </div>
+          <ScrollReveal delay={400}>
+            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
+                <Trophy className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-orbitron font-semibold text-lg mb-2">Legislative Advocacy</h3>
+              <p className="text-muted-foreground font-inter">
+                Met with 19 representatives and Lieutenant Governor supporting HB 256 advocacy.
+              </p>
+            </EnhancedCard>
+          </ScrollReveal>
         </div>
 
         {/* Team Photo & Story */}

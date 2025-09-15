@@ -60,13 +60,22 @@
     --glow-electric: 0 0 30px hsl(var(--primary-electric) / 0.4);
     --glow-subtle: 0 0 15px hsl(var(--primary) / 0.2);
     
-    /* Shadows */
+    /* Shadows - use your primary color with transparency */
     --shadow-cyber: 0 10px 40px -10px hsl(var(--primary) / 0.4);
     --shadow-elevated: 0 25px 50px -15px hsl(var(--cyborg-dark) / 0.8);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--primary) / 0.25);
+    --shadow-interactive: 0 8px 25px -8px hsl(var(--primary) / 0.3);
     
     /* Animations */
     --transition-cyber: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-glow: all 0.3s ease-out;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-luxury: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --bezier-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --bezier-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -138,6 +147,19 @@
   /* Cyborg Cat-themed utility classes */
   .glow-primary {
     box-shadow: var(--glow-primary);
+  }
+
+  .glow-luxury {
+    box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.4), 0 0 60px hsl(var(--primary-glow) / 0.2);
+  }
+
+  .glow-interactive {
+    transition: var(--transition-smooth);
+    box-shadow: 0 0 15px hsl(var(--primary-glow) / 0.2);
+  }
+
+  .glow-interactive:hover {
+    box-shadow: 0 0 25px hsl(var(--primary-glow) / 0.4), 0 0 50px hsl(var(--primary-glow) / 0.2);
   }
   
   .glow-electric {
@@ -252,13 +274,38 @@
 
   /* Interactive card hover */
   .interactive-card {
-    transition: all 0.3s ease;
-    transform-style: preserve-3d;
+    transition: var(--transition-luxury);
+    transform-origin: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .interactive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%);
+    transition: left 0.6s ease;
+  }
+
+  .interactive-card:hover::before {
+    left: 100%;
   }
 
   .interactive-card:hover {
-    transform: rotateY(5deg) rotateX(5deg) scale(1.02);
-    box-shadow: var(--glow-electric), 0 25px 50px -15px hsl(var(--primary) / 0.3);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
   }
 
   /* Data stream effect */
@@ -277,6 +324,37 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes morphGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3);
+    border-radius: 12px;
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary-glow) / 0.5), 0 0 80px hsl(var(--primary-glow) / 0.2);
+    border-radius: 16px;
+  }
+}
+
+@keyframes smoothBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
   }
 }
 
