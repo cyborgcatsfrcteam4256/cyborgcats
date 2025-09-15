@@ -96,11 +96,11 @@ export const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Enhanced floating elements */}
-              <div className="absolute top-6 right-6 bg-primary/20 backdrop-blur-lg rounded-lg p-4 animate-cyber-float glow-interactive hover:scale-110 transition-transform duration-300 cursor-pointer group/element">
+              <div className="absolute top-6 right-6 bg-primary/20 backdrop-blur-lg rounded-lg p-4 glow-interactive hover:scale-110 transition-transform duration-300 cursor-pointer group/element">
                 <Zap className="w-8 h-8 text-primary group-hover/element:rotate-12 transition-transform duration-300" />
               </div>
               
-              <div className="absolute top-6 left-6 bg-primary-glow/15 backdrop-blur-lg rounded-lg p-3 animate-pulse">
+              <div className="absolute top-6 left-6 bg-primary-glow/15 backdrop-blur-lg rounded-lg p-3">
                 <Cpu className="w-6 h-6 text-primary-glow" />
               </div>
               
