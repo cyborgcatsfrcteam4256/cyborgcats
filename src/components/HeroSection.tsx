@@ -61,7 +61,7 @@ export const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Team Members</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">19</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">20</div>
                 <div className="text-sm text-muted-foreground">Legislators Met</div>
               </div>
               <div className="text-center">
