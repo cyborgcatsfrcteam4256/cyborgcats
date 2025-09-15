@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +23,11 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 hover-glow">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center glow-primary">
-              <Zap className="w-6 h-6 text-primary-foreground" />
-            </div>
+            <img 
+              src={cyborgCatsLogo} 
+              alt="Cyborg Cats FRC Team 4256 Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <div className="flex flex-col">
               <span className="font-orbitron font-bold text-lg text-glow">Cyborg Cats</span>
               <span className="font-inter text-xs text-muted-foreground">FRC Team 4256</span>
