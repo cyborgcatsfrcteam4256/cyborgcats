@@ -16,39 +16,6 @@ const About = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
-        
-        {/* Sophisticated brand placement */}
-        <div className="absolute top-48 left-28 opacity-8">
-          <div className="relative">
-            {/* Three cats in vertical alignment */}
-            <div className="space-y-2">
-              <img src={cyborgCatsLogo} alt="" className="w-7 h-7 animate-cyber-float" />
-              <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float opacity-80 ml-2" style={{ animationDelay: '0.8s' }} />
-              <img src={cyborgCatsLogo} alt="" className="w-5 h-5 animate-cyber-float opacity-60 ml-1" style={{ animationDelay: '1.6s' }} />
-            </div>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-48 right-20 opacity-7">
-          <div className="relative">
-            {/* Three cats in arc formation */}
-            <div className="relative">
-              <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" />
-              <img 
-                src={cyborgCatsLogo} 
-                alt="" 
-                className="absolute -top-2 right-3 w-5 h-5 animate-cyber-float opacity-80" 
-                style={{ animationDelay: '1s' }}
-              />
-              <img 
-                src={cyborgCatsLogo} 
-                alt="" 
-                className="absolute top-2 right-6 w-4 h-4 animate-cyber-float opacity-60" 
-                style={{ animationDelay: '2s' }}
-              />
-            </div>
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-5xl md:text-6xl font-orbitron font-bold mb-6">

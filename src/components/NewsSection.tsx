@@ -59,43 +59,11 @@ export const NewsSection = () => {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 circuit-pattern opacity-10" />
       
-      {/* Integrated logo elements */}
-      <div className="absolute top-32 left-20 opacity-6">
-        <div className="relative">
-          {/* Three cats in line formation */}
-          <div className="flex items-center space-x-3">
-            <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" />
-            <img src={cyborgCatsLogo} alt="" className="w-7 h-7 animate-cyber-float opacity-80" style={{ animationDelay: '0.7s' }} />
-            <img src={cyborgCatsLogo} alt="" className="w-5 h-5 animate-cyber-float opacity-60" style={{ animationDelay: '1.4s' }} />
-          </div>
-        </div>
-      </div>
-      
-      <div className="absolute bottom-40 right-32 opacity-5">
-        <div className="relative">
-          {/* Three cats in triangular formation */}
-          <div className="relative">
-            <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" />
-            <img 
-              src={cyborgCatsLogo} 
-              alt="" 
-              className="absolute -top-3 left-3 w-5 h-5 animate-cyber-float opacity-80" 
-              style={{ animationDelay: '1s' }}
-            />
-            <img 
-              src={cyborgCatsLogo} 
-              alt="" 
-              className="absolute top-3 -left-3 w-4 h-4 animate-cyber-float opacity-60" 
-              style={{ animationDelay: '2s' }}
-            />
-          </div>
-        </div>
-      </div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between mb-16 animate-slide-up">
           <div>
             <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
+              <img src={cyborgCatsLogo} alt="" className="w-5 h-5" />
               <Trophy className="w-5 h-5 text-primary" />
               <span className="font-orbitron text-sm text-primary font-medium">Latest Updates</span>
             </div>

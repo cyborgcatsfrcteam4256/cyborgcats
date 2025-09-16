@@ -4,6 +4,7 @@ import { Heart, Globe, Users, Trophy, Star } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedCard } from '@/components/EnhancedCard';
 import { PhotoShowcase } from '@/components/PhotoShowcase';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const ImpactSection = () => {
   return (
@@ -13,6 +14,7 @@ export const ImpactSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
+            <img src={cyborgCatsLogo} alt="" className="w-5 h-5" />
             <Trophy className="w-5 h-5 text-primary" />
             <span className="font-orbitron text-sm text-primary font-medium">Making a Difference</span>
             <Star className="w-4 h-4 text-primary-glow animate-pulse" />

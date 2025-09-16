@@ -24,28 +24,6 @@ export const HeroSection = () => {
         {/* Animated gradient orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/15 rounded-full blur-3xl animate-cyber-float" />
-        
-      {/* Integrated brand elements */}
-      <div className="absolute top-20 right-20 opacity-6">
-        <div className="relative">
-          {/* Group of three cats in cluster formation */}
-          <div className="relative">
-            <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" />
-            <img 
-              src={cyborgCatsLogo} 
-              alt="" 
-              className="absolute -top-2 -right-3 w-6 h-6 animate-cyber-float opacity-80" 
-              style={{ animationDelay: '1s' }}
-            />
-            <img 
-              src={cyborgCatsLogo} 
-              alt="" 
-              className="absolute -bottom-2 -left-2 w-5 h-5 animate-cyber-float opacity-70" 
-              style={{ animationDelay: '2s' }}
-            />
-          </div>
-        </div>
-      </div>
       </div>
 
       {/* Content */}
@@ -134,7 +112,10 @@ export const HeroSection = () => {
                 <div className="flex items-center space-x-3">
                   <Users className="w-6 h-6 text-primary" />
                   <div>
-                    <div className="font-orbitron font-semibold text-glow">Team 4256</div>
+                    <div className="font-orbitron font-semibold text-glow flex items-center space-x-2">
+                      <img src={cyborgCatsLogo} alt="" className="w-6 h-6" />
+                      <span>Team 4256</span>
+                    </div>
                     <div className="text-sm text-muted-foreground">St. Louis, Missouri</div>
                   </div>
                 </div>

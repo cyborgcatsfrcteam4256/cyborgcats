@@ -48,15 +48,15 @@ export const FloatingParticles = () => {
     // Initialize particles
     const initParticles = () => {
       particlesRef.current = [];
-      for (let i = 0; i < 80; i++) {
+      for (let i = 0; i < 120; i++) {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.8,
-          vy: (Math.random() - 0.5) * 0.8,
-          size: Math.random() * 1.5 + 0.3,
-          opacity: Math.random() * 0.4 + 0.1,
-          life: Math.random() * 200 + 100,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: (Math.random() - 0.5) * 1.2,
+          size: Math.random() * 2 + 0.8,
+          opacity: Math.random() * 0.8 + 0.2,
+          life: Math.random() * 300 + 150,
           hue: Math.random() * 60 + 180 // Blue to cyan range
         });
       }
@@ -164,7 +164,7 @@ export const FloatingParticles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none opacity-25"
+      className="absolute inset-0 pointer-events-none opacity-60"
       style={{ mixBlendMode: 'screen' }}
     />
   );

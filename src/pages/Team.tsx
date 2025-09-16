@@ -89,49 +89,6 @@ const Team = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
-        
-        {/* Elegant brand integration */}
-        <div className="absolute top-40 right-32 opacity-7">
-          <div className="relative">
-            {/* Three cats in cascade formation */}
-            <div className="relative">
-              <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" />
-              <img 
-                src={cyborgCatsLogo} 
-                alt="" 
-                className="absolute top-2 right-4 w-6 h-6 animate-cyber-float opacity-80" 
-                style={{ animationDelay: '0.8s' }}
-              />
-              <img 
-                src={cyborgCatsLogo} 
-                alt="" 
-                className="absolute top-4 right-8 w-5 h-5 animate-cyber-float opacity-60" 
-                style={{ animationDelay: '1.6s' }}
-              />
-            </div>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-40 left-24 opacity-6">
-          <div className="relative">
-            {/* Three cats in compact cluster */}
-            <div className="relative">
-              <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" />
-              <img 
-                src={cyborgCatsLogo} 
-                alt="" 
-                className="absolute -top-1 -right-2 w-5 h-5 animate-cyber-float opacity-70" 
-                style={{ animationDelay: '1.2s' }}
-              />
-              <img 
-                src={cyborgCatsLogo} 
-                alt="" 
-                className="absolute -bottom-1 -left-2 w-4 h-4 animate-cyber-float opacity-60" 
-                style={{ animationDelay: '2.4s' }}
-              />
-            </div>
-          </div>
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-5xl md:text-6xl font-orbitron font-bold mb-6">
