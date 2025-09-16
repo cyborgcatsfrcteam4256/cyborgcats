@@ -233,27 +233,6 @@ export const PhotoGallery = () => {
           </div>
         )}
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-card border border-border rounded-xl p-8 hover-glow transition-cyber">
-            <Camera className="w-12 h-12 text-primary mx-auto mb-4 glow-primary" />
-            <h3 className="text-2xl font-orbitron font-bold mb-4 text-glow">
-              Follow Our Journey
-            </h3>
-            <p className="text-muted-foreground font-inter mb-6">
-              Want to see more? Follow us on social media for daily updates, 
-              behind-the-scenes content, and live competition coverage.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
-                Follow on Instagram
-              </Button>
-              <Button variant="silver" size="lg">
-                Join Our Newsletter
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
