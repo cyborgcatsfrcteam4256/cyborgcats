@@ -59,12 +59,25 @@ export const NewsSection = () => {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 circuit-pattern opacity-10" />
       
-      {/* Floating mini logos */}
-      <div className="absolute top-20 left-10 opacity-20">
-        <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" />
+      {/* Integrated logo elements */}
+      <div className="absolute top-32 left-20 opacity-10">
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary/5 rounded-full blur-xl"></div>
+          <img src={cyborgCatsLogo} alt="" className="w-12 h-12 animate-cyber-float relative z-10" />
+          {/* Circuit connection line */}
+          <div className="absolute top-1/2 -right-16 w-16 h-px bg-gradient-to-r from-primary/20 to-transparent"></div>
+        </div>
       </div>
-      <div className="absolute bottom-20 right-16 opacity-15">
-        <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" style={{ animationDelay: '1s' }} />
+      
+      <div className="absolute bottom-40 right-32 opacity-8">
+        <div className="relative">
+          <div className="bg-gradient-to-br from-primary-glow/5 to-primary/5 rounded-full p-2 backdrop-blur-sm">
+            <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '2s' }} />
+          </div>
+          {/* Connecting dots */}
+          <div className="absolute -top-4 -left-4 w-2 h-2 bg-primary/20 rounded-full"></div>
+          <div className="absolute -bottom-4 -right-4 w-1 h-1 bg-primary-glow/30 rounded-full"></div>
+        </div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

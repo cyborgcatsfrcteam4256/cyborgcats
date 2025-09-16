@@ -16,12 +16,28 @@ const Impact = () => {
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
         
-        {/* Floating mini logos */}
-        <div className="absolute top-32 left-12 opacity-20">
-          <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" />
+        {/* Impact-themed brand integration */}
+        <div className="absolute top-36 left-20 opacity-18">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent rounded-full blur-2xl scale-150"></div>
+            <div className="relative bg-gradient-to-br from-card/50 to-card/30 backdrop-blur-lg rounded-full p-4 border border-primary/20 shadow-cyber">
+              <img src={cyborgCatsLogo} alt="" className="w-11 h-11 animate-cyber-float" />
+            </div>
+            {/* Impact ripple effect */}
+            <div className="absolute inset-0 border border-primary/10 rounded-full scale-125 animate-ping"></div>
+            <div className="absolute inset-0 border border-primary-glow/10 rounded-full scale-150 animate-ping" style={{ animationDelay: '0.5s' }}></div>
+          </div>
         </div>
-        <div className="absolute bottom-32 right-16 opacity-15">
-          <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '1s' }} />
+        
+        <div className="absolute bottom-36 right-24 opacity-14">
+          <div className="relative">
+            <div className="bg-gradient-to-tl from-primary-glow/12 to-primary/8 rounded-lg p-3 backdrop-blur-sm border border-primary-glow/20 rotate-12 shadow-glow">
+              <img src={cyborgCatsLogo} alt="" className="w-9 h-9 animate-cyber-float" style={{ animationDelay: '0.8s' }} />
+            </div>
+            {/* Global impact indicators */}
+            <div className="absolute -top-1 -left-1 w-2 h-2 bg-primary-glow/30 rounded-full animate-pulse"></div>
+            <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-primary/25 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+          </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">

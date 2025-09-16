@@ -17,12 +17,27 @@ const About = () => {
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
         
-        {/* Floating mini logos */}
-        <div className="absolute top-40 left-16 opacity-20">
-          <img src={cyborgCatsLogo} alt="" className="w-12 h-12 animate-cyber-float" />
+        {/* Sophisticated brand placement */}
+        <div className="absolute top-48 left-28 opacity-15">
+          <div className="relative">
+            <div className="absolute inset-0 bg-primary/5 rounded-full blur-xl scale-125"></div>
+            <div className="relative bg-gradient-to-br from-card/40 to-card/20 backdrop-blur-md rounded-full p-4 border border-primary/15 shadow-lg">
+              <img src={cyborgCatsLogo} alt="" className="w-12 h-12 animate-cyber-float" />
+            </div>
+            {/* About page connector lines */}
+            <div className="absolute top-1/2 left-full ml-2 w-12 h-px bg-gradient-to-r from-primary/20 to-transparent"></div>
+            <div className="absolute left-1/2 top-full mt-2 w-px h-12 bg-gradient-to-b from-primary/20 to-transparent"></div>
+          </div>
         </div>
-        <div className="absolute bottom-40 right-12 opacity-15">
-          <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '1.5s' }} />
+        
+        <div className="absolute bottom-48 right-20 opacity-12">
+          <div className="relative">
+            <div className="bg-gradient-to-bl from-primary-glow/10 to-primary/10 rounded-xl p-3 backdrop-blur-sm border border-primary-glow/15 -rotate-6">
+              <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" style={{ animationDelay: '1s' }} />
+            </div>
+            {/* Mission indicators */}
+            <div className="absolute -top-2 -right-2 w-3 h-3 bg-primary-glow/20 rounded-full animate-pulse"></div>
+          </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">

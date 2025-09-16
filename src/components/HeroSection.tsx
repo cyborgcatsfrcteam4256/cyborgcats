@@ -3,6 +3,7 @@ import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart } from 'lucide-react';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { FloatingLogo } from '@/components/FloatingLogo';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const HeroSection = () => {
   return (
@@ -23,6 +24,19 @@ export const HeroSection = () => {
         {/* Animated gradient orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/15 rounded-full blur-3xl animate-cyber-float" />
+        
+        {/* Integrated brand elements */}
+        <div className="absolute top-20 right-20 opacity-8">
+          <div className="relative">
+            <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl scale-150"></div>
+            <div className="bg-gradient-to-br from-card/30 to-card/10 backdrop-blur-lg rounded-full p-4 border border-primary/15 shadow-subtle">
+              <img src={cyborgCatsLogo} alt="" className="w-10 h-10 opacity-70 animate-cyber-float" />
+            </div>
+            {/* Hero connection lines */}
+            <div className="absolute top-1/2 left-full ml-3 w-20 h-px bg-gradient-to-r from-primary/15 to-transparent"></div>
+            <div className="absolute left-1/2 top-full mt-3 w-px h-20 bg-gradient-to-b from-primary/15 to-transparent"></div>
+          </div>
+        </div>
       </div>
 
       {/* Content */}

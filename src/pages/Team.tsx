@@ -90,12 +90,30 @@ const Team = () => {
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
         
-        {/* Floating mini logos */}
-        <div className="absolute top-32 right-20 opacity-20">
-          <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" />
+        {/* Elegant brand integration */}
+        <div className="absolute top-40 right-32 opacity-12">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-glow/5 rounded-full blur-2xl scale-150"></div>
+            <div className="relative bg-card/30 backdrop-blur-sm rounded-full p-3 border border-primary/10">
+              <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" />
+            </div>
+            {/* Team connection visual */}
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+              <div className="flex space-x-1">
+                <div className="w-1 h-1 bg-primary/30 rounded-full"></div>
+                <div className="w-1 h-1 bg-primary/20 rounded-full"></div>
+                <div className="w-1 h-1 bg-primary/10 rounded-full"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="absolute bottom-32 left-20 opacity-15">
-          <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '2s' }} />
+        
+        <div className="absolute bottom-40 left-24 opacity-10">
+          <div className="relative">
+            <div className="bg-gradient-to-tl from-primary-glow/8 to-primary/8 rounded-lg p-2 backdrop-blur-sm border border-primary-glow/10 rotate-12">
+              <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '1.5s' }} />
+            </div>
+          </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">
