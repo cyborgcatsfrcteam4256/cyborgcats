@@ -143,32 +143,92 @@
 }
 
 @layer components {
-  /* Premium gradients for enhanced visual appeal */
+  /* Y2K Premium gradients for ultimate tech aesthetic */
   .gradient-premium {
     background: linear-gradient(135deg, 
-      hsl(var(--primary) / 0.15), 
-      hsl(var(--primary-glow) / 0.1), 
-      hsl(var(--primary-electric) / 0.05)
+      hsl(var(--primary) / 0.25), 
+      hsl(var(--primary-glow) / 0.15), 
+      hsl(var(--primary-electric) / 0.1),
+      hsl(var(--primary) / 0.05)
     );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gradient-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 255, 0.1) 50%, transparent 70%);
+    animation: scanline 3s linear infinite;
   }
 
   .gradient-premium-text {
-    background: linear-gradient(135deg, 
-      hsl(var(--primary)), 
-      hsl(var(--primary-glow)), 
-      hsl(var(--primary-electric))
+    background: linear-gradient(45deg, 
+      #00ffff, #0082c9, #40e0ff, #87ceeb, #00beff, #0082c9
     );
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: y2k-shift 4s ease-in-out infinite;
   }
 
   .gradient-luxury {
     background: linear-gradient(135deg, 
-      hsl(var(--primary) / 0.8), 
-      hsl(var(--primary-glow) / 0.6), 
-      hsl(var(--primary-electric) / 0.4)
+      hsl(var(--primary) / 0.9), 
+      hsl(var(--primary-glow) / 0.7), 
+      hsl(var(--primary-electric) / 0.5),
+      hsl(var(--primary) / 0.3)
     );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Ultimate Y2K Matrix Digital Rain */
+  .matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .matrix-rain::before {
+    content: '01100100 01100001 01110100 01100001 01110011 01110100 01110010 01100101 01100001 01101101';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    color: hsl(var(--primary-electric) / 0.6);
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: pre-wrap;
+    animation: matrix-fall 15s linear infinite;
+  }
+
+  /* Y2K Scanlines Effect */
+  .scanlines {
+    position: relative;
+  }
+
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.03) 2px,
+      rgba(0, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
+    animation: scanline-flicker 0.1s linear infinite;
   }
 
   /* Enhanced glow effects with depth - Blue theme */
@@ -249,37 +309,73 @@
     background-size: 20px 20px;
   }
   
-  /* Premium text effects - Blue theme */
+  /* Ultimate Y2K text effects */
   .text-glow {
     text-shadow: 
-      0 0 30px rgba(0, 130, 201, 0.5),
-      0 0 60px rgba(0, 190, 255, 0.3),
-      0 0 90px rgba(64, 224, 255, 0.2);
+      0 0 10px rgba(0, 255, 255, 0.8),
+      0 0 20px rgba(0, 255, 255, 0.6),
+      0 0 30px rgba(0, 130, 201, 0.4),
+      0 0 40px rgba(0, 190, 255, 0.3),
+      0 0 50px rgba(64, 224, 255, 0.2);
+    color: #ffffff;
   }
 
   .text-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(240, 240, 240, 1) 25%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(220, 220, 220, 0.8) 75%,
-      rgba(255, 255, 255, 0.8) 100%
+      #00ffff 0%,
+      #ffffff 25%,
+      #40e0ff 50%,
+      #00beff 75%,
+      #00ffff 100%
     );
-    background-size: 200% 100%;
+    background-size: 400% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 3s ease-in-out infinite;
+    animation: cyber-shimmer 2s ease-in-out infinite;
   }
 
   .text-holographic {
-    background: linear-gradient(45deg, #0082c9, #00beff, #40e0ff, #87ceeb);
-    background-size: 300% 300%;
+    background: linear-gradient(45deg, #00ffff, #0082c9, #40e0ff, #87ceeb, #00beff, #ffffff);
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: holographic-rotate-text 4s ease-in-out infinite;
+    animation: holographic-pulse 3s ease-in-out infinite;
+  }
+
+  .text-glitch {
+    position: relative;
+    color: #ffffff;
+    animation: glitch-text 2s linear infinite;
+  }
+
+  .text-glitch::before,
+  .text-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .text-glitch::before {
+    color: #ff0040;
+    animation: glitch-1 2s linear infinite reverse;
+  }
+
+  .text-glitch::after {
+    color: #00ffff;
+    animation: glitch-2 2s linear infinite;
+  }
+
+  .text-matrix {
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    animation: matrix-glow 1.5s ease-in-out infinite alternate;
   }
   
   /* Hover glow effect */
@@ -654,5 +750,176 @@
   }
   50% {
     border-color: hsl(var(--primary));
+  }
+}
+
+/* Ultimate Y2K Keyframe Animations */
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes scanline-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes y2k-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 100% 50%;
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    background-position: 0% 100%;
+    filter: hue-rotate(270deg);
+  }
+}
+
+@keyframes cyber-shimmer {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes holographic-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+  25% {
+    background-position: 100% 0%;
+    filter: brightness(1.2) saturate(1.3);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: brightness(0.8) saturate(1.5);
+  }
+  75% {
+    background-position: 0% 100%;
+    filter: brightness(1.1) saturate(1.2);
+  }
+}
+
+@keyframes glitch-text {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  20% {
+    clip: rect(10px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(25px, 9999px, 35px, 0);
+  }
+  60% {
+    clip: rect(45px, 9999px, 55px, 0);
+  }
+  80% {
+    clip: rect(15px, 9999px, 25px, 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  20% {
+    clip: rect(5px, 9999px, 15px, 0);
+  }
+  40% {
+    clip: rect(30px, 9999px, 40px, 0);
+  }
+  60% {
+    clip: rect(50px, 9999px, 60px, 0);
+  }
+  80% {
+    clip: rect(20px, 9999px, 30px, 0);
+  }
+}
+
+@keyframes matrix-glow {
+  from {
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+  to {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+  }
+}
+
+@keyframes digital-rain {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes terminal-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
   }
 }

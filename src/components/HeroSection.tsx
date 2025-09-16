@@ -1,9 +1,12 @@
-import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart, Sparkles, Rocket } from 'lucide-react';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { FloatingLogo } from '@/components/FloatingLogo';
+import { GlitchText } from '@/components/GlitchText';
+import { CyberButton } from '@/components/CyberButton';
+import { HolographicCard } from '@/components/HolographicCard';
+import { TerminalWindow } from '@/components/TerminalWindow';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const HeroSection = () => {
@@ -11,66 +14,87 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <FloatingLogo />
       <InteractiveBackground />
-      {/* Enhanced Background */}
+      
+      {/* Ultimate Y2K Enhanced Background */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
           alt="Cyborg Cats robot in competition" 
-          className="w-full h-full object-cover opacity-25 transition-opacity duration-1000 hover:opacity-30"
+          className="w-full h-full object-cover opacity-20 transition-opacity duration-1000 hover:opacity-25"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-primary-glow/12" />
-        <div className="absolute inset-0 circuit-pattern opacity-20 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/20 via-transparent to-cyan-400/10" />
+        <div className="absolute inset-0 circuit-pattern opacity-30" />
         <FloatingParticles />
         
-        {/* Enhanced animated gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-glow-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/20 rounded-full blur-3xl animate-cyber-float" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-electric/5 to-primary/5 rounded-full blur-3xl animate-pulse" />
+        {/* Holographic gradient orbs with Y2K styling */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-400/20 to-blue-500/15 rounded-full blur-3xl animate-[holographic-pulse_4s_ease-in-out_infinite]" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/15 to-pink-400/20 rounded-full blur-3xl animate-cyber-float" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-400/8 to-purple-500/5 rounded-full blur-3xl animate-[y2k-shift_6s_ease-in-out_infinite]" />
+        
+        {/* Digital grid overlay */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          animation: 'matrix-fall 20s linear infinite'
+        }} />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="space-y-8" delay={200}>
-            {/* Enhanced Hero Badge */}
-            <div className="inline-flex items-center space-x-3 gradient-premium border border-primary/30 rounded-full px-8 py-4 glow-interactive hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-xl">
-              <Award className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <span className="font-orbitron text-sm text-primary font-bold tracking-wide">
+            {/* Ultimate Y2K Hero Badge */}
+            <HolographicCard variant="neon" className="inline-flex items-center space-x-3 px-8 py-4 hover:scale-110 transition-all duration-500 cursor-pointer group">
+              <Award className="w-6 h-6 text-cyan-400 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <span className="font-orbitron text-sm text-cyan-400 font-bold tracking-wide">
                 2025 FIRST IMPACT AWARD WINNERS
               </span>
-              <Sparkles className="w-5 h-5 text-primary-glow animate-pulse group-hover:animate-spin" />
-            </div>
+              <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse group-hover:animate-spin" />
+            </HolographicCard>
 
-            {/* Main Headline */}
+            {/* Glitch Main Headline */}
             <h1 className="text-6xl md:text-8xl font-orbitron font-black leading-tight tracking-tight">
-              <span className="text-shimmer animate-slide-up">Cyborg Cats</span>
-              <span className="block text-holographic bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-glow to-primary-electric animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
+              <GlitchText className="block animate-slide-up" intensity="low">
+                Cyborg Cats
+              </GlitchText>
+              <span className="block text-holographic animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
             </h1>
 
             <p className="text-2xl md:text-3xl font-orbitron font-light text-glow animate-slide-up" style={{animationDelay: '0.4s'}}>
-              Building Robots, Building Futures
+              <GlitchText intensity="low" color="cyan">
+                Building Robots, Building Futures
+              </GlitchText>
             </p>
 
-            <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed animate-slide-up" style={{animationDelay: '0.6s'}}>
-              From Westminster Christian Academy in the heart of St. Louis, Missouri, we're <span className="text-primary font-semibold">48 passionate students</span> 
-              representing the Gateway City while engineering the future through robotics and making a <span className="text-primary-glow font-semibold">lasting impact</span> 
-              in our Missouri community and beyond.
-            </p>
+            <div className="animate-slide-up" style={{animationDelay: '0.6s'}}>
+              <TerminalWindow 
+                autoType={true}
+                content={[
+                  "Initializing CYBORG_CATS protocol...",
+                  "Team: 4256 | Location: St. Louis, MO",
+                  "Members: 48 passionate students",
+                  "Mission: Engineering the future through robotics",
+                  "Status: Making lasting impact in Missouri & beyond",
+                  "System ready. Welcome to the future."
+                ]}
+                className="max-w-2xl"
+              />
+            </div>
 
-            {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 animate-slide-up" style={{animationDelay: '0.8s'}}>
-              <Button variant="premium" size="lg" className="group relative overflow-hidden">
-                <Rocket className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 relative z-10" />
-                <span className="relative z-10">Explore Our Journey</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              </Button>
-              <Button variant="glass" size="lg" className="group relative overflow-hidden">
-                <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500 relative z-10" />
-                <span className="relative z-10">Support Our Mission</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              </Button>
+              <CyberButton cyberVariant="neon" className="px-8 py-4 text-lg group">
+                <Rocket className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
+                <span>Explore Our Journey</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
+              </CyberButton>
+              <CyberButton cyberVariant="hologram" className="px-8 py-4 text-lg group">
+                <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-pink-400 transition-all duration-500" />
+                <span>Support Our Mission</span>
+              </CyberButton>
             </div>
 
             {/* Enhanced Quick Stats */}
@@ -92,43 +116,47 @@ export const HeroSection = () => {
             </div>
           </ScrollReveal>
 
-          {/* Enhanced Right side - Robot showcase */}
+          {/* Ultimate Y2K Robot Showcase */}
           <ScrollReveal direction="scale" delay={400} className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer">
+            <HolographicCard 
+              variant="cyber" 
+              className="relative rounded-2xl overflow-hidden hover:scale-105 transition-all duration-700 group cursor-pointer"
+              glitchEffect={true}
+            >
               <img 
                 src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
                 alt="Cyborg Cats team celebrating at competition" 
                 className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-primary/10" />
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-cyan-400/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-cyan-400/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              {/* Enhanced floating elements */}
-              <div className="absolute top-6 right-6 bg-primary/20 backdrop-blur-lg rounded-lg p-4 glow-interactive hover:scale-110 transition-transform duration-300 cursor-pointer group/element">
-                <Zap className="w-8 h-8 text-primary group-hover/element:rotate-12 transition-transform duration-300" />
-              </div>
+              {/* Y2K Enhanced floating elements */}
+              <HolographicCard variant="matrix" className="absolute top-6 right-6 p-4 hover:scale-110 transition-transform duration-300 cursor-pointer">
+                <Zap className="w-8 h-8 text-cyan-400 group-hover:rotate-12 transition-transform duration-300 animate-pulse" />
+              </HolographicCard>
               
-              <div className="absolute top-6 left-6 bg-primary-glow/15 backdrop-blur-lg rounded-lg p-3">
-                <Cpu className="w-6 h-6 text-primary-glow" />
-              </div>
+              <HolographicCard variant="neon" className="absolute top-6 left-6 p-3">
+                <Cpu className="w-6 h-6 text-cyan-400 animate-[matrix-glow_2s_ease-in-out_infinite]" />
+              </HolographicCard>
               
-              <div className="absolute bottom-6 left-6 bg-card/90 backdrop-blur-lg rounded-lg p-4 hover:scale-105 transition-transform duration-300 cursor-pointer border border-primary/20">
+              <HolographicCard variant="ghost" className="absolute bottom-6 left-6 p-4 hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <div className="flex items-center space-x-3">
-                  <Users className="w-6 h-6 text-primary" />
+                  <Users className="w-6 h-6 text-cyan-400" />
                   <div>
                     <div className="font-orbitron font-semibold text-glow flex items-center space-x-2">
                       <img src={cyborgCatsLogo} alt="" className="w-6 h-6" />
-                      <span>Team 4256</span>
+                      <GlitchText intensity="low" className="text-sm">Team 4256</GlitchText>
                     </div>
-                    <div className="text-sm text-muted-foreground">St. Louis, Missouri</div>
+                    <div className="text-sm text-cyan-400/70">St. Louis, Missouri</div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Decorative corner elements */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary/20 to-transparent" />
-            </div>
+              </HolographicCard>
+
+              {/* Digital corner elements */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-cyan-400/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-purple-500/30 to-transparent" />
+            </HolographicCard>
           </ScrollReveal>
         </div>
       </div>
