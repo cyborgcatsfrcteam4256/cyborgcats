@@ -3,6 +3,7 @@ import { StatCounter } from '@/components/StatCounter';
 import { Heart, Globe, Users, Trophy, Star } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedCard } from '@/components/EnhancedCard';
+import { PhotoShowcase } from '@/components/PhotoShowcase';
 
 export const ImpactSection = () => {
   return (
@@ -100,12 +101,14 @@ export const ImpactSection = () => {
           </div>
 
           <div className="relative animate-scale-in">
-            <img 
-              src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
-              alt="Cyborg Cats team members working together" 
-              className="w-full h-[400px] object-cover rounded-xl shadow-elevated"
+            <PhotoShowcase 
+              images={[
+                "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
+                "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
+                "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
+              ]}
+              className="shadow-elevated"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent rounded-xl" />
           </div>
         </div>
       </div>

@@ -2,10 +2,12 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart } from 'lucide-react';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { FloatingLogo } from '@/components/FloatingLogo';
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <FloatingLogo />
       {/* Enhanced Background */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -88,11 +90,18 @@ export const HeroSection = () => {
           {/* Enhanced Right side - Robot showcase */}
           <ScrollReveal direction="scale" delay={400} className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer">
-              <img 
-                src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
-                alt="Cyborg Cats team celebrating at competition" 
-                className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
-              />
+              <div className="grid grid-cols-2 gap-2 h-[600px]">
+                <img 
+                  src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
+                  alt="Cyborg Cats team celebrating at competition" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <img 
+                  src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
+                  alt="Cyborg Cats team photo" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-primary/10" />
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               

@@ -3,6 +3,9 @@ import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Users, Code, Briefcase, Heart, Zap, Award } from 'lucide-react';
+import { PhotoShowcase } from '@/components/PhotoShowcase';
+import { FloatingLogo } from '@/components/FloatingLogo';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 const Team = () => {
   const subteams = [
@@ -81,10 +84,19 @@ const Team = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FloatingLogo />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
+        
+        {/* Floating mini logos */}
+        <div className="absolute top-32 right-20 opacity-20">
+          <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" />
+        </div>
+        <div className="absolute bottom-32 left-20 opacity-15">
+          <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '2s' }} />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-5xl md:text-6xl font-orbitron font-bold mb-6">
@@ -99,12 +111,15 @@ const Team = () => {
 
           {/* Team Photo */}
           <div className="relative max-w-4xl mx-auto mb-16 animate-scale-in">
-            <img 
-              src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
-              alt="Cyborg Cats FRC Team 4256" 
-              className="w-full h-[400px] object-cover rounded-xl shadow-elevated"
+            <PhotoShowcase 
+              images={[
+                "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
+                "/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png",
+                "/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png",
+                "/lovable-uploads/e3cf82cd-0326-4b2e-94d5-3d34ef99d632.png"
+              ]}
+              className="shadow-elevated h-[400px]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent rounded-xl" />
             
             {/* Team Stats Overlay */}
             <div className="absolute bottom-6 left-6 right-6">

@@ -1,16 +1,29 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { Award, MapPin, Users, Zap, Target, Lightbulb } from 'lucide-react';
+import { PhotoShowcase } from '@/components/PhotoShowcase';
+import { FloatingLogo } from '@/components/FloatingLogo';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FloatingLogo />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
+        
+        {/* Floating mini logos */}
+        <div className="absolute top-40 left-16 opacity-20">
+          <img src={cyborgCatsLogo} alt="" className="w-12 h-12 animate-cyber-float" />
+        </div>
+        <div className="absolute bottom-40 right-12 opacity-15">
+          <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '1.5s' }} />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-5xl md:text-6xl font-orbitron font-bold mb-6">
@@ -112,12 +125,14 @@ const About = () => {
             </div>
 
             <div className="relative animate-scale-in">
-              <img 
-                src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
-                alt="Cyborg Cats team collaboration" 
-                className="w-full h-[500px] object-cover rounded-xl shadow-elevated"
+              <PhotoShowcase 
+                images={[
+                  "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
+                  "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png",
+                  "/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png"
+                ]}
+                className="shadow-elevated h-[500px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-xl" />
               
               {/* Floating achievement badge */}
               <div className="absolute top-6 right-6 bg-primary/20 backdrop-blur-lg rounded-xl p-4 animate-glow-pulse">

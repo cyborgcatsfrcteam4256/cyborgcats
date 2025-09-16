@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, Calendar, Trophy, Users, Globe, Award } from 'lucide-react';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const NewsSection = () => {
   const news = [
@@ -58,6 +59,14 @@ export const NewsSection = () => {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 circuit-pattern opacity-10" />
       
+      {/* Floating mini logos */}
+      <div className="absolute top-20 left-10 opacity-20">
+        <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" />
+      </div>
+      <div className="absolute bottom-20 right-16 opacity-15">
+        <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" style={{ animationDelay: '1s' }} />
+      </div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between mb-16 animate-slide-up">
           <div>
@@ -81,8 +90,16 @@ export const NewsSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {/* Featured Article */}
           <Card className="lg:row-span-2 bg-card/80 backdrop-blur-lg border-border/50 overflow-hidden hover-glow transition-cyber interactive-card">
-            <div className="p-8 h-full flex flex-col">
-              <div className="flex items-center justify-between mb-6">
+            <div className="p-8 h-full flex flex-col relative">
+              {/* Background team photo */}
+              <div className="absolute inset-0 opacity-5 rounded-xl overflow-hidden">
+                <img 
+                  src="/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png" 
+                  alt="" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex items-center justify-between mb-6 relative z-10">
                 <Badge className={getCategoryColor(news[0].category)}>
                   {React.createElement(news[0].icon, { className: "w-4 h-4 mr-2" })}
                   {news[0].category}
@@ -90,15 +107,15 @@ export const NewsSection = () => {
                 <span className="text-sm text-muted-foreground font-inter">Featured</span>
               </div>
               
-              <h3 className="text-2xl font-orbitron font-bold mb-4 text-glow">
+              <h3 className="text-2xl font-orbitron font-bold mb-4 text-glow relative z-10">
                 {news[0].title}
               </h3>
               
-              <p className="text-muted-foreground font-inter text-lg mb-6 flex-grow">
+              <p className="text-muted-foreground font-inter text-lg mb-6 flex-grow relative z-10">
                 {news[0].excerpt}
               </p>
               
-              <div className="flex items-center justify-between pt-6 border-t border-border">
+              <div className="flex items-center justify-between pt-6 border-t border-border relative z-10">
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground font-inter">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />

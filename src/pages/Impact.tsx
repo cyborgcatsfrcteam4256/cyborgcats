@@ -3,15 +3,26 @@ import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { StatCounter } from '@/components/StatCounter';
 import { Heart, Globe, Users, Target, Calendar, MapPin, Award, Lightbulb } from 'lucide-react';
+import { FloatingLogo } from '@/components/FloatingLogo';
+import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 const Impact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <FloatingLogo />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 circuit-pattern opacity-10" />
+        
+        {/* Floating mini logos */}
+        <div className="absolute top-32 left-12 opacity-20">
+          <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" />
+        </div>
+        <div className="absolute bottom-32 right-16 opacity-15">
+          <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '1s' }} />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16 animate-slide-up">
             <h1 className="text-5xl md:text-6xl font-orbitron font-bold mb-6">
