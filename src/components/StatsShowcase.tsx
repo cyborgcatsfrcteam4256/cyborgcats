@@ -12,8 +12,8 @@ export const StatsShowcase = () => {
       label: "Passionate Students",
       description: "Dedicated team members across all subteams",
       icon: Users,
-      color: "from-accent-cyan to-accent-green",
-      bgGradient: "from-accent-cyan/20 to-accent-green/10",
+      color: "from-blue-500 to-cyan-500",
+      bgGradient: "from-primary/20 to-primary-glow/10",
       suffix: ""
     },
     {
@@ -21,8 +21,8 @@ export const StatsShowcase = () => {
       label: "Years of Excellence",
       description: "Competing in FIRST Robotics Competition",
       icon: Award,
-      color: "from-accent-orange to-accent-yellow",
-      bgGradient: "from-accent-orange/20 to-accent-yellow/10",
+      color: "from-yellow-500 to-orange-500",
+      bgGradient: "from-yellow-500/20 to-orange-500/10",
       suffix: "+"
     },
     {
@@ -30,8 +30,8 @@ export const StatsShowcase = () => {
       label: "Team Founded",
       description: "Established at Westminster Christian Academy",
       icon: Rocket,
-      color: "from-accent-green to-accent-lime",
-      bgGradient: "from-accent-green/20 to-accent-lime/10",
+      color: "from-green-500 to-emerald-500",
+      bgGradient: "from-green-500/20 to-emerald-500/10",
       suffix: ""
     },
     {
@@ -39,8 +39,8 @@ export const StatsShowcase = () => {
       label: "Team Number",
       description: "Official FRC team identification",
       icon: Zap,
-      color: "from-accent-purple to-accent-pink",
-      bgGradient: "from-accent-purple/20 to-accent-pink/10",
+      color: "from-purple-500 to-pink-500",
+      bgGradient: "from-purple-500/20 to-pink-500/10",
       suffix: ""
     }
   ];
@@ -52,17 +52,17 @@ export const StatsShowcase = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-20 animate-slide-up">
-          <Badge variant="outline" className="mb-6 font-orbitron px-6 py-2 text-base bg-gradient-to-r from-accent-orange to-accent-yellow text-white border-accent-orange/30">
+          <Badge variant="outline" className="mb-6 font-orbitron px-6 py-2 text-base">
             <Trophy className="w-5 h-5 mr-2" />
             Impact by the Numbers
           </Badge>
           <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
             Our Growing Impact
           </h2>
-            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
-              These numbers represent more than achievements - they represent <span className="text-accent-purple font-semibold">lives touched</span>, 
-              <span className="text-accent-green font-semibold"> opportunities created</span>, and <span className="text-accent-orange font-semibold">futures inspired</span>.
-            </p>
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
+            These numbers represent more than achievements - they represent <span className="text-primary font-semibold">lives touched</span>, 
+            <span className="text-primary-glow font-semibold"> opportunities created</span>, and <span className="text-primary-electric font-semibold">futures inspired</span>.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -122,7 +122,7 @@ export const StatsShowcase = () => {
         {/* Enhanced call-to-action */}
         <div className="text-center mt-20">
           <div className="gradient-premium border border-primary/20 rounded-2xl p-10 backdrop-blur-xl hover:shadow-luxury transition-all duration-700 max-w-2xl mx-auto">
-            <Rocket className="w-12 h-12 text-accent-pink mx-auto mb-6 animate-cyber-float" />
+            <Rocket className="w-12 h-12 text-primary mx-auto mb-6 animate-cyber-float" />
             <h3 className="text-3xl font-orbitron font-bold mb-4 text-glow">
               Ready to Make an Impact?
             </h3>

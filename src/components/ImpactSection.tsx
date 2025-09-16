@@ -38,8 +38,8 @@ export const ImpactSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           <ScrollReveal delay={100}>
             <PremiumCard variant="luxury" className="p-8 group/card" interactive glowEffect>
-              <div className="w-16 h-16 bg-gradient-to-br from-accent-pink/30 to-accent-red/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:shadow-[0_0_30px_theme(colors.accent.pink)] transition-all duration-500">
-                <Heart className="w-8 h-8 text-accent-pink group-hover/card:scale-110 group-hover/card:text-accent-red transition-all duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Heart className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:text-red-400 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">STEM Companion Initiative</h3>
                <p className="text-muted-foreground font-inter text-lg leading-relaxed">
@@ -54,8 +54,8 @@ export const ImpactSection = () => {
 
           <ScrollReveal delay={200}>
             <PremiumCard variant="cyber" className="p-8 group/card" interactive glowEffect>
-              <div className="w-16 h-16 bg-gradient-to-br from-accent-purple/30 to-accent-pink/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:shadow-[0_0_30px_theme(colors.accent.purple)] transition-all duration-500">
-                <Users className="w-8 h-8 text-accent-purple group-hover/card:scale-110 transition-all duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-glow/30 to-primary-electric/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Users className="w-8 h-8 text-primary group-hover/card:scale-110 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Women in STEM Leadership</h3>
                <p className="text-muted-foreground font-inter text-lg leading-relaxed">
@@ -70,8 +70,8 @@ export const ImpactSection = () => {
 
           <ScrollReveal delay={300}>
             <PremiumCard variant="glass" className="p-8 group/card" interactive glowEffect>
-              <div className="w-16 h-16 bg-gradient-to-br from-accent-green/30 to-accent-cyan/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:shadow-[0_0_30px_theme(colors.accent.green)] transition-all duration-500">
-                <Globe className="w-8 h-8 text-accent-green group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-electric/30 to-primary/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Globe className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Global STEM Outreach</h3>
                <p className="text-muted-foreground font-inter text-lg leading-relaxed">
@@ -86,8 +86,8 @@ export const ImpactSection = () => {
 
           <ScrollReveal delay={400}>
             <PremiumCard variant="neon" className="p-8 group/card" interactive glowEffect>
-              <div className="w-16 h-16 bg-gradient-to-br from-accent-orange/30 to-accent-yellow/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:shadow-[0_0_30px_theme(colors.accent.orange)] transition-all duration-500">
-                <Lightbulb className="w-8 h-8 text-accent-orange group-hover/card:scale-110 group-hover/card:text-accent-yellow transition-all duration-500" />
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Lightbulb className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:text-yellow-400 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Legislative Advocacy</h3>
                <p className="text-muted-foreground font-inter text-lg leading-relaxed">
