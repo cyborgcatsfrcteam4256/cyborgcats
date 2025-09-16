@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { StatCounter } from '@/components/StatCounter';
-import { Heart, Globe, Users, Trophy, Star } from 'lucide-react';
+import { Heart, Globe, Users, Trophy, Star, Target, Lightbulb, Award } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { EnhancedCard } from '@/components/EnhancedCard';
+import { PremiumCard } from '@/components/PremiumCard';
 import { PhotoShowcase } from '@/components/PhotoShowcase';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
@@ -37,81 +37,130 @@ export const ImpactSection = () => {
         </div>
 
         {/* Enhanced Impact Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           <ScrollReveal delay={100}>
-            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-                <Heart className="w-6 h-6 text-primary" />
+            <PremiumCard variant="luxury" className="p-8 group/card" interactive glowEffect>
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Heart className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:text-red-400 transition-all duration-500" />
               </div>
-              <h3 className="font-orbitron font-semibold text-lg mb-2">STEM Companion Initiative</h3>
-              <p className="text-muted-foreground font-inter">
-                Connecting children with special needs to STEM through 5+ demonstrations and stemcompanion.org.
+              <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">STEM Companion Initiative</h3>
+              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                Connecting children with special needs to STEM through <span className="text-primary font-semibold">5+ demonstrations</span> and stemcompanion.org.
               </p>
-            </EnhancedCard>
+              <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
+                <Target className="w-4 h-4 mr-2" />
+                Accessibility Focus
+              </div>
+            </PremiumCard>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-                <Users className="w-6 h-6 text-primary" />
+            <PremiumCard variant="cyber" className="p-8 group/card" interactive glowEffect>
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-glow/30 to-primary-electric/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Users className="w-8 h-8 text-primary group-hover/card:scale-110 transition-all duration-500" />
               </div>
-              <h3 className="font-orbitron font-semibold text-lg mb-2">Women in STEM</h3>
-              <p className="text-muted-foreground font-inter">
-                Public seminars reaching 100+ attendees over 3 years. All upper leadership is female.
+              <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Women in STEM Leadership</h3>
+              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                Public seminars reaching <span className="text-primary-glow font-semibold">100+ attendees</span> over 3 years. All upper leadership is female.
               </p>
-            </EnhancedCard>
+              <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
+                <Award className="w-4 h-4 mr-2" />
+                Leadership Excellence
+              </div>
+            </PremiumCard>
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-                <Globe className="w-6 h-6 text-primary" />
+            <PremiumCard variant="glass" className="p-8 group/card" interactive glowEffect>
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-electric/30 to-primary/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Globe className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
               </div>
-              <h3 className="font-orbitron font-semibold text-lg mb-2">Global Outreach</h3>
-              <p className="text-muted-foreground font-inter">
-                Helped establish South Korea's 4th FRC team and reached 115 students in Ethiopia.
+              <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Global STEM Outreach</h3>
+              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                Helped establish <span className="text-primary font-semibold">South Korea's 4th FRC team</span> and reached 115 students in Ethiopia.
               </p>
-            </EnhancedCard>
+              <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
+                <Globe className="w-4 h-4 mr-2" />
+                International Impact
+              </div>
+            </PremiumCard>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <EnhancedCard className="p-6 hover-glow transition-cyber" interactive glowEffect>
-              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 glow-subtle">
-                <Trophy className="w-6 h-6 text-primary" />
+            <PremiumCard variant="neon" className="p-8 group/card" interactive glowEffect>
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-6 glow-subtle group-hover/card:glow-electric transition-all duration-500">
+                <Lightbulb className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:text-yellow-400 transition-all duration-500" />
               </div>
-              <h3 className="font-orbitron font-semibold text-lg mb-2">Legislative Advocacy</h3>
-              <p className="text-muted-foreground font-inter">
-                Met with 19 representatives and Lieutenant Governor supporting HB 256 advocacy.
+              <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Legislative Advocacy</h3>
+              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                Met with <span className="text-primary-electric font-semibold">19 representatives</span> and Lieutenant Governor supporting HB 256 advocacy.
               </p>
-            </EnhancedCard>
+              <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
+                <Trophy className="w-4 h-4 mr-2" />
+                Policy Leadership
+              </div>
+            </PremiumCard>
           </ScrollReveal>
         </div>
 
         {/* Team Photo & Story */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-slide-up">
-            <h3 className="text-3xl font-orbitron font-bold text-glow">
-              Empowering the Next Generation
-            </h3>
-            <p className="text-lg text-muted-foreground font-inter">
-              Based in St. Louis, our team continues growing and making community impact throughout Missouri 
-              through STEM education and advocacy for students across the Show-Me State.
-            </p>
-            <Button variant="cyber" size="lg">
-              Learn More About Our Mission
-            </Button>
-          </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <ScrollReveal direction="left" className="space-y-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center space-x-2 gradient-premium rounded-full px-6 py-3 backdrop-blur-xl border border-primary/20">
+                <Star className="w-4 h-4 text-primary animate-pulse" />
+                <span className="font-orbitron text-sm text-primary font-medium">Our Mission</span>
+              </div>
+              <h3 className="text-4xl md:text-5xl font-orbitron font-black text-glow leading-tight">
+                Empowering the Next Generation
+              </h3>
+              <p className="text-xl text-muted-foreground font-inter leading-relaxed">
+                Based in <span className="text-primary font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
+                community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
+                STEM education and advocacy for students across Missouri.
+              </p>
+              <div className="grid grid-cols-2 gap-6 py-6">
+                <div className="text-center">
+                  <div className="text-3xl font-orbitron font-bold text-primary-glow">2025</div>
+                  <div className="text-sm text-muted-foreground">Impact Award Winners</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-orbitron font-bold text-primary-electric">14+</div>
+                  <div className="text-sm text-muted-foreground">Years of Excellence</div>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="premium" size="lg" className="group">
+                <Trophy className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
+                Learn More About Our Mission
+              </Button>
+              <Button variant="glass" size="lg" className="group">
+                <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
+                Meet Our Team
+              </Button>
+            </div>
+          </ScrollReveal>
 
-          <div className="relative animate-scale-in">
-            <PhotoShowcase 
-              images={[
-                "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
-                "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
-                "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
-              ]}
-              className="shadow-elevated"
-            />
-          </div>
+          <ScrollReveal direction="right" className="relative">
+            <div className="relative animate-scale-in">
+              <PhotoShowcase 
+                images={[
+                  "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
+                  "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
+                  "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
+                ]}
+                className="shadow-luxury hover:shadow-cyber transition-all duration-700"
+              />
+              {/* Floating achievement badges */}
+              <div className="absolute -top-4 -right-4 gradient-premium border border-primary/30 rounded-full p-4 backdrop-blur-xl animate-cyber-float">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              <div className="absolute -bottom-4 -left-4 gradient-premium border border-primary-glow/30 rounded-full p-3 backdrop-blur-xl animate-cyber-float" style={{animationDelay: '1s'}}>
+                <Star className="w-5 h-5 text-primary-glow" />
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

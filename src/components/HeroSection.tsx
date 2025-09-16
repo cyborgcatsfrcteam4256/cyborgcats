@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart } from 'lucide-react';
+import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart, Sparkles, Rocket } from 'lucide-react';
 import { FloatingParticles } from '@/components/FloatingParticles';
+import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { FloatingLogo } from '@/components/FloatingLogo';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
@@ -9,21 +10,23 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <FloatingLogo />
+      <InteractiveBackground />
       {/* Enhanced Background */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
           alt="Cyborg Cats robot in competition" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-25 transition-opacity duration-1000 hover:opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-primary/10" />
-        <div className="absolute inset-0 circuit-pattern opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-primary-glow/12" />
+        <div className="absolute inset-0 circuit-pattern opacity-20 animate-pulse" />
         <FloatingParticles />
         
-        {/* Animated gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/15 rounded-full blur-3xl animate-cyber-float" />
+        {/* Enhanced animated gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-glow-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/20 rounded-full blur-3xl animate-cyber-float" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-electric/5 to-primary/5 rounded-full blur-3xl animate-pulse" />
       </div>
 
       {/* Content */}
@@ -31,41 +34,42 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="space-y-8" delay={200}>
             {/* Enhanced Hero Badge */}
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-primary/15 to-primary-glow/10 border border-primary/30 rounded-full px-6 py-3 glow-interactive hover:scale-105 transition-all duration-300 cursor-pointer group">
-              <Award className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
-              <span className="font-orbitron text-sm text-primary font-medium">
-                FRC Team 4256
+            <div className="inline-flex items-center space-x-3 gradient-premium border border-primary/30 rounded-full px-8 py-4 glow-interactive hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-xl">
+              <Award className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <span className="font-orbitron text-sm text-primary font-bold tracking-wide">
+                2025 FIRST IMPACT AWARD WINNERS
               </span>
-              <Star className="w-4 h-4 text-primary-glow animate-pulse" />
+              <Sparkles className="w-5 h-5 text-primary-glow animate-pulse group-hover:animate-spin" />
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-7xl font-orbitron font-bold leading-tight">
-              <span className="text-shimmer">Cyborg Cats</span>
-              <span className="block text-holographic bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-glow to-primary-electric">4256</span>
+            <h1 className="text-6xl md:text-8xl font-orbitron font-black leading-tight tracking-tight">
+              <span className="text-shimmer animate-slide-up">Cyborg Cats</span>
+              <span className="block text-holographic bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-glow to-primary-electric animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
             </h1>
 
-            <p className="text-xl md:text-2xl font-orbitron font-light text-muted-foreground">
+            <p className="text-2xl md:text-3xl font-orbitron font-light text-glow animate-slide-up" style={{animationDelay: '0.4s'}}>
               Building Robots, Building Futures
             </p>
 
-            <p className="text-lg text-muted-foreground font-inter max-w-2xl">
-              From Westminster Christian Academy in the heart of St. Louis, Missouri, we're 48 passionate students 
-              representing the Gateway City while engineering the future through robotics and making a lasting impact 
+            <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed animate-slide-up" style={{animationDelay: '0.6s'}}>
+              From Westminster Christian Academy in the heart of St. Louis, Missouri, we're <span className="text-primary font-semibold">48 passionate students</span> 
+              representing the Gateway City while engineering the future through robotics and making a <span className="text-primary-glow font-semibold">lasting impact</span> 
               in our Missouri community and beyond.
             </p>
 
             {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="group relative overflow-hidden">
-                <span className="relative z-10">Meet Our Team</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+            <div className="flex flex-col sm:flex-row gap-6 animate-slide-up" style={{animationDelay: '0.8s'}}>
+              <Button variant="premium" size="lg" className="group relative overflow-hidden">
+                <Rocket className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 relative z-10" />
+                <span className="relative z-10">Explore Our Journey</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
-              <Button variant="cyber" size="lg" className="group relative overflow-hidden">
+              <Button variant="glass" size="lg" className="group relative overflow-hidden">
+                <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500 relative z-10" />
                 <span className="relative z-10">Support Our Mission</span>
-                <Heart className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
             </div>
 
