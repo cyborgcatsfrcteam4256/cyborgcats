@@ -9,8 +9,8 @@ export const StatsShowcase = () => {
   const stats = [
     {
       value: 48,
-      label: "Team Members",
-      description: "Passionate students across all subteams",
+      label: "Passionate Students",
+      description: "Dedicated team members across all subteams",
       icon: Users,
       color: "from-blue-500 to-cyan-500",
       bgGradient: "from-primary/20 to-primary-glow/10",
@@ -18,47 +18,29 @@ export const StatsShowcase = () => {
     },
     {
       value: 14,
-      label: "Years Competing",
-      description: "Years of excellence in FIRST Robotics",
+      label: "Years of Excellence",
+      description: "Competing in FIRST Robotics Competition",
       icon: Award,
       color: "from-yellow-500 to-orange-500",
       bgGradient: "from-yellow-500/20 to-orange-500/10",
+      suffix: "+"
+    },
+    {
+      value: 2010,
+      label: "Team Founded",
+      description: "Established at Westminster Christian Academy",
+      icon: Rocket,
+      color: "from-green-500 to-emerald-500",
+      bgGradient: "from-green-500/20 to-emerald-500/10",
       suffix: ""
     },
     {
-      value: 2000,
-      label: "Students Reached",
-      description: "Through our comprehensive outreach programs",
-      icon: Globe,
-      color: "from-green-500 to-emerald-500",
-      bgGradient: "from-green-500/20 to-emerald-500/10",
-      suffix: "+"
-    },
-    {
-      value: 19,
-      label: "Legislators Engaged",
-      description: "Plus Lieutenant Governor for STEM advocacy",
-      icon: TrendingUp,
+      value: 3506,
+      label: "Team Number",
+      description: "Official FRC team identification",
+      icon: Zap,
       color: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-500/20 to-pink-500/10",
-      suffix: "+"
-    },
-    {
-      value: 100,
-      label: "Women in STEM Participants",
-      description: "Inspiring future female engineers",
-      icon: Lightbulb,
-      color: "from-indigo-500 to-purple-500",
-      bgGradient: "from-indigo-500/20 to-purple-500/10",
-      suffix: "+"
-    },
-    {
-      value: 22,
-      label: "Mentors",
-      description: "Dedicated adult mentors and advisors",
-      icon: Target,
-      color: "from-red-500 to-pink-500",
-      bgGradient: "from-red-500/20 to-pink-500/10",
       suffix: ""
     }
   ];

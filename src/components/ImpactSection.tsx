@@ -29,11 +29,9 @@ export const ImpactSection = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-          <StatCounter value={48} label="Team Members" />
-          <StatCounter value={19} label="Legislators Met" suffix="+" />
-          <StatCounter value={2000} label="Students Reached" suffix="+" />
-          <StatCounter value={22} label="Mentors" />
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mb-20">
+          <StatCounter value={48} label="Passionate Students" />
+          <StatCounter value={14} label="Years of Excellence" suffix="+" />
         </div>
 
         {/* Enhanced Impact Cards */}
@@ -44,9 +42,9 @@ export const ImpactSection = () => {
                 <Heart className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:text-red-400 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">STEM Companion Initiative</h3>
-              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
-                Connecting children with special needs to STEM through <span className="text-primary font-semibold">5+ demonstrations</span> and stemcompanion.org.
-              </p>
+               <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                 Connecting children with special needs to STEM education through innovative programs and dedicated outreach.
+               </p>
               <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
                 <Target className="w-4 h-4 mr-2" />
                 Accessibility Focus
@@ -60,9 +58,9 @@ export const ImpactSection = () => {
                 <Users className="w-8 h-8 text-primary group-hover/card:scale-110 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Women in STEM Leadership</h3>
-              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
-                Public seminars reaching <span className="text-primary-glow font-semibold">100+ attendees</span> over 3 years. All upper leadership is female.
-              </p>
+               <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                 Empowering young women through STEM education and leadership opportunities in robotics and engineering.
+               </p>
               <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
                 <Award className="w-4 h-4 mr-2" />
                 Leadership Excellence
@@ -76,9 +74,9 @@ export const ImpactSection = () => {
                 <Globe className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Global STEM Outreach</h3>
-              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
-                Helped establish <span className="text-primary font-semibold">South Korea's 4th FRC team</span> and reached 115 students in Ethiopia.
-              </p>
+               <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                 Expanding STEM education globally through international partnerships and collaborative robotics programs.
+               </p>
               <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
                 <Globe className="w-4 h-4 mr-2" />
                 International Impact
@@ -92,9 +90,9 @@ export const ImpactSection = () => {
                 <Lightbulb className="w-8 h-8 text-primary group-hover/card:scale-110 group-hover/card:text-yellow-400 transition-all duration-500" />
               </div>
               <h3 className="font-orbitron font-bold text-xl mb-4 text-glow">Legislative Advocacy</h3>
-              <p className="text-muted-foreground font-inter text-lg leading-relaxed">
-                Met with <span className="text-primary-electric font-semibold">19 representatives</span> and Lieutenant Governor supporting HB 256 advocacy.
-              </p>
+               <p className="text-muted-foreground font-inter text-lg leading-relaxed">
+                 Advocating for STEM education through legislative engagement and policy support initiatives.
+               </p>
               <div className="mt-6 flex items-center text-sm text-primary font-orbitron font-semibold">
                 <Trophy className="w-4 h-4 mr-2" />
                 Policy Leadership
