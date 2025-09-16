@@ -46,8 +46,8 @@ export const PremiumCard = forwardRef<HTMLDivElement, PremiumCardProps>(
         {/* Enhanced hover gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         
-        {/* Animated border glow */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+        {/* Smooth flowing border effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
         
         {/* Content */}
         <div className="relative z-10">
