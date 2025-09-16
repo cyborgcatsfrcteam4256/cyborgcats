@@ -91,27 +91,44 @@ const Team = () => {
         <div className="absolute inset-0 circuit-pattern opacity-10" />
         
         {/* Elegant brand integration */}
-        <div className="absolute top-40 right-32 opacity-12">
+        <div className="absolute top-40 right-32 opacity-7">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary-glow/5 rounded-full blur-2xl scale-150"></div>
-            <div className="relative bg-card/30 backdrop-blur-sm rounded-full p-3 border border-primary/10">
-              <img src={cyborgCatsLogo} alt="" className="w-10 h-10 animate-cyber-float" />
-            </div>
-            {/* Team connection visual */}
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
-              <div className="flex space-x-1">
-                <div className="w-1 h-1 bg-primary/30 rounded-full"></div>
-                <div className="w-1 h-1 bg-primary/20 rounded-full"></div>
-                <div className="w-1 h-1 bg-primary/10 rounded-full"></div>
-              </div>
+            {/* Three cats in cascade formation */}
+            <div className="relative">
+              <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" />
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="absolute top-2 right-4 w-6 h-6 animate-cyber-float opacity-80" 
+                style={{ animationDelay: '0.8s' }}
+              />
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="absolute top-4 right-8 w-5 h-5 animate-cyber-float opacity-60" 
+                style={{ animationDelay: '1.6s' }}
+              />
             </div>
           </div>
         </div>
         
-        <div className="absolute bottom-40 left-24 opacity-10">
+        <div className="absolute bottom-40 left-24 opacity-6">
           <div className="relative">
-            <div className="bg-gradient-to-tl from-primary-glow/8 to-primary/8 rounded-lg p-2 backdrop-blur-sm border border-primary-glow/10 rotate-12">
-              <img src={cyborgCatsLogo} alt="" className="w-8 h-8 animate-cyber-float" style={{ animationDelay: '1.5s' }} />
+            {/* Three cats in compact cluster */}
+            <div className="relative">
+              <img src={cyborgCatsLogo} alt="" className="w-6 h-6 animate-cyber-float" />
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="absolute -top-1 -right-2 w-5 h-5 animate-cyber-float opacity-70" 
+                style={{ animationDelay: '1.2s' }}
+              />
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="absolute -bottom-1 -left-2 w-4 h-4 animate-cyber-float opacity-60" 
+                style={{ animationDelay: '2.4s' }}
+              />
             </div>
           </div>
         </div>

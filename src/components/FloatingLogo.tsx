@@ -26,54 +26,85 @@ export const FloatingLogo = () => {
   if (!isVisible) return null;
 
   // Calculate position based on scroll progress for more natural movement
-  const xOffset = Math.sin(scrollProgress * Math.PI * 2) * 15;
-  const yOffset = Math.cos(scrollProgress * Math.PI * 3) * 10;
-  const rotation = scrollProgress * 360;
+  const xOffset = Math.sin(scrollProgress * Math.PI * 2) * 10;
+  const yOffset = Math.cos(scrollProgress * Math.PI * 3) * 8;
 
   return (
     <>
-      {/* Main floating logo */}
+      {/* Primary floating cat group - top right */}
       <div 
-        className="fixed top-1/4 right-12 z-30 pointer-events-none transition-all duration-500 ease-out"
+        className="fixed top-1/4 right-16 z-20 pointer-events-none transition-all duration-700 ease-out"
         style={{
-          transform: `translate(${xOffset}px, ${yOffset}px) rotate(${rotation * 0.1}deg)`,
-          opacity: 0.25 + (Math.sin(scrollProgress * Math.PI * 4) * 0.15),
+          transform: `translate(${xOffset}px, ${yOffset}px)`,
+          opacity: 0.12,
         }}
       >
         <div className="relative">
-          {/* Subtle glow */}
-          <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl scale-150" />
-          
-          {/* Logo with integrated design */}
-          <div className="relative bg-gradient-to-br from-primary/5 to-primary-glow/5 rounded-full p-3 backdrop-blur-sm border border-primary/10">
-            <img 
-              src={cyborgCatsLogo} 
-              alt="" 
-              className="w-10 h-10 object-contain filter drop-shadow-sm"
-            />
+          {/* Group of three cats in triangular formation */}
+          <div className="relative">
+            {/* Top cat */}
+            <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="w-8 h-8 object-contain animate-cyber-float"
+              />
+            </div>
+            
+            {/* Bottom left cat */}
+            <div className="absolute top-4 -left-3">
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="w-6 h-6 object-contain animate-cyber-float opacity-80"
+                style={{ animationDelay: '0.8s' }}
+              />
+            </div>
+            
+            {/* Bottom right cat */}
+            <div className="absolute top-4 -right-3">
+              <img 
+                src={cyborgCatsLogo} 
+                alt="" 
+                className="w-6 h-6 object-contain animate-cyber-float opacity-80"
+                style={{ animationDelay: '1.6s' }}
+              />
+            </div>
           </div>
           
-          {/* Cyber circuit lines extending from logo */}
-          <div className="absolute top-1/2 -left-8 w-8 h-px bg-gradient-to-r from-transparent to-primary/20"></div>
-          <div className="absolute top-1/2 -right-8 w-8 h-px bg-gradient-to-l from-transparent to-primary/20"></div>
-          <div className="absolute -top-8 left-1/2 w-px h-8 bg-gradient-to-b from-transparent to-primary/20"></div>
+          {/* Subtle connecting lines */}
+          <div className="absolute top-2 left-0 w-6 h-px bg-primary/10 rotate-45"></div>
+          <div className="absolute top-2 right-0 w-6 h-px bg-primary/10 -rotate-45"></div>
         </div>
       </div>
 
-      {/* Secondary floating logo - smaller, different position */}
+      {/* Secondary floating cat group - bottom left */}
       <div 
-        className="fixed bottom-1/3 left-16 z-30 pointer-events-none transition-all duration-700 ease-out"
+        className="fixed bottom-1/3 left-20 z-20 pointer-events-none transition-all duration-900 ease-out"
         style={{
-          transform: `translate(${-xOffset * 0.5}px, ${-yOffset * 0.7}px) rotate(${-rotation * 0.05}deg)`,
-          opacity: 0.15 + (Math.cos(scrollProgress * Math.PI * 3) * 0.1),
+          transform: `translate(${-xOffset * 0.6}px, ${-yOffset * 0.8}px)`,
+          opacity: 0.08,
         }}
       >
         <div className="relative">
-          <div className="bg-gradient-to-br from-primary-glow/5 to-primary/5 rounded-full p-2 backdrop-blur-sm border border-primary-glow/10">
+          {/* Horizontal formation of three cats */}
+          <div className="flex items-center space-x-4">
             <img 
               src={cyborgCatsLogo} 
               alt="" 
-              className="w-6 h-6 object-contain opacity-60"
+              className="w-5 h-5 object-contain animate-cyber-float"
+            />
+            <img 
+              src={cyborgCatsLogo} 
+              alt="" 
+              className="w-6 h-6 object-contain animate-cyber-float"
+              style={{ animationDelay: '1s' }}
+            />
+            <img 
+              src={cyborgCatsLogo} 
+              alt="" 
+              className="w-4 h-4 object-contain animate-cyber-float opacity-70"
+              style={{ animationDelay: '2s' }}
             />
           </div>
         </div>
