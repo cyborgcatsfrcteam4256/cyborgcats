@@ -30,7 +30,7 @@ export const InteractiveBackground = () => {
 
     const createParticles = () => {
       const particles: Particle[] = [];
-      const particleCount = Math.min(25, Math.floor(window.innerWidth * window.innerHeight / 30000));
+      const particleCount = Math.min(50, Math.floor(window.innerWidth * window.innerHeight / 20000));
       
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -38,8 +38,8 @@ export const InteractiveBackground = () => {
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 1.5 + 0.3,
-          opacity: Math.random() * 0.3 + 0.1,
+          size: Math.random() * 2 + 0.5,
+          opacity: Math.random() * 0.5 + 0.2,
           hue: 200 + Math.random() * 40
         });
       }
@@ -92,16 +92,16 @@ export const InteractiveBackground = () => {
         ctx.save();
         ctx.globalAlpha = particle.opacity;
         
-        // Subtle glow
-        ctx.shadowColor = `hsl(${particle.hue}, 80%, 50%)`;
-        ctx.shadowBlur = 8;
+        // Outer glow
+        ctx.shadowColor = `hsl(${particle.hue}, 100%, 60%)`;
+        ctx.shadowBlur = 20;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${particle.hue}, 80%, 50%, 0.05)`;
+        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${particle.hue}, 100%, 60%, 0.1)`;
         ctx.fill();
         
         // Inner particle
-        ctx.shadowBlur = 4;
+        ctx.shadowBlur = 10;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `hsl(${particle.hue}, 100%, 60%)`;

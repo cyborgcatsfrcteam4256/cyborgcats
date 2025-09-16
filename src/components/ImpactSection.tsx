@@ -17,7 +17,7 @@ export const ImpactSection = () => {
             <img src={cyborgCatsLogo} alt="" className="w-5 h-5" />
             <Trophy className="w-5 h-5 text-primary" />
             <span className="font-orbitron text-sm text-primary font-medium">Making a Difference</span>
-            <Star className="w-4 h-4 text-primary-glow" />
+            <Star className="w-4 h-4 text-primary-glow animate-pulse" />
           </div>
           <h2 className="text-4xl md:text-6xl font-orbitron font-bold mb-6">
             <span className="text-holographic">Our Impact</span>
@@ -108,7 +108,7 @@ export const ImpactSection = () => {
           <ScrollReveal direction="left" className="space-y-8">
             <div className="space-y-6">
               <div className="inline-flex items-center space-x-2 gradient-premium rounded-full px-6 py-3 backdrop-blur-xl border border-primary/20">
-                <Star className="w-4 h-4 text-primary" />
+                <Star className="w-4 h-4 text-primary animate-pulse" />
                 <span className="font-orbitron text-sm text-primary font-medium">Our Mission</span>
               </div>
               <h3 className="text-4xl md:text-5xl font-orbitron font-black text-glow leading-tight">
