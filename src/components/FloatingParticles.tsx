@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface Particle {
   x: number;
@@ -15,8 +15,6 @@ export const FloatingParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
   const particlesRef = useRef<Particle[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -30,20 +28,8 @@ export const FloatingParticles = () => {
       canvas.height = window.innerHeight;
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
-      setIsInteracting(true);
-      setTimeout(() => setIsInteracting(false), 2000);
-    };
-
-    const handleMouseLeave = () => {
-      setIsInteracting(false);
-    };
-
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
 
     // Initialize particles
     const initParticles = () => {
@@ -52,10 +38,10 @@ export const FloatingParticles = () => {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 1.2,
-          vy: (Math.random() - 0.5) * 1.2,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
           size: Math.random() * 2 + 0.8,
-          opacity: Math.random() * 0.8 + 0.2,
+          opacity: Math.random() * 0.4 + 0.2,
           life: Math.random() * 300 + 150,
           hue: Math.random() * 60 + 180 // Blue to cyan range
         });
@@ -68,28 +54,14 @@ export const FloatingParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particlesRef.current.forEach((particle, index) => {
-        // Mouse interaction
-        const dx = mouseRef.current.x - particle.x;
-        const dy = mouseRef.current.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 150 && isInteracting) {
-          const force = (150 - distance) / 150;
-          particle.vx += (dx / distance) * force * 0.005;
-          particle.vy += (dy / distance) * force * 0.005;
-          particle.opacity = Math.min(0.6, particle.opacity + force * 0.005);
-        } else {
-          particle.opacity = Math.max(0.2, particle.opacity - 0.002);
-        }
-
-        // Update position with very gentle drift
-        particle.x += particle.vx + Math.sin(Date.now() * 0.0005 + particle.x * 0.005) * 0.03;
-        particle.y += particle.vy + Math.cos(Date.now() * 0.0005 + particle.y * 0.005) * 0.03;
+        // Update position with gentle floating motion
+        particle.x += particle.vx + Math.sin(Date.now() * 0.0003 + particle.x * 0.003) * 0.02;
+        particle.y += particle.vy + Math.cos(Date.now() * 0.0003 + particle.y * 0.003) * 0.02;
         particle.life--;
 
-        // Apply stronger damping for smoother movement
-        particle.vx *= 0.985;
-        particle.vy *= 0.985;
+        // Apply damping for smooth movement
+        particle.vx *= 0.995;
+        particle.vy *= 0.995;
 
         // Wrap around edges with smooth transition
         if (particle.x < -10) particle.x = canvas.width + 10;
@@ -102,8 +74,8 @@ export const FloatingParticles = () => {
           particle.x = Math.random() * canvas.width;
           particle.y = Math.random() * canvas.height;
           particle.life = Math.random() * 200 + 100;
-          particle.vx = (Math.random() - 0.5) * 0.8;
-          particle.vy = (Math.random() - 0.5) * 0.8;
+          particle.vx = (Math.random() - 0.5) * 0.3;
+          particle.vy = (Math.random() - 0.5) * 0.3;
         }
 
         // Draw particle with glow effect
@@ -153,13 +125,11 @@ export const FloatingParticles = () => {
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isInteracting]);
+  }, []);
 
   return (
     <canvas
