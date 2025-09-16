@@ -113,7 +113,7 @@ export const PhotoGallery = () => {
               <Sparkles className="w-5 h-5 text-primary-glow animate-pulse" />
             </div>
             <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
-              <span className="text-holographic">Behind the Scenes</span>
+              <span className="text-white">Behind the Scenes</span>
             </h2>
             <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
               Experience our journey through <span className="text-primary font-semibold">competition moments</span>, 
