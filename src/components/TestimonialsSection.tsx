@@ -113,6 +113,43 @@ export const TestimonialsSection = () => {
           ))}
         </div>
 
+        {/* Enhanced CTA Section */}
+        <ScrollReveal delay={400}>
+          <div className="text-center">
+            <div className="glass-morphism rounded-3xl p-12 max-w-4xl mx-auto relative overflow-hidden group">
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary-glow/10 to-primary-electric/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              {/* Floating elements */}
+              <div className="absolute top-6 left-6 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-cyber-float" />
+              <div className="absolute bottom-6 right-6 w-16 h-16 bg-primary-glow/15 rounded-full blur-lg animate-glow-pulse" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-6">
+                  <Trophy className="w-12 h-12 text-primary animate-cyber-float" />
+                </div>
+                <h3 className="text-4xl font-orbitron font-bold mb-6 text-glow">
+                  Join Our Story
+                </h3>
+                <p className="text-xl text-muted-foreground font-inter mb-10 leading-relaxed max-w-2xl mx-auto">
+                  Be part of our mission to inspire the next generation of STEM leaders. 
+                  Your support helps us continue making a difference in Missouri and beyond.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <LiquidButton variant="premium" size="lg" glowIntensity="high" className="group">
+                    <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500" />
+                    Support Our Mission
+                  </LiquidButton>
+                  <LiquidButton variant="glass" size="lg" className="group">
+                    <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
+                    Share Your Story
+                  </LiquidButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
