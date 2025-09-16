@@ -172,39 +172,6 @@ export const StatsShowcase = () => {
             </Card>
           ))}
         </div>
-
-        {/* Achievement Timeline */}
-        <div className="mt-20 text-center">
-          <div className="bg-card border border-border rounded-2xl p-8 hover-glow transition-cyber">
-            <h3 className="text-2xl font-orbitron font-bold mb-6 text-glow">
-              Our Journey of Impact
-            </h3>
-            
-            <div className="grid md:grid-cols-4 gap-6 mb-8">
-              <div className="text-center">
-                <div className="text-3xl font-orbitron font-bold text-primary mb-2">2011</div>
-                <div className="text-sm text-muted-foreground font-inter">Team Founded (14 years)</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-orbitron font-bold text-primary mb-2">2023</div>
-                <div className="text-sm text-muted-foreground font-inter">First Awards</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-orbitron font-bold text-primary mb-2">2024</div>
-                <div className="text-sm text-muted-foreground font-inter">100 Women Reached</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-orbitron font-bold text-primary mb-2">2025</div>
-                <div className="text-sm text-muted-foreground font-inter">Current Season</div>
-              </div>
-            </div>
-            
-            <p className="text-muted-foreground font-inter max-w-2xl mx-auto">
-              From a small team with big dreams to a growing community impact - 
-              our journey continues to expand STEM opportunities for all.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
