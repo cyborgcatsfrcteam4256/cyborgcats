@@ -1,147 +1,155 @@
-import { Card } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Quote, Star, Users, Award, Lightbulb, MessageCircle, Heart, Sparkles } from 'lucide-react';
+import { Star, Quote, Award, Users, Heart, Sparkles, Trophy } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
+import { EnhancedBackground } from '@/components/EnhancedBackground';
+import { LiquidButton } from '@/components/LiquidButton';
 
 export const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Thompson",
-      title: "Parent & Community Volunteer",
-      organization: "Westminster Christian Academy",
-      quote: "The Cyborg Cats team has transformed how our children view STEM education. My daughter joined with no engineering background and now leads the programming subteam. The mentorship and hands-on learning environment they provide is extraordinary.",
-      type: "Community Impact",
-      icon: Lightbulb,
-      image: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png"
+      quote: "The Cyborg Cats have revolutionized STEM education in our community. Watching my daughter grow from a hesitant freshman to a confident programming leader has been incredible. The team's emphasis on real-world problem solving and community impact has shaped her future career aspirations.",
+      author: "Sarah Thompson",
+      role: "Parent & Community Volunteer",
+      icon: Heart,
     },
     {
-      name: "Emma Rodriguez",
-      title: "Team Captain & Lead Engineer",
-      organization: "Westminster Christian Academy",
-      quote: "Being part of the Cyborg Cats has taught me that engineering isn't just about building robots—it's about building solutions for real problems in our community. Our legislative advocacy and international outreach programs have shown me how STEM can create positive change worldwide.",
-      type: "Student Leadership",
-      icon: Users,
-      image: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png"
-    },
-    {
-      name: "Dr. Michael Chen",
-      title: "STEM Education Specialist",
-      organization: "Missouri Department of Education",
-      quote: "The Cyborg Cats' approach to combining technical excellence with community impact is a model for robotics programs statewide. Their work with legislators and international partnerships demonstrates the global potential of Missouri students.",
-      type: "Educational Impact",
+      quote: "Our collaboration with the Cyborg Cats on legislative advocacy has been remarkable. Their professional approach and deep understanding of STEM education policy has made them invaluable partners in advancing Missouri's educational initiatives. They represent the best of student leadership.",
+      author: "Dr. Michael Chen", 
+      role: "STEM Education Specialist",
       icon: Award,
-      image: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png"
-    }
+    },
+    {
+      quote: "Being part of Team 4256 has taught me that robotics isn't just about building machines—it's about building solutions to global challenges. From our work in South Korea to Ethiopia, I've learned how STEM can create positive change across continents.",
+      author: "Emma Rodriguez",
+      role: "Team Captain & Lead Engineer", 
+      icon: Users,
+    },
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-card/20 to-background relative overflow-hidden">
-      <div className="absolute inset-0 particle-background opacity-40" />
-      <div className="absolute inset-0 data-stream opacity-25" />
+    <section className="py-32 relative overflow-hidden">
+      <EnhancedBackground variant="dynamic" className="opacity-40" />
+      
+      {/* Floating decorative elements */}
+      <div className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-glow-pulse" />
+      <div className="absolute top-40 right-20 w-6 h-6 bg-primary-glow/20 rounded-full animate-cyber-float" />
+      <div className="absolute bottom-32 left-20 w-3 h-3 bg-primary-electric/40 rounded-full animate-glow-pulse" style={{animationDelay: '1s'}} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-20 animate-slide-up">
-          <div className="inline-flex items-center space-x-3 gradient-premium rounded-full px-8 py-4 mb-8 backdrop-blur-lg border border-primary/20">
-            <MessageCircle className="w-6 h-6 text-primary animate-pulse" />
+          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8">
+            <Quote className="w-6 h-6 text-primary" />
             <span className="font-orbitron text-base text-primary font-bold">Community Voices</span>
             <Sparkles className="w-5 h-5 text-primary-glow animate-pulse" />
           </div>
-          <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 leading-tight">
-            <span className="text-shimmer">What People Are Saying</span>
+          <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
+            <span className="text-holographic">Inspiring Stories</span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
-            Hear from <span className="text-primary font-semibold">educators</span>, <span className="text-primary-glow font-semibold">industry leaders</span>, 
-            and <span className="text-primary-electric font-semibold">team members</span> about the transformative impact 
-            of the Cyborg Cats program.
+            Hear from the <span className="text-primary font-semibold">students</span>, 
+            <span className="text-primary-glow font-semibold"> mentors</span>, and 
+            <span className="text-primary-electric font-semibold"> community members</span> who make our mission possible.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10 mb-20">
           {testimonials.map((testimonial, index) => (
-            <PremiumCard 
-              key={index} 
-              variant="glass"
-              className="group/testimonial p-10 hover:scale-105 transition-all duration-700"
-              interactive
-              glowEffect
-            >
-              {/* Background image with overlay */}
-              {testimonial.image && (
-                <div className="absolute inset-0 opacity-5 rounded-xl overflow-hidden">
-                  <img 
-                    src={testimonial.image} 
-                    alt="" 
-                    className="w-full h-full object-cover group-hover/testimonial:scale-110 transition-transform duration-700"
-                  />
-                </div>
-              )}
+            <ScrollReveal key={index} delay={index * 100}>
+              <div className="morphic-card p-10 h-full group/testimonial relative">
+                {/* Enhanced background gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 opacity-0 group-hover/testimonial:opacity-100 transition-opacity duration-700" />
+                
+                {/* Floating quote marks */}
+                <div className="absolute top-4 right-4 text-primary/20 text-6xl font-serif leading-none select-none">"</div>
+                <div className="absolute bottom-4 left-4 text-primary/20 text-6xl font-serif leading-none rotate-180 select-none">"</div>
 
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center glow-subtle group-hover/testimonial:glow-electric transition-all duration-500">
-                    <testimonial.icon className="w-6 h-6 text-primary group-hover/testimonial:scale-110 transition-transform duration-500" />
+                {/* Quote Icon with enhanced effects */}
+                <div className="mb-8 relative z-10">
+                  <div className="w-16 h-16 glass-morphism rounded-2xl flex items-center justify-center group-hover/testimonial:scale-110 transition-all duration-500 relative">
+                    <Quote className="w-8 h-8 text-primary group-hover/testimonial:rotate-12 transition-transform duration-500" />
+                    
+                    {/* Floating particles */}
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/40 rounded-full animate-glow-pulse" />
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary-glow/60 rounded-full animate-cyber-float" />
                   </div>
-                  <Badge variant="outline" className="font-orbitron text-xs px-3 py-1">
-                    {testimonial.type}
-                  </Badge>
                 </div>
-                
-                <Quote className="w-10 h-10 text-primary mb-6 glow-subtle group-hover/testimonial:rotate-12 transition-transform duration-500" />
-                
-                <blockquote className="text-xl font-inter text-muted-foreground mb-8 leading-relaxed group-hover/testimonial:text-foreground transition-colors duration-500">
-                  "{testimonial.quote}"
+
+                {/* Testimonial Content with better typography */}
+                <blockquote className="text-xl font-inter leading-relaxed text-foreground mb-10 relative z-10 group-hover/testimonial:text-glow transition-all duration-500">
+                  {testimonial.quote}
                 </blockquote>
-                
-                <div className="border-t border-primary/20 pt-8">
-                  <div className="space-y-2">
-                    <div className="font-orbitron font-bold text-xl text-glow">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-base text-primary font-inter font-medium">
-                      {testimonial.title}
-                    </div>
-                    <div className="text-sm text-muted-foreground font-inter">
-                      {testimonial.organization}
-                    </div>
+
+                {/* Enhanced Author Info */}
+                <div className="flex items-center space-x-4 border-t border-primary/20 pt-6 relative z-10">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-full flex items-center justify-center group-hover/testimonial:scale-110 group-hover/testimonial:rotate-6 transition-all duration-500 shadow-morphic">
+                    <testimonial.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-orbitron font-bold text-lg text-foreground group-hover/testimonial:text-primary transition-colors duration-500">{testimonial.author}</h4>
+                    <p className="text-muted-foreground font-inter group-hover/testimonial:text-foreground transition-colors duration-500">{testimonial.role}</p>
                   </div>
                 </div>
-              </div>
 
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4 opacity-20 group-hover/testimonial:opacity-60 transition-opacity duration-500">
-                <Star className="w-5 h-5 text-primary-glow animate-pulse" />
+                {/* Enhanced Star Rating */}
+                <div className="flex mt-6 space-x-1 relative z-10">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className="w-5 h-5 fill-primary text-primary transition-all duration-500 group-hover/testimonial:scale-110 group-hover/testimonial:drop-shadow-glow" 
+                      style={{
+                        animationDelay: `${i * 0.1}s`,
+                        transitionDelay: `${i * 0.05}s`
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-primary-glow/5 opacity-0 group-hover/testimonial:opacity-100 transition-opacity duration-700 pointer-events-none" />
               </div>
-            </PremiumCard>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="text-center">
-          <div className="gradient-premium border border-primary/20 rounded-2xl p-10 backdrop-blur-xl max-w-3xl mx-auto hover:shadow-luxury transition-all duration-700">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Star className="w-8 h-8 text-primary fill-primary animate-glow-pulse" />
-              <Heart className="w-6 h-6 text-red-400 animate-pulse" />
-              <Star className="w-8 h-8 text-primary-glow fill-primary-glow animate-glow-pulse" />
-            </div>
-            <h3 className="text-3xl font-orbitron font-bold mb-4 text-glow">
-              Join Our Growing Community
-            </h3>
-            <p className="text-muted-foreground font-inter mb-8 text-lg leading-relaxed">
-              Ready to be part of something bigger? Connect with us and see how you can contribute 
-              to our mission of building robots and building futures.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="premium" size="lg" className="group">
-                <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
-                Connect With Us
-              </Button>
-              <Button variant="glass" size="lg" className="group">
-                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
-                Share Your Story
-              </Button>
+        {/* Enhanced CTA Section */}
+        <ScrollReveal delay={400}>
+          <div className="text-center">
+            <div className="glass-morphism rounded-3xl p-12 max-w-4xl mx-auto relative overflow-hidden group">
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary-glow/10 to-primary-electric/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              {/* Floating elements */}
+              <div className="absolute top-6 left-6 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-cyber-float" />
+              <div className="absolute bottom-6 right-6 w-16 h-16 bg-primary-glow/15 rounded-full blur-lg animate-glow-pulse" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-6">
+                  <Trophy className="w-12 h-12 text-primary animate-cyber-float" />
+                </div>
+                <h3 className="text-4xl font-orbitron font-bold mb-6 text-glow">
+                  Join Our Story
+                </h3>
+                <p className="text-xl text-muted-foreground font-inter mb-10 leading-relaxed max-w-2xl mx-auto">
+                  Be part of our mission to inspire the next generation of STEM leaders. 
+                  Your support helps us continue making a difference in Missouri and beyond.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <LiquidButton variant="premium" size="lg" glowIntensity="high" className="group">
+                    <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500" />
+                    Support Our Mission
+                  </LiquidButton>
+                  <LiquidButton variant="glass" size="lg" className="group">
+                    <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
+                    Share Your Story
+                  </LiquidButton>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

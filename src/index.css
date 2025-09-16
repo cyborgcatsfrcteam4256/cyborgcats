@@ -60,12 +60,15 @@
     --glow-electric: 0 0 30px hsl(var(--primary-electric) / 0.4);
     --glow-subtle: 0 0 15px hsl(var(--primary) / 0.2);
     
-    /* Enhanced shadow system - Blue theme */
-    --shadow-luxury: 0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 130, 201, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    --shadow-elevated: 0 16px 40px -8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 130, 201, 0.1);
-    --shadow-cyber: 0 0 60px rgba(0, 130, 201, 0.4), 0 0 100px rgba(0, 190, 255, 0.2);
-    --shadow-glow: 0 0 80px rgba(0, 190, 255, 0.5), 0 0 120px rgba(0, 130, 201, 0.3);
-    --shadow-dramatic: 0 40px 80px -16px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 130, 201, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.08);
+  /* Enhanced shadow system - Blue theme */
+  --shadow-luxury: 0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 130, 201, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --shadow-elevated: 0 16px 40px -8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 130, 201, 0.1);
+  --shadow-cyber: 0 0 60px rgba(0, 130, 201, 0.4), 0 0 100px rgba(0, 190, 255, 0.2);
+  --shadow-glow: 0 0 80px rgba(0, 190, 255, 0.5), 0 0 120px rgba(0, 130, 201, 0.3);
+  --shadow-dramatic: 0 40px 80px -16px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 130, 201, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.08);
+  --shadow-morphic: 0 8px 32px rgba(0, 130, 201, 0.12), 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-depth: 0 50px 100px -20px rgba(0, 0, 0, 0.5), 0 30px 60px -30px rgba(0, 130, 201, 0.35);
+  --shadow-floating: 0 24px 48px rgba(0, 0, 0, 0.2), 0 0 32px rgba(0, 130, 201, 0.25);
 
     /* Enhanced transition system */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -386,6 +389,76 @@
     background-size: 200% 100%;
     animation: dataFlow 2s ease-in-out infinite;
   }
+
+  /* Enhanced morphing effects */
+  .morphic-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-morphic);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .morphic-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 130, 201, 0.4);
+    box-shadow: var(--shadow-depth);
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  /* Floating orb effects */
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatingOrb 6s ease-in-out infinite;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.3), transparent 70%);
+  }
+
+  .floating-orb:nth-child(2n) {
+    animation-delay: -2s;
+    animation-duration: 8s;
+  }
+
+  .floating-orb:nth-child(3n) {
+    animation-delay: -4s;
+    animation-duration: 10s;
+  }
+
+  /* Advanced glass morphism */
+  .glass-morphism {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: var(--shadow-floating);
+  }
+
+  /* Liquid button effect */
+  .liquid-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .liquid-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .liquid-button:hover::before {
+    left: 100%;
+  }
+
+  .liquid-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
 }
 
 @keyframes slideUp {
@@ -524,6 +597,45 @@
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+@keyframes floatingOrb {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-30px) translateX(20px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) scale(0.9);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateY(-40px) translateX(10px) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+@keyframes liquidFlow {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+@keyframes energyPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary-glow) / 0.2);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.5), 0 0 80px hsl(var(--primary-glow) / 0.4), 0 0 120px hsl(var(--primary-electric) / 0.3);
+    border-color: hsl(var(--primary-electric) / 0.8);
   }
 }
 

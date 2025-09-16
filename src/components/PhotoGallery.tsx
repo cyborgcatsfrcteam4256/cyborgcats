@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ChevronLeft, ChevronRight, X, Camera, Award, Users, Wrench } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Camera, Award, Users, Wrench, Star, Sparkles } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
+import { EnhancedBackground } from '@/components/EnhancedBackground';
+import { LiquidButton } from '@/components/LiquidButton';
 
 export const PhotoGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -77,7 +80,8 @@ export const PhotoGallery = () => {
   const categories = [
     { key: 'all', label: 'All Photos', icon: Camera },
     { key: 'team', label: 'Team Life', icon: Users },
-    { key: 'outreach', label: 'Outreach', icon: Users }
+    { key: 'competition', label: 'Competition', icon: Award },
+    { key: 'awards', label: 'Awards', icon: Star }
   ];
 
   const filteredPhotos = activeCategory === 'all' 
@@ -97,134 +101,166 @@ export const PhotoGallery = () => {
   };
 
   return (
-    <section className="py-24 bg-card/30 relative overflow-hidden">
-      <div className="absolute inset-0 particle-background opacity-20" />
+    <section className="py-32 relative overflow-hidden">
+      <EnhancedBackground variant="particles" className="opacity-25" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16 animate-slide-up">
-          <Badge variant="outline" className="mb-4 font-orbitron">
-            <Camera className="w-4 h-4 mr-2" />
-            Team Gallery
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-glow">
-            Behind the Scenes
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-            Take a look at our journey - from intense competition moments to community 
-            outreach and team bonding experiences.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8">
+              <Camera className="w-6 h-6 text-primary" />
+              <span className="font-orbitron text-base text-primary font-bold">Photo Gallery</span>
+              <Sparkles className="w-5 h-5 text-primary-glow animate-pulse" />
+            </div>
+            <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
+              <span className="text-holographic">Behind the Scenes</span>
+            </h2>
+            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
+              Experience our journey through <span className="text-primary font-semibold">competition moments</span>, 
+              <span className="text-primary-glow font-semibold"> team bonding</span>, and 
+              <span className="text-primary-electric font-semibold"> achievement celebrations</span>.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 animate-slide-up">
-          {categories.map((category) => (
-            <Button
-              key={category.key}
-              variant={activeCategory === category.key ? "hero" : "outline"}
-              size="sm"
-              onClick={() => setActiveCategory(category.key)}
-              className="transition-cyber"
-            >
-              <category.icon className="w-4 h-4 mr-2" />
-              {category.label}
-            </Button>
-          ))}
-        </div>
+        {/* Enhanced Category Filter */}
+        <ScrollReveal delay={100}>
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {categories.map((category) => (
+              <LiquidButton
+                key={category.key}
+                variant={activeCategory === category.key ? "premium" : "glass"}
+                size="lg"
+                onClick={() => setActiveCategory(category.key)}
+                className="group font-orbitron font-semibold"
+                glowIntensity={activeCategory === category.key ? "high" : "low"}
+              >
+                <category.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
+                {category.label}
+              </LiquidButton>
+            ))}
+          </div>
+        </ScrollReveal>
 
-        {/* Photo Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-scale-in">
+        {/* Enhanced Photo Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPhotos.map((photo, index) => (
-            <Card 
-              key={photo.id}
-              className="group cursor-pointer overflow-hidden hover-glow transition-cyber interactive-card"
-              onClick={() => setSelectedImage(index)}
-            >
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
-                <img 
-                  src={photo.imageUrl} 
-                  alt={photo.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                
-                {/* Overlay Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                  <Badge 
-                    variant="secondary" 
-                    className="mb-2 text-xs font-orbitron capitalize"
-                  >
-                    {photo.category}
-                  </Badge>
-                  <h3 className="font-orbitron font-semibold text-white mb-1">
-                    {photo.title}
-                  </h3>
-                  <p className="text-white/80 font-inter text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                    {photo.description}
-                  </p>
+            <ScrollReveal key={photo.id} delay={index * 50}>
+              <div 
+                className="morphic-card group cursor-pointer overflow-hidden relative hover:scale-105 transition-all duration-700"
+                onClick={() => setSelectedImage(index)}
+              >
+                <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
+                  <img 
+                    src={photo.imageUrl} 
+                    alt={photo.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  {/* Enhanced overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                  
+                  {/* Floating particles on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/80 rounded-full animate-glow-pulse" />
+                    <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-primary-glow/90 rounded-full animate-cyber-float" />
+                    <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-primary-electric/60 rounded-full animate-glow-pulse" style={{animationDelay: '0.5s'}} />
+                  </div>
+                  
+                  {/* Enhanced content overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <Badge 
+                        className={`mb-3 glass-morphism font-orbitron font-bold capitalize ${
+                          photo.category === 'competition' ? 'text-primary border-primary/30' :
+                          photo.category === 'awards' ? 'text-yellow-400 border-yellow-400/30' :
+                          'text-green-400 border-green-400/30'
+                        }`}
+                      >
+                        {photo.category}
+                      </Badge>
+                      <h3 className="font-orbitron font-bold text-white mb-2 text-xl">
+                        {photo.title}
+                      </h3>
+                      <p className="text-white/90 font-inter text-sm opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100">
+                        {photo.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Corner glow effect */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
-            </Card>
+            </ScrollReveal>
           ))}
         </div>
 
-        {/* Lightbox Modal */}
+        {/* Enhanced Lightbox Modal */}
         {selectedImage !== null && (
-          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg flex items-center justify-center p-4">
-            <div className="relative max-w-4xl w-full">
-              {/* Close Button */}
-              <Button
-                variant="ghost"
+          <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
+            <div className="relative max-w-6xl w-full animate-scale-in">
+              {/* Enhanced Close Button */}
+              <LiquidButton
+                variant="glass"
                 size="icon"
-                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70"
+                className="absolute top-4 right-4 z-10 w-12 h-12"
                 onClick={() => setSelectedImage(null)}
               >
-                <X className="w-6 h-6 text-white" />
-              </Button>
+                <X className="w-6 h-6" />
+              </LiquidButton>
 
-              {/* Navigation Buttons */}
-              <Button
-                variant="ghost"
+              {/* Enhanced Navigation Buttons */}
+              <LiquidButton
+                variant="glass"
                 size="icon"
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12"
                 onClick={prevImage}
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
-              </Button>
+                <ChevronLeft className="w-6 h-6" />
+              </LiquidButton>
               
-              <Button
-                variant="ghost"
+              <LiquidButton
+                variant="glass"
                 size="icon"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12"
                 onClick={nextImage}
               >
-                <ChevronRight className="w-6 h-6 text-white" />
-              </Button>
+                <ChevronRight className="w-6 h-6" />
+              </LiquidButton>
 
-              {/* Image and Details */}
-              <div className="bg-card rounded-xl overflow-hidden shadow-elevated">
+              {/* Enhanced Image and Details */}
+              <div className="glass-morphism rounded-3xl overflow-hidden shadow-glow">
                 <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
                   <img 
                     src={filteredPhotos[selectedImage].imageUrl} 
                     alt={filteredPhotos[selectedImage].title}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
                 
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge variant="outline" className="font-orbitron capitalize">
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <Badge 
+                      className={`glass-morphism font-orbitron font-bold capitalize text-lg px-4 py-2 ${
+                        filteredPhotos[selectedImage].category === 'competition' ? 'text-primary border-primary/30' :
+                        filteredPhotos[selectedImage].category === 'awards' ? 'text-yellow-400 border-yellow-400/30' :
+                        'text-green-400 border-green-400/30'
+                      }`}
+                    >
                       {filteredPhotos[selectedImage].category}
                     </Badge>
-                    <span className="text-sm text-muted-foreground font-inter">
+                    <span className="text-sm text-muted-foreground font-inter glass-morphism px-3 py-1 rounded-lg">
                       {selectedImage + 1} of {filteredPhotos.length}
                     </span>
                   </div>
                   
-                  <h3 className="text-xl font-orbitron font-bold mb-2">
+                  <h3 className="text-3xl font-orbitron font-bold mb-4 text-glow">
                     {filteredPhotos[selectedImage].title}
                   </h3>
                   
-                  <p className="text-muted-foreground font-inter">
+                  <p className="text-muted-foreground font-inter text-lg leading-relaxed">
                     {filteredPhotos[selectedImage].description}
                   </p>
                 </div>
@@ -232,7 +268,6 @@ export const PhotoGallery = () => {
             </div>
           </div>
         )}
-
       </div>
     </section>
   );

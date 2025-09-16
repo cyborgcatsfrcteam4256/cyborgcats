@@ -1,184 +1,180 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
-import { ArrowRight, Calendar, Trophy, Users, Globe, Award } from 'lucide-react';
-import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
+import { Button } from '@/components/ui/button';
+import { Calendar, Clock, ArrowRight, Trophy, Award, Users, ExternalLink, Newspaper, Star } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
+import { EnhancedBackground } from '@/components/EnhancedBackground';
+import { LiquidButton } from '@/components/LiquidButton';
 
 export const NewsSection = () => {
   const news = [
     {
-      title: "Team Continues STEM Advocacy Work",
-      excerpt: "Our team continues to engage with Missouri legislators about STEM education funding, building on our meetings with 19 representatives and the Lieutenant Governor to support bills that expand STEM opportunities statewide.",
+      title: "2025 FIRST Impact Award Winners",
+      summary: "We are thrilled to announce that the Cyborg Cats have been selected as recipients of the prestigious FIRST Impact Award, recognizing our outstanding community outreach and STEM advocacy work throughout Missouri.",
       date: "March 15, 2025",
-      category: "Outreach",
-      featured: true,
-      icon: Users,
-      readTime: "3 min read"
+      category: "Award",
+      image: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
+      readTime: "4 min read",
+      icon: Award
     },
     {
-      title: "New Competition Season Begins",
-      excerpt: "The 2025 FIRST Robotics Competition season is underway. Our team is preparing for regional competitions with our new robot design and strategy.",
-      date: "March 15, 2025", 
+      title: "Legislative Advocacy Milestone",
+      summary: "Our team continues to make waves in Missouri politics, having now met with 20 state legislators and the Lieutenant Governor to advocate for increased STEM education funding and opportunities.",
+      date: "March 10, 2025",
       category: "Competition",
-      featured: false,
-      icon: Award,
-      readTime: "2 min read"
+      image: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
+      readTime: "3 min read",
+      icon: Trophy
     },
     {
-      title: "100th Woman in STEM Seminar Participant",
-      excerpt: "We celebrated a major milestone as our Women in STEM seminars welcomed their 100th participant over the past three years. All of our business and engineering upper leadership is female.",
+      title: "Global STEM Impact Expansion",
+      summary: "Building on our international work, we've helped establish a fourth FRC team in South Korea and reached over 115 students in Ethiopia, demonstrating the global reach of Missouri's STEM initiatives.",
       date: "February 28, 2025",
       category: "Outreach",
-      featured: false,
-      icon: Users,
-      readTime: "4 min read"
-    },
-    {
-      title: "International STEM Impact: South Korea & Ethiopia",
-      excerpt: "Helped establish South Korea's 4th FRC team at Samuel School and conducted STEM activities for 115 students in Ethiopia, addressing the gap where only 2 active FRC teams existed in all of Africa.",
-      date: "February 10, 2025",
-      category: "Partnership",
-      featured: false,
-      icon: Globe,
-      readTime: "3 min read"
+      image: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png",
+      readTime: "5 min read",
+      icon: Users
     }
   ];
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "Award": return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
-      case "Competition": return "bg-green-500/20 text-green-400 border-green-500/30";
-      case "Outreach": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
-      case "Partnership": return "bg-blue-500/20 text-blue-400 border-blue-500/30";
-      default: return "bg-primary/20 text-primary border-primary/30";
-    }
-  };
-
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 circuit-pattern opacity-10" />
+    <section className="py-32 relative overflow-hidden">
+      <EnhancedBackground variant="particles" className="opacity-30" />
+      
+      {/* Decorative grid */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex items-center justify-between mb-16 animate-slide-up">
-          <div>
-            <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
-              <img src={cyborgCatsLogo} alt="" className="w-5 h-5" />
-              <Trophy className="w-5 h-5 text-primary" />
-              <span className="font-orbitron text-sm text-primary font-medium">Latest Updates</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-orbitron font-bold">
-              <span className="text-holographic">Team News & Updates</span>
-            </h2>
-            <p className="text-xl text-muted-foreground mt-4 font-inter leading-relaxed">
-              Stay up to date with our latest achievements and initiatives.
-            </p>
+        <div className="text-center mb-20 animate-slide-up">
+          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8">
+            <Newspaper className="w-6 h-6 text-primary" />
+            <span className="font-orbitron text-base text-primary font-bold">Latest Updates</span>
+            <Star className="w-5 h-5 text-primary-glow animate-pulse" />
           </div>
-          <Button variant="cyber" size="lg" className="hidden md:flex">
-            View All News
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
+          <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
+            <span className="text-holographic">Team News</span>
+          </h2>
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
+            Stay up-to-date with our latest <span className="text-primary font-semibold">achievements</span>, 
+            <span className="text-primary-glow font-semibold"> competitions</span>, and 
+            <span className="text-primary-electric font-semibold"> community events</span>.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Featured Article */}
-          <Card className="lg:row-span-2 bg-card/80 backdrop-blur-lg border-border/50 overflow-hidden hover-glow transition-cyber interactive-card">
-            <div className="p-8 h-full flex flex-col relative">
-              {/* Background team photo */}
-              <div className="absolute inset-0 opacity-5 rounded-xl overflow-hidden">
-                <img 
-                  src="/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png" 
-                  alt="" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex items-center justify-between mb-6 relative z-10">
-                <Badge className={getCategoryColor(news[0].category)}>
-                  {React.createElement(news[0].icon, { className: "w-4 h-4 mr-2" })}
-                  {news[0].category}
-                </Badge>
-                <span className="text-sm text-muted-foreground font-inter">Featured</span>
-              </div>
-              
-              <h3 className="text-2xl font-orbitron font-bold mb-4 text-glow relative z-10">
-                {news[0].title}
-              </h3>
-              
-              <p className="text-muted-foreground font-inter text-lg mb-6 flex-grow relative z-10">
-                {news[0].excerpt}
-              </p>
-              
-              <div className="flex items-center justify-between pt-6 border-t border-border relative z-10">
-                <div className="flex items-center space-x-4 text-sm text-muted-foreground font-inter">
-                  <div className="flex items-center space-x-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{news[0].date}</span>
-                  </div>
-                  <span>•</span>
-                  <span>{news[0].readTime}</span>
-                </div>
-                <Button variant="ghost" size="sm" className="group">
-                  Read More
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </div>
-          </Card>
-
-          {/* Other Articles */}
-          <div className="space-y-6">
-            {news.slice(1).map((article, index) => (
-              <Card 
-                key={index} 
-                className="p-6 bg-card/60 backdrop-blur-lg border-border/30 hover-glow transition-cyber"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center glow-subtle">
-                    {React.createElement(article.icon, { className: "w-6 h-6 text-primary" })}
+        <div className="grid lg:grid-cols-3 gap-10 mb-20">
+          {news.map((item, index) => (
+            <ScrollReveal key={index} delay={index * 100}>
+              <div className="morphic-card h-full group overflow-hidden relative">
+                {/* Enhanced hover effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                {/* Image with advanced effects */}
+                <div className="relative overflow-hidden rounded-t-2xl">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  
+                  {/* Floating particles on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/60 rounded-full animate-glow-pulse" />
+                    <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-primary-glow/80 rounded-full animate-cyber-float" />
+                    <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-primary-electric/40 rounded-full animate-glow-pulse" style={{animationDelay: '0.5s'}} />
                   </div>
                   
-                  <div className="flex-grow">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <Badge 
-                        variant="outline" 
-                        className={`text-xs ${getCategoryColor(article.category)}`}
-                      >
-                        {article.category}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground font-inter">
-                        {article.date}
-                      </span>
+                  {/* Enhanced Category Badge */}
+                  <div className="absolute top-6 left-6">
+                    <div className={`glass-morphism rounded-lg px-4 py-2 font-orbitron font-bold text-sm ${
+                      item.category === 'Competition' ? 'text-primary border border-primary/30' :
+                      item.category === 'Award' ? 'text-yellow-400 border border-yellow-400/30' :
+                      'text-green-400 border border-green-400/30'
+                    }`}>
+                      <div className="flex items-center space-x-2">
+                        <item.icon className="w-4 h-4" />
+                        <span>{item.category}</span>
+                      </div>
                     </div>
-                    
-                    <h4 className="text-lg font-orbitron font-semibold mb-2 hover:text-primary transition-cyber">
-                      {article.title}
-                    </h4>
-                    
-                    <p className="text-sm text-muted-foreground font-inter mb-3">
-                      {article.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground font-inter">
-                        {article.readTime}
-                      </span>
-                      <Button variant="ghost" size="sm" className="text-xs p-0 h-auto">
-                        Read More →
-                      </Button>
+                  </div>
+                  
+                  {/* Enhanced Date Badge */}
+                  <div className="absolute top-6 right-6 glass-morphism rounded-lg px-4 py-2">
+                    <div className="flex items-center space-x-2 text-sm font-inter">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      <span className="text-foreground">{item.date}</span>
                     </div>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+
+                <div className="p-8 relative z-10">
+                  <h3 className="text-2xl font-orbitron font-bold mb-4 text-foreground group-hover:text-glow transition-all duration-500">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground font-inter text-lg leading-relaxed mb-8 group-hover:text-foreground transition-colors duration-500">
+                    {item.summary}
+                  </p>
+                  
+                  <div className="flex items-center justify-between border-t border-primary/20 pt-6">
+                    <div className="flex items-center space-x-2 text-sm text-muted-foreground group-hover:text-primary transition-colors duration-500">
+                      <Clock className="w-4 h-4" />
+                      <span>{item.readTime}</span>
+                    </div>
+                    
+                    <LiquidButton 
+                      variant="ghost" 
+                      size="sm" 
+                      className="group/btn hover:text-primary font-orbitron font-semibold"
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-2 transition-transform duration-500" />
+                    </LiquidButton>
+                  </div>
+                </div>
+
+                {/* Enhanced glow border */}
+                <div className="absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-all duration-700 pointer-events-none" />
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
 
-        <div className="text-center">
-          <Button variant="silver" size="lg" className="md:hidden">
-            View All News
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-        </div>
+        {/* Enhanced Newsletter CTA */}
+        <ScrollReveal delay={400}>
+          <div className="text-center">
+            <div className="glass-morphism rounded-3xl p-12 max-w-4xl mx-auto relative overflow-hidden group">
+              <EnhancedBackground variant="subtle" className="opacity-20" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 glass-morphism rounded-2xl flex items-center justify-center animate-cyber-float">
+                    <Newspaper className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <h3 className="text-4xl font-orbitron font-bold mb-6 text-glow">
+                  Stay in the Loop
+                </h3>
+                <p className="text-xl text-muted-foreground font-inter mb-10 leading-relaxed max-w-2xl mx-auto">
+                  Get the latest updates on our competitions, achievements, and community impact 
+                  delivered straight to your inbox.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <LiquidButton variant="premium" size="lg" glowIntensity="high" className="group">
+                    <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
+                    Subscribe to Newsletter
+                  </LiquidButton>
+                  <LiquidButton variant="glass" size="lg" className="group">
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
+                    View All News
+                  </LiquidButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
