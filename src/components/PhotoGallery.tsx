@@ -145,7 +145,7 @@ export const PhotoGallery = () => {
                   alt={photo.title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
                 
                 {/* Overlay Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform">
