@@ -104,18 +104,11 @@ export const HeroSection = () => {
           {/* Enhanced Right side - Robot showcase */}
           <ScrollReveal direction="scale" delay={400} className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer">
-              <div className="grid grid-cols-2 gap-2 h-[600px]">
-                <img 
-                  src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
-                  alt="Cyborg Cats team celebrating at competition" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <img 
-                  src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
-                  alt="Cyborg Cats team photo" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
+              <img 
+                src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
+                alt="Cyborg Cats team celebrating at competition" 
+                className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-primary/10" />
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
