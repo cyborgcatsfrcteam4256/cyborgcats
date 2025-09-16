@@ -20,13 +20,13 @@ export const HeroSection = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-primary-glow/12" />
-        <div className="absolute inset-0 circuit-pattern opacity-20 animate-pulse" />
+        <div className="absolute inset-0 circuit-pattern opacity-10" />
         <FloatingParticles />
         
-        {/* Enhanced animated gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-glow-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/20 rounded-full blur-3xl animate-cyber-float" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-electric/5 to-primary/5 rounded-full blur-3xl animate-pulse" />
+        {/* Subtle gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-electric/3 to-primary/3 rounded-full blur-3xl" />
       </div>
 
       {/* Content */}
@@ -39,7 +39,7 @@ export const HeroSection = () => {
               <span className="font-orbitron text-sm text-primary font-bold tracking-wide">
                 2025 FIRST IMPACT AWARD WINNERS
               </span>
-              <Sparkles className="w-5 h-5 text-primary-glow animate-pulse group-hover:animate-spin" />
+              <Sparkles className="w-5 h-5 text-primary-glow group-hover:rotate-12 transition-transform duration-500" />
             </div>
 
             {/* Main Headline */}
