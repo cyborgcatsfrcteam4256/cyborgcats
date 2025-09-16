@@ -75,21 +75,21 @@ export const FloatingParticles = () => {
         
         if (distance < 150 && isInteracting) {
           const force = (150 - distance) / 150;
-          particle.vx += (dx / distance) * force * 0.02;
-          particle.vy += (dy / distance) * force * 0.02;
-          particle.opacity = Math.min(0.8, particle.opacity + force * 0.01);
+          particle.vx += (dx / distance) * force * 0.005;
+          particle.vy += (dy / distance) * force * 0.005;
+          particle.opacity = Math.min(0.6, particle.opacity + force * 0.005);
         } else {
-          particle.opacity = Math.max(0.1, particle.opacity - 0.005);
+          particle.opacity = Math.max(0.2, particle.opacity - 0.002);
         }
 
-        // Update position with gentle drift
-        particle.x += particle.vx + Math.sin(Date.now() * 0.001 + particle.x * 0.01) * 0.1;
-        particle.y += particle.vy + Math.cos(Date.now() * 0.001 + particle.y * 0.01) * 0.1;
+        // Update position with very gentle drift
+        particle.x += particle.vx + Math.sin(Date.now() * 0.0005 + particle.x * 0.005) * 0.03;
+        particle.y += particle.vy + Math.cos(Date.now() * 0.0005 + particle.y * 0.005) * 0.03;
         particle.life--;
 
-        // Apply gentle damping
-        particle.vx *= 0.99;
-        particle.vy *= 0.99;
+        // Apply stronger damping for smoother movement
+        particle.vx *= 0.985;
+        particle.vy *= 0.985;
 
         // Wrap around edges with smooth transition
         if (particle.x < -10) particle.x = canvas.width + 10;
