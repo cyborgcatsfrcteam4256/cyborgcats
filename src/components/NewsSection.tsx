@@ -80,7 +80,7 @@ export const NewsSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {/* Featured Article */}
-          <Card className="lg:row-span-2 bg-card/80 backdrop-blur-lg border-border/50 overflow-hidden hover-glow transition-cyber interactive-card holographic-border">
+          <Card className="lg:row-span-2 bg-card/80 backdrop-blur-lg border-border/50 overflow-hidden hover-glow transition-cyber interactive-card">
             <div className="p-8 h-full flex flex-col">
               <div className="flex items-center justify-between mb-6">
                 <Badge className={getCategoryColor(news[0].category)}>
