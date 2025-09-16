@@ -24,9 +24,11 @@ export const HeroSection = () => {
         <FloatingParticles />
         
         {/* Enhanced animated gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-glow-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary-glow/20 rounded-full blur-3xl animate-cyber-float" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-electric/5 to-primary/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-purple/15 rounded-full blur-3xl animate-glow-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-pink/20 rounded-full blur-3xl animate-cyber-float" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-accent-green/5 to-accent-cyan/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/3 right-1/3 w-60 h-60 bg-accent-orange/10 rounded-full blur-2xl animate-cyber-float" style={{animationDelay: '1s'}} />
+        <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-accent-yellow/8 rounded-full blur-2xl animate-glow-pulse" style={{animationDelay: '0.5s'}} />
       </div>
 
       {/* Content */}
@@ -34,12 +36,12 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="space-y-8" delay={200}>
             {/* Enhanced Hero Badge */}
-            <div className="inline-flex items-center space-x-3 gradient-premium border border-primary/30 rounded-full px-8 py-4 glow-interactive hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-xl">
-              <Award className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <span className="font-orbitron text-sm text-primary font-bold tracking-wide">
+            <div className="inline-flex items-center space-x-3 gradient-rainbow-pop border border-accent-purple/30 rounded-full px-8 py-4 glow-interactive hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-xl">
+              <Award className="w-6 h-6 text-white group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
+              <span className="font-orbitron text-sm text-white font-bold tracking-wide">
                 2025 FIRST IMPACT AWARD WINNERS
               </span>
-              <Sparkles className="w-5 h-5 text-primary-glow animate-pulse group-hover:animate-spin" />
+              <Sparkles className="w-5 h-5 text-white animate-pulse group-hover:animate-spin" />
             </div>
 
             {/* Main Headline */}
@@ -62,16 +64,16 @@ export const HeroSection = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 animate-slide-up" style={{animationDelay: '0.8s'}}>
-              <Button variant="premium" size="lg" className="group relative overflow-hidden">
+              <Button variant="premium" size="lg" className="group relative overflow-hidden bg-gradient-to-r from-accent-purple to-accent-pink hover:from-accent-pink hover:to-accent-purple">
                 <Rocket className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 relative z-10" />
                 <span className="relative z-10">Explore Our Journey</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
-              <Button variant="glass" size="lg" className="group relative overflow-hidden">
-                <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500 relative z-10" />
+              <Button variant="glass" size="lg" className="group relative overflow-hidden bg-gradient-to-r from-accent-green to-accent-cyan hover:from-accent-cyan hover:to-accent-green">
+                <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-white transition-all duration-500 relative z-10" />
                 <span className="relative z-10">Support Our Mission</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
             </div>
 
@@ -80,15 +82,15 @@ export const HeroSection = () => {
               <div className="absolute -top-px left-1/2 transform -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
               
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">48</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-accent-purple group-hover:text-accent-pink transition-colors duration-300 group-hover:scale-110 transform transition-transform">48</div>
                 <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Team Members</div>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">20</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-accent-green group-hover:text-accent-cyan transition-colors duration-300 group-hover:scale-110 transform transition-transform">20</div>
                 <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Legislators Met</div>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">14</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-accent-orange group-hover:text-accent-yellow transition-colors duration-300 group-hover:scale-110 transform transition-transform">14</div>
                 <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Years Active</div>
               </div>
             </div>
@@ -106,12 +108,12 @@ export const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Enhanced floating elements */}
-              <div className="absolute top-6 right-6 bg-primary/20 backdrop-blur-lg rounded-lg p-4 glow-interactive hover:scale-110 transition-transform duration-300 cursor-pointer group/element">
-                <Zap className="w-8 h-8 text-primary group-hover/element:rotate-12 transition-transform duration-300" />
+              <div className="absolute top-6 right-6 bg-gradient-to-br from-accent-purple/30 to-accent-pink/20 backdrop-blur-lg rounded-lg p-4 glow-interactive hover:scale-110 transition-transform duration-300 cursor-pointer group/element border border-accent-purple/20">
+                <Zap className="w-8 h-8 text-accent-purple group-hover/element:rotate-12 transition-transform duration-300" />
               </div>
               
-              <div className="absolute top-6 left-6 bg-primary-glow/15 backdrop-blur-lg rounded-lg p-3">
-                <Cpu className="w-6 h-6 text-primary-glow" />
+              <div className="absolute top-6 left-6 bg-gradient-to-br from-accent-green/30 to-accent-cyan/20 backdrop-blur-lg rounded-lg p-3 border border-accent-green/20">
+                <Cpu className="w-6 h-6 text-accent-green" />
               </div>
               
               <div className="absolute bottom-6 left-6 bg-card/90 backdrop-blur-lg rounded-lg p-4 hover:scale-105 transition-transform duration-300 cursor-pointer border border-primary/20">

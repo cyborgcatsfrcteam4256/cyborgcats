@@ -59,6 +59,16 @@ export default {
           dark: "hsl(var(--cyborg-dark))",
           darker: "hsl(var(--cyborg-darker))",
         },
+        accent: {
+          purple: "hsl(var(--accent-purple))",
+          green: "hsl(var(--accent-green))",
+          orange: "hsl(var(--accent-orange))",
+          pink: "hsl(var(--accent-pink))",
+          yellow: "hsl(var(--accent-yellow))",
+          red: "hsl(var(--accent-red))",
+          cyan: "hsl(var(--accent-cyan))",
+          lime: "hsl(var(--accent-lime))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

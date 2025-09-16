@@ -49,11 +49,28 @@
     --cyborg-dark: 220 25% 5%;
     --cyborg-darker: 220 30% 3%;
     
+    /* Vibrant accent colors for visual interest */
+    --accent-purple: 270 100% 60%;
+    --accent-green: 120 100% 50%;
+    --accent-orange: 30 100% 60%;
+    --accent-pink: 320 100% 65%;
+    --accent-yellow: 55 100% 60%;
+    --accent-red: 0 100% 60%;
+    --accent-cyan: 180 100% 50%;
+    --accent-lime: 90 100% 50%;
+    
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-cyber: linear-gradient(135deg, hsl(var(--cyborg-blue)), hsl(var(--primary-electric)));
     --gradient-silver: linear-gradient(135deg, hsl(var(--cyborg-silver)), hsl(215 20% 85%));
     --gradient-dark: linear-gradient(135deg, hsl(var(--cyborg-dark)), hsl(var(--cyborg-darker)));
+    
+    /* Vibrant pop gradients */
+    --gradient-purple: linear-gradient(135deg, hsl(var(--accent-purple)), hsl(280 100% 70%));
+    --gradient-green: linear-gradient(135deg, hsl(var(--accent-green)), hsl(140 100% 60%));  
+    --gradient-orange: linear-gradient(135deg, hsl(var(--accent-orange)), hsl(40 100% 70%));
+    --gradient-pink: linear-gradient(135deg, hsl(var(--accent-pink)), hsl(340 100% 75%));
+    --gradient-rainbow: linear-gradient(135deg, hsl(var(--accent-purple)), hsl(var(--accent-pink)), hsl(var(--accent-orange)), hsl(var(--accent-yellow)));
     
     /* Glow effects */
     --glow-primary: 0 0 20px hsl(var(--primary-glow) / 0.3);
@@ -150,6 +167,27 @@
       hsl(var(--primary-glow) / 0.1), 
       hsl(var(--primary-electric) / 0.05)
     );
+  }
+  
+  /* Vibrant pop gradients */
+  .gradient-purple-pop {
+    background: var(--gradient-purple);
+  }
+  
+  .gradient-green-pop {
+    background: var(--gradient-green);
+  }
+  
+  .gradient-orange-pop {
+    background: var(--gradient-orange);
+  }
+  
+  .gradient-pink-pop {
+    background: var(--gradient-pink);
+  }
+  
+  .gradient-rainbow-pop {
+    background: var(--gradient-rainbow);
   }
 
   .gradient-premium-text {
