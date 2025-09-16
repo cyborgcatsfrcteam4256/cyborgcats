@@ -85,8 +85,8 @@ const Sponsors = () => {
               <span className="block text-primary-glow">With Us</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter mb-8">
-              Join community partners supporting STEM education and youth development. 
-              Partner with FRC Team 4256 - Cyborg Cats.
+              Join St. Louis community partners supporting STEM education and youth development. 
+              Partner with Missouri's FRC Team 4256 - Cyborg Cats, proudly representing the Gateway City.
             </p>
             
           </div>

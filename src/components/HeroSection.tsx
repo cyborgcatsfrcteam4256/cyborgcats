@@ -47,9 +47,9 @@ export const HeroSection = () => {
             </p>
 
             <p className="text-lg text-muted-foreground font-inter max-w-2xl">
-              From Westminster Christian Academy in St. Louis, Missouri, we're 48 passionate students 
-              engineering the future through robotics while making a lasting impact in our community 
-              and beyond.
+              From Westminster Christian Academy in the heart of St. Louis, Missouri, we're 48 passionate students 
+              representing the Gateway City while engineering the future through robotics and making a lasting impact 
+              in our Missouri community and beyond.
             </p>
 
             {/* Enhanced CTA Buttons */}
@@ -110,7 +110,7 @@ export const HeroSection = () => {
                   <Users className="w-6 h-6 text-primary" />
                   <div>
                     <div className="font-orbitron font-semibold text-glow">Team 4256</div>
-                    <div className="text-sm text-muted-foreground">Westminster Christian Academy</div>
+                    <div className="text-sm text-muted-foreground">St. Louis, Missouri</div>
                   </div>
                 </div>
               </div>

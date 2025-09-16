@@ -22,7 +22,8 @@ const Contact = () => {
               <span className="block text-primary-glow">Touch</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              Ready to join our mission or support our team? We'd love to hear from you.
+              Ready to join our St. Louis-based mission or support our Missouri team? We'd love to hear from you 
+              and explore how we can work together in the Gateway City and beyond.
             </p>
           </div>
         </div>
@@ -38,7 +39,7 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-orbitron font-bold mb-4">Join Our Team</h3>
               <p className="text-muted-foreground font-inter mb-6">
-                Interested in becoming a Cyborg Cat? Learn about joining our robotics team.
+                Interested in becoming a Cyborg Cat? Learn about joining our St. Louis robotics team.
               </p>
               <Button variant="hero" size="sm">
                 Learn More

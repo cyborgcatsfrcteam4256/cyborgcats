@@ -19,8 +19,8 @@ const Impact = () => {
               <span className="block text-primary-glow">& Outreach</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              Beyond building robots, we're building a better future through STEM education, 
-              community outreach, and advocacy for inclusive engineering.
+              From our home in St. Louis, Missouri, we're building more than robots—we're building 
+              a better future through STEM education, community outreach, and advocacy across the Show-Me State and beyond.
             </p>
           </div>
         </div>
@@ -87,9 +87,9 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">Women in STEM Seminars</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Hosting public seminars at Westminster with industry professionals. Over 100 attendees 
-                in the past three years. All of our business and engineering upper leadership is female, 
-                demonstrating our commitment to women in STEM.
+                Hosting public seminars at Westminster Christian Academy in St. Louis with industry professionals. 
+                Over 100 attendees in the past three years. All of our business and engineering upper leadership is female, 
+                demonstrating our commitment to women in STEM across Missouri.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
@@ -147,8 +147,9 @@ const Impact = () => {
                 <h3 className="text-2xl font-orbitron font-bold">STEM Advocacy</h3>
               </div>
               <p className="text-muted-foreground font-inter text-lg mb-6">
-                Met with 19 representatives and the Lieutenant Governor at Missouri Capitol 
-                supporting HB 256 for STEM education funding. Participated in STEM advocacy events.
+                Met with 19 representatives and the Lieutenant Governor at the Missouri State Capitol 
+                supporting HB 256 for STEM education funding. Our St. Louis-based team actively advocates 
+                for Missouri students and STEM education funding across the state.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">

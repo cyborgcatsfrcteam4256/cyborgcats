@@ -20,8 +20,8 @@ export const ImpactSection = () => {
             <span className="text-holographic">Our Impact</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter leading-relaxed">
-            Beyond building robots, we're building a better future through STEM education, 
-            community outreach, and advocacy for inclusive engineering.
+            From our home base in St. Louis, Missouri, we're building more than robots—we're building 
+            a better future through STEM education, community outreach, and advocacy across the Gateway State and beyond.
           </p>
         </div>
 
@@ -91,8 +91,8 @@ export const ImpactSection = () => {
               Empowering the Next Generation
             </h3>
             <p className="text-lg text-muted-foreground font-inter">
-              Our team continues growing and making community impact through 
-              STEM education and advocacy for students statewide.
+              Based in St. Louis, our team continues growing and making community impact throughout Missouri 
+              through STEM education and advocacy for students across the Show-Me State.
             </p>
             <Button variant="cyber" size="lg">
               Learn More About Our Mission

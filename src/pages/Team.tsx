@@ -92,8 +92,8 @@ const Team = () => {
               <span className="block text-primary-glow">Team</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              48 passionate students, 22 dedicated mentors working together 
-              across engineering, business, and outreach to build robots and build futures.
+              48 passionate students and 22 dedicated mentors from St. Louis, Missouri working together 
+              across engineering, business, and outreach to build robots and build futures in the Gateway City.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ const Team = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-orbitron font-bold mb-6 text-glow">Our Culture</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              The values that unite us and drive our success.
+              The St. Louis values that unite us and drive our success in representing Missouri's innovation spirit.
             </p>
           </div>
 

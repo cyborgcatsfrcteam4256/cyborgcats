@@ -30,7 +30,7 @@ export const Navigation = () => {
             />
             <div className="flex flex-col">
               <span className="font-orbitron font-bold text-lg text-glow">Cyborg Cats</span>
-              <span className="font-inter text-xs text-muted-foreground">FRC Team 4256</span>
+              <span className="font-inter text-xs text-muted-foreground">St. Louis • Team 4256</span>
             </div>
           </Link>
 

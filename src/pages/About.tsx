@@ -18,8 +18,8 @@ const About = () => {
               <span className="block text-primary-glow">Cyborg Cats</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter">
-              Based in St. Louis, Missouri at Westminster Christian Academy, FRC Team 4256 
-              has been active in FIRST Robotics for 14 years.
+              From Westminster Christian Academy in the heart of St. Louis, Missouri, FRC Team 4256 
+              has been proudly representing the Gateway City in FIRST Robotics for 14 years.
             </p>
           </div>
         </div>
@@ -33,13 +33,13 @@ const About = () => {
               <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6 glow-subtle">
                 <MapPin className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-orbitron font-bold mb-4">Our Location</h3>
+              <h3 className="text-xl font-orbitron font-semibold mb-4">St. Louis Robotics Hub</h3>
               <p className="text-muted-foreground font-inter mb-4">
-                Based in St. Louis, Missouri at Westminster Christian Academy, we represent 
-                the heart of American innovation and community spirit.
+                From the Gateway City, Westminster Christian Academy proudly hosts Missouri's premier 
+                FRC team, representing St. Louis innovation and community spirit.
               </p>
               <div className="text-sm text-primary font-orbitron font-medium">
-                St. Louis, Missouri
+                Gateway City • Show-Me State
               </div>
             </div>
 
