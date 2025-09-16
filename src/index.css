@@ -60,12 +60,12 @@
     --glow-electric: 0 0 30px hsl(var(--primary-electric) / 0.4);
     --glow-subtle: 0 0 15px hsl(var(--primary) / 0.2);
     
-    /* Enhanced shadow system */
-    --shadow-luxury: 0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    --shadow-elevated: 0 16px 40px -8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.1);
-    --shadow-cyber: 0 0 60px rgba(99, 102, 241, 0.4), 0 0 100px rgba(139, 92, 246, 0.2);
-    --shadow-glow: 0 0 80px rgba(139, 92, 246, 0.5), 0 0 120px rgba(99, 102, 241, 0.3);
-    --shadow-dramatic: 0 40px 80px -16px rgba(0, 0, 0, 0.5), 0 0 60px rgba(99, 102, 241, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.08);
+    /* Enhanced shadow system - Blue theme */
+    --shadow-luxury: 0 32px 64px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 130, 201, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    --shadow-elevated: 0 16px 40px -8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 130, 201, 0.1);
+    --shadow-cyber: 0 0 60px rgba(0, 130, 201, 0.4), 0 0 100px rgba(0, 190, 255, 0.2);
+    --shadow-glow: 0 0 80px rgba(0, 190, 255, 0.5), 0 0 120px rgba(0, 130, 201, 0.3);
+    --shadow-dramatic: 0 40px 80px -16px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 130, 201, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.08);
 
     /* Enhanced transition system */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -140,9 +140,9 @@
 }
 
 @layer components {
-  /* Enhanced glow effects with depth */
+  /* Enhanced glow effects with depth - Blue theme */
   .glow-primary {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.4), 0 0 80px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 40px rgba(0, 130, 201, 0.4), 0 0 80px rgba(0, 190, 255, 0.2);
   }
 
   .glow-interactive {
@@ -155,7 +155,7 @@
     position: absolute;
     inset: -2px;
     border-radius: inherit;
-    background: linear-gradient(45deg, transparent 30%, rgba(99, 102, 241, 0.1) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 130, 201, 0.1) 50%, transparent 70%);
     opacity: 0;
     transition: var(--transition-cyber);
   }
@@ -165,7 +165,7 @@
   }
 
   .glow-interactive:hover {
-    box-shadow: 0 0 60px rgba(99, 102, 241, 0.5), 0 0 100px rgba(139, 92, 246, 0.3), 0 0 140px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 60px rgba(0, 130, 201, 0.5), 0 0 100px rgba(0, 190, 255, 0.3), 0 0 140px rgba(64, 224, 255, 0.2);
     transform: translateY(-4px) scale(1.02);
   }
 
@@ -174,7 +174,7 @@
   }
 
   .glow-subtle {
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.25), 0 0 60px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 30px rgba(0, 130, 201, 0.25), 0 0 60px rgba(0, 190, 255, 0.15);
   }
 
   .glow-intense {
@@ -184,10 +184,6 @@
   
   .glow-electric {
     box-shadow: var(--glow-electric);
-  }
-  
-  .glow-subtle {
-    box-shadow: var(--glow-subtle);
   }
   
   .gradient-cyber {
@@ -222,22 +218,22 @@
     background-size: 20px 20px;
   }
   
-  /* Premium text effects */
+  /* Premium text effects - Blue theme */
   .text-glow {
     text-shadow: 
-      0 0 30px rgba(99, 102, 241, 0.5),
-      0 0 60px rgba(139, 92, 246, 0.3),
-      0 0 90px rgba(168, 85, 247, 0.2);
+      0 0 30px rgba(0, 130, 201, 0.5),
+      0 0 60px rgba(0, 190, 255, 0.3),
+      0 0 90px rgba(64, 224, 255, 0.2);
   }
 
   .text-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(99, 102, 241, 0.8) 0%,
-      rgba(139, 92, 246, 1) 25%,
-      rgba(168, 85, 247, 1) 50%,
-      rgba(236, 72, 153, 0.8) 75%,
-      rgba(99, 102, 241, 0.8) 100%
+      rgba(0, 130, 201, 0.8) 0%,
+      rgba(0, 190, 255, 1) 25%,
+      rgba(64, 224, 255, 1) 50%,
+      rgba(135, 206, 235, 0.8) 75%,
+      rgba(0, 130, 201, 0.8) 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -247,12 +243,12 @@
   }
 
   .text-holographic {
-    background: linear-gradient(45deg, #6366f1, #8b5cf6, #a855f7, #ec4899);
+    background: linear-gradient(45deg, #0082c9, #00beff, #40e0ff, #87ceeb);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: holographic-rotate 4s ease-in-out infinite;
+    animation: holographic-rotate-text 4s ease-in-out infinite;
   }
   
   /* Hover glow effect */
@@ -479,6 +475,18 @@
   }
   100% {
     background: linear-gradient(360deg, hsl(var(--primary)), hsl(var(--primary-electric)), hsl(var(--primary)));
+  }
+}
+
+@keyframes holographic-rotate-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
