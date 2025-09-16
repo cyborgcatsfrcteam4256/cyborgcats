@@ -22,15 +22,15 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover-glow">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
             <img 
               src={cyborgCatsLogo} 
               alt="Cyborg Cats FRC Team 4256 Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain flex-shrink-0"
             />
-            <div className="flex flex-col">
-              <span className="font-orbitron font-bold text-lg text-glow">Cyborg Cats</span>
-              <span className="font-inter text-xs text-muted-foreground">St. Louis • Team 4256</span>
+            <div className="flex flex-col min-w-0">
+              <span className="font-orbitron font-bold text-sm sm:text-base lg:text-lg text-glow truncate">Cyborg Cats</span>
+              <span className="font-inter text-xs sm:text-xs text-muted-foreground truncate hidden xs:block">St. Louis • Team 4256</span>
             </div>
           </Link>
 
