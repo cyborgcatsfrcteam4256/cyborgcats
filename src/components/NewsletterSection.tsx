@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Mail, CheckCircle, Zap, Users, Award } from 'lucide-react';
+import { FloatingParticles } from './FloatingParticles';
 
 export const NewsletterSection = () => {
   const [email, setEmail] = useState('');
@@ -40,6 +41,7 @@ export const NewsletterSection = () => {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 gradient-cyber opacity-10" />
       <div className="absolute inset-0 circuit-pattern opacity-20" />
+      <FloatingParticles />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center">
