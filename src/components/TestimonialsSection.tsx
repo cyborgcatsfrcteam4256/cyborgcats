@@ -35,10 +35,10 @@ export const TestimonialsSection = () => {
         <img 
           src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
           alt="" 
-          className="w-full h-full object-cover opacity-12 transition-opacity duration-1000 hover:opacity-18"
+          className="w-full h-full object-cover opacity-30 transition-opacity duration-1000 hover:opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80" />
       </div>
       
       <EnhancedBackground variant="dynamic" className="opacity-40" />

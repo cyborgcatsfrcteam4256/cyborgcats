@@ -44,10 +44,10 @@ export const NewsletterSection = () => {
         <img 
           src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
           alt="" 
-          className="w-full h-full object-cover opacity-10 transition-opacity duration-1000 hover:opacity-15"
+          className="w-full h-full object-cover opacity-30 transition-opacity duration-1000 hover:opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80" />
       </div>
       
       <div className="absolute inset-0 gradient-cyber opacity-10" />
