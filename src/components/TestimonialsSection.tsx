@@ -37,11 +37,11 @@ export const TestimonialsSection = () => {
           alt="" 
           className="w-full h-full object-cover opacity-30 transition-opacity duration-1000 hover:opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80" />
+         <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/30 to-transparent" />
+         <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-background/20 to-transparent" />
       </div>
       
-      <EnhancedBackground variant="dynamic" className="opacity-40 z-1" />
+      <EnhancedBackground variant="dynamic" className="opacity-40 z-[1]" />
       
       {/* Floating decorative elements */}
       <div className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-glow-pulse" />
