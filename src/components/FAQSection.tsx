@@ -40,7 +40,7 @@ export const FAQSection = () => {
       questions: [
         {
           question: "What competitions does the team participate in?",
-          answer: "We participate in regional FIRST Robotics competitions throughout the season. These events feature alliance-based matches where teams work together to complete game challenges using robots they designed and built."
+          answer: "We compete year-round to maximize our growth and impact! During the regular season, we participate in the St. Louis area FIRST Regional and at least one additional regional competition. Our ultimate goal is qualifying for the FIRST Championship (Worlds) where we can compete against the best teams globally. We also engage in off-season competitions throughout the year to continue developing our skills, test new strategies, and build lasting relationships with teams from across the region."
         },
         {
           question: "How can I support the team?",
