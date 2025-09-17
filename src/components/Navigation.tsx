@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
 
@@ -9,22 +8,31 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
-    { href: '/impact', label: 'Impact & Outreach' },
-    { href: '/competitions', label: 'Competitions' },
-    { href: '/team', label: 'Team' },
-    { href: '/sponsors', label: 'Sponsors' },
-    { href: '/analytics', label: 'Analytics' },
-    { href: '/contact', label: 'Contact' },
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About Us' },
+    { href: '#impact', label: 'Impact & Outreach' },
+    { href: '#competitions', label: 'Competitions' },
+    { href: '#team', label: 'Team' },
+    { href: '#sponsors', label: 'Sponsors' },
+    { href: '#contact', label: 'Contact' },
   ];
+
+  const handleNavClick = (href: string) => {
+    setIsOpen(false);
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
+          <a href="#home" onClick={() => handleNavClick('#home')} className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
             <img 
               src={cyborgCatsLogo} 
               alt="Cyborg Cats FRC Team 4256 Logo" 
@@ -34,20 +42,21 @@ export const Navigation = () => {
               <span className="font-orbitron font-bold text-sm sm:text-base lg:text-lg text-glow truncate">Cyborg Cats</span>
               <span className="font-inter text-xs sm:text-xs text-muted-foreground truncate hidden xs:block">St. Louis • Team 4256</span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <SmartSearch />
             <div className="flex items-center space-x-6">
               {navItems.slice(1).map((item) => (
-                <Link
+                <a
                   key={item.href}
-                  to={item.href}
-                  className="font-inter text-foreground hover:text-primary transition-cyber hover:text-glow"
+                  href={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  className="font-inter text-foreground hover:text-primary transition-cyber hover:text-glow cursor-pointer"
                 >
                   {item.label}
-                </Link>
+                </a>
               ))}
               <Button variant="hero" size="sm">
                 Join Us
@@ -72,14 +81,14 @@ export const Navigation = () => {
           <div className="md:hidden animate-slide-up">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card rounded-lg mt-2 shadow-cyber">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.href}
-                  to={item.href}
-                  className="block px-3 py-2 text-foreground hover:text-primary hover:bg-accent rounded-md transition-cyber"
-                  onClick={() => setIsOpen(false)}
+                  href={item.href}
+                  className="block px-3 py-2 text-foreground hover:text-primary hover:bg-accent rounded-md transition-cyber cursor-pointer"
+                  onClick={() => handleNavClick(item.href)}
                 >
                   {item.label}
-                </Link>
+                </a>
               ))}
               <div className="px-3 py-2">
                 <Button variant="hero" size="sm" className="w-full">
