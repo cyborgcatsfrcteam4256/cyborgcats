@@ -29,7 +29,7 @@ export const AboutFIRSTSection = () => {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
           alt="" 
@@ -40,9 +40,9 @@ export const AboutFIRSTSection = () => {
       </div>
       
       {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.1),transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 z-1" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.1),transparent_70%)] z-1" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,theme(colors.secondary/0.1),transparent_70%)] z-1" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>

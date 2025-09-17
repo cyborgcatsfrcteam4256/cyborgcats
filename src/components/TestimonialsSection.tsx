@@ -31,7 +31,7 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
           alt="" 
@@ -41,7 +41,7 @@ export const TestimonialsSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80" />
       </div>
       
-      <EnhancedBackground variant="dynamic" className="opacity-40" />
+      <EnhancedBackground variant="dynamic" className="opacity-40 z-1" />
       
       {/* Floating decorative elements */}
       <div className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-glow-pulse" />

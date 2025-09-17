@@ -40,7 +40,7 @@ export const NewsletterSection = () => {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
           alt="" 
@@ -50,8 +50,8 @@ export const NewsletterSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80" />
       </div>
       
-      <div className="absolute inset-0 gradient-cyber opacity-10" />
-      <div className="absolute inset-0 circuit-pattern opacity-20" />
+      <div className="absolute inset-0 gradient-cyber opacity-10 z-1" />
+      <div className="absolute inset-0 circuit-pattern opacity-20 z-1" />
       <FloatingParticles />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

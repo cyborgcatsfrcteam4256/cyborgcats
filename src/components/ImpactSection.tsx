@@ -10,7 +10,7 @@ export const ImpactSection = () => {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
           alt="" 
@@ -20,8 +20,8 @@ export const ImpactSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80" />
       </div>
       
-      <div className="absolute inset-0 circuit-pattern opacity-5" />
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      <div className="absolute inset-0 circuit-pattern opacity-5 z-1" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5 z-1" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}

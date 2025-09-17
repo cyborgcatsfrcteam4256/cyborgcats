@@ -66,7 +66,7 @@ export const SponsorsSection = () => {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png" 
           alt="" 
@@ -77,9 +77,9 @@ export const SponsorsSection = () => {
       </div>
       
       {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,theme(colors.primary/0.1),transparent_70%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5 z-1" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,theme(colors.secondary/0.1),transparent_70%)] z-1" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,theme(colors.primary/0.1),transparent_70%)] z-1" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
