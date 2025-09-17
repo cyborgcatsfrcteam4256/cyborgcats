@@ -33,20 +33,20 @@ export const AboutFIRSTSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.1),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
       
-      {/* Floating accent images for visual interest */}
-      <div className="absolute top-20 right-16 w-48 h-32 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+      {/* Subtle accent photos as background elements */}
+      <div className="absolute top-20 right-16 w-32 h-32 opacity-10 hover:opacity-15 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
         />
       </div>
       
-      <div className="absolute bottom-32 left-20 w-36 h-36 opacity-6 hover:opacity-12 transition-opacity duration-1000">
+      <div className="absolute bottom-32 left-20 w-28 h-28 opacity-8 hover:opacity-12 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-full blur-sm animate-glow-pulse"
+          className="w-full h-full object-cover rounded-full blur-md animate-glow-pulse"
           style={{animationDelay: '1.5s'}}
         />
       </div>

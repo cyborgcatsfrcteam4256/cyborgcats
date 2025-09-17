@@ -32,25 +32,25 @@ export const TestimonialsSection = () => {
     <section className="py-32 relative overflow-hidden">
       <EnhancedBackground variant="dynamic" className="opacity-40" />
       
-      {/* Enhanced floating elements with photos */}
+      {/* Subtle floating elements with photos */}
       <div className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-glow-pulse" />
       <div className="absolute top-40 right-20 w-6 h-6 bg-primary-glow/20 rounded-full animate-cyber-float" />
       <div className="absolute bottom-32 left-20 w-3 h-3 bg-primary-electric/40 rounded-full animate-glow-pulse" style={{animationDelay: '1s'}} />
       
-      {/* Testimonial-themed accent photos */}
-      <div className="absolute top-32 right-12 w-48 h-32 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+      {/* Subtle testimonial-themed accent photos */}
+      <div className="absolute top-32 right-12 w-32 h-20 opacity-8 hover:opacity-12 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
         />
       </div>
       
-      <div className="absolute bottom-40 left-16 w-40 h-28 opacity-6 hover:opacity-12 transition-opacity duration-1000">
+      <div className="absolute bottom-40 left-16 w-28 h-18 opacity-6 hover:opacity-10 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-xl blur-sm animate-glow-pulse"
+          className="w-full h-full object-cover rounded-xl blur-md animate-glow-pulse"
           style={{animationDelay: '2.5s'}}
         />
       </div>

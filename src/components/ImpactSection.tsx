@@ -12,20 +12,20 @@ export const ImpactSection = () => {
       <div className="absolute inset-0 circuit-pattern opacity-5" />
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
       
-      {/* Impact-focused accent photos */}
-      <div className="absolute top-24 right-20 w-52 h-32 opacity-10 hover:opacity-18 transition-opacity duration-1000">
+      {/* Subtle impact-focused accent photos */}
+      <div className="absolute top-24 right-20 w-32 h-20 opacity-8 hover:opacity-12 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/e3cf82cd-0326-4b2e-94d5-3d34ef99d632.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
         />
       </div>
       
-      <div className="absolute bottom-32 left-16 w-36 h-48 opacity-8 hover:opacity-16 transition-opacity duration-1000">
+      <div className="absolute bottom-32 left-16 w-24 h-32 opacity-6 hover:opacity-10 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-xl blur-sm animate-glow-pulse"
+          className="w-full h-full object-cover rounded-xl blur-md animate-glow-pulse"
           style={{animationDelay: '1s'}}
         />
       </div>

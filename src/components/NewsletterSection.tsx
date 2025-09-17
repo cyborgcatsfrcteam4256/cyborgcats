@@ -43,20 +43,20 @@ export const NewsletterSection = () => {
       <div className="absolute inset-0 circuit-pattern opacity-20" />
       <FloatingParticles />
       
-      {/* Newsletter-themed accent photos for engagement */}
-      <div className="absolute top-20 left-16 w-44 h-28 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+      {/* Subtle newsletter-themed accent photos */}
+      <div className="absolute top-20 left-16 w-28 h-18 opacity-8 hover:opacity-12 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
         />
       </div>
       
-      <div className="absolute bottom-24 right-20 w-36 h-36 opacity-6 hover:opacity-12 transition-opacity duration-1000">
+      <div className="absolute bottom-24 right-20 w-24 h-24 opacity-6 hover:opacity-10 transition-opacity duration-1000">
         <img 
           src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-full blur-sm animate-glow-pulse"
+          className="w-full h-full object-cover rounded-full blur-md animate-glow-pulse"
           style={{animationDelay: '1.5s'}}
         />
       </div>
