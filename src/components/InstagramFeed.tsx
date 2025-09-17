@@ -28,8 +28,20 @@ export const InstagramFeed = () => {
   ];
 
   return (
-    <section className="py-24 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
+          alt="" 
+          className="w-full h-full object-cover opacity-20 transition-opacity duration-1000 hover:opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-primary/5" />
+        <div className="absolute inset-0 circuit-pattern opacity-10" />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
             <Instagram className="w-5 h-5 text-primary" />
