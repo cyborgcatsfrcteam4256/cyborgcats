@@ -5,6 +5,7 @@ import { AboutFIRSTSection } from '@/components/AboutFIRSTSection';
 import { ImpactSection } from '@/components/ImpactSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { NewsSection } from '@/components/NewsSection';
+import { SponsorsSection } from '@/components/SponsorsSection';
 import { PhotoGallery } from '@/components/PhotoGallery';
 import { InstagramFeed } from '@/components/InstagramFeed';
 import { FAQSection } from '@/components/FAQSection';
@@ -29,6 +30,9 @@ const Index = () => {
         <NewsSection />
       </ScrollReveal>
       <ScrollReveal delay={200}>
+        <SponsorsSection />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
         <PhotoGallery />
       </ScrollReveal>
       <ScrollReveal delay={100}>
