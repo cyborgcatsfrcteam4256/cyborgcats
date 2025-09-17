@@ -85,12 +85,12 @@ export const SponsorsSection = () => {
         <ScrollReveal>
           <div className="text-center mb-20">
             <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="p-3 rounded-full bg-secondary/10 border border-secondary/20">
-                <Building2 className="w-8 h-8 text-secondary" />
+              <div className="p-3 rounded-full bg-primary/20 border border-primary/30 glow-subtle">
+                <Building2 className="w-8 h-8 text-primary" />
               </div>
               <div className="flex items-center gap-2">
                 <Heart className="w-6 h-6 text-primary-glow animate-pulse" />
-                <span className="text-lg font-semibold text-secondary tracking-wider">PARTNERSHIP & SUPPORT</span>
+                <span className="text-lg font-semibold text-foreground tracking-wider">PARTNERSHIP & SUPPORT</span>
                 <Heart className="w-6 h-6 text-primary-glow animate-pulse" />
               </div>
             </div>
