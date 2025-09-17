@@ -171,18 +171,14 @@ export const PhotoGallery = () => {
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       <Badge 
-                        className={`mb-3 glass-morphism font-orbitron font-bold capitalize ${
-                          photo.category === 'competition' ? 'text-primary border-primary/30' :
-                          photo.category === 'awards' ? 'text-yellow-400 border-yellow-400/30' :
-                          'text-green-400 border-green-400/30'
-                        }`}
+                        className={`mb-3 glass-morphism font-orbitron font-bold capitalize text-white bg-black/50 border-white/30 backdrop-blur-md shadow-lg`}
                       >
                         {photo.category}
                       </Badge>
-                      <h3 className="font-orbitron font-bold text-white mb-2 text-xl">
+                      <h3 className="font-orbitron font-bold text-white mb-2 text-xl drop-shadow-lg text-shadow-lg">
                         {photo.title}
                       </h3>
-                      <p className="text-white/90 font-inter text-sm opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100">
+                      <p className="text-white font-inter text-sm opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 drop-shadow-md">
                         {photo.description}
                       </p>
                     </div>
