@@ -111,7 +111,7 @@ export const AboutFIRSTSection = () => {
               <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-6">
                 More Than Robots
               </h3>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
                 FIRST programs inspire students to pursue careers in STEM fields while developing 
                 <span className="text-primary font-semibold"> leadership</span>, 
                 <span className="text-secondary font-semibold"> teamwork</span>, and 
