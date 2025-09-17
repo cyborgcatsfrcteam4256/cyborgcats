@@ -83,11 +83,11 @@ export const HeroSection = () => {
             </p>
 
             <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed animate-slide-up" style={{animationDelay: '0.6s'}}>
-              From Westminster Christian Academy in the heart of St. Louis, Missouri, we're{' '}
+              From Westminster Christian Academy in the heart of St. Louis, Missouri, we are{' '}
               <span className="text-primary font-semibold">48 passionate students</span>{' '}
-              representing the Gateway City while engineering the future through robotics and making a{' '}
-              <span className="text-primary-glow font-semibold">lasting impact</span>{' '}
-              in our Missouri community and beyond.
+              representing the Gateway City while engineering the future through robotics with a mission to{' '}
+              <span className="text-primary-glow font-semibold">serve God and impact our community</span>{' '}
+              through STEM education and Christian values.
             </p>
 
             {/* Enhanced CTA Buttons */}

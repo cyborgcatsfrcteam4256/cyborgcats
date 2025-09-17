@@ -106,9 +106,11 @@ export const SponsorsSection = () => {
               Our Amazing <span className="text-holographic">Sponsors</span>
             </h2>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
-              We're grateful to our <span className="text-secondary font-semibold">incredible partners</span> who make our robotics journey possible 
-              and help us inspire the next generation of STEM leaders.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed">
+              We are grateful to our <span className="text-secondary font-semibold">incredible partners</span> who make our robotics journey possible 
+              and help us inspire the next generation of STEM leaders while sharing our 
+              <span className="text-primary font-semibold"> Christian values</span> and 
+              <span className="text-primary-glow font-semibold"> commitment to serving others</span>.
             </p>
           </div>
         </ScrollReveal>

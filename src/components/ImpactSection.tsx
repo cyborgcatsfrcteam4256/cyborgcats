@@ -43,8 +43,10 @@ export const ImpactSection = () => {
             <span className="text-holographic">Our Impact</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-inter leading-relaxed">
-            From our home base in St. Louis, Missouri, we're building more than robots—we're building 
-            a better future through STEM education, community outreach, and advocacy across the Gateway State and beyond.
+            From our home base in St. Louis, Missouri, we are building more than robots—we are building 
+            a better future through STEM education, community outreach, and advocacy across the Gateway State and beyond,
+            <span className="text-primary font-semibold"> all while serving God</span> and demonstrating 
+            <span className="text-primary-glow font-semibold"> Christian love</span> in everything we do.
           </p>
         </div>
 
@@ -135,7 +137,9 @@ export const ImpactSection = () => {
               <p className="text-xl text-muted-foreground font-inter leading-relaxed">
                 Based in <span className="text-primary font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
                 community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
-                STEM education and advocacy for students across Missouri.
+                STEM education and advocacy for students across Missouri, while always seeking to 
+                <span className="text-primary font-semibold"> honor God</span> and demonstrate 
+                <span className="text-primary-electric font-semibold"> Christ-like service</span> in our community.
               </p>
               <div className="grid grid-cols-2 gap-6 py-6">
                 <div className="text-center">

@@ -68,15 +68,16 @@ export const AboutFIRSTSection = () => {
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed mb-12">
               FIRST (For Inspiration and Recognition of Science and Technology) is a global robotics community 
-              that prepares young people for the future through <span className="text-primary font-semibold">team-based robot-building</span> challenges.
+              that prepares young people for the future through <span className="text-primary font-semibold">team-based robot-building</span> challenges,
+              while we at Cyborg Cats integrate our <span className="text-primary-glow font-semibold">Christian faith and values</span> into everything we do.
             </p>
             
             <div className="bg-glass-card/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-5xl mx-auto">
               <blockquote className="text-2xl md:text-3xl font-inter text-white/90 italic leading-relaxed">
                 "To transform our culture by creating a world where science and technology are celebrated 
-                and where young people dream of becoming science and technology leaders."
+                and where young people dream of becoming science and technology leaders, while we strive to honor God in all we do."
               </blockquote>
-              <cite className="block mt-6 text-lg text-primary font-semibold">- Dean Kamen, FIRST Founder</cite>
+              <cite className="block mt-6 text-lg text-primary font-semibold">- Dean Kamen, FIRST Founder (adapted with our Christian mission)</cite>
             </div>
           </div>
         </ScrollReveal>
@@ -109,14 +110,14 @@ export const AboutFIRSTSection = () => {
           <div className="text-center">
             <div className="bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 p-8 rounded-3xl border border-white/10">
               <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-6">
-                More Than Robots
+                More Than Robots - Serving God
               </h3>
               <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
                 FIRST programs inspire students to pursue careers in STEM fields while developing 
                 <span className="text-primary font-semibold"> leadership</span>, 
                 <span className="text-secondary font-semibold"> teamwork</span>, and 
                 <span className="text-primary-glow font-semibold"> problem-solving</span> skills 
-                that extend far beyond the competition arena.
+                that extend far beyond the competition arena, all while we seek to glorify God through our work and witness.
               </p>
             </div>
           </div>
