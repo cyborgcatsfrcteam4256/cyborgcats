@@ -108,7 +108,7 @@ export const AboutFIRSTSection = () => {
               <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
                 FIRST programs inspire students to pursue careers in STEM fields while developing 
                 <span className="text-primary font-semibold"> leadership</span>, 
-                <span className="text-secondary font-semibold"> teamwork</span>, and 
+                <span className="text-primary font-semibold"> teamwork</span>, and 
                 <span className="text-primary-glow font-semibold"> problem-solving</span> skills 
                 that extend far beyond the competition arena, all while we seek to glorify God through our work and witness.
               </p>
