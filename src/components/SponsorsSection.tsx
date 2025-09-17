@@ -65,28 +65,21 @@ export const SponsorsSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Enhanced Background with accent photos */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,theme(colors.primary/0.1),transparent_70%)]" />
-      
-      {/* Subtle sponsor-themed accent photos */}
-      <div className="absolute top-16 left-12 w-24 h-24 opacity-8 hover:opacity-12 transition-opacity duration-1000">
-        <img 
-          src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
-          alt="" 
-          className="w-full h-full object-cover rounded-xl blur-md animate-cyber-float"
-        />
-      </div>
-      
-      <div className="absolute bottom-24 right-16 w-28 h-28 opacity-6 hover:opacity-10 transition-opacity duration-1000">
+      {/* Full-screen background accent photo */}
+      <div className="absolute inset-0">
         <img 
           src="/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-md animate-glow-pulse"
-          style={{animationDelay: '2s'}}
+          className="w-full h-full object-cover opacity-12 transition-opacity duration-1000 hover:opacity-18"
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90" />
       </div>
+      
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,theme(colors.primary/0.1),transparent_70%)]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>

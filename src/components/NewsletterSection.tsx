@@ -39,27 +39,20 @@ export const NewsletterSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 gradient-cyber opacity-10" />
-      <div className="absolute inset-0 circuit-pattern opacity-20" />
-      <FloatingParticles />
-      
-      {/* Subtle newsletter-themed accent photos */}
-      <div className="absolute top-20 left-16 w-28 h-18 opacity-8 hover:opacity-12 transition-opacity duration-1000">
-        <img 
-          src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
-          alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
-        />
-      </div>
-      
-      <div className="absolute bottom-24 right-20 w-24 h-24 opacity-6 hover:opacity-10 transition-opacity duration-1000">
+      {/* Full-screen background accent photo */}
+      <div className="absolute inset-0">
         <img 
           src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-full blur-md animate-glow-pulse"
-          style={{animationDelay: '1.5s'}}
+          className="w-full h-full object-cover opacity-10 transition-opacity duration-1000 hover:opacity-15"
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90" />
       </div>
+      
+      <div className="absolute inset-0 gradient-cyber opacity-10" />
+      <div className="absolute inset-0 circuit-pattern opacity-20" />
+      <FloatingParticles />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center">

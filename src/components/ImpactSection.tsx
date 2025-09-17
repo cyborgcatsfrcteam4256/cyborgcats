@@ -9,26 +9,19 @@ import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 export const ImpactSection = () => {
   return (
     <section className="py-32 relative overflow-hidden">
+      {/* Full-screen background accent photo */}
+      <div className="absolute inset-0">
+        <img 
+          src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
+          alt="" 
+          className="w-full h-full object-cover opacity-10 transition-opacity duration-1000 hover:opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90" />
+      </div>
+      
       <div className="absolute inset-0 circuit-pattern opacity-5" />
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-      
-      {/* Subtle impact-focused accent photos */}
-      <div className="absolute top-24 right-20 w-32 h-20 opacity-8 hover:opacity-12 transition-opacity duration-1000">
-        <img 
-          src="/lovable-uploads/e3cf82cd-0326-4b2e-94d5-3d34ef99d632.png" 
-          alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
-        />
-      </div>
-      
-      <div className="absolute bottom-32 left-16 w-24 h-32 opacity-6 hover:opacity-10 transition-opacity duration-1000">
-        <img 
-          src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
-          alt="" 
-          className="w-full h-full object-cover rounded-xl blur-md animate-glow-pulse"
-          style={{animationDelay: '1s'}}
-        />
-      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}

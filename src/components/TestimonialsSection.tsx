@@ -30,30 +30,23 @@ export const TestimonialsSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      <EnhancedBackground variant="dynamic" className="opacity-40" />
-      
-      {/* Subtle floating elements with photos */}
-      <div className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-glow-pulse" />
-      <div className="absolute top-40 right-20 w-6 h-6 bg-primary-glow/20 rounded-full animate-cyber-float" />
-      <div className="absolute bottom-32 left-20 w-3 h-3 bg-primary-electric/40 rounded-full animate-glow-pulse" style={{animationDelay: '1s'}} />
-      
-      {/* Subtle testimonial-themed accent photos */}
-      <div className="absolute top-32 right-12 w-32 h-20 opacity-8 hover:opacity-12 transition-opacity duration-1000">
-        <img 
-          src="/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" 
-          alt="" 
-          className="w-full h-full object-cover rounded-2xl blur-md animate-cyber-float"
-        />
-      </div>
-      
-      <div className="absolute bottom-40 left-16 w-28 h-18 opacity-6 hover:opacity-10 transition-opacity duration-1000">
+      {/* Full-screen background accent photo */}
+      <div className="absolute inset-0">
         <img 
           src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
           alt="" 
-          className="w-full h-full object-cover rounded-xl blur-md animate-glow-pulse"
-          style={{animationDelay: '2.5s'}}
+          className="w-full h-full object-cover opacity-12 transition-opacity duration-1000 hover:opacity-18"
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90" />
       </div>
+      
+      <EnhancedBackground variant="dynamic" className="opacity-40" />
+      
+      {/* Floating decorative elements */}
+      <div className="absolute top-20 left-10 w-4 h-4 bg-primary/30 rounded-full animate-glow-pulse" />
+      <div className="absolute top-40 right-20 w-6 h-6 bg-primary-glow/20 rounded-full animate-cyber-float" />
+      <div className="absolute bottom-32 left-20 w-3 h-3 bg-primary-electric/40 rounded-full animate-glow-pulse" style={{animationDelay: '1s'}} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-20 animate-slide-up">
