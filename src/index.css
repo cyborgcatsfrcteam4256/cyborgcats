@@ -249,12 +249,12 @@
     background-size: 20px 20px;
   }
   
-  /* Premium text effects - Blue theme */
   .text-glow {
     text-shadow: 
-      0 0 30px rgba(0, 130, 201, 0.5),
-      0 0 60px rgba(0, 190, 255, 0.3),
-      0 0 90px rgba(64, 224, 255, 0.2);
+      0 0 30px rgba(0, 130, 201, 0.6),
+      0 0 60px rgba(0, 190, 255, 0.4),
+      0 0 90px rgba(64, 224, 255, 0.3),
+      0 0 120px rgba(135, 206, 235, 0.2);
   }
 
   .text-shimmer {
@@ -274,12 +274,12 @@
   }
 
   .text-holographic {
-    background: linear-gradient(45deg, #0082c9, #00beff, #40e0ff, #87ceeb);
-    background-size: 300% 300%;
+    background: linear-gradient(45deg, #0082c9, #00beff, #40e0ff, #87ceeb, #ffffff, #87ceeb, #40e0ff, #00beff, #0082c9);
+    background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: holographic-rotate-text 4s ease-in-out infinite;
+    animation: holographic-rotate-text 6s ease-in-out infinite;
   }
   
   /* Hover glow effect */
@@ -464,7 +464,7 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -475,7 +475,7 @@
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.8) translateY(20px);
+    transform: scale(0.9) translateY(20px);
   }
   to {
     opacity: 1;
@@ -485,12 +485,12 @@
 
 @keyframes morphGlow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3);
+    box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.4);
     border-radius: 12px;
   }
   50% {
-    box-shadow: 0 0 40px hsl(var(--primary-glow) / 0.5), 0 0 80px hsl(var(--primary-glow) / 0.2);
-    border-radius: 16px;
+    box-shadow: 0 0 60px hsl(var(--primary-glow) / 0.6), 0 0 120px hsl(var(--primary-glow) / 0.3);
+    border-radius: 20px;
   }
 }
 
@@ -499,7 +499,90 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes holographic-rotate-text {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes cyberFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatingOrb {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(10px) translateX(-5px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+@keyframes holographicRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes particleMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
   }
 }
 

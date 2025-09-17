@@ -28,24 +28,39 @@ export const AboutFIRSTSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Background Effects */}
+      {/* Enhanced Background with Accent Photos */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.1),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
       
+      {/* Floating accent images for visual interest */}
+      <div className="absolute top-20 right-16 w-48 h-32 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+        />
+      </div>
+      
+      <div className="absolute bottom-32 left-20 w-36 h-36 opacity-6 hover:opacity-12 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-full blur-sm animate-glow-pulse"
+          style={{animationDelay: '1.5s'}}
+        />
+      </div>
+      
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-20">
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="p-3 rounded-full bg-primary/10 border border-primary/20">
-                <Rocket className="w-8 h-8 text-primary" />
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-6 h-6 text-primary-glow animate-pulse" />
-                <span className="text-lg font-semibold text-primary tracking-wider">INSPIRING INNOVATION</span>
-                <Zap className="w-6 h-6 text-primary-glow animate-pulse" />
-              </div>
+          <div className="mb-8 animate-fade-in">
+            <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury">
+              <Rocket className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+              <span className="font-orbitron text-base text-primary font-bold tracking-wide">INSPIRING INNOVATION</span>
+              <Zap className="w-6 h-6 text-primary-glow animate-pulse group-hover:animate-spin" />
             </div>
+          </div>
             
             <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
               What is <span className="text-holographic">FIRST</span> Robotics?

@@ -65,10 +65,28 @@ export const SponsorsSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Background Effects */}
+      {/* Enhanced Background with accent photos */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,theme(colors.secondary/0.1),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,theme(colors.primary/0.1),transparent_70%)]" />
+      
+      {/* Strategic sponsor-themed accent photos */}
+      <div className="absolute top-16 left-12 w-44 h-28 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-xl blur-sm animate-cyber-float"
+        />
+      </div>
+      
+      <div className="absolute bottom-24 right-16 w-40 h-40 opacity-6 hover:opacity-12 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-2xl blur-sm animate-glow-pulse"
+          style={{animationDelay: '2s'}}
+        />
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
@@ -104,22 +122,22 @@ export const SponsorsSection = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {currentSponsors.map((sponsor, index) => (
                 <ScrollReveal key={index} delay={index * 50}>
-                  <PremiumCard className="p-6 text-center hover-scale">
-                    <div className="aspect-square bg-white/10 rounded-2xl mb-4 flex items-center justify-center">
+                   <PremiumCard className="p-6 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700">
+                    <div className="aspect-square glass-morphism rounded-2xl mb-4 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
                       <img 
                         src={sponsor.logo} 
                         alt={`${sponsor.name} logo`}
-                        className="w-16 h-16 object-contain rounded-lg"
+                        className="w-16 h-16 object-contain rounded-lg group-hover/sponsor:brightness-110 transition-all duration-500"
                       />
                     </div>
-                    <h4 className="font-orbitron font-semibold text-white text-sm mb-2">
+                    <h4 className="font-orbitron font-semibold text-white text-sm mb-3 group-hover/sponsor:text-glow transition-all duration-500">
                       {sponsor.name}
                     </h4>
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                      sponsor.tier === 'Platinum' ? 'bg-slate-500/20 text-slate-300' :
-                      sponsor.tier === 'Gold' ? 'bg-yellow-500/20 text-yellow-300' :
-                      sponsor.tier === 'Silver' ? 'bg-gray-500/20 text-gray-300' :
-                      'bg-amber-500/20 text-amber-300'
+                    <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${
+                      sponsor.tier === 'Platinum' ? 'glass-morphism border border-slate-400/30 text-slate-200 group-hover/sponsor:text-slate-100 group-hover/sponsor:shadow-glow' :
+                      sponsor.tier === 'Gold' ? 'glass-morphism border border-yellow-400/30 text-yellow-200 group-hover/sponsor:text-yellow-100 group-hover/sponsor:shadow-glow' :
+                      sponsor.tier === 'Silver' ? 'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow' :
+                      'glass-morphism border border-amber-400/30 text-amber-200 group-hover/sponsor:text-amber-100 group-hover/sponsor:shadow-glow'
                     }`}>
                       {sponsor.tier}
                     </span>

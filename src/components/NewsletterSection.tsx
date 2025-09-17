@@ -38,10 +38,28 @@ export const NewsletterSection = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 gradient-cyber opacity-10" />
       <div className="absolute inset-0 circuit-pattern opacity-20" />
       <FloatingParticles />
+      
+      {/* Newsletter-themed accent photos for engagement */}
+      <div className="absolute top-20 left-16 w-44 h-28 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+        />
+      </div>
+      
+      <div className="absolute bottom-24 right-20 w-36 h-36 opacity-6 hover:opacity-12 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-full blur-sm animate-glow-pulse"
+          style={{animationDelay: '1.5s'}}
+        />
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-4xl mx-auto text-center">

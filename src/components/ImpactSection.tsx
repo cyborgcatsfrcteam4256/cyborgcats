@@ -8,8 +8,28 @@ import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const ImpactSection = () => {
   return (
-    <section className="py-24 relative">
+    <section className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 circuit-pattern opacity-5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      
+      {/* Impact-focused accent photos */}
+      <div className="absolute top-24 right-20 w-52 h-32 opacity-10 hover:opacity-18 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/e3cf82cd-0326-4b2e-94d5-3d34ef99d632.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-2xl blur-sm animate-cyber-float"
+        />
+      </div>
+      
+      <div className="absolute bottom-32 left-16 w-36 h-48 opacity-8 hover:opacity-16 transition-opacity duration-1000">
+        <img 
+          src="/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png" 
+          alt="" 
+          className="w-full h-full object-cover rounded-xl blur-sm animate-glow-pulse"
+          style={{animationDelay: '1s'}}
+        />
+      </div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">

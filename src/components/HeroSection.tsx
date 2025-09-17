@@ -11,15 +11,45 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <FloatingLogo />
       <InteractiveBackground />
-      {/* Enhanced Background */}
+      {/* Enhanced Background with multiple accent images */}
       <div className="absolute inset-0 z-0">
+        {/* Primary background image with enhanced effects */}
         <img 
           src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
           alt="Cyborg Cats robot in competition" 
-          className="w-full h-full object-cover opacity-25 transition-opacity duration-1000 hover:opacity-30"
+          className="w-full h-full object-cover opacity-25 transition-opacity duration-1000 hover:opacity-30 hover:scale-105 duration-[10s]"
         />
+        
+        {/* Accent images as background elements */}
+        <div className="absolute top-10 right-10 w-32 h-32 opacity-15 hover:opacity-25 transition-opacity duration-1000">
+          <img 
+            src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
+            alt="" 
+            className="w-full h-full object-cover rounded-xl blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
+          />
+        </div>
+        
+        <div className="absolute bottom-20 left-10 w-40 h-24 opacity-12 hover:opacity-20 transition-opacity duration-1000">
+          <img 
+            src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
+            alt="" 
+            className="w-full h-full object-cover rounded-lg blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
+            style={{animationDelay: '2s'}}
+          />
+        </div>
+        
+        <div className="absolute top-1/3 left-1/4 w-28 h-28 opacity-8 hover:opacity-15 transition-opacity duration-1000">
+          <img 
+            src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
+            alt="" 
+            className="w-full h-full object-cover rounded-full blur-sm hover:blur-none transition-all duration-1000 animate-glow-pulse"
+          />
+        </div>
+        
+        {/* Enhanced gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-primary-glow/12" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-electric/5 via-transparent to-primary/5" />
         <div className="absolute inset-0 circuit-pattern opacity-20 animate-pulse" />
         <FloatingParticles />
         
@@ -34,18 +64,18 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="space-y-8" delay={200}>
             {/* Enhanced Hero Badge */}
-            <div className="inline-flex items-center space-x-3 gradient-premium border border-primary/30 rounded-full px-8 py-4 glow-interactive hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-xl">
-              <Award className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
-              <span className="font-orbitron text-sm text-primary font-bold tracking-wide">
+            <div className="inline-flex items-center space-x-3 glass-morphism border border-primary/30 rounded-full px-8 py-4 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury cursor-pointer backdrop-blur-xl">
+              <Award className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+              <span className="font-orbitron text-base text-primary font-bold tracking-wide">
                 2025 FIRST IMPACT AWARD WINNERS
               </span>
               <Sparkles className="w-5 h-5 text-primary-glow animate-pulse group-hover:animate-spin" />
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-6xl md:text-8xl font-orbitron font-black leading-tight tracking-tight">
-              <span className="text-shimmer animate-slide-up">Cyborg Cats</span>
-              <span className="block text-holographic bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-glow to-primary-electric animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
+            {/* Enhanced Main Headline */}
+            <h1 className="text-6xl md:text-8xl lg:text-10xl font-orbitron font-black leading-tight tracking-tight">
+              <span className="text-holographic hover:text-shimmer transition-all duration-1000 cursor-default animate-slide-up">Cyborg Cats</span>
+              <span className="block text-6xl md:text-7xl lg:text-9xl text-glow hover:text-primary-electric transition-all duration-1000 cursor-default animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
             </h1>
 
             <p className="text-2xl md:text-3xl font-orbitron font-light text-glow animate-slide-up" style={{animationDelay: '0.4s'}}>
