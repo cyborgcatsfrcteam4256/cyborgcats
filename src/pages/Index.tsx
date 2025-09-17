@@ -1,8 +1,8 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/components/HeroSection';
+import { AboutFIRSTSection } from '@/components/AboutFIRSTSection';
 import { ImpactSection } from '@/components/ImpactSection';
-
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { NewsSection } from '@/components/NewsSection';
 import { PhotoGallery } from '@/components/PhotoGallery';
@@ -17,6 +17,9 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <ScrollReveal>
+        <AboutFIRSTSection />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
         <ImpactSection />
       </ScrollReveal>
       <ScrollReveal delay={200}>
