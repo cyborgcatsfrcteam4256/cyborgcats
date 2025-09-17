@@ -240,8 +240,7 @@ export const SponsorsSection = () => {
                 </LiquidButton>
               </div>
               <p className="text-muted-foreground mt-8">
-                Contact us at <span className="text-primary font-semibold">sponsors@cyborgcats.com</span> or call 
-                <span className="text-secondary font-semibold"> (555) 123-4567</span>
+                Contact us at <span className="text-primary font-semibold">cyborgcatsfrcteam4256@gmail.com</span>
               </p>
             </div>
           </div>
