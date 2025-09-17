@@ -153,17 +153,17 @@ export const SponsorsSection = () => {
               {sponsorshipBenefits.map((benefit, index) => (
                 <ScrollReveal key={index} delay={index * 100}>
                   <PremiumCard className="h-full">
-                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                      <div className="p-3 sm:p-4 rounded-2xl bg-primary/20 border border-primary/30 flex-shrink-0 glow-subtle">
-                        <div className="text-primary w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
+                    <div className="flex items-start gap-4 lg:gap-6">
+                      <div className="p-3 lg:p-4 rounded-2xl bg-primary/20 border border-primary/30 flex-shrink-0 glow-subtle">
+                        <div className="text-primary w-6 h-6 lg:w-8 lg:h-8 flex items-center justify-center">
                           {benefit.icon}
                         </div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-xl sm:text-2xl font-orbitron font-bold text-foreground mb-3 sm:mb-4 leading-tight">
+                        <h4 className="text-lg lg:text-xl font-orbitron font-bold text-foreground mb-2 lg:mb-3 leading-tight">
                           {benefit.title}
                         </h4>
-                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                        <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
                           {benefit.description}
                         </p>
                       </div>
