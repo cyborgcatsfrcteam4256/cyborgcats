@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
+import { SmartSearch } from '@/components/UI/SmartSearch';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,7 @@ export const Navigation = () => {
     { href: '/competitions', label: 'Competitions' },
     { href: '/team', label: 'Team' },
     { href: '/sponsors', label: 'Sponsors' },
+    { href: '/analytics', label: 'Analytics' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -35,19 +37,22 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="font-inter text-foreground hover:text-primary transition-cyber hover:text-glow"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Button variant="hero" size="sm">
-              Join Us
-            </Button>
+          <div className="hidden md:flex items-center space-x-6">
+            <SmartSearch />
+            <div className="flex items-center space-x-6">
+              {navItems.slice(1).map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="font-inter text-foreground hover:text-primary transition-cyber hover:text-glow"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Button variant="hero" size="sm">
+                Join Us
+              </Button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
