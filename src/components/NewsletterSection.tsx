@@ -39,13 +39,9 @@ export const NewsletterSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Full-screen background accent photo */}
+      {/* Full-screen background accent photo - REMOVED */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
-          alt="" 
-          className="w-full h-full object-cover opacity-30 transition-opacity duration-1000 hover:opacity-40"
-        />
+        {/* Background image removed per user request */}
         <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/30 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-background/20 to-transparent" />
       </div>
