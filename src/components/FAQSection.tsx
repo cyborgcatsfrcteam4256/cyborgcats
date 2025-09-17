@@ -26,7 +26,7 @@ export const FAQSection = () => {
         },
         {
           question: "What time commitment is required?",
-          answer: "During build season (January-February), we meet 4-6 hours on weekdays and 8+ hours on weekends. During off-season, we typically meet 2-3 times per week for 2-3 hours. Competition season requires travel to regional and potentially world championships."
+          answer: "Time commitment varies based on your leadership role and personal level of involvement. We believe in flexible participation that works with your academic schedule and other commitments. Whether you're looking for a few hours a week or want to dive deep into intensive project work, we'll help you find the right balance to maximize your learning and contribution to the team."
         },
         {
           question: "Do I need prior robotics or engineering experience?",
