@@ -8,12 +8,12 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About Us' },
-    { href: '#impact', label: 'Impact & Outreach' },
-    { href: '#competitions', label: 'Competitions' },
-    { href: '#team', label: 'Team' },
+    { href: '#about-us', label: 'About Us' },
+    { href: '#what-is-first', label: 'What is FIRST' },
+    { href: '#impact', label: 'Impact' },
+    { href: '#news', label: 'News' },
     { href: '#sponsors', label: 'Sponsors' },
+    { href: '#photos', label: 'Photos' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -32,7 +32,7 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <a href="#home" onClick={() => handleNavClick('#home')} className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
+          <a href="#about-us" onClick={() => handleNavClick('#about-us')} className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
             <img 
               src={cyborgCatsLogo} 
               alt="Cyborg Cats FRC Team 4256 Logo" 
@@ -48,7 +48,7 @@ export const Navigation = () => {
           <div className="hidden md:flex items-center space-x-6">
             <SmartSearch />
             <div className="flex items-center space-x-6">
-              {navItems.slice(1).map((item) => (
+              {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}

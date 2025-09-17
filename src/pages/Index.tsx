@@ -16,11 +16,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <section id="home">
+      <section id="about-us">
         <HeroSection />
       </section>
       <ScrollReveal>
-        <section id="about">
+        <section id="what-is-first">
           <AboutFIRSTSection />
         </section>
       </ScrollReveal>
@@ -33,7 +33,7 @@ const Index = () => {
         <TestimonialsSection />
       </ScrollReveal>
       <ScrollReveal delay={100}>
-        <section id="competitions">
+        <section id="news">
           <NewsSection />
         </section>
       </ScrollReveal>
@@ -43,7 +43,7 @@ const Index = () => {
         </section>
       </ScrollReveal>
       <ScrollReveal delay={100}>
-        <section id="team">
+        <section id="photos">
           <PhotoGallery />
         </section>
       </ScrollReveal>
