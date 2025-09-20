@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Quote, Award, Users, Heart, Sparkles, Trophy } from 'lucide-react';
+import { Star, Quote, Award, Users, Heart, Sparkles, Trophy, Wrench } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { EnhancedBackground } from '@/components/EnhancedBackground';
@@ -8,6 +8,12 @@ import { LiquidButton } from '@/components/LiquidButton';
 
 export const TestimonialsSection = () => {
   const testimonials = [
+    {
+      quote: "When I joined robotics, I didn't even know how to hold a wrench but then the Cyborg Cats taught me how to not only hold a wrench but engineer the future. I am so thankful for all of my amazing mentors and the huge impact they have made on me and in the lives of others. Go Cyborg Cats!",
+      author: "Salem Dawit",
+      role: "Cyborg Cats Engineering Lead",
+      icon: Wrench,
+    },
     {
       quote: "The Cyborg Cats have revolutionized STEM education in our community. Watching my daughter grow from a hesitant freshman to a confident programming leader has been incredible. The team's emphasis on real-world problem solving and community impact has shaped her future career aspirations.",
       author: "Sarah Thompson",
