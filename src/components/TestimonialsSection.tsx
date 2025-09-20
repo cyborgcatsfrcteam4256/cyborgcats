@@ -103,22 +103,8 @@ export const TestimonialsSection = () => {
                   </div>
                 </div>
 
-                {/* Enhanced Star Rating */}
-                <div className="flex mt-6 space-x-1 relative z-10">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="w-5 h-5 fill-primary text-primary transition-all duration-500 group-hover/testimonial:scale-110 group-hover/testimonial:drop-shadow-glow" 
-                      style={{
-                        animationDelay: `${i * 0.1}s`,
-                        transitionDelay: `${i * 0.05}s`
-                      }}
-                    />
-                  ))}
-                </div>
-
                 {/* Hover glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-primary-glow/5 opacity-0 group-hover/testimonial:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-primary-glow/5 opacity-0 group-hover/testimonial:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
             </ScrollReveal>
           ))}
