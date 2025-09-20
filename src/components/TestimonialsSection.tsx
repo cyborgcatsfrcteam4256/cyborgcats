@@ -15,6 +15,12 @@ export const TestimonialsSection = () => {
       icon: Wrench,
     },
     {
+      quote: "Joining the Cyborg Cats has allowed me to discover my passion for STEM which is something I never thought I could get into originally. I'm so thankful to be apart of this team and so thankful that being a Cyborg Cat has allowed me to make an impact on my community and inspire more students to join the STEM field as well.",
+      author: "Anna Siebers",
+      role: "Cyborg Cats Programmer",
+      icon: Sparkles,
+    },
+    {
       quote: "The Cyborg Cats have revolutionized STEM education in our community. Watching my daughter grow from a hesitant freshman to a confident programming leader has been incredible. The team's emphasis on real-world problem solving and community impact has shaped her future career aspirations.",
       author: "Sarah Thompson",
       role: "Parent & Community Volunteer",
