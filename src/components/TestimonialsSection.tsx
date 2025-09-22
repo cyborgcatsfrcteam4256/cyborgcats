@@ -21,6 +21,12 @@ export const TestimonialsSection = () => {
       icon: Sparkles,
     },
     {
+      quote: "Robotics has trained me to think critically and solve problems, be confident in my abilities and discover how they could be used to innovate and create new things and has provided me with a community of people who I can learn from and learn alongside. Most of all, the Cyborg Cats have helped me realize that I could be a leader in STEM and inspire others to also take advantage of their skills to make a positive impact.",
+      author: "Enoch Wong",
+      role: "CAD and Design Lead",
+      icon: Trophy,
+    },
+    {
       quote: "The Cyborg Cats have revolutionized STEM education in our community. Watching my daughter grow from a hesitant freshman to a confident programming leader has been incredible. The team's emphasis on real-world problem solving and community impact has shaped her future career aspirations.",
       author: "Sarah Thompson",
       role: "Parent & Community Volunteer",
