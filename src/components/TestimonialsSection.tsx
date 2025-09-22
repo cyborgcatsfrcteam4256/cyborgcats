@@ -26,24 +26,6 @@ export const TestimonialsSection = () => {
       role: "CAD and Design Lead",
       icon: Trophy,
     },
-    {
-      quote: "The Cyborg Cats have revolutionized STEM education in our community. Watching my daughter grow from a hesitant freshman to a confident programming leader has been incredible. The team's emphasis on real-world problem solving and community impact has shaped her future career aspirations.",
-      author: "Sarah Thompson",
-      role: "Parent & Community Volunteer",
-      icon: Heart,
-    },
-    {
-      quote: "Our collaboration with the Cyborg Cats on legislative advocacy has been remarkable. Their professional approach and deep understanding of STEM education policy has made them invaluable partners in advancing Missouri's educational initiatives. They represent the best of student leadership.",
-      author: "Dr. Michael Chen", 
-      role: "STEM Education Specialist",
-      icon: Award,
-    },
-    {
-      quote: "Being part of Team 4256 has taught me that robotics isn't just about building machines—it's about building solutions to global challenges. From our work in South Korea to Ethiopia, I've learned how STEM can create positive change across continents.",
-      author: "Emma Rodriguez",
-      role: "Team Captain & Lead Engineer", 
-      icon: Users,
-    },
   ];
 
   return (
