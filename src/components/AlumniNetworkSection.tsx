@@ -8,49 +8,37 @@ import { GraduationCap, Users, Award, Building, Lightbulb, MessageSquare } from 
 export const AlumniNetworkSection = () => {
   const alumniHighlights = [
     {
-      title: "Engineering Leaders",
-      description: "Our alumni work at top companies like Boeing, Tesla, Microsoft, and NASA",
+      title: "Alumni Network",
+      description: "Coming Soon - Connect with our graduates",
       icon: Building,
-      stats: "85+ Alumni in STEM careers"
+      stats: "Coming Soon"
     },
     {
       title: "Mentorship Program",
-      description: "Connect with alumni mentors for career guidance and internship opportunities",
+      description: "Coming Soon - Alumni mentorship opportunities",
       icon: Users,
-      stats: "30+ Active Mentors"
+      stats: "Coming Soon"
     },
     {
-      title: "Innovation Network",
-      description: "Access to startup founders, researchers, and industry innovators from our community",
+      title: "Career Support",
+      description: "Coming Soon - Career guidance and opportunities",
       icon: Lightbulb,
-      stats: "12 Patent Holders"
+      stats: "Coming Soon"
     },
     {
-      title: "Global Impact",
-      description: "Alumni leading STEM initiatives and robotics programs worldwide",
+      title: "Success Stories",
+      description: "Coming Soon - Alumni achievements and impact",
       icon: Award,
-      stats: "5 Continents Represented"
+      stats: "Coming Soon"
     }
   ];
 
   const featuredAlumni = [
     {
-      name: "Dr. Sarah Chen",
-      year: "Class of 2015",
-      achievement: "Lead Engineer at SpaceX",
-      quote: "The Cyborg Cats taught me that engineering isn't just about solving problems—it's about building the future."
-    },
-    {
-      name: "Marcus Johnson",
-      year: "Class of 2018",
-      achievement: "Robotics Startup Founder",
-      quote: "The entrepreneurial spirit and technical foundation from Team 4256 made my startup possible."
-    },
-    {
-      name: "Dr. Emily Rodriguez",
-      year: "Class of 2016",
-      achievement: "NASA Mission Specialist",
-      quote: "From building robots to building spacecraft—the journey started with the Cyborg Cats."
+      name: "Coming Soon",
+      year: "Alumni Stories",
+      achievement: "Coming Soon",
+      quote: "Alumni success stories will be featured here soon."
     }
   ];
 
@@ -106,24 +94,21 @@ export const AlumniNetworkSection = () => {
         <ScrollReveal delay={200}>
           <div className="mb-16">
             <h3 className="font-orbitron text-2xl font-bold text-center mb-8 text-glow">
-              Featured Alumni Success Stories
+              Alumni Success Stories Coming Soon
             </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {featuredAlumni.map((alumni, index) => (
-                <PremiumCard key={alumni.name} className="text-center">
-                  <div className="mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-4 flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="font-orbitron font-semibold text-lg mb-1">{alumni.name}</h4>
-                    <p className="text-xs text-muted-foreground mb-2">{alumni.year}</p>
-                    <p className="text-sm font-medium text-primary mb-3">{alumni.achievement}</p>
-                    <blockquote className="text-sm text-muted-foreground italic">
-                      "{alumni.quote}"
-                    </blockquote>
+            <div className="text-center">
+              <PremiumCard className="max-w-md mx-auto">
+                <div className="mb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-4 flex items-center justify-center">
+                    <GraduationCap className="w-8 h-8 text-white" />
                   </div>
-                </PremiumCard>
-              ))}
+                  <h4 className="font-orbitron font-semibold text-lg mb-1">Alumni Stories</h4>
+                  <p className="text-xs text-muted-foreground mb-2">Coming Soon</p>
+                  <p className="text-sm text-muted-foreground italic">
+                    "Alumni success stories and achievements will be featured here soon."
+                  </p>
+                </div>
+              </PremiumCard>
             </div>
           </div>
         </ScrollReveal>
