@@ -89,7 +89,7 @@ export const ResourcesSection = () => {
           {resourceCategories.map((category, index) => (
             <ScrollReveal key={category.title} delay={index * 100}>
               <PremiumCard className="h-full">
-                <div className="mb-4">
+                <div className="mb-6">
                   <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-3">
                     <category.icon className="w-6 h-6 text-accent" />
                   </div>
