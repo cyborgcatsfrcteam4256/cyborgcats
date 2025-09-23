@@ -60,6 +60,17 @@ export const ResourcesSection = () => {
     <section className="relative py-20 overflow-hidden">
       <FloatingParticles />
       
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png')`
+        }}
+      />
+      
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
+      
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.1),transparent_50%)]" />
