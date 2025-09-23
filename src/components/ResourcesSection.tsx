@@ -71,7 +71,7 @@ export const ResourcesSection = () => {
               <BookOpen className="w-4 h-4 mr-2 text-accent" />
               Free Resources & Curriculum
             </Badge>
-            <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-6 text-glow">
+            <h2 className="font-orbitron text-4xl md:text-5xl font-bold mb-8 text-glow">
               Knowledge for 
               <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent bg-300% animate-gradient">
                 Everyone
