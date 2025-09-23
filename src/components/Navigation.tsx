@@ -14,6 +14,8 @@ export const Navigation = () => {
     { href: '#news', label: 'News' },
     { href: '#sponsors', label: 'Sponsors' },
     { href: '#photos', label: 'Photos' },
+    { href: '#alumni', label: 'Alumni' },
+    { href: '#resources', label: 'Resources' },
     { href: '#contact', label: 'Contact' },
   ];
 
