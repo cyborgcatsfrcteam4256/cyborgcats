@@ -74,6 +74,69 @@ export const PhotoGallery = () => {
       category: "team",
       description: "Behind the scenes in our pit area with sponsors and team organization",
       imageUrl: "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
+    },
+    {
+      id: 10,
+      title: "Community Robot Demo",
+      category: "outreach",
+      description: "Our robot performing at a community outreach event with team members and attendees",
+      imageUrl: "/lovable-uploads/robot-demo-1.jpg"
+    },
+    {
+      id: 11,
+      title: "Robot in Community Action",
+      category: "outreach",
+      description: "Team 4256 robot demonstrating capabilities at a local community event",
+      imageUrl: "/lovable-uploads/robot-demo-2.jpg"
+    },
+    {
+      id: 12,
+      title: "Community Engagement",
+      category: "outreach",
+      description: "Families and community members watching our robot demonstration",
+      imageUrl: "/lovable-uploads/community-event-1.jpg"
+    },
+    {
+      id: 13,
+      title: "Youth Outreach Event",
+      category: "outreach",
+      description: "Young students excited to see our robot in action at a community event",
+      imageUrl: "/lovable-uploads/community-event-2.jpg"
+    },
+    {
+      id: 14,
+      title: "Robot Performance",
+      category: "competition",
+      description: "Our robot showcasing its abilities with spectators watching",
+      imageUrl: "/lovable-uploads/robot-action-1.jpg"
+    },
+    {
+      id: 15,
+      title: "Competition Action",
+      category: "competition",
+      description: "Team 4256 robot in action during a competitive demonstration",
+      imageUrl: "/lovable-uploads/robot-action-2.jpg"
+    },
+    {
+      id: 16,
+      title: "Team Operations",
+      category: "team",
+      description: "Team members working together to operate the robot controls",
+      imageUrl: "/lovable-uploads/team-operating.jpg"
+    },
+    {
+      id: 17,
+      title: "Sponsor Recognition",
+      category: "competition",
+      description: "Our robot displaying sponsor banners during demonstration",
+      imageUrl: "/lovable-uploads/robot-sponsors.jpg"
+    },
+    {
+      id: 18,
+      title: "Mentor Collaboration",
+      category: "team",
+      description: "Team mentors and community members sharing knowledge and ideas",
+      imageUrl: "/lovable-uploads/mentor-meeting.jpg"
     }
   ];
 
@@ -81,6 +144,7 @@ export const PhotoGallery = () => {
     { key: 'all', label: 'All Photos', icon: Camera },
     { key: 'team', label: 'Team Life', icon: Users },
     { key: 'competition', label: 'Competition', icon: Award },
+    { key: 'outreach', label: 'Outreach', icon: Wrench },
     { key: 'awards', label: 'Awards', icon: Star }
   ];
 
