@@ -78,15 +78,15 @@ export const AboutFIRSTSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 100}>
-              <PremiumCard className="h-full">
-                <div className="flex items-start gap-6">
-                  <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 flex-shrink-0">
+              <PremiumCard className="h-full p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-2xl bg-primary/10 border border-primary/20 flex-shrink-0">
                     <div className="text-primary">
                       {feature.icon}
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-orbitron font-bold text-white mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-orbitron font-bold text-white mb-3">
                       {feature.title}
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed">
