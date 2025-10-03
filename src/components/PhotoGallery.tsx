@@ -27,53 +27,11 @@ export const PhotoGallery = () => {
       imageUrl: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png"
     },
     {
-      id: 3,
-      title: "Robot Demonstration",
-      category: "competition",
-      description: "Team 4256 explaining their robot design and strategy to judges and visitors",
-      imageUrl: "/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png"
-    },
-    {
-      id: 4,
-      title: "Pit Area Collaboration",
-      category: "team",
-      description: "Team members working together in the pit area during competition",
-      imageUrl: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png"
-    },
-    {
-      id: 5,
-      title: "Victory Celebration",
-      category: "awards",
-      description: "Cyborg Cats team members waving to the crowd after a successful match",
-      imageUrl: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png"
-    },
-    {
-      id: 6,
-      title: "Robot Interview",
-      category: "competition",
-      description: "Team members being interviewed about their robot and competition strategy",
-      imageUrl: "/lovable-uploads/e3cf82cd-0326-4b2e-94d5-3d34ef99d632.png"
-    },
-    {
-      id: 7,
-      title: "Match Action",
-      category: "competition",
-      description: "Our robot 4256 in action during an intense competition match",
-      imageUrl: "/lovable-uploads/dbbb0403-e985-4641-9473-fd3bcb5cc74b.png"
-    },
-    {
       id: 8,
       title: "Drive Team",
       category: "team",
       description: "Our skilled drive team operating the robot controls during competition",
       imageUrl: "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png"
-    },
-    {
-      id: 9,
-      title: "Team Workspace",
-      category: "team",
-      description: "Behind the scenes in our pit area with sponsors and team organization",
-      imageUrl: "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
     },
     {
       id: 10,
@@ -83,13 +41,6 @@ export const PhotoGallery = () => {
       imageUrl: "/lovable-uploads/robot-demo-1.jpg"
     },
     {
-      id: 11,
-      title: "Robot in Community Action",
-      category: "outreach",
-      description: "Team 4256 robot demonstrating capabilities at a local community event",
-      imageUrl: "/lovable-uploads/robot-demo-2.jpg"
-    },
-    {
       id: 12,
       title: "Community Engagement",
       category: "outreach",
@@ -97,46 +48,11 @@ export const PhotoGallery = () => {
       imageUrl: "/lovable-uploads/community-event-1.jpg"
     },
     {
-      id: 13,
-      title: "Youth Outreach Event",
-      category: "outreach",
-      description: "Young students excited to see our robot in action at a community event",
-      imageUrl: "/lovable-uploads/community-event-2.jpg"
-    },
-    {
-      id: 14,
-      title: "Robot Performance",
-      category: "competition",
-      description: "Our robot showcasing its abilities with spectators watching",
-      imageUrl: "/lovable-uploads/robot-action-1.jpg"
-    },
-    {
-      id: 15,
-      title: "Competition Action",
-      category: "competition",
-      description: "Team 4256 robot in action during a competitive demonstration",
-      imageUrl: "/lovable-uploads/robot-action-2.jpg"
-    },
-    {
       id: 16,
       title: "Team Operations",
       category: "team",
       description: "Team members working together to operate the robot controls",
       imageUrl: "/lovable-uploads/team-operating.jpg"
-    },
-    {
-      id: 17,
-      title: "Sponsor Recognition",
-      category: "competition",
-      description: "Our robot displaying sponsor banners during demonstration",
-      imageUrl: "/lovable-uploads/robot-sponsors.jpg"
-    },
-    {
-      id: 18,
-      title: "Mentor Collaboration",
-      category: "team",
-      description: "Team mentors and community members sharing knowledge and ideas",
-      imageUrl: "/lovable-uploads/mentor-meeting.jpg"
     }
   ];
 
