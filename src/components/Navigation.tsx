@@ -8,15 +8,15 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: '#about-us', label: 'About Us' },
+    { href: '/about', label: 'About' },
+    { href: '/team', label: 'Team' },
     { href: '#what-is-first', label: 'What is FIRST' },
     { href: '#impact', label: 'Impact' },
-    { href: '#news', label: 'News' },
     { href: '#sponsors', label: 'Sponsors' },
     { href: '#photos', label: 'Photos' },
     { href: '#alumni', label: 'Alumni' },
     { href: '#resources', label: 'Resources' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -26,6 +26,8 @@ export const Navigation = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else {
+      window.location.href = href;
     }
   };
 
@@ -34,7 +36,7 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 py-2">
           {/* Logo */}
-          <a href="#about-us" onClick={() => handleNavClick('#about-us')} className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
+          <a href="/" className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
             <img 
               src={cyborgCatsLogo} 
               alt="Cyborg Cats FRC Team 4256 Logo" 
@@ -60,7 +62,11 @@ export const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm">
+              <Button 
+                variant="hero" 
+                size="sm"
+                onClick={() => window.location.href = '/contact?subject=join'}
+              >
                 Join Us
               </Button>
             </div>
@@ -93,7 +99,12 @@ export const Navigation = () => {
                 </a>
               ))}
               <div className="px-3 py-2">
-                <Button variant="hero" size="sm" className="w-full">
+                <Button 
+                  variant="hero" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => window.location.href = '/contact?subject=join'}
+                >
                   Join Us
                 </Button>
               </div>

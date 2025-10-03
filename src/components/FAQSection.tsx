@@ -162,10 +162,18 @@ export const FAQSection = () => {
               We're here to help! Reach out to us directly for any questions not covered above.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => window.location.href = '/contact'}
+              >
                 Contact Our Team
               </Button>
-              <Button variant="silver" size="lg">
+              <Button 
+                variant="silver" 
+                size="lg"
+                onClick={() => window.location.href = '/contact?subject=visit'}
+              >
                 Schedule a Visit
               </Button>
             </div>

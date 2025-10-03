@@ -13,6 +13,7 @@ import { AlumniNetworkSection } from '@/components/AlumniNetworkSection';
 import { ResourcesSection } from '@/components/ResourcesSection';
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { BackToTop } from '@/components/BackToTop';
 
 const Index = () => {
   return (
@@ -67,6 +68,7 @@ const Index = () => {
         </section>
       </ScrollReveal>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

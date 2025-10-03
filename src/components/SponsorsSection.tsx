@@ -225,6 +225,7 @@ export const SponsorsSection = () => {
                   variant="premium" 
                   size="lg"
                   className="group px-8 py-4"
+                  onClick={() => window.location.href = '/contact?subject=sponsor'}
                 >
                   <span className="flex items-center gap-3">
                     Become a Sponsor
@@ -235,6 +236,7 @@ export const SponsorsSection = () => {
                   variant="glass" 
                   size="lg"
                   className="px-8 py-4"
+                  onClick={() => window.location.href = '/contact?subject=sponsor'}
                 >
                   Download Sponsorship Packet
                 </LiquidButton>

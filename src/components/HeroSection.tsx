@@ -92,13 +92,26 @@ export const HeroSection = () => {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 animate-slide-up" style={{animationDelay: '0.8s'}}>
-              <Button variant="premium" size="lg" className="group relative overflow-hidden">
+              <Button 
+                variant="premium" 
+                size="lg" 
+                className="group relative overflow-hidden"
+                onClick={() => {
+                  const element = document.querySelector('#what-is-first');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 <Rocket className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 relative z-10" />
                 <span className="relative z-10">Explore Our Journey</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
-              <Button variant="glass" size="lg" className="group relative overflow-hidden">
+              <Button 
+                variant="glass" 
+                size="lg" 
+                className="group relative overflow-hidden"
+                onClick={() => window.location.href = '/contact?subject=sponsor'}
+              >
                 <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500 relative z-10" />
                 <span className="relative z-10">Support Our Mission</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />

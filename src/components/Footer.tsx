@@ -36,8 +36,8 @@ export const Footer = () => {
             <h4 className="font-orbitron font-semibold text-lg mb-4">Quick Links</h4>
             <div className="space-y-2">
               <Link to="/about" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">About Us</Link>
-              <Link to="/impact" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Impact & Outreach</Link>
-              <Link to="/competitions" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Competitions</Link>
+              <a href="/#impact" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Impact & Outreach</a>
+              <a href="/#photos" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Competitions</a>
               <Link to="/team" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Our Team</Link>
             </div>
           </div>
@@ -46,10 +46,10 @@ export const Footer = () => {
           <div>
             <h4 className="font-orbitron font-semibold text-lg mb-4">Get Involved</h4>
             <div className="space-y-2">
-              <Link to="/sponsors" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Become a Sponsor</Link>
-              <Link to="/contact" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Join Our Team</Link>
-              <Link to="/contact" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Partner With Us</Link>
-              <a href="#" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Download Media Kit</a>
+              <a href="/#sponsors" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Become a Sponsor</a>
+              <a href="/contact?subject=join" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Join Our Team</a>
+              <a href="/contact?subject=partnership" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Partner With Us</a>
+              <a href="/contact?subject=media" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Download Media Kit</a>
             </div>
           </div>
 
@@ -86,9 +86,9 @@ export const Footer = () => {
             © 2025 Cyborg Cats FRC Team 4256. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Privacy Policy</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Terms of Service</a>
-            <a href="https://www.firstinspires.org/" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">FIRST Robotics</a>
+            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Privacy Policy</Link>
+            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Terms of Service</Link>
+            <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">FIRST Robotics</a>
           </div>
         </div>
       </div>

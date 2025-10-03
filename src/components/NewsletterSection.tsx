@@ -2,20 +2,35 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Mail, CheckCircle, Zap, Users, Award } from 'lucide-react';
+import { Mail, CheckCircle, Zap, Users, Award, AlertCircle } from 'lucide-react';
 import { FloatingParticles } from './FloatingParticles';
+import { z } from 'zod';
+import { toast } from 'sonner';
+
+const emailSchema = z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters');
 
 export const NewsletterSection = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    setError('');
+    
+    try {
+      emailSchema.parse(email);
       setIsSubscribed(true);
       setEmail('');
-      // Here you would integrate with your newsletter service
+      toast.success('Successfully subscribed!', {
+        description: 'Thank you for joining our newsletter.'
+      });
       setTimeout(() => setIsSubscribed(false), 3000);
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        setError(err.errors[0].message);
+        toast.error('Invalid email address');
+      }
     }
   };
 
@@ -69,16 +84,26 @@ export const NewsletterSection = () => {
           {/* Newsletter Form */}
           <div className="bg-card/80 backdrop-blur-lg border border-border rounded-2xl p-8 mb-12 hover-glow transition-cyber holographic-border">
             {!isSubscribed ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-grow"
-                    required
-                  />
+                  <div className="flex-grow">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setError('');
+                      }}
+                      className={error ? 'border-destructive' : ''}
+                      required
+                    />
+                    {error && (
+                      <p className="text-sm text-destructive mt-1 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {error}
+                      </p>
+                    )}
+                  </div>
                   <Button 
                     type="submit" 
                     variant="hero" 
