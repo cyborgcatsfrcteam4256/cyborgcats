@@ -32,7 +32,7 @@ export const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20 py-2">
           {/* Logo */}
           <a href="#about-us" onClick={() => handleNavClick('#about-us')} className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
             <img 
