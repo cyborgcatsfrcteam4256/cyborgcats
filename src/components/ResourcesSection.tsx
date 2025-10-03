@@ -64,7 +64,7 @@ export const ResourcesSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png')`
+          backgroundImage: `url('/lovable-uploads/community-event-1.jpg')`
         }}
       />
       
