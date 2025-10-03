@@ -4,7 +4,6 @@ import { HeroSection } from '@/components/HeroSection';
 import { AboutFIRSTSection } from '@/components/AboutFIRSTSection';
 import { ImpactSection } from '@/components/ImpactSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { NewsSection } from '@/components/NewsSection';
 import { SponsorsSection } from '@/components/SponsorsSection';
 import { PhotoGallery } from '@/components/PhotoGallery';
 import { InstagramFeed } from '@/components/InstagramFeed';
@@ -35,11 +34,6 @@ const Index = () => {
       </ScrollReveal>
       <ScrollReveal delay={200}>
         <TestimonialsSection />
-      </ScrollReveal>
-      <ScrollReveal delay={100}>
-        <section id="news">
-          <NewsSection />
-        </section>
       </ScrollReveal>
       <ScrollReveal delay={200}>
         <section id="sponsors">
