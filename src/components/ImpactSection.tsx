@@ -157,7 +157,7 @@ export const ImpactSection = () => {
             <div className="relative animate-scale-in">
               <PhotoShowcase 
                 images={[
-                  "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
+                  "/lovable-uploads/team-advocacy-capitol.jpg",
                   "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
                   "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
                 ]}
