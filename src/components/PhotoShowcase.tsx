@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PhotoShowcaseProps {
   images: string[];
   className?: string;
+  autoPlayInterval?: number; // milliseconds
 }
 
-export const PhotoShowcase = ({ images, className = '' }: PhotoShowcaseProps) => {
+export const PhotoShowcase = ({ images, className = '', autoPlayInterval = 5000 }: PhotoShowcaseProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -17,14 +18,32 @@ export const PhotoShowcase = ({ images, className = '' }: PhotoShowcaseProps) =>
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, autoPlayInterval);
+
+    return () => clearInterval(interval);
+  }, [images.length, autoPlayInterval]);
+
   return (
     <div className={`relative group ${className}`}>
-      <div className="overflow-hidden rounded-xl h-full">
-        <img 
-          src={images[currentIndex]} 
-          alt={`Team photo ${currentIndex + 1}`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+      <div className="overflow-hidden rounded-xl h-[600px] relative">
+        {images.map((image, index) => (
+          <img 
+            key={image}
+            src={image} 
+            alt={`Team photo ${index + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+              index === currentIndex 
+                ? 'opacity-100 scale-100' 
+                : 'opacity-0 scale-105'
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
       </div>
       
