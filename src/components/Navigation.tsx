@@ -91,22 +91,22 @@ export const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden animate-slide-up">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-card rounded-lg mt-2 shadow-cyber">
+          <div className="lg:hidden animate-slide-up pb-4">
+            <div className="px-4 pt-4 pb-4 space-y-2 bg-card/95 backdrop-blur-xl rounded-2xl mt-4 shadow-luxury border border-primary/20">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-foreground hover:text-primary hover:bg-accent rounded-md transition-cyber cursor-pointer"
+                  className="block px-4 py-3 text-foreground hover:text-primary hover:bg-accent/50 rounded-xl transition-all duration-300 cursor-pointer font-medium"
                   onClick={(e) => handleNavClick(e, item.href)}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="px-3 py-2">
+              <div className="pt-2">
                 <Button 
                   variant="hero" 
-                  size="sm" 
+                  size="lg" 
                   className="w-full"
                   onClick={() => window.location.href = '/contact?subject=join'}
                 >
