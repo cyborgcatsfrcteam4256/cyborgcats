@@ -60,21 +60,30 @@ export const ResourcesSection = () => {
     <section className="relative py-32 overflow-hidden">
       <FloatingParticles />
       
-      {/* Background Image */}
+      {/* Dramatic Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 transition-transform duration-[20s] hover:scale-105"
         style={{
-          backgroundImage: `url('/lovable-uploads/community-event-1.jpg')`
+          backgroundImage: `url('/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png')`
         }}
       />
       
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95 backdrop-blur-md" />
+      {/* Layered overlays for depth and readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/85" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+      <div className="absolute inset-0 backdrop-blur-sm" />
       
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.15),transparent_40%)]" />
+      {/* Animated gradient orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-glow-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/15 rounded-full blur-3xl animate-cyber-float" />
+      
+      {/* Accent gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-transparent to-primary/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.2),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.2),transparent_50%)]" />
+      
+      {/* Circuit pattern overlay */}
+      <div className="absolute inset-0 circuit-pattern opacity-10" />
       
       <div className="container relative z-10">
         <ScrollReveal>
