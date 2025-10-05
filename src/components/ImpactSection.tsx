@@ -157,9 +157,9 @@ export const ImpactSection = () => {
             <div className="relative animate-scale-in">
               <PhotoShowcase 
                 images={[
+                  "/lovable-uploads/impact-award-winning-photo.jpg",
                   "/lovable-uploads/team-advocacy-capitol.jpg",
-                  "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
-                  "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png"
+                  "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png"
                 ]}
                 className="shadow-luxury hover:shadow-cyber transition-all duration-700"
               />
