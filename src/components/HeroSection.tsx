@@ -139,25 +139,25 @@ export const HeroSection = () => {
 
           {/* Enhanced Right side - Robot showcase */}
           <ScrollReveal direction="scale" delay={400} className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer">
+            <div className="relative rounded-3xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer border border-primary/20">
               <img 
                 src="/lovable-uploads/team-first-sign.jpg" 
                 alt="Cyborg Cats team at FIRST competition" 
-                className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[600px] object-cover group-hover:scale-110 transition-transform duration-700 brightness-105 contrast-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-primary/10" />
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-primary/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary-glow/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              {/* Enhanced floating elements */}
-              <div className="absolute top-6 right-6 bg-primary/20 backdrop-blur-lg rounded-lg p-4 glow-interactive hover:scale-110 transition-transform duration-300 cursor-pointer group/element">
+              {/* Enhanced floating elements with better positioning */}
+              <div className="absolute top-6 right-6 bg-gradient-to-br from-primary/30 to-primary-glow/20 backdrop-blur-xl rounded-xl p-4 glow-interactive hover:scale-110 transition-all duration-300 cursor-pointer group/element border border-primary/30 shadow-luxury">
                 <Zap className="w-8 h-8 text-primary group-hover/element:rotate-12 transition-transform duration-300" />
               </div>
               
-              <div className="absolute top-6 left-6 bg-primary-glow/15 backdrop-blur-lg rounded-lg p-3">
+              <div className="absolute top-6 left-6 bg-gradient-to-br from-primary-electric/25 to-primary-glow/15 backdrop-blur-xl rounded-xl p-3 border border-primary-electric/20 shadow-glow">
                 <Cpu className="w-6 h-6 text-primary-glow" />
               </div>
               
-              <div className="absolute bottom-6 left-6 bg-card/90 backdrop-blur-lg rounded-lg p-4 hover:scale-105 transition-transform duration-300 cursor-pointer border border-primary/20">
+              <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-xl rounded-xl p-5 hover:scale-105 transition-all duration-300 cursor-pointer border border-primary/30 shadow-luxury">
                 <div className="flex items-center space-x-3">
                   <Users className="w-6 h-6 text-primary" />
                   <div>
@@ -170,9 +170,12 @@ export const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Decorative corner elements */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary/20 to-transparent" />
+              {/* Enhanced decorative corner elements with glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/30 to-transparent opacity-50" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary-glow/30 to-transparent opacity-50" />
+              
+              {/* Animated light beam effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </div>
           </ScrollReveal>
         </div>
