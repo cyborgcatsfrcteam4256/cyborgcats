@@ -75,7 +75,7 @@ export const AlumniNetworkSection = () => {
           {alumniHighlights.map((highlight, index) => (
             <ScrollReveal key={highlight.title} delay={index * 100}>
               <PremiumCard className="h-full text-center">
-                <div className="mb-4">
+                <div className="mb-6 p-6">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                     <highlight.icon className="w-6 h-6 text-primary" />
                   </div>
