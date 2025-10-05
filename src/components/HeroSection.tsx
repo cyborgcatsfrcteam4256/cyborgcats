@@ -141,8 +141,8 @@ export const HeroSection = () => {
           <ScrollReveal direction="scale" delay={400} className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer border border-primary/20">
               <img 
-                src="/lovable-uploads/team-first-sign.jpg" 
-                alt="Cyborg Cats team at FIRST competition" 
+                src="/lovable-uploads/impact-award-winning-photo.jpg" 
+                alt="Cyborg Cats team celebrating FIRST Impact Award victory" 
                 className="w-full h-[600px] object-cover group-hover:scale-110 transition-transform duration-700 brightness-105 contrast-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-primary/20" />
