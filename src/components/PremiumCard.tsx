@@ -32,7 +32,7 @@ export const PremiumCard = forwardRef<HTMLDivElement, PremiumCardProps>(
       <Card
         ref={ref}
         className={cn(
-          'transition-all duration-700 ease-out relative overflow-hidden',
+          'transition-all duration-500 ease-out relative overflow-hidden',
           variantClasses[variant],
           interactive && 'interactive-card cursor-pointer',
           glowEffect && 'glow-interactive',
@@ -44,19 +44,19 @@ export const PremiumCard = forwardRef<HTMLDivElement, PremiumCardProps>(
         {...props}
       >
         {/* Enhanced hover gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         
         {/* Smooth flowing border effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none" />
         
         {/* Content */}
-        <div className="relative z-10">
+        <div className="relative z-10 pointer-events-auto">
           {children}
         </div>
 
         {/* Corner accents */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary-glow/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary-glow/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
       </Card>
     );
   }
