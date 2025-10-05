@@ -49,17 +49,17 @@ export const Navigation = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <div className="ml-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+            <div className="ml-4">
               <SmartSearch />
             </div>
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-3 xl:space-x-5">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className="font-inter text-foreground hover:text-primary transition-cyber hover:text-glow cursor-pointer"
+                  className="font-inter text-sm xl:text-base text-foreground hover:text-primary transition-cyber hover:text-glow cursor-pointer whitespace-nowrap"
                 >
                   {item.label}
                 </a>
@@ -75,7 +75,7 @@ export const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="icon"
