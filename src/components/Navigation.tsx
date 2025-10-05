@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
 
@@ -19,8 +20,10 @@ export const Navigation = () => {
     { href: '/contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setIsOpen(false);
+    
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
@@ -36,7 +39,7 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 py-2">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover-glow min-w-0 flex-shrink-0">
             <img 
               src={cyborgCatsLogo} 
               alt="Cyborg Cats FRC Team 4256 Logo" 
@@ -46,7 +49,7 @@ export const Navigation = () => {
               <span className="font-orbitron font-bold text-sm sm:text-base lg:text-lg text-glow truncate">Cyborg Cats</span>
               <span className="font-inter text-xs sm:text-xs text-muted-foreground truncate hidden xs:block">St. Louis • Team 4256</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
@@ -58,7 +61,7 @@ export const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="font-inter text-sm xl:text-base text-foreground hover:text-primary transition-cyber hover:text-glow cursor-pointer whitespace-nowrap"
                 >
                   {item.label}
@@ -88,14 +91,14 @@ export const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden animate-slide-up">
+          <div className="lg:hidden animate-slide-up">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card rounded-lg mt-2 shadow-cyber">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   className="block px-3 py-2 text-foreground hover:text-primary hover:bg-accent rounded-md transition-cyber cursor-pointer"
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                 >
                   {item.label}
                 </a>
