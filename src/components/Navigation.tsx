@@ -50,7 +50,9 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <SmartSearch />
+            <div className="ml-8">
+              <SmartSearch />
+            </div>
             <div className="flex items-center space-x-6">
               {navItems.map((item) => (
                 <a
