@@ -158,10 +158,13 @@ export const ImpactSection = () => {
               <PhotoShowcase 
                 images={[
                   "/lovable-uploads/impact-award-winning-photo.jpg",
+                  "/lovable-uploads/team-first-sign.jpg",
                   "/lovable-uploads/team-advocacy-capitol.jpg",
-                  "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png"
+                  "/lovable-uploads/robot-action-1.jpg",
+                  "/lovable-uploads/community-event-1.jpg"
                 ]}
                 className="shadow-luxury hover:shadow-cyber transition-all duration-700"
+                autoPlayInterval={4000}
               />
               {/* Floating achievement badges */}
               <div className="absolute -top-4 -right-4 gradient-premium border border-primary/30 rounded-full p-4 backdrop-blur-xl animate-cyber-float">
