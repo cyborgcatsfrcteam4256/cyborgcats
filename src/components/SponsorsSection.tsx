@@ -83,19 +83,19 @@ export const SponsorsSection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-20">
-            <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="text-center mb-24">
+            <div className="flex items-center justify-center gap-4 mb-10">
               <div className="p-3 rounded-full bg-primary/20 border border-primary/30 glow-subtle">
                 <Building2 className="w-8 h-8 text-primary" />
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <Heart className="w-6 h-6 text-primary-glow animate-pulse" />
                 <span className="text-lg font-semibold text-foreground tracking-wider">PARTNERSHIP & SUPPORT</span>
                 <Heart className="w-6 h-6 text-primary-glow animate-pulse" />
               </div>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
+            <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-10 text-glow leading-tight">
               Our Amazing <span className="text-holographic">Sponsors</span>
             </h2>
             
@@ -110,22 +110,22 @@ export const SponsorsSection = () => {
 
         {/* Current Sponsors */}
         <ScrollReveal delay={200}>
-          <div className="mb-24">
-            <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-16">
+          <div className="mb-28">
+            <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-20">
               Thank You to Our Current Sponsors
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
               {currentSponsors.map((sponsor, index) => (
-                <ScrollReveal key={index} delay={index * 50}>
-                   <PremiumCard className="p-6 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700">
-                    <div className="aspect-square glass-morphism rounded-2xl mb-4 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
+                 <ScrollReveal key={index} delay={index * 50}>
+                   <PremiumCard className="p-8 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700">
+                    <div className="aspect-square glass-morphism rounded-2xl mb-5 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
                       <img 
                         src={sponsor.logo} 
                         alt={`${sponsor.name} logo`}
                         className="w-16 h-16 object-contain rounded-lg group-hover/sponsor:brightness-110 transition-all duration-500"
                       />
                     </div>
-                    <h4 className="font-orbitron font-semibold text-white text-sm mb-3 group-hover/sponsor:text-glow transition-all duration-500">
+                    <h4 className="font-orbitron font-semibold text-white text-sm mb-4 group-hover/sponsor:text-glow transition-all duration-500">
                       {sponsor.name}
                     </h4>
                     <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${
@@ -145,25 +145,25 @@ export const SponsorsSection = () => {
 
         {/* Sponsorship Benefits */}
         <ScrollReveal delay={300}>
-          <div className="mb-24">
-            <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-16">
+          <div className="mb-28">
+            <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-20">
               Why Sponsor Our Team?
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {sponsorshipBenefits.map((benefit, index) => (
                 <ScrollReveal key={index} delay={index * 100}>
-                  <PremiumCard className="h-full">
-                    <div className="flex items-start gap-4 lg:gap-6">
-                      <div className="p-3 lg:p-4 rounded-2xl bg-primary/20 border border-primary/30 flex-shrink-0 glow-subtle">
-                        <div className="text-primary w-6 h-6 lg:w-8 lg:h-8 flex items-center justify-center">
+                  <PremiumCard className="h-full p-8">
+                    <div className="flex items-start gap-6">
+                      <div className="p-4 rounded-2xl bg-primary/20 border border-primary/30 flex-shrink-0 glow-subtle">
+                        <div className="text-primary w-8 h-8 flex items-center justify-center">
                           {benefit.icon}
                         </div>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-lg lg:text-xl font-orbitron font-bold text-foreground mb-2 lg:mb-3 leading-tight">
+                      <div className="flex-1 min-w-0 pt-1">
+                        <h4 className="text-xl font-orbitron font-bold text-foreground mb-4 leading-tight">
                           {benefit.title}
                         </h4>
-                        <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
+                        <p className="text-base text-muted-foreground leading-relaxed">
                           {benefit.description}
                         </p>
                       </div>
@@ -177,27 +177,27 @@ export const SponsorsSection = () => {
 
         {/* Sponsorship Tiers */}
         <ScrollReveal delay={400}>
-          <div className="mb-20">
-            <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-16">
+          <div className="mb-24">
+            <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-20">
               Sponsorship Opportunities
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {sponsorshipTiers.map((tier, index) => (
                 <ScrollReveal key={index} delay={index * 100}>
                   <PremiumCard className="text-center relative overflow-hidden">
                     <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${tier.color}`} />
-                    <div className="p-6">
-                      <h4 className="text-2xl font-orbitron font-bold text-white mb-2">
+                    <div className="p-8">
+                      <h4 className="text-2xl font-orbitron font-bold text-white mb-3">
                         {tier.name}
                       </h4>
-                      <p className="text-3xl font-bold text-primary mb-6">
+                      <p className="text-3xl font-bold text-primary mb-8">
                         {tier.amount}
                       </p>
-                      <ul className="space-y-3 text-left">
+                      <ul className="space-y-4 text-left">
                         {tier.benefits.map((benefit, idx) => (
                           <li key={idx} className="flex items-center gap-3 text-muted-foreground">
                             <Star className="w-4 h-4 text-primary flex-shrink-0" />
-                            <span className="text-sm">{benefit}</span>
+                            <span className="text-sm leading-relaxed">{benefit}</span>
                           </li>
                         ))}
                       </ul>
@@ -212,8 +212,8 @@ export const SponsorsSection = () => {
         {/* Call to Action */}
         <ScrollReveal delay={500}>
           <div className="text-center">
-            <div className="bg-gradient-to-r from-secondary/20 via-primary/20 to-secondary/20 p-12 rounded-3xl border border-white/10">
-              <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white mb-6">
+            <div className="bg-gradient-to-r from-secondary/20 via-primary/20 to-secondary/20 p-12 lg:p-16 rounded-3xl border border-white/10">
+              <h3 className="text-4xl md:text-5xl font-orbitron font-bold text-white mb-8">
                 Partner With Us Today
               </h3>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -241,7 +241,7 @@ export const SponsorsSection = () => {
                   Download Sponsorship Packet
                 </LiquidButton>
               </div>
-              <p className="text-muted-foreground mt-8">
+              <p className="text-muted-foreground mt-10">
                 Contact us at <span className="text-primary font-semibold">cyborgcatsfrcteam4256@gmail.com</span>
               </p>
             </div>
