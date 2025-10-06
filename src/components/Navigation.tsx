@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { href: '/about', label: 'About' },
@@ -14,7 +15,7 @@ export const Navigation = () => {
     { href: '/impact', label: 'Impact' },
     { href: '/sponsors', label: 'Sponsors' },
     { href: '/competitions', label: 'Competitions' },
-    { href: '#photos', label: 'Photos' },
+    { href: '/#photos', label: 'Photos' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -22,14 +23,25 @@ export const Navigation = () => {
     e.preventDefault();
     setIsOpen(false);
     
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      if (path && path !== '/') {
+        navigate(path);
       }
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     } else {
-      window.location.href = href;
+      navigate(href);
     }
+  };
+
+  const handleJoinClick = () => {
+    setIsOpen(false);
+    navigate('/contact?subject=join');
   };
 
   return (
@@ -68,7 +80,7 @@ export const Navigation = () => {
               <Button 
                 variant="hero" 
                 size="sm"
-                onClick={() => window.location.href = '/contact?subject=join'}
+                onClick={handleJoinClick}
               >
                 Join Us
               </Button>
@@ -106,7 +118,7 @@ export const Navigation = () => {
                   variant="hero" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.location.href = '/contact?subject=join'}
+                  onClick={handleJoinClick}
                 >
                   Join Us
                 </Button>
