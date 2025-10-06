@@ -144,12 +144,12 @@ export const ImpactSection = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="premium" size="lg" className="group" onClick={() => navigate('/impact')}>
+            <div className="flex flex-col sm:flex-row gap-4 relative z-10">
+              <Button variant="premium" size="lg" className="group relative z-10" onClick={() => navigate('/impact')}>
                 <Trophy className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
                 Learn More About Our Mission
               </Button>
-              <Button variant="glass" size="lg" className="group" onClick={() => navigate('/team')}>
+              <Button variant="glass" size="lg" className="group relative z-10" onClick={() => navigate('/team')}>
                 <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
                 Meet Our Team
               </Button>
