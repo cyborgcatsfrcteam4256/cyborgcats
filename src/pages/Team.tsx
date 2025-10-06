@@ -105,7 +105,7 @@ const Team = () => {
                 <ScrollReveal key={index} delay={index * 100}>
                   <PremiumCard className="h-full">
                     <div className={`absolute inset-0 bg-gradient-to-br ${dept.color} opacity-50 rounded-2xl`} />
-                    <div className="relative">
+                    <div className="relative p-6">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-14 h-14 bg-background/80 rounded-xl flex items-center justify-center">
                           <dept.icon className="w-7 h-7 text-primary" />
