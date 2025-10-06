@@ -3,7 +3,7 @@ import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { Award, Users, Heart, Target, Lightbulb, Trophy, Calendar, TrendingUp } from 'lucide-react';
-import teamPhoto from '@/assets/team-photo.jpg';
+const teamPhoto = '/lovable-uploads/impact-award-winning-photo.jpg';
 const About = () => {
   const coreValues = [{
     icon: Heart,
