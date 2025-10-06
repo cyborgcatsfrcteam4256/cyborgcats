@@ -5,12 +5,7 @@ import { LiquidButton } from './LiquidButton';
 
 export const SponsorsSection = () => {
   const currentSponsors = [
-    { name: "TechCorp Industries", tier: "Platinum", logo: "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" },
-    { name: "Innovation Labs", tier: "Gold", logo: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" },
-    { name: "Future Systems", tier: "Gold", logo: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png" },
-    { name: "Robotics Solutions", tier: "Silver", logo: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" },
-    { name: "Engineering Plus", tier: "Silver", logo: "/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" },
-    { name: "Tech Dynamics", tier: "Bronze", logo: "/lovable-uploads/82ee81cc-26a5-4be3-b3af-d056fdb28767.png" }
+    { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" },
   ];
 
   const sponsorshipBenefits = [
@@ -38,28 +33,57 @@ export const SponsorsSection = () => {
 
   const sponsorshipTiers = [
     {
-      name: "Platinum",
-      amount: "$5,000+",
-      color: "from-slate-400 to-slate-200",
-      benefits: ["Logo on robot", "Team apparel", "Website feature", "Social media mentions", "Competition invites"]
+      name: "Foundational Partner",
+      amount: "$10,000/year+",
+      color: "from-purple-500 to-indigo-600",
+      benefits: [
+        "Makes it possible for team to enter FIRST Robotics Competition",
+        "Name displayed on robot, banners, team shirts, website",
+        "Featured in all written communications",
+        "Recognition by February 6th donation deadline"
+      ]
     },
     {
-      name: "Gold",
-      amount: "$2,500+",
-      color: "from-yellow-400 to-yellow-200",
-      benefits: ["Logo on robot", "Team apparel", "Website listing", "Social media mentions"]
+      name: "Sustainable Partner",
+      amount: "$5,000/year",
+      color: "from-blue-400 to-cyan-500",
+      benefits: [
+        "Names and logos prominently on robot and banner",
+        "Featured on website and team shirts",
+        "Included in all written communications",
+        "Recognition by February 6th donation deadline"
+      ]
     },
     {
-      name: "Silver",
-      amount: "$1,000+",
-      color: "from-gray-400 to-gray-200",
-      benefits: ["Team apparel", "Website listing", "Social media recognition"]
+      name: "Development Partner",
+      amount: "$2,500/year",
+      color: "from-green-400 to-emerald-500",
+      benefits: [
+        "Name and logo on banner and team shirts",
+        "Featured on website",
+        "Included in all written communications",
+        "Supports outreach to schools and community"
+      ]
     },
     {
-      name: "Bronze",
-      amount: "$500+",
-      color: "from-amber-600 to-amber-400",
-      benefits: ["Website listing", "Thank you certificate"]
+      name: "Competition Partner",
+      amount: "$1,000/year",
+      color: "from-orange-400 to-red-500",
+      benefits: [
+        "Logo and name on website and team shirts",
+        "Included in all written communications",
+        "Contributes to robot materials and competition costs"
+      ]
+    },
+    {
+      name: "Associate Partner",
+      amount: "Materials/Services/Smaller Amounts",
+      color: "from-gray-400 to-slate-500",
+      benefits: [
+        "Logo and name on website",
+        "Included in all written communications",
+        "Recognition for in-kind donations and support"
+      ]
     }
   ];
 
@@ -129,10 +153,11 @@ export const SponsorsSection = () => {
                       {sponsor.name}
                     </h4>
                     <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${
-                      sponsor.tier === 'Platinum' ? 'glass-morphism border border-slate-400/30 text-slate-200 group-hover/sponsor:text-slate-100 group-hover/sponsor:shadow-glow' :
-                      sponsor.tier === 'Gold' ? 'glass-morphism border border-yellow-400/30 text-yellow-200 group-hover/sponsor:text-yellow-100 group-hover/sponsor:shadow-glow' :
-                      sponsor.tier === 'Silver' ? 'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow' :
-                      'glass-morphism border border-amber-400/30 text-amber-200 group-hover/sponsor:text-amber-100 group-hover/sponsor:shadow-glow'
+                      sponsor.tier === 'Foundational' ? 'glass-morphism border border-purple-400/30 text-purple-200 group-hover/sponsor:text-purple-100 group-hover/sponsor:shadow-glow' :
+                      sponsor.tier === 'Sustainable' ? 'glass-morphism border border-blue-400/30 text-blue-200 group-hover/sponsor:text-blue-100 group-hover/sponsor:shadow-glow' :
+                      sponsor.tier === 'Development' ? 'glass-morphism border border-green-400/30 text-green-200 group-hover/sponsor:text-green-100 group-hover/sponsor:shadow-glow' :
+                      sponsor.tier === 'Competition' ? 'glass-morphism border border-orange-400/30 text-orange-200 group-hover/sponsor:text-orange-100 group-hover/sponsor:shadow-glow' :
+                      'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow'
                     }`}>
                       {sponsor.tier}
                     </span>

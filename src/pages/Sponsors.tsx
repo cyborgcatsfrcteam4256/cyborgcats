@@ -12,40 +12,63 @@ const Sponsors = () => {
 
   const sponsorTiers = [
     {
-      tier: 'Platinum',
+      tier: 'Foundational Partner',
       icon: Trophy,
-      color: 'from-slate-300 to-slate-500',
+      color: 'from-purple-400 to-indigo-600',
       benefits: [
-        'Logo on robot and team shirts',
-        'Featured in all media materials',
-        'VIP competition access',
-        'Quarterly impact reports',
-        'Recognition at team events'
+        'Makes team competition entry possible',
+        'Name on robot, banners, team shirts',
+        'Featured on website',
+        'All written communications',
+        'Recognition with Feb 6th donation'
       ],
       sponsors: [
         { name: 'Westminster Christian Academy', logo: null },
       ]
     },
     {
-      tier: 'Gold',
+      tier: 'Sustainable Partner',
       icon: Star,
-      color: 'from-yellow-300 to-yellow-600',
+      color: 'from-blue-400 to-cyan-500',
       benefits: [
-        'Logo on team shirts',
-        'Featured on website',
-        'Social media recognition',
-        'Competition updates'
+        'Names and logos on robot and banner',
+        'Featured on website and team shirts',
+        'All written communications',
+        'Recognition with Feb 6th donation'
       ],
       sponsors: []
     },
     {
-      tier: 'Silver',
-      icon: Zap,
-      color: 'from-gray-300 to-gray-500',
+      tier: 'Development Partner',
+      icon: Heart,
+      color: 'from-green-400 to-emerald-500',
       benefits: [
-        'Website recognition',
-        'Newsletter features',
-        'Social media shoutouts'
+        'Name and logo on banner and shirts',
+        'Website feature',
+        'All written communications',
+        'Supports outreach programs'
+      ],
+      sponsors: []
+    },
+    {
+      tier: 'Competition Partner',
+      icon: Zap,
+      color: 'from-orange-400 to-red-500',
+      benefits: [
+        'Logo on website and team shirts',
+        'All written communications',
+        'Supports materials and competition'
+      ],
+      sponsors: []
+    },
+    {
+      tier: 'Associate Partner',
+      icon: HandshakeIcon,
+      color: 'from-gray-400 to-slate-500',
+      benefits: [
+        'Logo and name on website',
+        'All written communications',
+        'In-kind donation recognition'
       ],
       sponsors: []
     }
@@ -53,28 +76,34 @@ const Sponsors = () => {
 
   const sponsorshipPackages = [
     {
-      amount: '$5,000+',
-      tier: 'Platinum Partner',
-      description: 'Maximum visibility and impact',
+      amount: '$10,000/year+',
+      tier: 'Foundational Partner',
+      description: 'Enable competition entry & maximum visibility',
       icon: Trophy
     },
     {
-      amount: '$2,500-$4,999',
-      tier: 'Gold Supporter',
-      description: 'Prominent recognition',
+      amount: '$5,000/year',
+      tier: 'Sustainable Partner',
+      description: 'Prominent recognition across all platforms',
       icon: Star
     },
     {
-      amount: '$1,000-$2,499',
-      tier: 'Silver Contributor',
-      description: 'Valued partnership',
+      amount: '$2,500/year',
+      tier: 'Development Partner',
+      description: 'Support outreach & community impact',
+      icon: Heart
+    },
+    {
+      amount: '$1,000/year',
+      tier: 'Competition Partner',
+      description: 'Contribute to materials & competitions',
       icon: Zap
     },
     {
-      amount: 'Under $1,000',
-      tier: 'Bronze Friend',
-      description: 'Every dollar counts',
-      icon: Heart
+      amount: 'Materials/Services',
+      tier: 'Associate Partner',
+      description: 'In-kind donations valued partnership',
+      icon: HandshakeIcon
     }
   ];
 
