@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookieConsent } from "@/components/Privacy/CookieConsent";
 import { SkipToContent } from "@/components/Accessibility/SkipToContent";
 import { PerformanceMonitor } from "@/components/Performance/PerformanceMonitor";
+import { AnalyticsTracker } from "@/components/AnalyticsTracker";
+import { MobileOptimizations } from "@/components/Mobile/MobileOptimizations";
 import { measureWebVitals } from "@/utils/performance";
 
 // Lazy load route components for better performance
@@ -57,6 +59,8 @@ const App = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <AnalyticsTracker />
+        <MobileOptimizations />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
