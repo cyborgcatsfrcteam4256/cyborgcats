@@ -48,23 +48,6 @@ const About = () => {
     event: 'Impact Award',
     description: 'Won prestigious FIRST Impact Award'
   }];
-  const leadership = [{
-    role: 'Engineering Lead',
-    name: 'Coming Soon',
-    department: 'Mechanical & Design'
-  }, {
-    role: 'Programming Lead',
-    name: 'Coming Soon',
-    department: 'Software & Controls'
-  }, {
-    role: 'Business Lead',
-    name: 'Coming Soon',
-    department: 'Operations & Outreach'
-  }, {
-    role: 'Head Mentor',
-    name: 'Coming Soon',
-    department: 'Team Guidance'
-  }];
   return <div className="min-h-screen bg-background">
       <Navigation />
       
@@ -151,26 +134,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Leadership Team */}
-          <div className="mb-20">
-            <ScrollReveal>
-              <h2 className="text-4xl font-orbitron font-bold text-center mb-12 text-glow">
-                Leadership Team
-              </h2>
-            </ScrollReveal>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {leadership.map((leader, index) => <ScrollReveal key={index} delay={index * 100}>
-                  <PremiumCard className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Users className="w-10 h-10 text-primary" />
-                    </div>
-                    <h3 className="font-orbitron font-bold text-lg mb-1">{leader.role}</h3>
-                    <p className="text-muted-foreground text-sm mb-2">{leader.name}</p>
-                    <p className="text-xs text-muted-foreground">{leader.department}</p>
-                  </PremiumCard>
-                </ScrollReveal>)}
-            </div>
-          </div>
 
           {/* Stats */}
           <ScrollReveal>
