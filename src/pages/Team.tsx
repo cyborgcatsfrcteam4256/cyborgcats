@@ -2,9 +2,13 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import { Users, Wrench, Code, Briefcase, Heart, Lightbulb, Award } from 'lucide-react';
 
 const Team = () => {
+  const navigate = useNavigate();
+
   const departments = [
     {
       name: 'Mechanical Engineering',
@@ -143,16 +147,20 @@ const Team = () => {
                 robotics, and making a positive impact. No prior experience required!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact?subject=join" className="inline-block">
-                  <button className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-orbitron font-bold hover:scale-105 transition-transform">
-                    Apply to Join
-                  </button>
-                </a>
-                <a href="/about" className="inline-block">
-                  <button className="px-8 py-4 bg-card border border-border rounded-lg font-orbitron font-bold hover:scale-105 transition-transform">
-                    Learn More
-                  </button>
-                </a>
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={() => navigate('/contact?subject=join')}
+                >
+                  Apply to Join
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => navigate('/about')}
+                >
+                  Learn More
+                </Button>
               </div>
             </PremiumCard>
           </ScrollReveal>

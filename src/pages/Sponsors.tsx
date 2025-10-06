@@ -3,10 +3,13 @@ import { Footer } from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Trophy, Heart, Star, Zap, DollarSign, HandshakeIcon } from 'lucide-react';
 
 const Sponsors = () => {
+  const navigate = useNavigate();
+
   const sponsorTiers = [
     {
       tier: 'Platinum',
@@ -206,7 +209,7 @@ const Sponsors = () => {
               <Button 
                 variant="hero" 
                 size="lg"
-                onClick={() => window.location.href = '/contact?subject=sponsor'}
+                onClick={() => navigate('/contact?subject=sponsor')}
               >
                 <DollarSign className="w-5 h-5 mr-2" />
                 Become a Sponsor
