@@ -6,6 +6,7 @@ import { Mail, CheckCircle, Zap, Users, Award, AlertCircle } from 'lucide-react'
 import { FloatingParticles } from './FloatingParticles';
 import { z } from 'zod';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const emailSchema = z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters');
 
@@ -14,12 +15,31 @@ export const NewsletterSection = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     
     try {
-      emailSchema.parse(email);
+      const validatedEmail = emailSchema.parse(email);
+      
+      // Save to database
+      const { error: dbError } = await supabase
+        .from('newsletter_subscribers')
+        .insert({ email: validatedEmail });
+
+      if (dbError) {
+        // Check if email already exists
+        if (dbError.code === '23505') {
+          toast.error('Already subscribed', {
+            description: 'This email is already on our newsletter list.'
+          });
+        } else {
+          console.error('Database error:', dbError);
+          toast.error('Failed to subscribe. Please try again.');
+        }
+        return;
+      }
+      
       setIsSubscribed(true);
       setEmail('');
       toast.success('Successfully subscribed!', {

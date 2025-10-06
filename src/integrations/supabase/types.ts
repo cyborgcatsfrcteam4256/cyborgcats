@@ -14,7 +14,171 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      competitions: {
+        Row: {
+          awards: string[] | null
+          created_at: string
+          event_date: string
+          id: string
+          image_url: string | null
+          location: string
+          name: string
+          notes: string | null
+          points: number | null
+          rank: number | null
+        }
+        Insert: {
+          awards?: string[] | null
+          created_at?: string
+          event_date: string
+          id?: string
+          image_url?: string | null
+          location: string
+          name: string
+          notes?: string | null
+          points?: number | null
+          rank?: number | null
+        }
+        Update: {
+          awards?: string[] | null
+          created_at?: string
+          event_date?: string
+          id?: string
+          image_url?: string | null
+          location?: string
+          name?: string
+          notes?: string | null
+          points?: number | null
+          rank?: number | null
+        }
+        Relationships: []
+      }
+      contacts: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          subject?: string
+        }
+        Relationships: []
+      }
+      news_posts: {
+        Row: {
+          author: string | null
+          content: string
+          created_at: string
+          excerpt: string | null
+          id: string
+          image_url: string | null
+          is_published: boolean
+          published_at: string
+          title: string
+        }
+        Insert: {
+          author?: string | null
+          content: string
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          published_at?: string
+          title: string
+        }
+        Update: {
+          author?: string | null
+          content?: string
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          is_published?: boolean
+          published_at?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          email: string
+          id: string
+          is_active: boolean
+          subscribed_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          is_active?: boolean
+          subscribed_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          is_active?: boolean
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
+      team_members: {
+        Row: {
+          bio: string | null
+          created_at: string
+          display_order: number | null
+          github_url: string | null
+          id: string
+          image_url: string | null
+          is_active: boolean
+          linkedin_url: string | null
+          name: string
+          role: string
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string
+          display_order?: number | null
+          github_url?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          linkedin_url?: string | null
+          name: string
+          role: string
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string
+          display_order?: number | null
+          github_url?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean
+          linkedin_url?: string | null
+          name?: string
+          role?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

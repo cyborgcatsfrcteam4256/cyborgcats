@@ -11,6 +11,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-reac
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { z } from 'zod';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be less than 100 characters'),
@@ -41,8 +42,22 @@ const Contact = () => {
       const validatedData = contactSchema.parse(formData);
       setIsSubmitting(true);
       
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Save to database
+      const { error: dbError } = await supabase
+        .from('contacts')
+        .insert({
+          name: validatedData.name,
+          email: validatedData.email,
+          phone: validatedData.phone || null,
+          subject: validatedData.subject,
+          message: validatedData.message
+        });
+
+      if (dbError) {
+        console.error('Database error:', dbError);
+        toast.error('Failed to send message. Please try again.');
+        return;
+      }
       
       toast.success('Message sent successfully!', {
         description: 'We\'ll get back to you within 24-48 hours.'
