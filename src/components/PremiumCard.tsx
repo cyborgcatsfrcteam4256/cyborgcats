@@ -50,7 +50,7 @@ export const PremiumCard = forwardRef<HTMLDivElement, PremiumCardProps>(
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/15 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none" />
         
         {/* Content */}
-        <div className="relative z-10 pointer-events-auto">
+        <div className="relative z-10">
           {children}
         </div>
 
