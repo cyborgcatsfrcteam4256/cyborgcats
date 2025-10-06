@@ -141,8 +141,8 @@ export const HeroSection = () => {
           <ScrollReveal direction="scale" delay={400} className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer border border-primary/20">
               <img 
-                src="/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" 
-                alt="Cyborg Cats team members celebrating" 
+                src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
+                alt="Cyborg Cats robot showcasing engineering excellence" 
                 className="w-full h-[600px] object-cover group-hover:scale-110 transition-transform duration-700 brightness-105 contrast-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-primary/20" />
@@ -174,8 +174,6 @@ export const HeroSection = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/30 to-transparent opacity-50" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary-glow/30 to-transparent opacity-50" />
               
-              {/* Animated light beam effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </div>
           </ScrollReveal>
         </div>
