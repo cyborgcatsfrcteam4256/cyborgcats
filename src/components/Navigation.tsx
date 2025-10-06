@@ -14,7 +14,6 @@ export const Navigation = () => {
     { href: '/impact', label: 'Impact' },
     { href: '/sponsors', label: 'Sponsors' },
     { href: '/competitions', label: 'Competitions' },
-    { href: '/analytics', label: 'Analytics' },
     { href: '#photos', label: 'Photos' },
     { href: '/contact', label: 'Contact' },
   ];
