@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, HelpCircle, Users, Award, Lightbulb } from 'lucide-react';
 
 export const FAQSection = () => {
+  const navigate = useNavigate();
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
@@ -165,14 +167,14 @@ export const FAQSection = () => {
               <Button 
                 variant="hero" 
                 size="lg"
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => navigate('/contact')}
               >
                 Contact Our Team
               </Button>
               <Button 
                 variant="silver" 
                 size="lg"
-                onClick={() => window.location.href = '/contact?subject=visit'}
+                onClick={() => navigate('/contact?subject=visit')}
               >
                 Schedule a Visit
               </Button>

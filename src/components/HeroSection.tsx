@@ -3,9 +3,12 @@ import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart, Sparkles, Rocket } fro
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <InteractiveBackground />
@@ -108,7 +111,7 @@ export const HeroSection = () => {
                 variant="glass" 
                 size="lg" 
                 className="group relative overflow-hidden"
-                onClick={() => window.location.href = '/contact?subject=sponsor'}
+                onClick={() => navigate('/contact?subject=sponsor')}
               >
                 <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500 relative z-10" />
                 <span className="relative z-10">Support Our Mission</span>

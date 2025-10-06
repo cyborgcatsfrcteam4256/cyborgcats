@@ -3,9 +3,12 @@ import { PremiumCard } from '@/components/PremiumCard';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import { GraduationCap, Users, Award, Building, Lightbulb, MessageSquare } from 'lucide-react';
 
 export const AlumniNetworkSection = () => {
+  const navigate = useNavigate();
+
   const alumniHighlights = [
     {
       title: "Alumni Network",
@@ -126,14 +129,14 @@ export const AlumniNetworkSection = () => {
               <Button 
                 variant="hero" 
                 size="lg"
-                onClick={() => window.location.href = '/contact?subject=alumni'}
+                onClick={() => navigate('/contact?subject=alumni')}
               >
                 Join Alumni Network
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => window.location.href = '/contact?subject=mentor'}
+                onClick={() => navigate('/contact?subject=mentor')}
               >
                 Find a Mentor
               </Button>

@@ -4,9 +4,12 @@ import { Heart, Globe, Users, Trophy, Star, Target, Lightbulb, Award } from 'luc
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { PhotoShowcase } from '@/components/PhotoShowcase';
+import { useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const ImpactSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo - REMOVED */}
@@ -142,11 +145,11 @@ export const ImpactSection = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="premium" size="lg" className="group">
+              <Button variant="premium" size="lg" className="group" onClick={() => navigate('/impact')}>
                 <Trophy className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
                 Learn More About Our Mission
               </Button>
-              <Button variant="glass" size="lg" className="group">
+              <Button variant="glass" size="lg" className="group" onClick={() => navigate('/team')}>
                 <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
                 Meet Our Team
               </Button>
