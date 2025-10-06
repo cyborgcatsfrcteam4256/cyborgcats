@@ -257,14 +257,15 @@ export const SponsorsSection = () => {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </LiquidButton>
-                <LiquidButton 
-                  variant="glass" 
-                  size="lg"
-                  className="px-8 py-4"
-                  onClick={() => window.location.href = '/contact?subject=sponsor'}
-                >
-                  Download Sponsorship Packet
-                </LiquidButton>
+                <a href="/sponsorship-packet.jpg" download="Cyborg-Cats-Sponsorship-Packet.jpg">
+                  <LiquidButton 
+                    variant="glass" 
+                    size="lg"
+                    className="px-8 py-4"
+                  >
+                    Download Sponsorship Packet
+                  </LiquidButton>
+                </a>
               </div>
               <p className="text-muted-foreground mt-10">
                 Contact us at <span className="text-primary font-semibold">cyborgcatsfrcteam4256@gmail.com</span>
