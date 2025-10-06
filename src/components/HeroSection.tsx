@@ -3,13 +3,11 @@ import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart, Sparkles, Rocket } fro
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ScrollReveal } from '@/components/ScrollReveal';
-import { FloatingLogo } from '@/components/FloatingLogo';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <FloatingLogo />
       <InteractiveBackground />
       {/* Enhanced Background with multiple accent images */}
       <div className="absolute inset-0 z-0">

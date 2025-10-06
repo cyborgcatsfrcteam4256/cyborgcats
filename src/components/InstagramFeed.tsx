@@ -84,7 +84,6 @@ export const InstagramFeed = () => {
                 height="500"
                 frameBorder="0"
                 scrolling="yes"
-                allowTransparency={true}
                 className="rounded-lg"
                 title="Instagram Feed for @cyborgcats4256"
               />
