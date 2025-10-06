@@ -11,12 +11,11 @@ export const Navigation = () => {
   const navItems = [
     { href: '/about', label: 'About' },
     { href: '/team', label: 'Team' },
-    { href: '#what-is-first', label: 'What is FIRST' },
-    { href: '#impact', label: 'Impact' },
-    { href: '#sponsors', label: 'Sponsors' },
+    { href: '/impact', label: 'Impact' },
+    { href: '/sponsors', label: 'Sponsors' },
+    { href: '/competitions', label: 'Competitions' },
+    { href: '/analytics', label: 'Analytics' },
     { href: '#photos', label: 'Photos' },
-    { href: '#alumni', label: 'Alumni' },
-    { href: '#resources', label: 'Resources' },
     { href: '/contact', label: 'Contact' },
   ];
 

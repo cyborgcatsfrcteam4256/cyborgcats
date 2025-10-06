@@ -11,6 +11,10 @@ import About from "./pages/About";
 import Team from "./pages/Team";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Impact from "./pages/Impact";
+import Sponsors from "./pages/Sponsors";
+import Competitions from "./pages/Competitions";
+import Analytics from "./pages/Analytics";
 import { CookieConsent } from "@/components/Privacy/CookieConsent";
 
 const queryClient = new QueryClient();
@@ -40,6 +44,10 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/impact" element={<Impact />} />
+          <Route path="/sponsors" element={<Sponsors />} />
+          <Route path="/competitions" element={<Competitions />} />
+          <Route path="/analytics" element={<Analytics />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
