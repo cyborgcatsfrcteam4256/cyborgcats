@@ -1,5 +1,6 @@
 import { useEffect, useState, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { prefersReducedMotion } from '@/utils/performance';
 
 interface ParallaxSectionProps {
   children: ReactNode;
@@ -15,15 +16,23 @@ export const ParallaxSection = ({
   direction = 'up' 
 }: ParallaxSectionProps) => {
   const [scrollY, setScrollY] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    // Check if user prefers reduced motion
+    setReducedMotion(prefersReducedMotion());
+
+    if (reducedMotion) return;
+
     const handleScroll = () => setScrollY(window.scrollY);
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [reducedMotion]);
 
   const getTransform = () => {
+    if (reducedMotion) return 'none';
+    
     const offset = scrollY * speed;
     
     switch (direction) {

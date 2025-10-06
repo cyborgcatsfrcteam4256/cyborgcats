@@ -2,6 +2,7 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
+import { LazyImage } from '@/components/Performance/LazyImage';
 import { Award, Users, Heart, Target, Lightbulb, Trophy, Calendar, TrendingUp } from 'lucide-react';
 const teamPhoto = '/lovable-uploads/impact-award-winning-photo.jpg';
 const About = () => {
@@ -87,7 +88,11 @@ const About = () => {
           {/* Team Photo */}
           <ScrollReveal delay={100}>
             <div className="max-w-5xl mx-auto mb-20">
-              <img src={teamPhoto} alt="Cyborg Cats Team Photo" className="w-full rounded-2xl shadow-2xl border border-border/50" />
+              <LazyImage 
+                src={teamPhoto} 
+                alt="Cyborg Cats Team celebrating FIRST Impact Award win" 
+                className="w-full rounded-2xl shadow-2xl border border-border/50" 
+              />
             </div>
           </ScrollReveal>
 
