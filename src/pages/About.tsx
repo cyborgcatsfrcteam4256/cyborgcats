@@ -97,7 +97,7 @@ const About = () => {
             </ScrollReveal>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {coreValues.map((value, index) => <ScrollReveal key={index} delay={index * 100}>
-                  <PremiumCard className="h-full text-center">
+                  <PremiumCard className="h-full text-center p-8">
                     <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                       <value.icon className="w-8 h-8 text-primary" />
                     </div>
