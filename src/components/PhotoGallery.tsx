@@ -53,6 +53,13 @@ export const PhotoGallery = () => {
       category: "team",
       description: "Team members working together to operate the robot controls",
       imageUrl: "/lovable-uploads/team-operating.jpg"
+    },
+    {
+      id: 17,
+      title: "Impact Award Winners",
+      category: "awards",
+      description: "Team celebrating after winning the prestigious Impact Award",
+      imageUrl: "/lovable-uploads/impact-award-winning-photo.jpg"
     }
   ];
 
