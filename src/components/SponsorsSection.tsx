@@ -6,6 +6,15 @@ import { LiquidButton } from './LiquidButton';
 export const SponsorsSection = () => {
   const currentSponsors = [
     { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" },
+    { name: "Boeing", tier: "Foundational", logo: null },
+    { name: "FiS", tier: "Sustainable", logo: null },
+    { name: "ARK Foundation", tier: "Sustainable", logo: null },
+    { name: "TierPoint", tier: "Development", logo: null },
+    { name: "LinMark Machine Products", tier: "Development", logo: null },
+    { name: "Signature Aviation", tier: "Competition", logo: null },
+    { name: "Hubbell", tier: "Competition", logo: null },
+    { name: "Agilix Solutions", tier: "Associate", logo: null },
+    { name: "Jemco Components & Fabrication, Inc.", tier: "Associate", logo: null },
   ];
 
   const sponsorshipBenefits = [
