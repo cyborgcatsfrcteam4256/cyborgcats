@@ -37,7 +37,6 @@ export const Footer = () => {
             <div className="space-y-2">
               <Link to="/about" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">About Us</Link>
               <a href="/#impact" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Impact & Outreach</a>
-              <a href="/#photos" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Competitions</a>
               <Link to="/team" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Our Team</Link>
             </div>
           </div>
@@ -49,7 +48,6 @@ export const Footer = () => {
               <a href="/#sponsors" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Become a Sponsor</a>
               <a href="/contact?subject=join" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Join Our Team</a>
               <a href="/contact?subject=partnership" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Partner With Us</a>
-              <a href="/contact?subject=media" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Download Media Kit</a>
             </div>
           </div>
 
