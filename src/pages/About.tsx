@@ -24,29 +24,33 @@ const About = () => {
     description: 'We believe in using STEM to serve and inspire our local and global communities.'
   }];
   const milestones = [{
+    year: '2010',
+    event: 'The Beginning',
+    description: 'Science and Engineering Club formed by Westminster students passionate about STEM'
+  }, {
     year: '2011',
     event: 'Team Founded',
-    description: 'Cyborg Cats established at Westminster Christian Academy'
+    description: 'Mr. Paul DeGroot volunteers as mentor, Westminster joins FIRST as Team 4256 with Boeing sponsorship'
   }, {
-    year: '2015',
-    event: 'First Regional Win',
-    description: 'Won our first regional competition in St. Louis'
+    year: '2012',
+    event: 'Rookie All-Star',
+    description: 'Won Regional Rookie All-Star Award and competed at World Championship in our first season'
   }, {
-    year: '2018',
-    event: 'World Championship',
-    description: 'Competed at FIRST Championship in Detroit'
+    year: '2012-2024',
+    event: 'Continued Excellence',
+    description: 'Competed in numerous regionals, earned 25+ awards, and grew to 48+ team members'
   }, {
     year: '2021',
-    event: 'Innovation Award',
-    description: 'Recognized for STEM Companion Initiative'
+    event: 'STEM Companion',
+    description: 'Launched innovative STEM Companion Initiative to mentor underserved communities'
   }, {
     year: '2023',
-    event: 'International Expansion',
-    description: 'Helped establish FRC team in South Korea'
+    event: 'Global Impact',
+    description: 'Helped establish FRC team in South Korea, expanding international STEM education'
   }, {
     year: '2025',
     event: 'Impact Award',
-    description: 'Won prestigious FIRST Impact Award'
+    description: 'Won prestigious FIRST Impact Award for outstanding community outreach and team excellence'
   }];
   return <div className="min-h-screen bg-background">
       <Navigation />
@@ -79,12 +83,28 @@ const About = () => {
             </div>
           </ScrollReveal>
 
-          {/* Mission Statement */}
+          {/* Origin Story */}
           <ScrollReveal delay={200}>
-            <PremiumCard className="max-w-4xl mx-auto p-12 text-center mb-20">
+            <PremiumCard className="max-w-4xl mx-auto p-12 mb-20" variant="glass">
               <Trophy className="w-16 h-16 text-primary mx-auto mb-6" />
-              <h2 className="text-3xl font-orbitron font-bold mb-6">Our Mission</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">To inspire and equip young people to become leaders in STEM while demonstrating Christian values through innovative robotics, community outreach, and gracious professionalism. We believe that every student has the potential to change the world through STEM, and we're committed to providing the tools, mentorship, and opportunities to make that happen.</p>
+              <h2 className="text-3xl font-orbitron font-bold mb-6 text-center">Our Story</h2>
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p>
+                  In September 2010, a small group of Westminster students passionate about STEM formed a Science and Engineering Club. What started as three students with a dream quickly evolved into something extraordinary. Through research and exploration of various robotics competitions, they discovered FIRST Robotics Competition.
+                </p>
+                <p>
+                  In October 2011, Mr. Paul DeGroot, a Boeing engineer and Westminster father, volunteered to mentor a FRC team, and Westminster officially joined FIRST as Team 4256. After securing sponsorship from Boeing, the word spread rapidly through the school—those original 3 dreamers became a team of 27 dedicated members.
+                </p>
+                <p>
+                  The team attended training at the St. Louis Science Center in December 2011, bringing the largest group that day. After the NASA kick-off, the race began to build a robot capable of shooting basketballs and balancing on bridges. Six intense weeks of late nights, caffeine, and determination followed as the team engineered, organized, and led Team 4256 into existence.
+                </p>
+                <p>
+                  The results were remarkable. At the 2012 St. Louis Regional, our rookie team went 7-9 and advanced to the semi-finals as part of an alliance. We ranked 17th out of 43 teams and won the prestigious <strong>Regional Rookie All-Star Award</strong>—the highest honor for a first-year team. This achievement earned us a spot at the FIRST World Championship, where we competed in the Archimedes division at the Edward Jones Dome.
+                </p>
+                <p className="text-lg font-semibold text-foreground">
+                  Since that incredible rookie season, the Cyborg Cats have continued to inspire, innovate, and impact our community through STEM education, gracious professionalism, and Christian values.
+                </p>
+              </div>
             </PremiumCard>
           </ScrollReveal>
 
