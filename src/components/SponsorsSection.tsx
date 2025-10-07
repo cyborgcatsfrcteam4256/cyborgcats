@@ -6,7 +6,7 @@ import { LiquidButton } from './LiquidButton';
 export const SponsorsSection = () => {
   const currentSponsors = [
     { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/westminster-logo.png" },
-    { name: "Boeing", tier: "Foundational", logo: null },
+    { name: "Boeing", tier: "Foundational", logo: "/lovable-uploads/boeing-logo.png" },
     { name: "FSI", tier: "Foundational", logo: "/lovable-uploads/fsi-logo.png" },
     { name: "TAC Air", tier: "Sustainable", logo: "/lovable-uploads/tac-air-logo.jpeg" },
     { name: "TierPoint", tier: "Development", logo: "/lovable-uploads/tierpoint-logo.webp" },

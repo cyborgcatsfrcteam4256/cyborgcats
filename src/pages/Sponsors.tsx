@@ -24,7 +24,7 @@ const Sponsors = () => {
       ],
       sponsors: [
         { name: 'Westminster Christian Academy', logo: '/lovable-uploads/westminster-logo.png' },
-        { name: 'Boeing', logo: null },
+        { name: 'Boeing', logo: '/lovable-uploads/boeing-logo.png' },
         { name: 'FSI', logo: '/lovable-uploads/fsi-logo.png' },
       ]
     },
