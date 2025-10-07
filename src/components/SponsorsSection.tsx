@@ -11,7 +11,7 @@ export const SponsorsSection = () => {
     { name: "TAC Air", tier: "Sustainable", logo: "/lovable-uploads/tac-air-logo.jpeg" },
     { name: "TierPoint", tier: "Development", logo: "/lovable-uploads/tierpoint-logo.webp" },
     { name: "LinMark Machine Products", tier: "Development", logo: null },
-    { name: "Agilix Solutions", tier: "Competition", logo: null },
+    { name: "Agilix Solutions", tier: "Competition", logo: "/lovable-uploads/agilix-logo.webp" },
     { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg" },
     { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: null },
     { name: "Ace Hardware", tier: "Associate", logo: "/lovable-uploads/ace-hardware-logo.svg" },

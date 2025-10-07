@@ -67,7 +67,7 @@ const Sponsors = () => {
         'Supports materials and competition'
       ],
       sponsors: [
-        { name: 'Agilix Solutions', logo: null },
+        { name: 'Agilix Solutions', logo: '/lovable-uploads/agilix-logo.webp' },
         { name: 'Simons PLM Software', logo: '/lovable-uploads/siemens-plm-logo.svg' },
         { name: 'Jemco Components & Fabrication, Inc.', logo: null },
       ]
