@@ -45,7 +45,7 @@ export const ImpactSection = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mb-20">
           <StatCounter value={48} label="Passionate Students" />
-          <StatCounter value={15} label="Years of Excellence" suffix="+" />
+          <StatCounter value={14} label="Years of Excellence" suffix="+" />
         </div>
 
         {/* Enhanced Impact Cards */}
@@ -139,7 +139,7 @@ export const ImpactSection = () => {
                   <div className="text-sm text-muted-foreground">Impact Award Winners</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-orbitron font-bold text-primary-electric">15+</div>
+                  <div className="text-3xl font-orbitron font-bold text-primary-electric">14+</div>
                   <div className="text-sm text-muted-foreground">Years of Excellence</div>
                 </div>
               </div>

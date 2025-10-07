@@ -168,7 +168,7 @@ const About = () => {
               label: 'Mentors'
             }, {
               icon: TrendingUp,
-              value: '15+',
+              value: '14+',
               label: 'Years Active'
             }, {
               icon: Trophy,
