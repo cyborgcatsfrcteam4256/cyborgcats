@@ -3,6 +3,7 @@ import { PremiumCard } from '@/components/PremiumCard';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 import { 
   BookOpen, 
   Code, 
@@ -17,6 +18,15 @@ import {
 } from 'lucide-react';
 
 export const ResourcesSection = () => {
+  const { toast } = useToast();
+
+  const handleComingSoon = (feature: string) => {
+    toast({
+      title: "Coming Soon",
+      description: `${feature} will be available soon. Check back later for updates!`,
+    });
+  };
+
   const resourceCategories = [
     {
       title: "Programming Resources",
@@ -162,11 +172,21 @@ export const ResourcesSection = () => {
               or collaborate on educational content to benefit the entire FIRST community.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => handleComingSoon("Resource browsing")}
+              >
                 <Zap className="w-5 h-5 mr-2" />
                 Browse All Resources
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => handleComingSoon("Resource submission")}
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 Submit Resource
               </Button>
