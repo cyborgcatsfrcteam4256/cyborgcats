@@ -39,7 +39,7 @@ const Sponsors = () => {
         'Recognition with Feb 6th donation'
       ],
       sponsors: [
-        { name: 'TAC Air', logo: null },
+        { name: 'TAC Air', logo: '/lovable-uploads/tac-air-logo.jpeg' },
       ]
     },
     {
