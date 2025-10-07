@@ -7,7 +7,7 @@ export const SponsorsSection = () => {
   const currentSponsors = [
     { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png" },
     { name: "Boeing", tier: "Foundational", logo: null },
-    { name: "FiS", tier: "Foundational", logo: null },
+    { name: "FSI", tier: "Foundational", logo: null },
     { name: "TAC Air", tier: "Sustainable", logo: null },
     { name: "TierPoint", tier: "Development", logo: null },
     { name: "LinMark Machine Products", tier: "Development", logo: null },

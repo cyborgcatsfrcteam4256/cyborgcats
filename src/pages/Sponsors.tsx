@@ -25,7 +25,7 @@ const Sponsors = () => {
       sponsors: [
         { name: 'Westminster Christian Academy', logo: null },
         { name: 'Boeing', logo: null },
-        { name: 'FiS', logo: null },
+        { name: 'FSI', logo: null },
       ]
     },
     {
