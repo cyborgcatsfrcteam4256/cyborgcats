@@ -24,15 +24,23 @@ export const Navigation = () => {
     
     if (href.includes('#')) {
       const [path, hash] = href.split('#');
-      if (path && path !== '/') {
-        navigate(path);
-      }
-      setTimeout(() => {
+      const targetPath = path || '/';
+      const currentPath = window.location.pathname;
+      
+      if (currentPath !== targetPath) {
+        navigate(targetPath);
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 300);
+      } else {
         const element = document.getElementById(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }
     } else {
       navigate(href);
     }
