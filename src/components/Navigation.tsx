@@ -14,7 +14,8 @@ export const Navigation = () => {
     { href: '/team', label: 'Team' },
     { href: '/impact', label: 'Impact' },
     { href: '/sponsors', label: 'Sponsors' },
-    { href: '/#photos', label: 'Photos' },
+    { href: '/#media', label: 'Media' },
+    { href: '/#resources', label: 'Resources' },
     { href: '/contact', label: 'Contact' },
   ];
 

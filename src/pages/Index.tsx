@@ -1,16 +1,13 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/components/HeroSection';
-import { AboutFIRSTSection } from '@/components/AboutFIRSTSection';
-import { ImpactSection } from '@/components/ImpactSection';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
+import { AboutImpactTabs } from '@/components/AboutImpactTabs';
 import { SponsorsSection } from '@/components/SponsorsSection';
-import { PhotoGallery } from '@/components/PhotoGallery';
-import { InstagramFeed } from '@/components/InstagramFeed';
+import { CommunitySection } from '@/components/CommunitySection';
+import { MediaGallery } from '@/components/MediaGallery';
 import { FAQSection } from '@/components/FAQSection';
-import { NewsletterSection } from '@/components/NewsletterSection';
-import { AlumniNetworkSection } from '@/components/AlumniNetworkSection';
 import { ResourcesSection } from '@/components/ResourcesSection';
+import { NewsletterSection } from '@/components/NewsletterSection';
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { BackToTop } from '@/components/BackToTop';
@@ -20,53 +17,59 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <AnalyticsTracker />
       <Navigation />
+      
+      {/* Hero Section */}
       <section id="about-us">
         <HeroSection />
       </section>
+
+      {/* Sponsors - Moved up to position 2 for prominence */}
       <ScrollReveal>
-        <section id="what-is-first">
-          <AboutFIRSTSection />
-        </section>
-      </ScrollReveal>
-      <ScrollReveal delay={200}>
-        <section id="impact">
-          <ImpactSection />
-        </section>
-      </ScrollReveal>
-      <ScrollReveal delay={200}>
-        <TestimonialsSection />
-      </ScrollReveal>
-      <ScrollReveal delay={200}>
         <section id="sponsors">
           <SponsorsSection />
         </section>
       </ScrollReveal>
+
+      {/* Combined About FIRST + Impact in Tabs */}
       <ScrollReveal delay={100}>
-        <section id="photos">
-          <PhotoGallery />
+        <section id="what-is-first">
+          <AboutImpactTabs />
         </section>
       </ScrollReveal>
+
+      {/* Combined Testimonials + Alumni in Tabs */}
       <ScrollReveal delay={100}>
-        <InstagramFeed />
+        <section id="community">
+          <CommunitySection />
+        </section>
       </ScrollReveal>
-      <ScrollReveal delay={200}>
+
+      {/* Combined Photos + Instagram in Tabs */}
+      <ScrollReveal delay={100}>
+        <section id="media">
+          <MediaGallery />
+        </section>
+      </ScrollReveal>
+
+      {/* FAQ Section */}
+      <ScrollReveal delay={100}>
         <FAQSection />
       </ScrollReveal>
+
+      {/* Resources Section */}
       <ScrollReveal delay={100}>
-        <section id="alumni">
-          <AlumniNetworkSection />
-        </section>
-      </ScrollReveal>
-      <ScrollReveal delay={200}>
         <section id="resources">
           <ResourcesSection />
         </section>
       </ScrollReveal>
+
+      {/* Newsletter/Contact */}
       <ScrollReveal delay={100}>
         <section id="contact">
           <NewsletterSection />
         </section>
       </ScrollReveal>
+
       <Footer />
       <BackToTop />
     </div>
