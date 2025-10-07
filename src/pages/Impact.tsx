@@ -9,36 +9,54 @@ import { AnimatedNumber } from '@/components/AnimatedNumber';
 
 const Impact = () => {
   const impactStats = [
-    { value: 10000, label: 'Students Reached', icon: Users, suffix: '+' },
-    { value: 500, label: 'Volunteer Hours', icon: Heart, suffix: '+' },
-    { value: 25, label: 'STEM Events', icon: Sparkles, suffix: '+' },
-    { value: 15, label: 'School Visits', icon: GraduationCap, suffix: '+' },
+    { value: 2000, label: 'People Reached at Airshow', icon: Users, suffix: '+' },
+    { value: 900, label: 'FLL Kickoff Attendees', icon: Heart, suffix: '+' },
+    { value: 19, label: 'Legislators Met', icon: Award, suffix: '+' },
+    { value: 115, label: 'Students in Ethiopia', icon: GraduationCap, suffix: '+' },
   ];
 
   const programs = [
     {
       icon: Users,
-      title: 'Community Outreach',
-      description: 'We regularly visit local schools to introduce students to robotics and STEM careers through interactive demonstrations and hands-on activities.',
-      achievements: ['15+ school visits annually', '1000+ students inspired', 'Partnership with 8 local schools']
+      title: 'STEM Companion Initiative',
+      description: 'A program connecting children with special needs to STEM through robot demonstrations and interactive activities. Visit stemcompanion.org for publicly accessible resources.',
+      achievements: ['5+ demonstrations and events', 'Easter egg hunt for participants', 'Dedicated website with resources']
     },
     {
       icon: GraduationCap,
-      title: 'Mentorship Programs',
-      description: 'Our team mentors younger FIRST robotics teams and runs workshops teaching programming, mechanical design, and teamwork skills.',
-      achievements: ['Mentored 5 FLL teams', '20+ technical workshops', 'Year-round mentorship']
+      title: 'Legislative Advocacy',
+      description: 'Met with 19 representatives and the Lieutenant Governor at Missouri Capitol to advocate for FIRST funding through SB 33 and HB 265.',
+      achievements: ['STEM Day at The Capitol', 'Partnership with legislators', 'Supporting $5M annual grant program']
     },
     {
       icon: Sparkles,
-      title: 'STEM Advocacy',
-      description: 'We advocate for STEM education funding and participate in community events to promote science and technology literacy.',
-      achievements: ['Capitol advocacy visits', 'STEM fair exhibitions', 'Technology demonstrations']
+      title: 'Community Events',
+      description: 'Host the St. Louis Area FLL Season Kickoff, Camp Westminster FIRST Robotics class, Women in STEM Seminar, and coordinate major demonstrations.',
+      achievements: ['900+ FLL Kickoff attendees (3 years)', '120 Camp Westminster students', '100+ Women in STEM attendees']
     },
     {
       icon: Award,
-      title: 'Competition Excellence',
-      description: 'Our competitive success inspires other teams and demonstrates what dedication to STEM can achieve.',
-      achievements: ['Regional champions', 'Impact Award winners', 'World Championship qualifiers']
+      title: 'Team Mentorship',
+      description: 'Mentor younger FIRST teams including Covenant Christian\'s Hedgehog Hackers and Twin Oaks\' Electric Eagles, helping teams advance to regionals and beyond.',
+      achievements: ['Year-round FLL mentorship', 'Champion\'s Award winners', 'Patent assistance for innovations']
+    }
+  ];
+
+  const internationalImpact = [
+    {
+      location: 'South Korea',
+      description: 'Traveled to Samuel School, conducted egg-drop experiments and STEM activities, inspiring the establishment of South Korea\'s 4th-ever FRC team.',
+      icon: '🇰🇷'
+    },
+    {
+      location: 'Ethiopia',
+      description: 'Led STEM activity for 115 elementary students, teaching sustainability through water bottle car projects. Students received robotics jerseys.',
+      icon: '🇪🇹'
+    },
+    {
+      location: 'St. Louis Partnership',
+      description: 'Partnered with U-City Robolions to address underserved communities through hand-written letters to all regional teams, promoting collaboration and resource sharing.',
+      icon: '🤝'
     }
   ];
 
@@ -67,8 +85,8 @@ const Impact = () => {
                 Making a <span className="text-holographic">Difference</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Beyond building robots, we're building futures. Our commitment to STEM education 
-                and community outreach creates lasting impact in St. Louis and beyond.
+                "Carry each other's burdens, and in this way, you will fulfill the law of Christ." - Galatians 6:2. 
+                We embody Christian values through service, advocating for STEM education so every child can join a FIRST team—in Missouri, across the U.S., and around the world.
               </p>
             </div>
           </ScrollReveal>
@@ -116,15 +134,87 @@ const Impact = () => {
             ))}
           </div>
 
+          {/* International Impact */}
+          <ScrollReveal>
+            <div className="mb-20">
+              <h2 className="text-4xl font-orbitron font-bold mb-4 text-center">
+                Global <span className="text-holographic">Impact</span>
+              </h2>
+              <p className="text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+                Our mission extends beyond Missouri to inspire STEM education worldwide
+              </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                {internationalImpact.map((impact, index) => (
+                  <Card key={index} className="p-6 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber text-center">
+                    <div className="text-5xl mb-4">{impact.icon}</div>
+                    <h3 className="font-orbitron font-bold text-xl mb-3">{impact.location}</h3>
+                    <p className="text-muted-foreground text-sm">{impact.description}</p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Special Initiatives */}
+          <ScrollReveal>
+            <div className="grid md:grid-cols-2 gap-8 mb-20">
+              <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
+                <h3 className="font-orbitron font-bold text-2xl mb-4">Major Events</h3>
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start gap-3">
+                    <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Spirit of St. Louis Airshow & STEM Expo</strong> - Organized FIRST space, reached 2,000+ people over two years
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Westminster Open House</strong> - Annual event engaging 1,500+ attendees
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong>FLL Team Planting Workshop</strong> - Training parents and educators to start FLL teams
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
+                <h3 className="font-orbitron font-bold text-2xl mb-4">Our Team</h3>
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>48 Students</strong> - Including all-female business and engineering upper leadership</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Heart className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>22 Mentors</strong> - Dedicated volunteers guiding our mission</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Award className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>8 Corporate Sponsors</strong> + 2 Foundations + Westminster Christian Academy</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>World's Only</strong> - High school licensed to grow Atlanta coral for conservation</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollReveal>
+
           {/* Call to Action */}
           <ScrollReveal>
             <Card className="p-12 bg-gradient-to-br from-primary/20 to-accent/20 border-primary/30 text-center">
               <h2 className="text-3xl font-orbitron font-bold mb-4">
-                Join Our Mission
+                Shaping the Future of STEM
               </h2>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Whether you're interested in sponsoring our programs, volunteering your time, 
-                or partnering with us for community events, we'd love to hear from you.
+                "Let your light shine before others, that they may see your good deeds and glorify your Father in heaven." - Matthew 5:16. 
+                Join us in ensuring every Missouri child can access FIRST Robotics programs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
