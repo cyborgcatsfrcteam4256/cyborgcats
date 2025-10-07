@@ -54,7 +54,7 @@ const Sponsors = () => {
       ],
       sponsors: [
         { name: 'TierPoint', logo: '/lovable-uploads/tierpoint-logo.webp' },
-        { name: 'LinMark Machine Products', logo: null },
+        { name: 'LinMark Machine Products', logo: '/lovable-uploads/linmark-logo.jpeg' },
       ]
     },
     {
