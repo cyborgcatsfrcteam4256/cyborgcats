@@ -23,7 +23,7 @@ const Sponsors = () => {
         'Recognition with Feb 6th donation'
       ],
       sponsors: [
-        { name: 'Westminster Christian Academy', logo: null },
+        { name: 'Westminster Christian Academy', logo: '/lovable-uploads/0ed115c9-c65c-485d-a648-96ef646179b3.png' },
         { name: 'Boeing', logo: null },
         { name: 'FSI', logo: null },
       ]
@@ -53,7 +53,7 @@ const Sponsors = () => {
         'Supports outreach programs'
       ],
       sponsors: [
-        { name: 'TierPoint', logo: null },
+        { name: 'TierPoint', logo: '/lovable-uploads/tierpoint-logo.webp' },
         { name: 'LinMark Machine Products', logo: null },
       ]
     },
@@ -68,7 +68,7 @@ const Sponsors = () => {
       ],
       sponsors: [
         { name: 'Agilix Solutions', logo: null },
-        { name: 'Simons PLM Software', logo: null },
+        { name: 'Simons PLM Software', logo: '/lovable-uploads/siemens-plm-logo.svg' },
         { name: 'Jemco Components & Fabrication, Inc.', logo: null },
       ]
     },
@@ -161,10 +161,18 @@ const Sponsors = () => {
                   </div>
 
                   {tier.sponsors.length > 0 ? (
-                    <div className="grid md:grid-cols-3 gap-6 mb-6">
+                     <div className="grid md:grid-cols-3 gap-6 mb-6">
                       {tier.sponsors.map((sponsor, i) => (
-                        <div key={i} className="p-6 bg-background/50 rounded-lg border border-border/50 flex items-center justify-center">
-                          <h3 className="text-xl font-semibold text-center">{sponsor.name}</h3>
+                        <div key={i} className="p-6 bg-background/50 rounded-lg border border-border/50 flex items-center justify-center min-h-[120px]">
+                          {sponsor.logo ? (
+                            <img 
+                              src={sponsor.logo} 
+                              alt={`${sponsor.name} logo`}
+                              className="max-h-16 max-w-full object-contain"
+                            />
+                          ) : (
+                            <h3 className="text-xl font-semibold text-center">{sponsor.name}</h3>
+                          )}
                         </div>
                       ))}
                     </div>

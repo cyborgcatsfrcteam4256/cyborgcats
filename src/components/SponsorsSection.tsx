@@ -9,10 +9,10 @@ export const SponsorsSection = () => {
     { name: "Boeing", tier: "Foundational", logo: null },
     { name: "FSI", tier: "Foundational", logo: null },
     { name: "TAC Air", tier: "Sustainable", logo: null },
-    { name: "TierPoint", tier: "Development", logo: null },
+    { name: "TierPoint", tier: "Development", logo: "/lovable-uploads/tierpoint-logo.webp" },
     { name: "LinMark Machine Products", tier: "Development", logo: null },
     { name: "Agilix Solutions", tier: "Competition", logo: null },
-    { name: "Simons PLM Software", tier: "Competition", logo: null },
+    { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg" },
     { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: null },
     { name: "Ace Hardware", tier: "Associate", logo: null },
   ];
