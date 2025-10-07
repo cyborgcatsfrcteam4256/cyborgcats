@@ -227,16 +227,16 @@ export const SponsorsSection = () => {
                 <ScrollReveal key={index} delay={index * 100}>
                   <PremiumCard className="text-center relative overflow-hidden">
                     <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${tier.color}`} />
-                    <div className="p-6 md:p-8">
-                      <h4 className="text-2xl font-orbitron font-bold text-white mb-4">
+                    <div className="p-5 sm:p-6 md:p-7 lg:p-8">
+                      <h4 className="text-xl sm:text-2xl font-orbitron font-bold text-white mb-3 sm:mb-4">
                         {tier.name}
                       </h4>
-                      <p className="text-3xl font-bold text-primary mb-6">
+                      <p className="text-2xl sm:text-3xl font-bold text-primary mb-5 sm:mb-6">
                         {tier.amount}
                       </p>
-                      <ul className="space-y-3 text-left">
+                      <ul className="space-y-2.5 sm:space-y-3 text-left">
                         {tier.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-muted-foreground">
+                          <li key={idx} className="flex items-start gap-2.5 sm:gap-3 text-muted-foreground">
                             <Star className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                             <span className="text-sm leading-relaxed">{benefit}</span>
                           </li>
