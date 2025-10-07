@@ -27,7 +27,7 @@ const Impact = () => {
     {
       icon: GraduationCap,
       title: 'Legislative Advocacy',
-      description: 'Met with 19 representatives and the Lieutenant Governor at Missouri Capitol to advocate for FIRST funding through SB 33 and HB 265.',
+      description: 'Met with 19 representatives and the Lieutenant Governor at Missouri Capitol to advocate for FIRST funding through HB 33 and SB 265.',
       achievements: ['STEM Day at The Capitol', 'Partnership with legislators', 'Supporting $5M annual grant program']
     },
     {
