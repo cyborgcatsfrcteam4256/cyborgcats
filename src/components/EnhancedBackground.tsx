@@ -81,7 +81,7 @@ export const EnhancedBackground = ({ variant = 'subtle', className }: EnhancedBa
           }}
         />
 
-        {/* Animated circuit lines */}
+        {/* Animated circuit pattern */}
         <div className="absolute inset-0 circuit-pattern opacity-10 animate-pulse" />
       </div>
     );
