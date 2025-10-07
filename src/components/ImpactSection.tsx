@@ -22,7 +22,7 @@ export const ImpactSection = () => {
       <div className="absolute inset-0 circuit-pattern opacity-5 z-[1]" />
       <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/10 to-transparent z-[1]" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <div className="inline-flex items-center space-x-3 bg-gradient-premium rounded-full px-6 py-3 mb-6 backdrop-blur-lg border border-primary/20">
@@ -144,12 +144,12 @@ export const ImpactSection = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 relative z-10">
-              <Button variant="premium" size="lg" className="group relative z-10" onClick={() => navigate('/impact')}>
+            <div className="flex flex-col sm:flex-row gap-4 relative z-20">
+              <Button variant="premium" size="lg" className="group relative z-20 cursor-pointer" onClick={() => navigate('/impact')}>
                 <Trophy className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
                 Learn More About Our Mission
               </Button>
-              <Button variant="glass" size="lg" className="group relative z-10" onClick={() => navigate('/team')}>
+              <Button variant="glass" size="lg" className="group relative z-20 cursor-pointer" onClick={() => navigate('/team')}>
                 <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
                 Meet Our Team
               </Button>
