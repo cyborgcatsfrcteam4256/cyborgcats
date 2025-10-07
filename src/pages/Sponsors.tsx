@@ -23,9 +23,9 @@ const Sponsors = () => {
         'Recognition with Feb 6th donation'
       ],
       sponsors: [
-        { name: 'Westminster Christian Academy', logo: '/lovable-uploads/westminster-logo.png' },
-        { name: 'Boeing', logo: '/lovable-uploads/boeing-logo.png' },
-        { name: 'FSI', logo: '/lovable-uploads/fsi-logo.png' },
+        { name: 'Westminster Christian Academy', logo: '/lovable-uploads/westminster-logo.png', website: 'https://wcastl.org' },
+        { name: 'Boeing', logo: '/lovable-uploads/boeing-logo.png', website: 'https://www.boeing.com' },
+        { name: 'FSI', logo: '/lovable-uploads/fsi-logo.png', website: 'https://www.fsipolyurethanes.com' },
       ]
     },
     {
@@ -39,7 +39,7 @@ const Sponsors = () => {
         'Recognition with Feb 6th donation'
       ],
       sponsors: [
-        { name: 'TAC Air', logo: '/lovable-uploads/tac-air-logo.jpeg' },
+        { name: 'TAC Air', logo: '/lovable-uploads/tac-air-logo.jpeg', website: 'https://www.tacair.com' },
       ]
     },
     {
@@ -53,8 +53,8 @@ const Sponsors = () => {
         'Supports outreach programs'
       ],
       sponsors: [
-        { name: 'TierPoint', logo: '/lovable-uploads/tierpoint-logo.webp' },
-        { name: 'LinMark Machine Products', logo: '/lovable-uploads/linmark-logo.jpeg' },
+        { name: 'TierPoint', logo: '/lovable-uploads/tierpoint-logo.webp', website: 'https://www.tierpoint.com' },
+        { name: 'LinMark Machine Products', logo: '/lovable-uploads/linmark-logo.jpeg', website: 'https://www.linmarkmachine.com' },
       ]
     },
     {
@@ -67,9 +67,9 @@ const Sponsors = () => {
         'Supports materials and competition'
       ],
       sponsors: [
-        { name: 'Agilix Solutions', logo: '/lovable-uploads/agilix-logo.webp' },
-        { name: 'Simons PLM Software', logo: '/lovable-uploads/siemens-plm-logo.svg' },
-        { name: 'Jemco Components & Fabrication, Inc.', logo: '/lovable-uploads/jemco-logo.png' },
+        { name: 'Agilix Solutions', logo: '/lovable-uploads/agilix-logo.webp', website: 'https://www.agilixsolutions.com' },
+        { name: 'Simons PLM Software', logo: '/lovable-uploads/siemens-plm-logo.svg', website: 'https://plm.sw.siemens.com' },
+        { name: 'Jemco Components & Fabrication, Inc.', logo: '/lovable-uploads/jemco-logo.png', website: 'https://www.jemcoinc.com' },
       ]
     },
     {
@@ -82,7 +82,7 @@ const Sponsors = () => {
         'In-kind donation recognition'
       ],
       sponsors: [
-        { name: 'Ace Hardware', logo: '/lovable-uploads/ace-hardware-logo.svg' },
+        { name: 'Ace Hardware', logo: '/lovable-uploads/ace-hardware-logo.svg', website: 'https://www.acehardware.com' },
       ]
     }
   ];
@@ -163,17 +163,23 @@ const Sponsors = () => {
                   {tier.sponsors.length > 0 ? (
                      <div className="grid md:grid-cols-3 gap-6 mb-6">
                       {tier.sponsors.map((sponsor, i) => (
-                        <div key={i} className="p-6 bg-background/50 rounded-lg border border-border/50 flex items-center justify-center min-h-[120px]">
+                        <a 
+                          key={i} 
+                          href={sponsor.website} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="p-6 bg-background/50 rounded-lg border border-border/50 flex items-center justify-center min-h-[160px] hover:bg-background/70 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                        >
                           {sponsor.logo ? (
                             <img 
                               src={sponsor.logo} 
                               alt={`${sponsor.name} logo`}
-                              className="max-h-16 max-w-full object-contain"
+                              className="max-h-28 max-w-full object-contain"
                             />
                           ) : (
                             <h3 className="text-xl font-semibold text-center">{sponsor.name}</h3>
                           )}
-                        </div>
+                        </a>
                       ))}
                     </div>
                   ) : (

@@ -5,16 +5,16 @@ import { LiquidButton } from './LiquidButton';
 
 export const SponsorsSection = () => {
   const currentSponsors = [
-    { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/westminster-logo.png" },
-    { name: "Boeing", tier: "Foundational", logo: "/lovable-uploads/boeing-logo.png" },
-    { name: "FSI", tier: "Foundational", logo: "/lovable-uploads/fsi-logo.png" },
-    { name: "TAC Air", tier: "Sustainable", logo: "/lovable-uploads/tac-air-logo.jpeg" },
-    { name: "TierPoint", tier: "Development", logo: "/lovable-uploads/tierpoint-logo.webp" },
-    { name: "LinMark Machine Products", tier: "Development", logo: "/lovable-uploads/linmark-logo.jpeg" },
-    { name: "Agilix Solutions", tier: "Competition", logo: "/lovable-uploads/agilix-logo.webp" },
-    { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg" },
-    { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: "/lovable-uploads/jemco-logo.png" },
-    { name: "Ace Hardware", tier: "Associate", logo: "/lovable-uploads/ace-hardware-logo.svg" },
+    { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/westminster-logo.png", website: "https://wcastl.org" },
+    { name: "Boeing", tier: "Foundational", logo: "/lovable-uploads/boeing-logo.png", website: "https://www.boeing.com" },
+    { name: "FSI", tier: "Foundational", logo: "/lovable-uploads/fsi-logo.png", website: "https://www.fsipolyurethanes.com" },
+    { name: "TAC Air", tier: "Sustainable", logo: "/lovable-uploads/tac-air-logo.jpeg", website: "https://www.tacair.com" },
+    { name: "TierPoint", tier: "Development", logo: "/lovable-uploads/tierpoint-logo.webp", website: "https://www.tierpoint.com" },
+    { name: "LinMark Machine Products", tier: "Development", logo: "/lovable-uploads/linmark-logo.jpeg", website: "https://www.linmarkmachine.com" },
+    { name: "Agilix Solutions", tier: "Competition", logo: "/lovable-uploads/agilix-logo.webp", website: "https://www.agilixsolutions.com" },
+    { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg", website: "https://plm.sw.siemens.com" },
+    { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: "/lovable-uploads/jemco-logo.png", website: "https://www.jemcoinc.com" },
+    { name: "Ace Hardware", tier: "Associate", logo: "/lovable-uploads/ace-hardware-logo.svg", website: "https://www.acehardware.com" },
   ];
 
   const sponsorshipBenefits = [
@@ -150,27 +150,34 @@ export const SponsorsSection = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
               {currentSponsors.map((sponsor, index) => (
                  <ScrollReveal key={index} delay={index * 50}>
-                   <PremiumCard className="p-8 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700">
-                    <div className="aspect-square glass-morphism rounded-2xl mb-5 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
-                      <img 
-                        src={sponsor.logo} 
-                        alt={`${sponsor.name} logo`}
-                        className="w-16 h-16 object-contain rounded-lg group-hover/sponsor:brightness-110 transition-all duration-500"
-                      />
-                    </div>
-                    <h4 className="font-orbitron font-semibold text-white text-sm mb-4 group-hover/sponsor:text-glow transition-all duration-500">
-                      {sponsor.name}
-                    </h4>
-                    <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${
-                      sponsor.tier === 'Foundational' ? 'glass-morphism border border-purple-400/30 text-purple-200 group-hover/sponsor:text-purple-100 group-hover/sponsor:shadow-glow' :
-                      sponsor.tier === 'Sustainable' ? 'glass-morphism border border-blue-400/30 text-blue-200 group-hover/sponsor:text-blue-100 group-hover/sponsor:shadow-glow' :
-                      sponsor.tier === 'Development' ? 'glass-morphism border border-green-400/30 text-green-200 group-hover/sponsor:text-green-100 group-hover/sponsor:shadow-glow' :
-                      sponsor.tier === 'Competition' ? 'glass-morphism border border-orange-400/30 text-orange-200 group-hover/sponsor:text-orange-100 group-hover/sponsor:shadow-glow' :
-                      'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow'
-                    }`}>
-                      {sponsor.tier}
-                    </span>
-                  </PremiumCard>
+                   <a 
+                     href={sponsor.website} 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     className="block"
+                   >
+                     <PremiumCard className="p-8 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700 cursor-pointer">
+                      <div className="aspect-square glass-morphism rounded-2xl mb-5 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
+                        <img 
+                          src={sponsor.logo} 
+                          alt={`${sponsor.name} logo`}
+                          className="w-24 h-24 object-contain rounded-lg group-hover/sponsor:brightness-110 transition-all duration-500"
+                        />
+                      </div>
+                      <h4 className="font-orbitron font-semibold text-white text-sm mb-4 group-hover/sponsor:text-glow transition-all duration-500">
+                        {sponsor.name}
+                      </h4>
+                      <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${
+                        sponsor.tier === 'Foundational' ? 'glass-morphism border border-purple-400/30 text-purple-200 group-hover/sponsor:text-purple-100 group-hover/sponsor:shadow-glow' :
+                        sponsor.tier === 'Sustainable' ? 'glass-morphism border border-blue-400/30 text-blue-200 group-hover/sponsor:text-blue-100 group-hover/sponsor:shadow-glow' :
+                        sponsor.tier === 'Development' ? 'glass-morphism border border-green-400/30 text-green-200 group-hover/sponsor:text-green-100 group-hover/sponsor:shadow-glow' :
+                        sponsor.tier === 'Competition' ? 'glass-morphism border border-orange-400/30 text-orange-200 group-hover/sponsor:text-orange-100 group-hover/sponsor:shadow-glow' :
+                        'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow'
+                      }`}>
+                        {sponsor.tier}
+                      </span>
+                    </PremiumCard>
+                   </a>
                 </ScrollReveal>
               ))}
             </div>
