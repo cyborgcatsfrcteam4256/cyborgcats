@@ -12,6 +12,7 @@ import { MobileOptimizations } from "@/components/Mobile/MobileOptimizations";
 import { AccessibilityMenu } from "@/components/Accessibility/AccessibilityMenu";
 import { PageViewTracker } from "@/components/Analytics/PageViewTracker";
 import { ResourceHints } from "@/components/Performance/ResourceHints";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { measureWebVitals } from "@/utils/performance";
 
 // Lazy load route components for better performance
@@ -61,6 +62,7 @@ const App = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ScrollToTop />
         <ResourceHints />
         <PageViewTracker />
         <AnalyticsTracker />
