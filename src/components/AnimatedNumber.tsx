@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface AnimatedNumberProps {
   value: number;
@@ -17,6 +17,7 @@ export const AnimatedNumber = ({
 }: AnimatedNumberProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,8 +29,9 @@ export const AnimatedNumber = ({
       { threshold: 0.3 }
     );
 
-    const element = document.createElement('div');
-    observer.observe(element);
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
 
     return () => observer.disconnect();
   }, []);
@@ -55,7 +57,7 @@ export const AnimatedNumber = ({
   }, [isVisible, value, duration]);
 
   return (
-    <span className={className}>
+    <span ref={elementRef} className={className}>
       {prefix}{count.toLocaleString()}{suffix}
     </span>
   );
