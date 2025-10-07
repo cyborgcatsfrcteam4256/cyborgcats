@@ -85,7 +85,7 @@ const Team = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-20 max-w-5xl mx-auto">
             {memberTypes.map((type, index) => (
               <ScrollReveal key={index} delay={index * 100}>
-                <PremiumCard className="text-center">
+                <PremiumCard className="text-center p-6">
                   <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <type.icon className="w-10 h-10 text-primary" />
                   </div>
