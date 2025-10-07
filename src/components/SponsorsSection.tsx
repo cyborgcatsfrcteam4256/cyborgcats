@@ -13,7 +13,7 @@ export const SponsorsSection = () => {
     { name: "LinMark Machine Products", tier: "Development", logo: null },
     { name: "Agilix Solutions", tier: "Competition", logo: "/lovable-uploads/agilix-logo.webp" },
     { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg" },
-    { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: null },
+    { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: "/lovable-uploads/jemco-logo.png" },
     { name: "Ace Hardware", tier: "Associate", logo: "/lovable-uploads/ace-hardware-logo.svg" },
   ];
 
