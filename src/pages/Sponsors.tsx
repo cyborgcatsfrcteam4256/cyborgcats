@@ -82,7 +82,7 @@ const Sponsors = () => {
         'In-kind donation recognition'
       ],
       sponsors: [
-        { name: 'Ace Hardware', logo: null },
+        { name: 'Ace Hardware', logo: '/lovable-uploads/ace-hardware-logo.svg' },
       ]
     }
   ];

@@ -14,7 +14,7 @@ export const SponsorsSection = () => {
     { name: "Agilix Solutions", tier: "Competition", logo: null },
     { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg" },
     { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: null },
-    { name: "Ace Hardware", tier: "Associate", logo: null },
+    { name: "Ace Hardware", tier: "Associate", logo: "/lovable-uploads/ace-hardware-logo.svg" },
   ];
 
   const sponsorshipBenefits = [
