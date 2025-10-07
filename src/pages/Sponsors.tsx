@@ -25,6 +25,7 @@ const Sponsors = () => {
       sponsors: [
         { name: 'Westminster Christian Academy', logo: null },
         { name: 'Boeing', logo: null },
+        { name: 'FiS', logo: null },
       ]
     },
     {
@@ -38,8 +39,7 @@ const Sponsors = () => {
         'Recognition with Feb 6th donation'
       ],
       sponsors: [
-        { name: 'FiS', logo: null },
-        { name: 'ARK Foundation', logo: null },
+        { name: 'TAC Air', logo: null },
       ]
     },
     {
@@ -67,8 +67,9 @@ const Sponsors = () => {
         'Supports materials and competition'
       ],
       sponsors: [
-        { name: 'Signature Aviation', logo: null },
-        { name: 'Hubbell', logo: null },
+        { name: 'Agilix Solutions', logo: null },
+        { name: 'Simons PLM Software', logo: null },
+        { name: 'Jemco Components & Fabrication, Inc.', logo: null },
       ]
     },
     {
@@ -81,8 +82,7 @@ const Sponsors = () => {
         'In-kind donation recognition'
       ],
       sponsors: [
-        { name: 'Agilix Solutions', logo: null },
-        { name: 'Jemco Components & Fabrication, Inc.', logo: null },
+        { name: 'Ace Hardware', logo: null },
       ]
     }
   ];
