@@ -10,12 +10,10 @@ import { AnimatedNumber } from '@/components/AnimatedNumber';
 const Impact = () => {
   const impactStats = [
     { value: 2000, label: 'People Reached at Airshow', icon: Users, suffix: '+' },
-    { value: 900, label: 'FLL Kickoff Attendees', icon: Heart, suffix: '+' },
     { value: 19, label: 'Legislators Met', icon: Award, suffix: '+' },
     { value: 115, label: 'Students in Ethiopia', icon: GraduationCap, suffix: '+' },
     { value: 1500, label: 'Westminster Open House Attendees', icon: Users, suffix: '+' },
     { value: 120, label: 'Camp Westminster Students', icon: GraduationCap, suffix: '+' },
-    { value: 70, label: 'FRC Teams Supported', icon: Award, suffix: '+' },
     { value: 100, label: 'Women in STEM Attendees', icon: Sparkles, suffix: '+' },
   ];
 
