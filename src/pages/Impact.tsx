@@ -13,6 +13,10 @@ const Impact = () => {
     { value: 900, label: 'FLL Kickoff Attendees', icon: Heart, suffix: '+' },
     { value: 19, label: 'Legislators Met', icon: Award, suffix: '+' },
     { value: 115, label: 'Students in Ethiopia', icon: GraduationCap, suffix: '+' },
+    { value: 1500, label: 'Westminster Open House Attendees', icon: Users, suffix: '+' },
+    { value: 120, label: 'Camp Westminster Students', icon: GraduationCap, suffix: '+' },
+    { value: 70, label: 'FRC Teams Supported', icon: Award, suffix: '+' },
+    { value: 100, label: 'Women in STEM Attendees', icon: Sparkles, suffix: '+' },
   ];
 
   const programs = [
@@ -92,16 +96,16 @@ const Impact = () => {
           </ScrollReveal>
 
           {/* Impact Stats */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-20">
             {impactStats.map((stat, index) => (
-              <ScrollReveal key={index} delay={index * 100}>
-                <Card className="p-6 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber text-center">
-                  <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-4xl font-orbitron font-bold mb-2 text-holographic">
+              <ScrollReveal key={index} delay={index * 50}>
+                <Card className="p-4 md:p-6 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber text-center">
+                  <stat.icon className="w-8 h-8 md:w-12 md:h-12 text-primary mx-auto mb-3 md:mb-4" />
+                  <div className="text-2xl md:text-4xl font-orbitron font-bold mb-1 md:mb-2 text-holographic">
                     <AnimatedNumber value={stat.value} />
                     {stat.suffix}
                   </div>
-                  <p className="text-muted-foreground font-inter">{stat.label}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground font-inter">{stat.label}</p>
                 </Card>
               </ScrollReveal>
             ))}
@@ -164,26 +168,65 @@ const Impact = () => {
                   <div className="flex items-start gap-3">
                     <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong>Spirit of St. Louis Airshow & STEM Expo</strong> - Organized FIRST space, reached 2,000+ people over two years
+                      <strong>Spirit of St. Louis Airshow & STEM Expo</strong> - Organized FIRST space, showcased robot, hosted other FRC teams, reached 2,000+ people over two years (2022, 2024)
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong>Westminster Open House</strong> - Annual event engaging 1,500+ attendees
+                      <strong>Westminster Open House</strong> - Annual demonstration event engaging 1,500+ attendees (past three years)
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong>FLL Team Planting Workshop</strong> - Training parents and educators to start FLL teams
+                      <strong>Museum of Transportation Demo</strong> - Coordinated demonstration hosting Electric Eagles FLL team and elementary students (Fall 2024)
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong>FLL Team Planting Workshops</strong> - Multiple workshops training parents and educators to start FLL teams (Feb & Mar 2025)
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <TrendingUp className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Group Facility Tours</strong> - Led tours of Westminster robotics facilities, hosted 5+ demonstrations this year
                     </div>
                   </div>
                 </div>
               </Card>
 
               <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
-                <h3 className="font-orbitron font-bold text-2xl mb-4">Our Team</h3>
+                <h3 className="font-orbitron font-bold text-2xl mb-4">Team Collaboration</h3>
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>70+ FRC Teams Supported</strong> - Annually provide practice field for St. Louis and GRC regionals</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Heart className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Team Partnerships</strong> - Regular collaboration with Ratchet Rockers, Lutheran Roboteers, and Oakville Dynamics at GRC offseason</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Award className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Chief Delphi Resources</strong> - Annually compile rules and key drawings as resources for other teams</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Legislative Training</strong> - Training fellow FRC teams in lobbying techniques in Jefferson City</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </ScrollReveal>
+
+          {/* Additional Achievements Section */}
+          <ScrollReveal>
+            <div className="grid md:grid-cols-2 gap-8 mb-20">
+              <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
+                <h3 className="font-orbitron font-bold text-2xl mb-4">Our Team Composition</h3>
                 <div className="space-y-4 text-sm">
                   <div className="flex items-start gap-3">
                     <Users className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -199,7 +242,29 @@ const Impact = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <div><strong>World's Only</strong> - High school licensed to grow Atlanta coral for conservation</div>
+                    <div><strong>14 Years Strong</strong> - Building robots and making positive impact since our founding</div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
+                <h3 className="font-orbitron font-bold text-2xl mb-4">Unique Achievements</h3>
+                <div className="space-y-4 text-sm">
+                  <div className="flex items-start gap-3">
+                    <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Coral Conservation</strong> - World's only high school licensed to grow Atlanta coral, with dedicated cultivation room</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Award className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Patent Assistance</strong> - Helped Hedgehog Hackers meet with patent lawyer and FSI for foam buoyancy insert invention</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Industry Tours</strong> - Female team members toured FSI chemical company specializing in foam manufacturing</div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Heart className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div><strong>Comprehensive Documentation</strong> - Recorded workshops, photographed meetings, preserved flyers for replication and knowledge sharing</div>
                   </div>
                 </div>
               </Card>
