@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { StructuredData } from '@/components/SEO/StructuredData';
 import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronRight, HelpCircle, Users, Award, Lightbulb } from 'lucide-react';
 
@@ -78,8 +79,17 @@ export const FAQSection = () => {
     }
   ];
 
+  // Flatten FAQs for structured data
+  const allFAQs = faqs.flatMap(category => 
+    category.questions.map(q => ({
+      question: q.question,
+      answer: q.answer
+    }))
+  );
+
   return (
     <section className="py-24 bg-card/30 relative overflow-hidden">
+      <StructuredData type="faq" data={allFAQs} />
       <div className="absolute inset-0 data-stream opacity-20" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

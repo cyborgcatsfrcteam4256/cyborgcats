@@ -9,6 +9,9 @@ import { SkipToContent } from "@/components/Accessibility/SkipToContent";
 import { PerformanceMonitor } from "@/components/Performance/PerformanceMonitor";
 import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { MobileOptimizations } from "@/components/Mobile/MobileOptimizations";
+import { AccessibilityMenu } from "@/components/Accessibility/AccessibilityMenu";
+import { PageViewTracker } from "@/components/Analytics/PageViewTracker";
+import { ResourceHints } from "@/components/Performance/ResourceHints";
 import { measureWebVitals } from "@/utils/performance";
 
 // Lazy load route components for better performance
@@ -59,6 +62,8 @@ const App = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ResourceHints />
+        <PageViewTracker />
         <AnalyticsTracker />
         <MobileOptimizations />
         <Suspense fallback={<PageLoader />}>
@@ -77,6 +82,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <AccessibilityMenu />
       </BrowserRouter>
       <CookieConsent />
       <PerformanceMonitor />

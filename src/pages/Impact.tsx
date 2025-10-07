@@ -3,6 +3,7 @@ import { Footer } from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { PageMeta } from '@/components/SEO/PageMeta';
 import { Users, Heart, Award, TrendingUp, GraduationCap, Sparkles } from 'lucide-react';
 import { AnimatedNumber } from '@/components/AnimatedNumber';
 
@@ -43,6 +44,12 @@ const Impact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta 
+        title="Our Impact"
+        description="Cyborg Cats 4256 community outreach and STEM education impact. 10,000+ students reached through robotics demonstrations, mentorship programs, and advocacy initiatives across Missouri and beyond."
+        keywords="STEM education, community outreach, robotics mentorship, STEM advocacy, FRC impact, Missouri STEM programs"
+        canonicalPath="/impact"
+      />
       <Navigation />
       
       {/* Hero Section */}

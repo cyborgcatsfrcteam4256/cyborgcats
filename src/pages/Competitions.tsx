@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { PageMeta } from '@/components/SEO/PageMeta';
 import { Trophy, Calendar, MapPin, Award, TrendingUp, Medal } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
@@ -54,6 +55,12 @@ const Competitions = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta 
+        title="Competitions"
+        description="Cyborg Cats 4256 competition history and achievements in FIRST Robotics Competition. View our tournament results, awards, and championship journey from 2010 to present."
+        keywords="FRC competitions, robotics tournaments, St. Louis regional, FIRST Championship, competition results, FRC 4256 achievements"
+        canonicalPath="/competitions"
+      />
       <Navigation />
       
       {/* Hero Section */}
