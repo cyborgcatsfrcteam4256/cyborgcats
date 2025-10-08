@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Camera, Instagram, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { Camera, Instagram, X, ChevronLeft, ChevronRight, ExternalLink, Sparkles, Zap } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
@@ -61,52 +61,99 @@ export const MediaGallery = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 circuit-pattern opacity-5 z-0" />
+    <section className="py-32 relative overflow-hidden">
+      {/* Dramatic Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-[20s] hover:scale-110"
+        style={{
+          backgroundImage: 'url(/lovable-uploads/robot-action-2.jpg)',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+      <div className="absolute inset-0 backdrop-blur-sm" />
+      
+      {/* Floating orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-cyber-float" />
+      
+      {/* Circuit pattern */}
+      <div className="absolute inset-0 circuit-pattern opacity-5" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-orbitron font-black mb-6 text-glow">
+          <div className="text-center mb-16">
+            <div className="mb-8 animate-fade-in">
+              <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-luxury">
+                <Camera className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
+                <span className="font-orbitron text-base text-primary font-bold tracking-wide">CAPTURED MOMENTS</span>
+                <Sparkles className="w-6 h-6 text-primary-glow animate-pulse" />
+              </div>
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
               <span className="text-holographic">Media</span> Gallery
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Photos from competitions and follow us on Instagram
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Explore our journey through stunning photography and stay connected on Instagram
             </p>
           </div>
         </ScrollReveal>
 
         <Tabs defaultValue="photos" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 gap-2 p-1">
-            <TabsTrigger value="photos" className="text-base font-orbitron">Photo Gallery</TabsTrigger>
-            <TabsTrigger value="instagram" className="text-base font-orbitron">Instagram</TabsTrigger>
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 gap-2 p-1 glass-morphism border border-primary/20">
+            <TabsTrigger value="photos" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
+              <Camera className="w-4 h-4 mr-2" />
+              Photo Gallery
+            </TabsTrigger>
+            <TabsTrigger value="instagram" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
+              <Instagram className="w-4 h-4 mr-2" />
+              Instagram
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="photos" className="space-y-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {photos.map((photo, index) => (
                 <ScrollReveal key={photo.id} delay={index * 50}>
                   <div 
-                    className="morphic-card group cursor-pointer overflow-hidden relative hover:scale-105 transition-all duration-500"
+                    className="group cursor-pointer relative overflow-hidden rounded-3xl transition-all duration-700 hover:-translate-y-2"
                     onClick={() => setSelectedImage(index)}
                   >
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
+                    <div className="aspect-video relative overflow-hidden rounded-3xl shadow-luxury group-hover:shadow-cyber">
                       <img 
                         src={photo.imageUrl} 
                         alt={photo.title}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
                       
-                      <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-                        <Badge className="mb-2 glass-morphism font-orbitron capitalize text-white bg-black/50 border-white/30">
-                          {photo.category}
-                        </Badge>
-                        <h3 className="font-orbitron font-bold text-white text-lg">
-                          {photo.title}
-                        </h3>
+                      {/* Glow effect on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Content */}
+                      <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
+                        <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                          <Badge className="mb-3 glass-morphism font-orbitron capitalize text-white bg-primary/30 border-primary/50 backdrop-blur-xl group-hover:bg-primary/50 transition-all duration-500">
+                            <Zap className="w-3 h-3 mr-1" />
+                            {photo.category}
+                          </Badge>
+                          <h3 className="font-orbitron font-bold text-white text-xl mb-2 group-hover:text-glow transition-all duration-500">
+                            {photo.title}
+                          </h3>
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p className="text-sm text-white/80 flex items-center gap-2">
+                              Click to view <ChevronRight className="w-4 h-4" />
+                            </p>
+                          </div>
+                        </div>
                       </div>
+
+                      {/* Corner accent */}
+                      <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute bottom-4 left-4 w-12 h-12 border-b-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
                 </ScrollReveal>
@@ -115,98 +162,110 @@ export const MediaGallery = () => {
           </TabsContent>
 
           <TabsContent value="instagram" className="space-y-8">
-            <div className="text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
-                <Instagram className="w-5 h-5 text-primary" />
-                <span className="font-orbitron text-sm text-primary font-medium">
-                  Follow Our Journey
-                </span>
-              </div>
-              <h3 className="text-3xl font-orbitron font-bold mb-4 text-glow">
-                @cyborgcats4256
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Stay connected with our latest updates, behind-the-scenes moments, and competition highlights.
-              </p>
-              <Button variant="hero" asChild className="mb-8">
-                <a 
-                  href="https://instagram.com/cyborgcats4256" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <Instagram className="w-5 h-5 mr-2" />
-                  Follow on Instagram
-                  <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
+            <ScrollReveal>
+              <div className="text-center max-w-3xl mx-auto">
+                <div className="glass-morphism rounded-3xl p-12 border border-primary/20 shadow-luxury">
+                  <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 border border-primary/30 rounded-full px-6 py-3 mb-8">
+                    <Instagram className="w-6 h-6 text-primary" />
+                    <span className="font-orbitron text-base text-primary font-bold">
+                      FOLLOW OUR JOURNEY
+                    </span>
+                    <Sparkles className="w-5 h-5 text-accent animate-pulse" />
+                  </div>
+                  
+                  <h3 className="text-4xl md:text-5xl font-orbitron font-bold mb-6 text-glow">
+                    @cyborgcats4256
+                  </h3>
+                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                    Stay connected with our latest updates, behind-the-scenes moments, and competition highlights. 
+                    Join our growing community!
+                  </p>
+                  
+                  <Button variant="hero" size="lg" asChild className="mb-10 group">
+                    <a 
+                      href="https://instagram.com/cyborgcats4256" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+                      Follow on Instagram
+                      <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </a>
+                  </Button>
 
-              <div className="bg-card rounded-lg p-6 shadow-cyber">
-                <iframe
-                  src="https://www.instagram.com/cyborgcats4256/embed/"
-                  width="100%"
-                  height="500"
-                  frameBorder="0"
-                  scrolling="yes"
-                  className="rounded-lg"
-                  title="Instagram Feed for @cyborgcats4256"
-                />
+                  <div className="rounded-2xl overflow-hidden shadow-cyber border border-primary/20">
+                    <iframe
+                      src="https://www.instagram.com/cyborgcats4256/embed/"
+                      width="100%"
+                      height="600"
+                      frameBorder="0"
+                      scrolling="yes"
+                      className="bg-background/50"
+                      title="Instagram Feed for @cyborgcats4256"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </TabsContent>
         </Tabs>
 
-        {/* Lightbox Modal */}
+        {/* Enhanced Lightbox Modal */}
         {selectedImage !== null && (
-          <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
-            <div className="relative max-w-6xl w-full animate-scale-in">
+          <div className="fixed inset-0 z-50 bg-black/98 backdrop-blur-2xl flex items-center justify-center p-4 animate-fade-in">
+            <div className="relative max-w-7xl w-full">
+              {/* Close button */}
               <LiquidButton
                 variant="glass"
                 size="icon"
-                className="absolute top-4 right-4 z-10 w-12 h-12"
+                className="absolute -top-16 right-0 z-10 w-14 h-14 hover:rotate-90 transition-transform duration-500"
                 onClick={() => setSelectedImage(null)}
               >
-                <X className="w-6 h-6" />
+                <X className="w-7 h-7" />
               </LiquidButton>
 
+              {/* Navigation buttons */}
               <LiquidButton
                 variant="glass"
                 size="icon"
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-14 h-14 hover:scale-110 transition-all duration-300"
                 onClick={prevImage}
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-7 h-7" />
               </LiquidButton>
               
               <LiquidButton
                 variant="glass"
                 size="icon"
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-14 h-14 hover:scale-110 transition-all duration-300"
                 onClick={nextImage}
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-7 h-7" />
               </LiquidButton>
 
-              <div className="glass-morphism rounded-3xl overflow-hidden shadow-glow">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary-electric/20 relative overflow-hidden">
+              {/* Image container */}
+              <div className="glass-morphism rounded-3xl overflow-hidden shadow-glow border border-primary/30 animate-scale-in">
+                <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
                   <img 
                     src={photos[selectedImage].imageUrl} 
                     alt={photos[selectedImage].title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain"
                   />
                 </div>
                 
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge className="glass-morphism font-orbitron font-bold capitalize text-lg px-4 py-2">
+                {/* Info section */}
+                <div className="p-8 bg-gradient-to-r from-background/95 via-background/98 to-background/95 backdrop-blur-xl">
+                  <div className="flex items-center justify-between mb-4 flex-wrap gap-4">
+                    <Badge className="glass-morphism font-orbitron font-bold capitalize text-lg px-5 py-2 border-primary/30">
+                      <Zap className="w-4 h-4 mr-2" />
                       {photos[selectedImage].category}
                     </Badge>
-                    <span className="text-sm text-muted-foreground font-inter glass-morphism px-3 py-1 rounded-lg">
+                    <span className="text-sm text-muted-foreground font-inter glass-morphism px-4 py-2 rounded-lg border border-primary/20">
                       {selectedImage + 1} of {photos.length}
                     </span>
                   </div>
                   
-                  <h3 className="text-3xl font-orbitron font-bold text-glow">
+                  <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-glow">
                     {photos[selectedImage].title}
                   </h3>
                 </div>
