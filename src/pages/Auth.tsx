@@ -216,12 +216,11 @@ const Auth = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-3xl animate-cyber-float" style={{ animationDelay: '2s' }} />
         
         <Card className="w-full max-w-lg relative z-10 glass-morphism border-2 border-primary/30 shadow-elegant animate-scale-in hover:border-primary/50 transition-all duration-300 backdrop-blur-xl">
-          <CardHeader className="space-y-3 relative pb-8 pt-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
-            <CardTitle className="text-4xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent animate-fade-in relative z-10 tracking-tight">
+          <CardHeader className="space-y-2 relative pb-6 pt-6">
+            <CardTitle className="text-4xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent animate-fade-in tracking-tight">
               Member Portal
             </CardTitle>
-            <CardDescription className="text-center text-muted-foreground/90 relative z-10 text-base">
+            <CardDescription className="text-center text-muted-foreground/90 text-base">
               Access exclusive content and connect with the team
             </CardDescription>
           </CardHeader>
