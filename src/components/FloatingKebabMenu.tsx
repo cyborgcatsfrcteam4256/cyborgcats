@@ -25,13 +25,25 @@ export const FloatingKebabMenu = () => {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 group/menu">
+    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-8 group/menu">
+      {/* Connecting Line */}
+      <div className="absolute right-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent transform translate-x-1/2" />
+      
       {sections.map((section, index) => (
-        <div key={index} className="relative">
+        <div key={index} className="relative group/dot">
+          {/* Glow Ring */}
+          <div className={`absolute inset-0 rounded-full blur-md transition-all duration-500 ${
+            activeDot === index 
+              ? 'bg-primary/60 scale-[3]' 
+              : 'bg-primary/0 scale-0 group-hover/dot:bg-primary/40 group-hover/dot:scale-[2.5]'
+          }`} />
+          
           {/* Tooltip */}
-          <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover/menu:opacity-100 pointer-events-none transition-opacity duration-300">
-            <div className="glass-morphism border border-primary/30 rounded-lg px-3 py-2 whitespace-nowrap shadow-luxury">
-              <span className="font-orbitron text-xs font-bold text-foreground">
+          <div className="absolute right-full mr-6 top-1/2 -translate-y-1/2 opacity-0 group-hover/dot:opacity-100 group-hover/dot:translate-x-0 translate-x-2 pointer-events-none transition-all duration-300">
+            <div className="glass-morphism border-2 border-primary/40 rounded-xl px-4 py-2.5 whitespace-nowrap shadow-luxury relative overflow-hidden">
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary-glow/10 to-primary/10 animate-shimmer" />
+              <span className="font-orbitron text-sm font-bold text-foreground relative z-10">
                 {section.label}
               </span>
             </div>
@@ -40,13 +52,32 @@ export const FloatingKebabMenu = () => {
           {/* Dot Button */}
           <button
             onClick={() => handleDotClick(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-150 ${
+            className={`relative w-4 h-4 rounded-full transition-all duration-500 hover:scale-[2] group/button ${
               activeDot === index
-                ? 'bg-primary scale-125 shadow-glow'
-                : 'bg-primary/40 hover:bg-primary/70'
+                ? 'scale-[1.5]'
+                : 'scale-100'
             }`}
             aria-label={`Go to ${section.label}`}
-          />
+          >
+            {/* Inner gradient dot */}
+            <div className={`absolute inset-0 rounded-full transition-all duration-500 ${
+              activeDot === index
+                ? 'bg-gradient-to-br from-primary via-primary-glow to-primary-electric shadow-glow animate-pulse'
+                : 'bg-gradient-to-br from-primary/50 to-primary/30 group-hover/button:from-primary/80 group-hover/button:to-primary-glow/60'
+            }`} />
+            
+            {/* Outer ring */}
+            <div className={`absolute inset-0 rounded-full border-2 transition-all duration-500 ${
+              activeDot === index
+                ? 'border-primary scale-150 opacity-100'
+                : 'border-primary/0 scale-100 group-hover/button:border-primary/60 group-hover/button:scale-125'
+            }`} />
+            
+            {/* Sparkle effect */}
+            {activeDot === index && (
+              <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping" />
+            )}
+          </button>
         </div>
       ))}
     </div>
