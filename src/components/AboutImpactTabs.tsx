@@ -67,7 +67,17 @@ export const AboutImpactTabs = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="first" className="space-y-12">
+          <TabsContent value="first" className="space-y-12 relative">
+            {/* Background Image */}
+            <div className="absolute inset-0 -mx-6 -my-12 z-0 overflow-hidden rounded-3xl">
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-10"
+                style={{ backgroundImage: "url('/lovable-uploads/impact-award-winning-photo.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+            </div>
+            
+            <div className="relative z-10">
             <ScrollReveal>
               <div className="text-center mb-16">
                 <div className="mb-8 animate-fade-in">
@@ -134,6 +144,7 @@ export const AboutImpactTabs = () => {
                 </div>
               </div>
             </ScrollReveal>
+            </div>
           </TabsContent>
 
           <TabsContent value="impact" className="space-y-12">
