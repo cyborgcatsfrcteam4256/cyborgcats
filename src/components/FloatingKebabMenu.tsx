@@ -73,9 +73,9 @@ export const FloatingKebabMenu = () => {
                 : 'border-primary/0 scale-100 group-hover/button:border-primary/60 group-hover/button:scale-125'
             }`} />
             
-            {/* Sparkle effect */}
+            {/* Slow color morph effect */}
             {activeDot === index && (
-              <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-primary-glow to-primary-electric opacity-50 animate-pulse" style={{ animationDuration: '3s' }} />
             )}
           </button>
         </div>
