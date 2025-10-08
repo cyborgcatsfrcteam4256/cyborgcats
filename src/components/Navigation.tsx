@@ -6,6 +6,7 @@ import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
 import { useActiveRoute } from '@/hooks/useActiveRoute';
 import { LanguageSwitcher } from '@/components/Navigation/LanguageSwitcher';
+import { KebabMenu } from '@/components/Navigation/KebabMenu';
 import { useTranslation } from 'react-i18next';
 
 export const Navigation = () => {
@@ -77,6 +78,7 @@ export const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             <LanguageSwitcher />
+            <KebabMenu />
             <div className="ml-2">
               <SmartSearch />
             </div>
@@ -117,12 +119,13 @@ export const Navigation = () => {
         {isOpen && (
           <div className="lg:hidden animate-slide-up pb-4">
             <div className="px-4 pt-4 pb-4 space-y-2 bg-card/95 backdrop-blur-xl rounded-2xl mt-4 shadow-luxury border border-primary/20">
-              {/* Language & Search */}
+              {/* Language, Kebab & Search */}
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex-1">
                   <SmartSearch />
                 </div>
                 <LanguageSwitcher />
+                <KebabMenu />
               </div>
               
               {navItems.map((item) => (
