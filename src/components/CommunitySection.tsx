@@ -31,7 +31,13 @@ export const CommunitySection = () => {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/lovable-uploads/community-event-1.jpg)',
+        }}
+      />
+      <div className="absolute inset-0 bg-background/90 backdrop-blur-sm" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
