@@ -52,7 +52,7 @@ export const AboutImpactTabs = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="first" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 gap-2 p-1">
             <TabsTrigger value="first" className="text-base font-orbitron">What is FIRST?</TabsTrigger>
             <TabsTrigger value="impact" className="text-base font-orbitron">Our Impact</TabsTrigger>
           </TabsList>
