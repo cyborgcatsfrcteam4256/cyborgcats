@@ -25,6 +25,8 @@ const Sponsors = lazy(() => import("./pages/Sponsors"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -76,6 +78,8 @@ const App = () => {
             <Route path="/team" element={<Team />} />
             <Route path="/impact" element={<Impact />} />
             <Route path="/sponsors" element={<Sponsors />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
