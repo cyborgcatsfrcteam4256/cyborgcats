@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PageMeta } from '@/components/SEO/PageMeta';
+import { RoleApprovals } from '@/components/Admin/RoleApprovals';
 import { User } from '@supabase/supabase-js';
 import { Users, Upload, FileText, Award } from 'lucide-react';
 
@@ -164,6 +165,11 @@ const Dashboard = () => {
               </Card>
             )}
           </div>
+
+          {/* Admin Section - Role Approvals */}
+          {isAdmin && (
+            <RoleApprovals />
+          )}
 
           {/* Your Roles */}
           {approvedRoles.length > 0 && (
