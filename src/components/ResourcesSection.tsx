@@ -158,41 +158,6 @@ export const ResourcesSection = () => {
           </div>
         </ScrollReveal>
 
-        {/* Call to Action */}
-        <ScrollReveal delay={400}>
-          <PremiumCard className="text-center p-12 max-w-4xl mx-auto" variant="cyber" glowEffect>
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent via-primary to-accent p-1 mx-auto mb-6">
-              <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                <Globe className="w-10 h-10 text-accent" />
-              </div>
-            </div>
-            <h3 className="font-orbitron text-3xl md:text-4xl font-bold mb-6">Contribute to Our Resources</h3>
-            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Help us expand our resource library! Share your team's knowledge, contribute tutorials, 
-              or collaborate on educational content to benefit the entire FIRST community.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button 
-                variant="hero" 
-                size="lg" 
-                className="text-lg px-8 py-6"
-                onClick={() => handleComingSoon("Resource browsing")}
-              >
-                <Zap className="w-5 h-5 mr-2" />
-                Browse All Resources
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8 py-6"
-                onClick={() => handleComingSoon("Resource submission")}
-              >
-                <FileText className="w-5 h-5 mr-2" />
-                Submit Resource
-              </Button>
-            </div>
-          </PremiumCard>
-        </ScrollReveal>
       </div>
     </section>
   );
