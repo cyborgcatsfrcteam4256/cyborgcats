@@ -77,7 +77,7 @@ export const MediaGallery = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="photos" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 gap-2 p-1">
             <TabsTrigger value="photos" className="text-base font-orbitron">Photo Gallery</TabsTrigger>
             <TabsTrigger value="instagram" className="text-base font-orbitron">Instagram</TabsTrigger>
           </TabsList>
