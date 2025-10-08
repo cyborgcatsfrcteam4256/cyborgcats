@@ -28,11 +28,11 @@ export const AboutFIRSTSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Full-screen background accent photo */}
+      {/* Championship venue background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/d26af35d-de5b-4479-94bb-919c4897cca9.png" 
-          alt="" 
+          src="/lovable-uploads/robot-action-1.jpg" 
+          alt="Championship venue" 
           className="w-full h-full object-cover opacity-30 transition-opacity duration-1000 hover:opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/30 to-transparent" />
