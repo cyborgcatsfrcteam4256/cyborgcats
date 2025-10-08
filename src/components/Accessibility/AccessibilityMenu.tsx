@@ -76,7 +76,7 @@ export const AccessibilityMenu = () => {
       {/* Accessibility Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-primary-foreground rounded-full shadow-luxury flex items-center justify-center hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="fixed bottom-24 xl:bottom-6 right-6 z-50 w-14 h-14 bg-primary text-primary-foreground rounded-full shadow-luxury flex items-center justify-center hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         aria-label="Open accessibility menu"
         aria-expanded={isOpen}
       >
@@ -86,7 +86,7 @@ export const AccessibilityMenu = () => {
       {/* Accessibility Menu Panel */}
       {isOpen && (
         <div 
-          className="fixed bottom-24 right-6 z-50 w-80 bg-background border border-border rounded-xl shadow-luxury p-6 animate-scale-in"
+          className="fixed bottom-44 xl:bottom-24 right-6 z-50 w-80 max-w-[calc(100vw-3rem)] bg-background border border-border rounded-xl shadow-luxury p-6 animate-scale-in"
           role="dialog"
           aria-label="Accessibility settings"
         >
