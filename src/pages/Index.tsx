@@ -12,7 +12,6 @@ import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { BackToTop } from '@/components/BackToTop';
 import { ProgressIndicator } from '@/components/Navigation/ProgressIndicator';
-import { SectionNav } from '@/components/Navigation/SectionNav';
 import { FloatingKebabMenu } from '@/components/FloatingKebabMenu';
 
 const Index = () => {
@@ -21,7 +20,6 @@ const Index = () => {
       <AnalyticsTracker />
       <ProgressIndicator />
       <Navigation />
-      <SectionNav />
       
       {/* Hero Section */}
       <section id="about-us">
