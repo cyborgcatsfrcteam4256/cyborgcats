@@ -13,6 +13,7 @@ import { AccessibilityMenu } from "@/components/Accessibility/AccessibilityMenu"
 import { PageViewTracker } from "@/components/Analytics/PageViewTracker";
 import { ResourceHints } from "@/components/Performance/ResourceHints";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { BackToTop } from "@/components/BackToTop";
 import { measureWebVitals } from "@/utils/performance";
 
 // Lazy load route components for better performance
@@ -83,6 +84,7 @@ const App = () => {
           </Routes>
         </Suspense>
         <AccessibilityMenu />
+        <BackToTop />
       </BrowserRouter>
       <CookieConsent />
       <PerformanceMonitor />
