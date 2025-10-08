@@ -12,6 +12,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { User } from '@supabase/supabase-js';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useToast } from '@/hooks/use-toast';
+import { NotificationBadge } from '@/components/Network/NotificationBadge';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -123,6 +124,7 @@ export const Navigation = () => {
                   {item.label}
                 </a>
               ))}
+              {user && <NotificationBadge userId={user.id} />}
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
