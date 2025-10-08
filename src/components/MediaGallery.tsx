@@ -101,12 +101,12 @@ export const MediaGallery = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="photos" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 gap-2 p-1 glass-morphism border border-primary/20">
-            <TabsTrigger value="photos" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-14 glass-morphism border border-primary/30">
+            <TabsTrigger value="photos" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">
               <Camera className="w-4 h-4 mr-2" />
               Photo Gallery
             </TabsTrigger>
-            <TabsTrigger value="instagram" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
+            <TabsTrigger value="instagram" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">
               <Instagram className="w-4 h-4 mr-2" />
               Instagram
             </TabsTrigger>
