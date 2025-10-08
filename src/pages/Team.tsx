@@ -4,6 +4,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { Breadcrumbs } from '@/components/UI/Breadcrumbs';
 import { Users, Wrench, Code, Briefcase, Heart, Lightbulb, Award } from 'lucide-react';
 
 const Team = () => {
@@ -66,6 +67,9 @@ const Team = () => {
       <Navigation />
       
       <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <Breadcrumbs />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
         
         <div className="container mx-auto px-6 relative">

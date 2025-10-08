@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, Users, Trophy, Camera, BookOpen, Mail, Phone } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
+import { useActiveRoute } from '@/hooks/useActiveRoute';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { getActiveClass } = useActiveRoute();
 
   const navItems = [
-    { href: '/about', label: 'About' },
-    { href: '/team', label: 'Team' },
-    { href: '/impact', label: 'Impact' },
-    { href: '/sponsors', label: 'Sponsors' },
-    { href: '/#media', label: 'Media' },
-    { href: '/#resources', label: 'Resources' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/about', label: 'About', icon: Home },
+    { href: '/team', label: 'Team', icon: Users },
+    { href: '/impact', label: 'Impact', icon: Trophy },
+    { href: '/sponsors', label: 'Sponsors', icon: Trophy },
+    { href: '/#media', label: 'Media', icon: Camera },
+    { href: '/#resources', label: 'Resources', icon: BookOpen },
+    { href: '/contact', label: 'Contact', icon: Mail },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -80,7 +82,7 @@ export const Navigation = () => {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="font-inter text-sm xl:text-base text-foreground hover:text-primary transition-cyber hover:text-glow cursor-pointer whitespace-nowrap"
+                  className={`font-inter text-sm xl:text-base text-foreground hover:text-primary transition-cyber hover:text-glow cursor-pointer whitespace-nowrap ${getActiveClass(item.href)}`}
                 >
                   {item.label}
                 </a>
@@ -111,13 +113,19 @@ export const Navigation = () => {
         {isOpen && (
           <div className="lg:hidden animate-slide-up pb-4">
             <div className="px-4 pt-4 pb-4 space-y-2 bg-card/95 backdrop-blur-xl rounded-2xl mt-4 shadow-luxury border border-primary/20">
+              {/* Mobile Search */}
+              <div className="mb-4">
+                <SmartSearch />
+              </div>
+              
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-3 text-foreground hover:text-primary hover:bg-accent/50 rounded-xl transition-all duration-300 cursor-pointer font-medium"
+                  className={`flex items-center gap-3 px-4 py-3 text-foreground hover:text-primary hover:bg-accent/50 rounded-xl transition-all duration-300 cursor-pointer font-medium ${getActiveClass(item.href)}`}
                   onClick={(e) => handleNavClick(e, item.href)}
                 >
+                  <item.icon className="w-5 h-5" />
                   {item.label}
                 </a>
               ))}
@@ -128,6 +136,7 @@ export const Navigation = () => {
                   className="w-full"
                   onClick={handleJoinClick}
                 >
+                  <Phone className="w-4 h-4 mr-2" />
                   Join Us
                 </Button>
               </div>

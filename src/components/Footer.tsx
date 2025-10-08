@@ -1,8 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { Instagram, Mail, MapPin, Phone, Zap } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone, Zap, ArrowUp, Home, Users, Trophy, Heart, Camera, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -35,9 +39,22 @@ export const Footer = () => {
           <div>
             <h4 className="font-orbitron font-semibold text-lg mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <Link to="/about" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">About Us</Link>
-              <a href="/#impact" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Impact & Outreach</a>
-              <Link to="/team" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Our Team</Link>
+              <Link to="/about" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Home className="w-4 h-4" />
+                About Us
+              </Link>
+              <Link to="/team" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Users className="w-4 h-4" />
+                Our Team
+              </Link>
+              <Link to="/impact" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Heart className="w-4 h-4" />
+                Impact
+              </Link>
+              <Link to="/sponsors" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Trophy className="w-4 h-4" />
+                Sponsors
+              </Link>
             </div>
           </div>
 
@@ -45,9 +62,22 @@ export const Footer = () => {
           <div>
             <h4 className="font-orbitron font-semibold text-lg mb-4">Get Involved</h4>
             <div className="space-y-2">
-              <a href="/#sponsors" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Become a Sponsor</a>
-              <a href="/contact?subject=join" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Join Our Team</a>
-              <a href="/contact?subject=partnership" className="block text-muted-foreground hover:text-primary transition-cyber font-inter">Partner With Us</a>
+              <a href="/#media" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Camera className="w-4 h-4" />
+                Media Gallery
+              </a>
+              <a href="/#resources" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <BookOpen className="w-4 h-4" />
+                Resources
+              </a>
+              <a href="/contact?subject=join" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Users className="w-4 h-4" />
+                Join Our Team
+              </a>
+              <a href="/contact?subject=partnership" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+                <Trophy className="w-4 h-4" />
+                Partner With Us
+              </a>
             </div>
           </div>
 
@@ -79,14 +109,21 @@ export const Footer = () => {
 
         <hr className="border-border my-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground font-inter text-sm">
             © 2025 Cyborg Cats FRC Team 4256. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Privacy Policy</Link>
             <Link to="/terms" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Terms of Service</Link>
             <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">FIRST Robotics</a>
+            <button 
+              onClick={scrollToTop}
+              className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-cyber font-inter text-sm"
+            >
+              <ArrowUp className="w-4 h-4" />
+              Back to Top
+            </button>
           </div>
         </div>
       </div>

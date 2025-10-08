@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
+import { Breadcrumbs } from '@/components/UI/Breadcrumbs';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { z } from 'zod';
@@ -103,6 +104,9 @@ const Contact = () => {
       <Navigation />
       
       <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <Breadcrumbs />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
         
         <div className="container mx-auto px-6 relative">
