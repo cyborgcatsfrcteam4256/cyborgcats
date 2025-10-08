@@ -28,6 +28,7 @@ const Terms = lazy(() => import("./pages/Terms"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Network = lazy(() => import("./pages/Network"));
+const Profile = lazy(() => import("./pages/Profile"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -82,6 +83,7 @@ const App = () => {
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/network" element={<Network />} />
+            <Route path="/profile" element={<Profile />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
