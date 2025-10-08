@@ -52,9 +52,19 @@ export const CommunitySection = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="testimonials" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-            <TabsTrigger value="testimonials" className="text-base font-orbitron">Student Stories</TabsTrigger>
-            <TabsTrigger value="alumni" className="text-base font-orbitron">Alumni Network</TabsTrigger>
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-16 glass-morphism border border-primary/30 p-2 shadow-luxury">
+            <TabsTrigger 
+              value="testimonials" 
+              className="text-base font-orbitron text-white data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/30 data-[state=active]:to-primary-glow/20 data-[state=active]:text-white data-[state=active]:shadow-glow transition-all duration-300 rounded-lg"
+            >
+              Student Stories
+            </TabsTrigger>
+            <TabsTrigger 
+              value="alumni" 
+              className="text-base font-orbitron text-white data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/30 data-[state=active]:to-primary-glow/20 data-[state=active]:text-white data-[state=active]:shadow-glow transition-all duration-300 rounded-lg"
+            >
+              Alumni Network
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="testimonials" className="space-y-8">
