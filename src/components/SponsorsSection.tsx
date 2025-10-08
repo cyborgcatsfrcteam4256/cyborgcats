@@ -231,7 +231,7 @@ export const SponsorsSection = () => {
                       <h4 className="text-xl sm:text-2xl font-orbitron font-bold text-white mb-3 sm:mb-4">
                         {tier.name}
                       </h4>
-                      <p className="text-2xl sm:text-3xl font-bold text-primary mb-5 sm:mb-6">
+                      <p className="text-2xl sm:text-3xl font-bold text-primary mb-6">
                         {tier.amount}
                       </p>
                       <ul className="space-y-2.5 sm:space-y-3 text-left">
