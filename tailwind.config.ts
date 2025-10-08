@@ -131,9 +131,10 @@ export default {
           }
         },
         "color-morph": {
-          "0%": { filter: "hue-rotate(0deg)" },
-          "50%": { filter: "hue-rotate(180deg)" },
-          "100%": { filter: "hue-rotate(360deg)" }
+          "0%": { filter: "hue-rotate(180deg)" },
+          "33%": { filter: "hue-rotate(220deg)" },
+          "66%": { filter: "hue-rotate(260deg)" },
+          "100%": { filter: "hue-rotate(180deg)" }
         }
       },
       animation: {
