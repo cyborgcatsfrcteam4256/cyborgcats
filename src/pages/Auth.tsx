@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { PageMeta } from '@/components/SEO/PageMeta';
+import { ImagePreloader } from '@/components/Performance/ImagePreloader';
 import { z } from 'zod';
 
 const signUpSchema = z.object({
@@ -194,19 +195,33 @@ const Auth = () => {
         description="Sign in to access the Cyborg Cats member portal for students, parents, mentors, and alumni."
       />
       
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/lovable-uploads/robot-action-1.jpg)' }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-primary/20 backdrop-blur-[2px]" />
+      <ImagePreloader images={['/lovable-uploads/robot-action-1.jpg']} />
+      
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in"
+          style={{ 
+            backgroundImage: 'url(/lovable-uploads/robot-action-1.jpg)',
+            imageRendering: 'crisp-edges'
+          }}
+        />
         
-        <Card className="w-full max-w-md relative z-10 glass-morphism border-2 border-primary/20">
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-3xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent">
+        {/* Animated Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-primary/30 animate-fade-in" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+        
+        {/* Floating Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-cyber-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-3xl animate-cyber-float" style={{ animationDelay: '2s' }} />
+        
+        <Card className="w-full max-w-md relative z-10 glass-morphism border-2 border-primary/30 shadow-elegant animate-scale-in hover:border-primary/50 transition-all duration-300">
+          <CardHeader className="space-y-1 relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-t-lg" />
+            <CardTitle className="text-3xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent animate-fade-in relative z-10">
               Member Portal
             </CardTitle>
-            <CardDescription className="text-center">
+            <CardDescription className="text-center text-muted-foreground/80 relative z-10">
               Access exclusive content and connect with the team
             </CardDescription>
           </CardHeader>
