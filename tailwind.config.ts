@@ -129,6 +129,11 @@ export default {
           "50%": {
             transform: "translateY(-10px)"
           }
+        },
+        "color-morph": {
+          "0%": { filter: "hue-rotate(0deg)" },
+          "50%": { filter: "hue-rotate(180deg)" },
+          "100%": { filter: "hue-rotate(360deg)" }
         }
       },
       animation: {
@@ -138,6 +143,8 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
         "cyber-float": "cyber-float 3s ease-in-out infinite",
+        "color-morph": "color-morph 6s linear infinite",
+        "color-morph-slow": "color-morph 12s linear infinite",
       },
     },
   },
