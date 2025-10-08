@@ -33,16 +33,16 @@ export const AboutFIRSTSection = () => {
         <img 
           src="/lovable-uploads/robot-action-1.jpg" 
           alt="Championship venue" 
-          className="w-full h-full object-cover opacity-30 transition-opacity duration-1000 hover:opacity-40"
+          className="w-full h-full object-cover opacity-50 transition-opacity duration-1000 hover:opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-background/10 to-transparent" />
       </div>
       
       {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/10 to-transparent z-[1]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.15),transparent_70%)] z-[1]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,theme(colors.secondary/0.15),transparent_70%)] z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-background/5 to-transparent z-[1]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,theme(colors.primary/0.10),transparent_70%)] z-[1]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,theme(colors.secondary/0.10),transparent_70%)] z-[1]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
