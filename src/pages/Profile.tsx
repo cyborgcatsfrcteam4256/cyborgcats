@@ -318,8 +318,35 @@ const Profile = () => {
         canonicalPath="/profile"
       />
       <Navigation />
-      <main id="main-content" className="min-h-screen bg-background pt-20">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <main id="main-content" className="relative min-h-screen pt-20 overflow-hidden">
+        {/* Stunning animated background */}
+        <div className="absolute inset-0 -z-10">
+          {/* Gradient base */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
+          
+          {/* User photo background with blur effect */}
+          {userPhotos.length > 0 && (
+            <div className="absolute inset-0 opacity-10">
+              <img 
+                src={userPhotos[0].photo_url} 
+                alt="Background" 
+                className="w-full h-full object-cover blur-3xl scale-110"
+              />
+            </div>
+          )}
+          
+          {/* Animated gradient orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          
+          {/* Grid overlay */}
+          <div className="absolute inset-0 bg-grid-white/5 bg-[size:30px_30px]" />
+          
+          {/* Vignette effect */}
+          <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/80" />
+        </div>
+        
+        <div className="container mx-auto px-4 py-8 max-w-4xl relative z-10">
           <Breadcrumbs />
           
           <Card className="mt-6">
