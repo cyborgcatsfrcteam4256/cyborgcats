@@ -54,7 +54,7 @@ const Profile = () => {
       const result: any = await supabase
         .from("profiles")
         .select("*")
-        .eq("user_id", userId)
+        .eq("id", userId)
         .maybeSingle();
       
       const data = result.data;
@@ -277,19 +277,21 @@ const Profile = () => {
 
     setSaving(true);
     try {
+      // @ts-ignore - Supabase type inference issue
       const { error } = await supabase
         .from("profiles")
         .update({
           full_name: fullName,
           bio,
           avatar_url: avatarUrl,
+          resume_url: resumeUrl,
           skills,
           interests,
           linkedin_url: linkedinUrl,
           github_url: githubUrl,
           graduation_year: graduationYear,
         })
-        .eq("user_id", user.id);
+        .eq("id", user.id);
 
       if (error) throw error;
 
