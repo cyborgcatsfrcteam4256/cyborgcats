@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Home, Users, Trophy, Sparkles, MessageSquare, Image, HelpCircle, Gift, Mail } from 'lucide-react';
+import { X, Home, Users, Trophy, Sparkles, MessageSquare, Image, HelpCircle, Gift, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const FloatingKebabMenu = () => {
@@ -38,7 +38,7 @@ export const FloatingKebabMenu = () => {
           <button
             key={index}
             onClick={() => handleItemClick(item.action)}
-            className="group relative flex items-center gap-3 glass-morphism border border-primary/30 rounded-2xl px-4 py-3 hover:border-primary/60 transition-all duration-300 hover:scale-105 shadow-luxury hover:shadow-cyber"
+            className="group relative flex items-center gap-3 glass-morphism border border-primary/30 rounded-2xl px-4 py-3 hover:border-primary/60 transition-all duration-300 hover:scale-105 shadow-luxury hover:shadow-cyber animate-scale-in"
             style={{ animationDelay: `${index * 50}ms` }}
           >
             {/* Glow effect */}
@@ -57,10 +57,10 @@ export const FloatingKebabMenu = () => {
         ))}
       </div>
 
-      {/* Main Button */}
+      {/* Main Button with Three Vertical Dots */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-6 bottom-6 z-50 w-16 h-16 glass-morphism border-2 border-primary/40 rounded-2xl flex items-center justify-center hover:border-primary/80 transition-all duration-500 hover:scale-110 shadow-luxury hover:shadow-cyber group"
+        className="fixed right-6 bottom-6 z-50 w-16 h-16 glass-morphism border-2 border-primary/40 rounded-2xl flex flex-col items-center justify-center gap-1.5 hover:border-primary/80 transition-all duration-500 hover:scale-110 shadow-luxury hover:shadow-cyber group"
         aria-label="Quick Menu"
       >
         {/* Pulsing ring */}
@@ -69,14 +69,16 @@ export const FloatingKebabMenu = () => {
         {/* Rotating glow */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary-glow to-primary-electric rounded-2xl opacity-0 group-hover:opacity-50 blur-xl transition-all duration-700 group-hover:animate-spin" style={{ animationDuration: '3s' }} />
         
-        {/* Icon */}
-        <div className="relative">
-          {isOpen ? (
-            <X className="w-7 h-7 text-primary group-hover:rotate-90 transition-transform duration-500" />
-          ) : (
-            <Menu className="w-7 h-7 text-primary group-hover:rotate-180 transition-transform duration-500" />
-          )}
-        </div>
+        {/* Three Vertical Dots */}
+        {isOpen ? (
+          <X className="relative w-7 h-7 text-primary group-hover:rotate-90 transition-transform duration-500" />
+        ) : (
+          <div className="relative flex flex-col gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300 shadow-glow" />
+            <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300 delay-75 shadow-glow" />
+            <div className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300 delay-150 shadow-glow" />
+          </div>
+        )}
 
         {/* Sparkles */}
         <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-primary-glow animate-pulse" />
