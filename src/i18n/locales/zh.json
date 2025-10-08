@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "about": "关于",
+    "team": "团队",
+    "impact": "影响",
+    "sponsors": "赞助商",
+    "media": "媒体",
+    "resources": "资源",
+    "contact": "联系",
+    "joinUs": "加入我们"
+  },
+  "hero": {
+    "title": "Cyborg Cats",
+    "subtitle": "FRC 4256队",
+    "description": "建造机器人，建造未来。来自密苏里州圣路易斯的威斯敏斯特基督教学院。"
+  },
+  "footer": {
+    "quickLinks": "快速链接",
+    "getInvolved": "参与",
+    "contactInfo": "联系信息",
+    "backToTop": "返回顶部"
+  }
+}

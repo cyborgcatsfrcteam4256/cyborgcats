@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "about": "About",
+    "team": "Team",
+    "impact": "Impact",
+    "sponsors": "Sponsors",
+    "media": "Media",
+    "resources": "Resources",
+    "contact": "Contact",
+    "joinUs": "Join Us"
+  },
+  "hero": {
+    "title": "Cyborg Cats",
+    "subtitle": "FRC Team 4256",
+    "description": "Building robots, building futures. From Westminster Christian Academy in St. Louis, Missouri."
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "getInvolved": "Get Involved",
+    "contactInfo": "Contact Info",
+    "backToTop": "Back to Top"
+  }
+}

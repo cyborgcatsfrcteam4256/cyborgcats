@@ -5,20 +5,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
 import { useActiveRoute } from '@/hooks/useActiveRoute';
+import { LanguageSwitcher } from '@/components/Navigation/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { getActiveClass } = useActiveRoute();
+  const { t } = useTranslation();
 
   const navItems = [
-    { href: '/about', label: 'About', icon: Home },
-    { href: '/team', label: 'Team', icon: Users },
-    { href: '/impact', label: 'Impact', icon: Trophy },
-    { href: '/sponsors', label: 'Sponsors', icon: Trophy },
-    { href: '/#media', label: 'Media', icon: Camera },
-    { href: '/#resources', label: 'Resources', icon: BookOpen },
-    { href: '/contact', label: 'Contact', icon: Mail },
+    { href: '/about', label: t('nav.about'), icon: Home },
+    { href: '/team', label: t('nav.team'), icon: Users },
+    { href: '/impact', label: t('nav.impact'), icon: Trophy },
+    { href: '/sponsors', label: t('nav.sponsors'), icon: Trophy },
+    { href: '/#media', label: t('nav.media'), icon: Camera },
+    { href: '/#resources', label: t('nav.resources'), icon: BookOpen },
+    { href: '/contact', label: t('nav.contact'), icon: Mail },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -72,11 +75,12 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-            <div className="ml-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
+            <LanguageSwitcher />
+            <div className="ml-2">
               <SmartSearch />
             </div>
-            <div className="flex items-center space-x-3 xl:space-x-5">
+            <div className="flex items-center space-x-3 xl:space-x-4">
               {navItems.map((item) => (
                 <a
                   key={item.href}
@@ -92,7 +96,7 @@ export const Navigation = () => {
                 size="sm"
                 onClick={handleJoinClick}
               >
-                Join Us
+                {t('nav.joinUs')}
               </Button>
             </div>
           </div>
@@ -113,9 +117,12 @@ export const Navigation = () => {
         {isOpen && (
           <div className="lg:hidden animate-slide-up pb-4">
             <div className="px-4 pt-4 pb-4 space-y-2 bg-card/95 backdrop-blur-xl rounded-2xl mt-4 shadow-luxury border border-primary/20">
-              {/* Mobile Search */}
-              <div className="mb-4">
-                <SmartSearch />
+              {/* Language & Search */}
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex-1">
+                  <SmartSearch />
+                </div>
+                <LanguageSwitcher />
               </div>
               
               {navItems.map((item) => (
@@ -137,7 +144,7 @@ export const Navigation = () => {
                   onClick={handleJoinClick}
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  Join Us
+                  {t('nav.joinUs')}
                 </Button>
               </div>
             </div>
