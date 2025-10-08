@@ -40,6 +40,7 @@ export const Navigation = () => {
     { href: '/team', label: t('nav.team'), icon: Users },
     { href: '/impact', label: t('nav.impact'), icon: Trophy },
     { href: '/sponsors', label: t('nav.sponsors'), icon: Trophy },
+    { href: '/network', label: 'Network', icon: Users },
     { href: '/#media', label: t('nav.media'), icon: Camera },
     { href: '/#resources', label: t('nav.resources'), icon: BookOpen },
     { href: '/contact', label: t('nav.contact'), icon: Mail },
