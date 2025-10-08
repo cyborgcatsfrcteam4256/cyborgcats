@@ -52,9 +52,9 @@ export const AboutImpactTabs = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="first" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 gap-2 p-1">
-            <TabsTrigger value="first" className="text-base font-orbitron">What is FIRST?</TabsTrigger>
-            <TabsTrigger value="impact" className="text-base font-orbitron">Our Impact</TabsTrigger>
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-14 glass-morphism border border-primary/30">
+            <TabsTrigger value="first" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">What is FIRST?</TabsTrigger>
+            <TabsTrigger value="impact" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">Our Impact</TabsTrigger>
           </TabsList>
 
           <TabsContent value="first" className="space-y-12">
