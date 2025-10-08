@@ -215,28 +215,28 @@ const Auth = () => {
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-cyber-float" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-3xl animate-cyber-float" style={{ animationDelay: '2s' }} />
         
-        <Card className="w-full max-w-md relative z-10 glass-morphism border-2 border-primary/30 shadow-elegant animate-scale-in hover:border-primary/50 transition-all duration-300">
-          <CardHeader className="space-y-1 relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-t-lg" />
-            <CardTitle className="text-3xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent animate-fade-in relative z-10">
+        <Card className="w-full max-w-lg relative z-10 glass-morphism border-2 border-primary/30 shadow-elegant animate-scale-in hover:border-primary/50 transition-all duration-300 backdrop-blur-xl">
+          <CardHeader className="space-y-3 relative pb-8 pt-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+            <CardTitle className="text-4xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent animate-fade-in relative z-10 tracking-tight">
               Member Portal
             </CardTitle>
-            <CardDescription className="text-center text-muted-foreground/80 relative z-10">
+            <CardDescription className="text-center text-muted-foreground/90 relative z-10 text-base">
               Access exclusive content and connect with the team
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-8 pb-8">
             <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-                <TabsTrigger value="reset">Reset</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-3 mb-8 h-12 bg-primary/5 border border-primary/20">
+                <TabsTrigger value="signin" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Sign In</TabsTrigger>
+                <TabsTrigger value="signup" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Sign Up</TabsTrigger>
+                <TabsTrigger value="reset" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Reset</TabsTrigger>
               </TabsList>
 
               <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-4">
+                <form onSubmit={handleSignIn} className="space-y-5">
                   <div className="space-y-2">
-                    <Label htmlFor="signin-email">Email</Label>
+                    <Label htmlFor="signin-email" className="text-sm font-medium">Email</Label>
                     <Input
                       id="signin-email"
                       type="email"
@@ -244,19 +244,21 @@ const Auth = () => {
                       value={signInData.email}
                       onChange={(e) => setSignInData({ ...signInData, email: e.target.value })}
                       required
+                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signin-password">Password</Label>
+                    <Label htmlFor="signin-password" className="text-sm font-medium">Password</Label>
                     <Input
                       id="signin-password"
                       type="password"
                       value={signInData.password}
                       onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                       required
+                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={loading}>
+                  <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
                     {loading ? 'Signing in...' : 'Sign In'}
                   </Button>
                 </form>
@@ -265,7 +267,7 @@ const Auth = () => {
               <TabsContent value="signup">
                 <form onSubmit={handleSignUp} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signup-name">Full Name</Label>
+                    <Label htmlFor="signup-name" className="text-sm font-medium">Full Name</Label>
                     <Input
                       id="signup-name"
                       type="text"
@@ -273,10 +275,11 @@ const Auth = () => {
                       value={signUpData.fullName}
                       onChange={(e) => setSignUpData({ ...signUpData, fullName: e.target.value })}
                       required
+                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email" className="text-sm font-medium">Email</Label>
                     <Input
                       id="signup-email"
                       type="email"
@@ -284,10 +287,11 @@ const Auth = () => {
                       value={signUpData.email}
                       onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })}
                       required
+                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
+                    <Label htmlFor="signup-password" className="text-sm font-medium">Password</Label>
                     <Input
                       id="signup-password"
                       type="password"
@@ -295,16 +299,17 @@ const Auth = () => {
                       value={signUpData.password}
                       onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
                       required
+                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="role">Role</Label>
+                    <Label htmlFor="role" className="text-sm font-medium">Role</Label>
                     <Select 
                       value={signUpData.role} 
                       onValueChange={(value) => setSignUpData({ ...signUpData, role: value })}
                       required
                     >
-                      <SelectTrigger id="role">
+                      <SelectTrigger id="role" className="h-11 bg-background/50 border-primary/20">
                         <SelectValue placeholder="Select your role" />
                       </SelectTrigger>
                       <SelectContent>
@@ -317,26 +322,27 @@ const Auth = () => {
                   </div>
                   {(signUpData.role === 'student' || signUpData.role === 'alumni') && (
                     <div className="space-y-2">
-                      <Label htmlFor="graduation-year">Graduation Year</Label>
+                      <Label htmlFor="graduation-year" className="text-sm font-medium">Graduation Year</Label>
                       <Input
                         id="graduation-year"
                         type="number"
                         placeholder="2025"
                         value={signUpData.graduationYear}
                         onChange={(e) => setSignUpData({ ...signUpData, graduationYear: e.target.value })}
+                        className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                       />
                     </div>
                   )}
-                  <Button type="submit" className="w-full" disabled={loading}>
+                  <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
                     {loading ? 'Creating account...' : 'Create Account'}
                   </Button>
                 </form>
               </TabsContent>
 
               <TabsContent value="reset">
-                <form onSubmit={handlePasswordReset} className="space-y-4">
+                <form onSubmit={handlePasswordReset} className="space-y-5">
                   <div className="space-y-2">
-                    <Label htmlFor="reset-email">Email</Label>
+                    <Label htmlFor="reset-email" className="text-sm font-medium">Email</Label>
                     <Input
                       id="reset-email"
                       type="email"
@@ -344,9 +350,10 @@ const Auth = () => {
                       value={resetEmail}
                       onChange={(e) => setResetEmail(e.target.value)}
                       required
+                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
-                  <Button type="submit" className="w-full" disabled={loading}>
+                  <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
                     {loading ? 'Sending...' : 'Send Reset Link'}
                   </Button>
                 </form>
