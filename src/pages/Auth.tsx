@@ -195,7 +195,11 @@ const Auth = () => {
       />
       
       <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/lovable-uploads/robot-action-1.jpg)' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-primary/20 backdrop-blur-[2px]" />
         
         <Card className="w-full max-w-md relative z-10 glass-morphism border-2 border-primary/20">
           <CardHeader className="space-y-1">
