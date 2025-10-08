@@ -197,45 +197,41 @@ const Auth = () => {
       
       <ImagePreloader images={['/lovable-uploads/robot-action-1.jpg']} />
       
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Background Image */}
+      <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Background with overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in"
+          className="fixed inset-0 bg-cover bg-center"
           style={{ 
             backgroundImage: 'url(/lovable-uploads/robot-action-1.jpg)',
-            imageRendering: 'crisp-edges'
           }}
         />
+        <div className="fixed inset-0 bg-gradient-to-br from-background/97 via-background/95 to-background/90 backdrop-blur-sm" />
         
-        {/* Animated Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/95 to-primary/30 animate-fade-in" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+        {/* Accent orbs */}
+        <div className="fixed top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="fixed bottom-20 right-20 w-96 h-96 bg-primary/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         
-        {/* Floating Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-cyber-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-3xl animate-cyber-float" style={{ animationDelay: '2s' }} />
-        
-        <Card className="w-full max-w-lg relative z-10 glass-morphism border-2 border-primary/30 shadow-elegant animate-scale-in hover:border-primary/50 transition-all duration-300 backdrop-blur-xl">
-          <CardHeader className="space-y-2 relative pb-6 pt-6">
-            <CardTitle className="text-4xl font-orbitron text-center bg-gradient-premium bg-clip-text text-transparent animate-fade-in tracking-tight">
+        <Card className="w-full max-w-md relative z-10 border border-primary/20 shadow-2xl bg-card/95 backdrop-blur-xl">
+          <CardHeader className="space-y-1 text-center pb-4">
+            <CardTitle className="text-3xl font-orbitron bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent">
               Member Portal
             </CardTitle>
-            <CardDescription className="text-center text-muted-foreground/90 text-base">
-              Access exclusive content and connect with the team
+            <CardDescription className="text-base">
+              Join the Cyborg Cats community
             </CardDescription>
           </CardHeader>
-          <CardContent className="px-8 pb-8">
+          <CardContent className="px-6 pb-6">
             <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8 h-12 bg-primary/5 border border-primary/20">
-                <TabsTrigger value="signin" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Sign In</TabsTrigger>
-                <TabsTrigger value="signup" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Sign Up</TabsTrigger>
-                <TabsTrigger value="reset" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Reset</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-3 mb-6 bg-muted/50">
+                <TabsTrigger value="signin">Sign In</TabsTrigger>
+                <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                <TabsTrigger value="reset">Reset</TabsTrigger>
               </TabsList>
 
               <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-5">
+                <form onSubmit={handleSignIn} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signin-email" className="text-sm font-medium">Email</Label>
+                    <Label htmlFor="signin-email">Email</Label>
                     <Input
                       id="signin-email"
                       type="email"
@@ -243,30 +239,28 @@ const Auth = () => {
                       value={signInData.email}
                       onChange={(e) => setSignInData({ ...signInData, email: e.target.value })}
                       required
-                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signin-password" className="text-sm font-medium">Password</Label>
+                    <Label htmlFor="signin-password">Password</Label>
                     <Input
                       id="signin-password"
                       type="password"
                       value={signInData.password}
                       onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                       required
-                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
-                  <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
+                  <Button type="submit" className="w-full" disabled={loading}>
                     {loading ? 'Signing in...' : 'Sign In'}
                   </Button>
                 </form>
               </TabsContent>
 
               <TabsContent value="signup">
-                <form onSubmit={handleSignUp} className="space-y-4">
+                <form onSubmit={handleSignUp} className="space-y-3">
                   <div className="space-y-2">
-                    <Label htmlFor="signup-name" className="text-sm font-medium">Full Name</Label>
+                    <Label htmlFor="signup-name">Full Name</Label>
                     <Input
                       id="signup-name"
                       type="text"
@@ -274,11 +268,10 @@ const Auth = () => {
                       value={signUpData.fullName}
                       onChange={(e) => setSignUpData({ ...signUpData, fullName: e.target.value })}
                       required
-                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email" className="text-sm font-medium">Email</Label>
+                    <Label htmlFor="signup-email">Email</Label>
                     <Input
                       id="signup-email"
                       type="email"
@@ -286,11 +279,10 @@ const Auth = () => {
                       value={signUpData.email}
                       onChange={(e) => setSignUpData({ ...signUpData, email: e.target.value })}
                       required
-                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password" className="text-sm font-medium">Password</Label>
+                    <Label htmlFor="signup-password">Password</Label>
                     <Input
                       id="signup-password"
                       type="password"
@@ -298,17 +290,16 @@ const Auth = () => {
                       value={signUpData.password}
                       onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
                       required
-                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="role" className="text-sm font-medium">Role</Label>
+                    <Label htmlFor="role">Role</Label>
                     <Select 
                       value={signUpData.role} 
                       onValueChange={(value) => setSignUpData({ ...signUpData, role: value })}
                       required
                     >
-                      <SelectTrigger id="role" className="h-11 bg-background/50 border-primary/20">
+                      <SelectTrigger id="role">
                         <SelectValue placeholder="Select your role" />
                       </SelectTrigger>
                       <SelectContent>
@@ -321,27 +312,26 @@ const Auth = () => {
                   </div>
                   {(signUpData.role === 'student' || signUpData.role === 'alumni') && (
                     <div className="space-y-2">
-                      <Label htmlFor="graduation-year" className="text-sm font-medium">Graduation Year</Label>
+                      <Label htmlFor="graduation-year">Graduation Year</Label>
                       <Input
                         id="graduation-year"
                         type="number"
                         placeholder="2025"
                         value={signUpData.graduationYear}
                         onChange={(e) => setSignUpData({ ...signUpData, graduationYear: e.target.value })}
-                        className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                       />
                     </div>
                   )}
-                  <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
+                  <Button type="submit" className="w-full" disabled={loading}>
                     {loading ? 'Creating account...' : 'Create Account'}
                   </Button>
                 </form>
               </TabsContent>
 
               <TabsContent value="reset">
-                <form onSubmit={handlePasswordReset} className="space-y-5">
+                <form onSubmit={handlePasswordReset} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="reset-email" className="text-sm font-medium">Email</Label>
+                    <Label htmlFor="reset-email">Email</Label>
                     <Input
                       id="reset-email"
                       type="email"
@@ -349,10 +339,9 @@ const Auth = () => {
                       value={resetEmail}
                       onChange={(e) => setResetEmail(e.target.value)}
                       required
-                      className="h-11 bg-background/50 border-primary/20 focus:border-primary/40"
                     />
                   </div>
-                  <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
+                  <Button type="submit" className="w-full" disabled={loading}>
                     {loading ? 'Sending...' : 'Send Reset Link'}
                   </Button>
                 </form>
