@@ -14,7 +14,7 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/UI/Breadcrumbs";
 import { Loader2, Upload, X, FileText, Download } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-
+import heroImage from "@/assets/hero-robot.jpg";
 const Profile = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -325,7 +325,7 @@ const Profile = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20" />
           
           {/* User photo background with blur effect - or default hero image */}
-          <div className="absolute inset-0 opacity-15">
+          <div className="absolute inset-0 opacity-30 pointer-events-none">
             {userPhotos.length > 0 ? (
               <img 
                 src={userPhotos[0].photo_url} 
@@ -339,7 +339,11 @@ const Profile = () => {
                 className="w-full h-full object-cover blur-3xl scale-110"
               />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-primary/30 via-accent/20 to-primary-electric/30" />
+              <img 
+                src={heroImage}
+                alt="Background"
+                className="w-full h-full object-cover blur-3xl scale-110"
+              />
             )}
           </div>
           
@@ -358,7 +362,7 @@ const Profile = () => {
           </div>
           
           {/* Vignette effect */}
-          <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/90" />
+          <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/70" />
         </div>
         
         <div className="container mx-auto px-4 py-8 max-w-4xl relative z-10">
