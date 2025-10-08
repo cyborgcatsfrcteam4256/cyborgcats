@@ -366,6 +366,7 @@ export type Database = {
           last_seen: string | null
           linkedin_url: string | null
           privacy_settings: Json | null
+          resume_url: string | null
           skills: string[] | null
           updated_at: string
         }
@@ -382,6 +383,7 @@ export type Database = {
           last_seen?: string | null
           linkedin_url?: string | null
           privacy_settings?: Json | null
+          resume_url?: string | null
           skills?: string[] | null
           updated_at?: string
         }
@@ -398,6 +400,7 @@ export type Database = {
           last_seen?: string | null
           linkedin_url?: string | null
           privacy_settings?: Json | null
+          resume_url?: string | null
           skills?: string[] | null
           updated_at?: string
         }
@@ -545,6 +548,36 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      user_photos: {
+        Row: {
+          caption: string | null
+          created_at: string | null
+          display_order: number | null
+          id: string
+          photo_url: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          caption?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          photo_url: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          caption?: string | null
+          created_at?: string | null
+          display_order?: number | null
+          id?: string
+          photo_url?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
       }
       user_roles: {
         Row: {
