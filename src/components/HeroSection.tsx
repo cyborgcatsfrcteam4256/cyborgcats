@@ -4,10 +4,12 @@ import { FloatingParticles } from '@/components/FloatingParticles';
 import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const HeroSection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -80,7 +82,7 @@ export const HeroSection = () => {
             </h1>
 
             <p className="text-2xl md:text-3xl font-orbitron font-light text-glow animate-slide-up" style={{animationDelay: '0.4s'}}>
-              Building Robots, Building Futures
+              {t('hero.description')}
             </p>
 
             <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed animate-slide-up" style={{animationDelay: '0.6s'}}>
@@ -103,7 +105,7 @@ export const HeroSection = () => {
                 }}
               >
                 <Rocket className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500 relative z-10" />
-                <span className="relative z-10">Explore Our Journey</span>
+                <span className="relative z-10">{t('hero.learnMore')}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 relative z-10" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
@@ -114,7 +116,7 @@ export const HeroSection = () => {
                 onClick={() => navigate('/contact?subject=sponsor')}
               >
                 <Heart className="w-5 h-5 group-hover:scale-125 group-hover:text-red-400 transition-all duration-500 relative z-10" />
-                <span className="relative z-10">Support Our Mission</span>
+                <span className="relative z-10">{t('hero.getInvolved')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </Button>
             </div>

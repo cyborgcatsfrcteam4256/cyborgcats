@@ -12,12 +12,50 @@
   "hero": {
     "title": "Cyborg Cats",
     "subtitle": "FRC 4256队",
-    "description": "建造机器人，建造未来。来自密苏里州圣路易斯的威斯敏斯特基督教学院。"
+    "tagline": "圣路易斯 • 4256队",
+    "description": "建造机器人，建造未来。来自密苏里州圣路易斯的威斯敏斯特基督教学院。",
+    "learnMore": "了解更多",
+    "getInvolved": "参与"
+  },
+  "sections": {
+    "aboutUs": "关于我们",
+    "whatIsFirst": "什么是FIRST？",
+    "ourImpact": "我们的影响",
+    "sponsors": "赞助商",
+    "community": "社区",
+    "media": "媒体",
+    "resources": "资源"
+  },
+  "first": {
+    "title": "什么是FIRST？",
+    "subtitle": "了解FIRST机器人和我们在社区中的影响",
+    "inspiring": "激发创新",
+    "description": "FIRST（科学技术激励与认可）是一个全球机器人社区，通过基于团队的机器人建造挑战为年轻人准备未来，而我们Cyborg Cats将基督教信仰和价值观融入我们所做的一切。",
+    "quote": "通过创造一个庆祝科学和技术的世界来改变我们的文化，在那里年轻人梦想成为科学技术领导者，同时我们努力在我们所做的一切中荣耀上帝。",
+    "founder": "Dean Kamen，FIRST创始人（根据我们的基督教使命改编）",
+    "moreThanRobots": "不仅仅是机器人 - 服侍上帝",
+    "moreThanRobotsDesc": "FIRST项目激励学生追求STEM领域的职业，同时培养领导力、团队合作和解决问题的能力，这些能力远远超出竞赛场地，同时我们寻求通过我们的工作和见证荣耀上帝。"
+  },
+  "features": {
+    "designBuild": "设计与建造",
+    "designBuildDesc": "团队设计、建造和编程工业规模的机器人，在具有挑战性的游戏场景中竞争",
+    "collaboration": "合作",
+    "collaborationDesc": "学生与来自工程和技术公司的成人导师合作",
+    "competition": "竞赛",
+    "competitionDesc": "区域和世界锦标赛活动将团队聚集在激动人心的机器人竞赛中",
+    "realWorldSkills": "现实世界技能",
+    "realWorldSkillsDesc": "发展工程、编程、项目管理和领导能力"
   },
   "footer": {
     "quickLinks": "快速链接",
     "getInvolved": "参与",
     "contactInfo": "联系信息",
-    "backToTop": "返回顶部"
+    "backToTop": "返回顶部",
+    "location": "威斯敏斯特基督教学院",
+    "city": "密苏里州圣路易斯",
+    "copyright": "© 2025 Cyborg Cats FRC 4256队。保留所有权利。",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "firstRobotics": "FIRST机器人"
   }
 }

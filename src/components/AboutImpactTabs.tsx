@@ -6,31 +6,33 @@ import { PhotoShowcase } from './PhotoShowcase';
 import { StatCounter } from './StatCounter';
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const AboutImpactTabs = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const features = [
     {
       icon: <Bot className="w-8 h-8" />,
-      title: "Design & Build",
-      description: "Teams design, build, and program industrial-sized robots to compete in challenging game scenarios"
+      title: t('features.designBuild'),
+      description: t('features.designBuildDesc')
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Collaboration",
-      description: "Students work with adult mentors from engineering and technology companies"
+      title: t('features.collaboration'),
+      description: t('features.collaborationDesc')
     },
     {
       icon: <Trophy className="w-8 h-8" />,
-      title: "Competition",
-      description: "Regional and world championship events bring teams together in exciting robot competitions"
+      title: t('features.competition'),
+      description: t('features.competitionDesc')
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Real-World Skills",
-      description: "Develops engineering, programming, project management, and leadership abilities"
+      title: t('features.realWorldSkills'),
+      description: t('features.realWorldSkillsDesc')
     }
   ];
 
@@ -43,10 +45,10 @@ export const AboutImpactTabs = () => {
         <ScrollReveal>
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-orbitron font-black mb-6 text-glow">
-              About <span className="text-holographic">Us</span>
+              {t('sections.aboutUs')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Learn about FIRST Robotics and our impact in the community
+              {t('first.subtitle')}
             </p>
           </div>
         </ScrollReveal>
@@ -57,13 +59,13 @@ export const AboutImpactTabs = () => {
               value="first" 
               className="text-base font-orbitron text-white data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/30 data-[state=active]:to-primary-glow/20 data-[state=active]:text-white data-[state=active]:shadow-glow transition-all duration-300 rounded-lg"
             >
-              What is FIRST?
+              {t('sections.whatIsFirst')}
             </TabsTrigger>
             <TabsTrigger 
               value="impact" 
               className="text-base font-orbitron text-white data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/30 data-[state=active]:to-primary-glow/20 data-[state=active]:text-white data-[state=active]:shadow-glow transition-all duration-300 rounded-lg"
             >
-              Our Impact
+              {t('sections.ourImpact')}
             </TabsTrigger>
           </TabsList>
 
@@ -83,23 +85,20 @@ export const AboutImpactTabs = () => {
                 <div className="mb-8 animate-fade-in">
                   <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury">
                     <Sparkles className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
-                    <span className="font-orbitron text-base text-primary font-bold tracking-wide">INSPIRING INNOVATION</span>
+                    <span className="font-orbitron text-base text-primary font-bold tracking-wide">{t('first.inspiring')}</span>
                     <Trophy className="w-6 h-6 text-primary-glow animate-pulse group-hover:animate-bounce" />
                   </div>
                 </div>
 
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed mb-10">
-                  FIRST (For Inspiration and Recognition of Science and Technology) is a global robotics community 
-                  that prepares young people for the future through <span className="text-primary font-semibold">team-based robot-building</span> challenges,
-                  while we at Cyborg Cats integrate our <span className="text-primary-glow font-semibold">Christian faith and values</span> into everything we do.
+                  {t('first.description')}
                 </p>
                 
                 <div className="bg-glass-card/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-5xl mx-auto shadow-luxury">
                   <blockquote className="text-2xl md:text-3xl font-inter text-white/90 italic leading-relaxed">
-                    "To transform our culture by creating a world where science and technology are celebrated 
-                    and where young people dream of becoming science and technology leaders, while we strive to honor God in all we do."
+                    {t('first.quote')}
                   </blockquote>
-                  <cite className="block mt-6 text-lg text-primary font-semibold">- Dean Kamen, FIRST Founder (adapted with our Christian mission)</cite>
+                  <cite className="block mt-6 text-lg text-primary font-semibold">{t('first.founder')}</cite>
                 </div>
               </div>
             </ScrollReveal>
@@ -132,14 +131,10 @@ export const AboutImpactTabs = () => {
               <div className="text-center">
                 <div className="bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 p-8 rounded-3xl border border-white/10 shadow-luxury">
                   <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-6">
-                    More Than Robots - Serving God
+                    {t('first.moreThanRobots')}
                   </h3>
                   <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
-                    FIRST programs inspire students to pursue careers in STEM fields while developing 
-                    <span className="text-primary font-semibold"> leadership</span>, 
-                    <span className="text-primary font-semibold"> teamwork</span>, and 
-                    <span className="text-primary-glow font-semibold"> problem-solving</span> skills 
-                    that extend far beyond the competition arena, all while we seek to glorify God through our work and witness.
+                    {t('first.moreThanRobotsDesc')}
                   </p>
                 </div>
               </div>

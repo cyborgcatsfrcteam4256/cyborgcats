@@ -12,12 +12,50 @@
   "hero": {
     "title": "Cyborg Cats",
     "subtitle": "Equipo FRC 4256",
-    "description": "Construyendo robots, construyendo futuros. De Westminster Christian Academy en St. Louis, Missouri."
+    "tagline": "St. Louis • Equipo 4256",
+    "description": "Construyendo robots, construyendo futuros. De Westminster Christian Academy en St. Louis, Missouri.",
+    "learnMore": "Aprende Más",
+    "getInvolved": "Participa"
+  },
+  "sections": {
+    "aboutUs": "Acerca de Nosotros",
+    "whatIsFirst": "¿Qué es FIRST?",
+    "ourImpact": "Nuestro Impacto",
+    "sponsors": "Patrocinadores",
+    "community": "Comunidad",
+    "media": "Medios",
+    "resources": "Recursos"
+  },
+  "first": {
+    "title": "¿Qué es FIRST?",
+    "subtitle": "Aprende sobre FIRST Robotics y nuestro impacto en la comunidad",
+    "inspiring": "INSPIRANDO INNOVACIÓN",
+    "description": "FIRST (Para Inspiración y Reconocimiento de Ciencia y Tecnología) es una comunidad global de robótica que prepara a los jóvenes para el futuro a través de desafíos de construcción de robots en equipo, mientras que en Cyborg Cats integramos nuestra fe y valores cristianos en todo lo que hacemos.",
+    "quote": "Transformar nuestra cultura creando un mundo donde la ciencia y la tecnología sean celebradas y donde los jóvenes sueñen con convertirse en líderes de ciencia y tecnología, mientras nos esforzamos por honrar a Dios en todo lo que hacemos.",
+    "founder": "Dean Kamen, Fundador de FIRST (adaptado con nuestra misión cristiana)",
+    "moreThanRobots": "Más que Robots - Sirviendo a Dios",
+    "moreThanRobotsDesc": "Los programas FIRST inspiran a los estudiantes a seguir carreras en campos STEM mientras desarrollan liderazgo, trabajo en equipo y habilidades de resolución de problemas que se extienden más allá de la arena de competencia, todo mientras buscamos glorificar a Dios a través de nuestro trabajo y testimonio."
+  },
+  "features": {
+    "designBuild": "Diseño y Construcción",
+    "designBuildDesc": "Los equipos diseñan, construyen y programan robots de tamaño industrial para competir en escenarios de juego desafiantes",
+    "collaboration": "Colaboración",
+    "collaborationDesc": "Los estudiantes trabajan con mentores adultos de empresas de ingeniería y tecnología",
+    "competition": "Competencia",
+    "competitionDesc": "Eventos regionales y campeonatos mundiales reúnen a los equipos en emocionantes competencias de robots",
+    "realWorldSkills": "Habilidades del Mundo Real",
+    "realWorldSkillsDesc": "Desarrolla habilidades de ingeniería, programación, gestión de proyectos y liderazgo"
   },
   "footer": {
     "quickLinks": "Enlaces Rápidos",
     "getInvolved": "Participar",
     "contactInfo": "Información de Contacto",
-    "backToTop": "Volver Arriba"
+    "backToTop": "Volver Arriba",
+    "location": "Westminster Christian Academy",
+    "city": "St. Louis, MO",
+    "copyright": "© 2025 Cyborg Cats Equipo FRC 4256. Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "firstRobotics": "FIRST Robotics"
   }
 }

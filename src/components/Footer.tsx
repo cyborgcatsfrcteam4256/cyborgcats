@@ -1,8 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Instagram, Mail, MapPin, Phone, Zap, ArrowUp, Home, Users, Trophy, Heart, Camera, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -23,7 +25,7 @@ export const Footer = () => {
               </div>
             </Link>
             <p className="text-muted-foreground font-inter text-sm">
-              Building robots, building futures. From Westminster Christian Academy in St. Louis, Missouri.
+              {t('hero.description')}
             </p>
             <div className="flex space-x-4">
               <a href="https://instagram.com/cyborgcats4256" className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover-glow transition-cyber">
@@ -37,42 +39,42 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-orbitron font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="font-orbitron font-semibold text-lg mb-4">{t('footer.quickLinks')}</h4>
             <div className="space-y-2">
               <Link to="/about" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Home className="w-4 h-4" />
-                About Us
+                {t('nav.about')}
               </Link>
               <Link to="/team" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Users className="w-4 h-4" />
-                Our Team
+                {t('nav.team')}
               </Link>
               <Link to="/impact" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Heart className="w-4 h-4" />
-                Impact
+                {t('nav.impact')}
               </Link>
               <Link to="/sponsors" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Trophy className="w-4 h-4" />
-                Sponsors
+                {t('nav.sponsors')}
               </Link>
             </div>
           </div>
 
           {/* Support */}
           <div>
-            <h4 className="font-orbitron font-semibold text-lg mb-4">Get Involved</h4>
+            <h4 className="font-orbitron font-semibold text-lg mb-4">{t('footer.getInvolved')}</h4>
             <div className="space-y-2">
               <a href="/#media" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Camera className="w-4 h-4" />
-                Media Gallery
+                {t('nav.media')}
               </a>
               <a href="/#resources" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <BookOpen className="w-4 h-4" />
-                Resources
+                {t('nav.resources')}
               </a>
               <a href="/contact?subject=join" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Users className="w-4 h-4" />
-                Join Our Team
+                {t('nav.joinUs')}
               </a>
               <a href="/contact?subject=partnership" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Trophy className="w-4 h-4" />
@@ -83,12 +85,12 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-orbitron font-semibold text-lg mb-4">Contact Info</h4>
+            <h4 className="font-orbitron font-semibold text-lg mb-4">{t('footer.contactInfo')}</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-primary" />
                 <span className="text-muted-foreground font-inter text-sm">
-                  Westminster Christian Academy<br />St. Louis, MO
+                  {t('footer.location')}<br />{t('footer.city')}
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -111,18 +113,18 @@ export const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground font-inter text-sm">
-            © 2025 Cyborg Cats FRC Team 4256. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Privacy Policy</Link>
-            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">Terms of Service</Link>
-            <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">FIRST Robotics</a>
+            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">{t('footer.privacyPolicy')}</Link>
+            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">{t('footer.termsOfService')}</Link>
+            <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">{t('footer.firstRobotics')}</a>
             <button 
               onClick={scrollToTop}
               className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-cyber font-inter text-sm"
             >
               <ArrowUp className="w-4 h-4" />
-              Back to Top
+              {t('footer.backToTop')}
             </button>
           </div>
         </div>
