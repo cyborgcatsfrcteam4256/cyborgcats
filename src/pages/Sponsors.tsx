@@ -221,13 +221,13 @@ const Sponsors = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {sponsorshipPackages.map((pkg, index) => (
               <ScrollReveal key={index} delay={index * 100}>
-                <Card className="p-6 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber text-center h-full flex flex-col">
-                  <pkg.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-2xl font-orbitron font-bold mb-2 text-holographic">
+                <Card className="p-6 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber text-center h-full flex flex-col min-h-0">
+                  <pkg.icon className="w-12 h-12 text-primary mx-auto mb-4 flex-shrink-0" />
+                  <div className="text-lg sm:text-xl md:text-2xl font-orbitron font-bold mb-2 text-holographic break-words">
                     {pkg.amount}
                   </div>
-                  <h3 className="font-orbitron font-bold text-xl mb-2">{pkg.tier}</h3>
-                  <p className="text-muted-foreground text-sm flex-grow">{pkg.description}</p>
+                  <h3 className="font-orbitron font-bold text-base sm:text-lg md:text-xl mb-2 break-words leading-tight">{pkg.tier}</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm flex-grow break-words leading-relaxed">{pkg.description}</p>
                 </Card>
               </ScrollReveal>
             ))}
