@@ -322,28 +322,43 @@ const Profile = () => {
         {/* Stunning animated background */}
         <div className="absolute inset-0 -z-10">
           {/* Gradient base */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20" />
           
-          {/* User photo background with blur effect */}
-          {userPhotos.length > 0 && (
-            <div className="absolute inset-0 opacity-10">
+          {/* User photo background with blur effect - or default hero image */}
+          <div className="absolute inset-0 opacity-15">
+            {userPhotos.length > 0 ? (
               <img 
                 src={userPhotos[0].photo_url} 
                 alt="Background" 
                 className="w-full h-full object-cover blur-3xl scale-110"
               />
-            </div>
-          )}
+            ) : avatarUrl ? (
+              <img 
+                src={avatarUrl} 
+                alt="Background" 
+                className="w-full h-full object-cover blur-3xl scale-110"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-primary/30 via-accent/20 to-primary-electric/30" />
+            )}
+          </div>
           
           {/* Animated gradient orbs */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary-electric/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
           
           {/* Grid overlay */}
           <div className="absolute inset-0 bg-grid-white/5 bg-[size:30px_30px]" />
           
+          {/* Animated light rays */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-transparent via-primary to-transparent animate-pulse" />
+            <div className="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-transparent via-accent to-transparent animate-pulse" style={{ animationDelay: '1.5s' }} />
+          </div>
+          
           {/* Vignette effect */}
-          <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/80" />
+          <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background/90" />
         </div>
         
         <div className="container mx-auto px-4 py-8 max-w-4xl relative z-10">
