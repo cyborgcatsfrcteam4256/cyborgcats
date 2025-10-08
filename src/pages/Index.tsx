@@ -13,6 +13,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { BackToTop } from '@/components/BackToTop';
 import { ProgressIndicator } from '@/components/Navigation/ProgressIndicator';
 import { SectionNav } from '@/components/Navigation/SectionNav';
+import { FloatingKebabMenu } from '@/components/FloatingKebabMenu';
 
 const Index = () => {
   return (
@@ -76,6 +77,7 @@ const Index = () => {
 
       <Footer />
       <BackToTop />
+      <FloatingKebabMenu />
     </div>
   );
 };
