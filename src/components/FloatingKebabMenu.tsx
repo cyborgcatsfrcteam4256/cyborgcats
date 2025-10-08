@@ -75,7 +75,7 @@ export const FloatingKebabMenu = () => {
             
             {/* Slow color morph effect */}
             {activeDot === index && (
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 animate-color-morph-slow" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-white via-pink-200 to-purple-500 animate-color-morph-slow" />
             )}
           </button>
         </div>
