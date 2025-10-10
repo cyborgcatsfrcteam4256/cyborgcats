@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -5,10 +6,89 @@ import { PremiumCard } from '@/components/PremiumCard';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { Breadcrumbs } from '@/components/UI/Breadcrumbs';
-import { Users, Wrench, Code, Briefcase, Heart, Lightbulb, Award } from 'lucide-react';
+import { PageMeta } from '@/components/SEO/PageMeta';
+import { Users, Wrench, Code, Briefcase, Heart, Lightbulb, Award, Github, Linkedin } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string | null;
+  image_url: string | null;
+  github_url: string | null;
+  linkedin_url: string | null;
+  display_order: number | null;
+}
 
 const Team = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [activeTab, setActiveTab] = useState('all');
+
+  useEffect(() => {
+    loadTeamMembers();
+  }, []);
+
+  const loadTeamMembers = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('team_members')
+        .select('*')
+        .eq('is_active', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setTeamMembers(data || []);
+    } catch (error: any) {
+      toast({
+        title: 'Error loading team members',
+        description: error.message,
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filterMembers = (category: string) => {
+    if (category === 'all') return teamMembers;
+    if (category === 'leadership') {
+      return teamMembers.filter(m => 
+        m.role.toLowerCase().includes('lead') || 
+        m.role.toLowerCase().includes('captain')
+      );
+    }
+    if (category === 'mentors') {
+      return teamMembers.filter(m => m.role.toLowerCase().includes('mentor'));
+    }
+    if (category === 'students') {
+      return teamMembers.filter(m => 
+        !m.role.toLowerCase().includes('mentor') &&
+        !m.role.toLowerCase().includes('lead') &&
+        !m.role.toLowerCase().includes('captain')
+      );
+    }
+    return teamMembers;
+  };
+
+  const getInitials = (name: string) => {
+    return name.split(' ').map(n => n[0]).join('').toUpperCase();
+  };
 
   const departments = [
     {
@@ -63,8 +143,14 @@ const Team = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      <PageMeta
+        title="Our Team - Cyborg Cats FRC 4256"
+        description="Meet the passionate students, dedicated mentors, and supportive alumni of FRC Team 4256, the Cyborg Cats from Westminster Christian Academy."
+        keywords="FRC team members, robotics students, STEM mentors, team leadership"
+      />
+      <div className="min-h-screen bg-background">
+        <Navigation />
       
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6">
@@ -141,6 +227,69 @@ const Team = () => {
             </div>
           </div>
 
+          {/* Team Members Section */}
+          <div className="mb-20">
+            <ScrollReveal>
+              <h2 className="text-4xl font-orbitron font-bold text-center mb-12 text-glow">
+                Meet Our Team
+              </h2>
+            </ScrollReveal>
+
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-6xl mx-auto">
+              <TabsList className="grid w-full grid-cols-4 mb-8">
+                <TabsTrigger value="all">All Members</TabsTrigger>
+                <TabsTrigger value="leadership">Leadership</TabsTrigger>
+                <TabsTrigger value="mentors">Mentors</TabsTrigger>
+                <TabsTrigger value="students">Students</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value={activeTab}>
+                {loading ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                    <p className="text-muted-foreground">Loading team members...</p>
+                  </div>
+                ) : (
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filterMembers(activeTab).map((member, index) => (
+                      <ScrollReveal key={member.id} delay={index * 50}>
+                        <PremiumCard 
+                          className="cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => setSelectedMember(member)}
+                        >
+                          <div className="p-6 text-center">
+                            <Avatar className="w-24 h-24 mx-auto mb-4 border-2 border-primary/30">
+                              <AvatarImage src={member.image_url || undefined} />
+                              <AvatarFallback className="text-xl font-bold">
+                                {getInitials(member.name)}
+                              </AvatarFallback>
+                            </Avatar>
+                            <h3 className="font-orbitron font-bold text-lg mb-1">{member.name}</h3>
+                            <Badge variant="secondary" className="mb-3">
+                              {member.role}
+                            </Badge>
+                            {member.bio && (
+                              <p className="text-sm text-muted-foreground line-clamp-2">
+                                {member.bio}
+                              </p>
+                            )}
+                          </div>
+                        </PremiumCard>
+                      </ScrollReveal>
+                    ))}
+                  </div>
+                )}
+
+                {!loading && filterMembers(activeTab).length === 0 && (
+                  <div className="text-center py-12">
+                    <Users className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
+                    <p className="text-muted-foreground">No team members found in this category.</p>
+                  </div>
+                )}
+              </TabsContent>
+            </Tabs>
+          </div>
+
           {/* Join CTA */}
           <ScrollReveal>
             <PremiumCard className="max-w-4xl mx-auto p-12 text-center bg-gradient-to-br from-primary/20 to-accent/20 border-primary/30">
@@ -168,21 +317,80 @@ const Team = () => {
               </div>
             </PremiumCard>
           </ScrollReveal>
-
-          {/* Placeholder Note */}
-          <ScrollReveal delay={200}>
-            <div className="mt-16 text-center">
-              <p className="text-muted-foreground">
-                Individual team member profiles will be added soon. Stay tuned!
-              </p>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
       <Footer />
+
+      {/* Member Detail Modal */}
+      <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
+        <DialogContent className="max-w-2xl">
+          {selectedMember && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-4 mb-4">
+                  <Avatar className="w-20 h-20 border-2 border-primary/30">
+                    <AvatarImage src={selectedMember.image_url || undefined} />
+                    <AvatarFallback className="text-xl font-bold">
+                      {getInitials(selectedMember.name)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="flex-1">
+                    <DialogTitle className="text-2xl font-orbitron mb-1">
+                      {selectedMember.name}
+                    </DialogTitle>
+                    <Badge variant="secondary">{selectedMember.role}</Badge>
+                  </div>
+                </div>
+              </DialogHeader>
+              <DialogDescription asChild>
+                <div className="space-y-4">
+                  {selectedMember.bio && (
+                    <div>
+                      <h4 className="font-semibold mb-2 text-foreground">About</h4>
+                      <p className="text-muted-foreground">{selectedMember.bio}</p>
+                    </div>
+                  )}
+                  {(selectedMember.github_url || selectedMember.linkedin_url) && (
+                    <div>
+                      <h4 className="font-semibold mb-2 text-foreground">Connect</h4>
+                      <div className="flex gap-2">
+                        {selectedMember.github_url && (
+                          <Button variant="outline" size="sm" asChild>
+                            <a 
+                              href={selectedMember.github_url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                            >
+                              <Github className="w-4 h-4 mr-2" />
+                              GitHub
+                            </a>
+                          </Button>
+                        )}
+                        {selectedMember.linkedin_url && (
+                          <Button variant="outline" size="sm" asChild>
+                            <a 
+                              href={selectedMember.linkedin_url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                            >
+                              <Linkedin className="w-4 h-4 mr-2" />
+                              LinkedIn
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </DialogDescription>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
-  );
+  </>
+);
 };
 
 export default Team;
