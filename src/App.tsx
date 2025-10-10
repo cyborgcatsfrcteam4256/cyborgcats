@@ -29,6 +29,10 @@ const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Network = lazy(() => import("./pages/Network"));
 const Profile = lazy(() => import("./pages/Profile"));
+const AlumniNetwork = lazy(() => import("./pages/AlumniNetwork"));
+const SubmitPhoto = lazy(() => import("./pages/SubmitPhoto"));
+const SubmitResource = lazy(() => import("./pages/SubmitResource"));
+const AdminUsers = lazy(() => import("./pages/admin/Users"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -84,6 +88,10 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/network" element={<Network />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/alumni-network" element={<AlumniNetwork />} />
+            <Route path="/submit-photo" element={<SubmitPhoto />} />
+            <Route path="/submit-resource" element={<SubmitResource />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
