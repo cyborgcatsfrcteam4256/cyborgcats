@@ -474,6 +474,96 @@ export type Database = {
           },
         ]
       }
+      resources: {
+        Row: {
+          category: string
+          created_at: string
+          created_by: string | null
+          description: string
+          downloads_count: number
+          external_url: string | null
+          file_url: string | null
+          id: string
+          is_approved: boolean
+          is_featured: boolean
+          resource_type: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+          views_count: number
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          created_by?: string | null
+          description: string
+          downloads_count?: number
+          external_url?: string | null
+          file_url?: string | null
+          id?: string
+          is_approved?: boolean
+          is_featured?: boolean
+          resource_type: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+          views_count?: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          downloads_count?: number
+          external_url?: string | null
+          file_url?: string | null
+          id?: string
+          is_approved?: boolean
+          is_featured?: boolean
+          resource_type?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+          views_count?: number
+        }
+        Relationships: []
+      }
+      sponsors: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          id: string
+          is_active: boolean
+          logo_url: string | null
+          name: string
+          tier: string
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean
+          logo_url?: string | null
+          name: string
+          tier: string
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_active?: boolean
+          logo_url?: string | null
+          name?: string
+          tier?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       team_members: {
         Row: {
           bio: string | null
