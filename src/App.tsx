@@ -33,6 +33,7 @@ const AlumniNetwork = lazy(() => import("./pages/AlumniNetwork"));
 const SubmitPhoto = lazy(() => import("./pages/SubmitPhoto"));
 const SubmitResource = lazy(() => import("./pages/SubmitResource"));
 const AdminUsers = lazy(() => import("./pages/admin/Users"));
+const AdminSponsors = lazy(() => import("./pages/admin/Sponsors"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -92,6 +93,7 @@ const App = () => {
             <Route path="/submit-photo" element={<SubmitPhoto />} />
             <Route path="/submit-resource" element={<SubmitResource />} />
             <Route path="/admin/users" element={<AdminUsers />} />
+            <Route path="/admin/sponsors" element={<AdminSponsors />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
