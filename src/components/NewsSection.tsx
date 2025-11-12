@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -5,37 +6,80 @@ import { Calendar, Clock, ArrowRight, Trophy, Award, Users, ExternalLink, Newspa
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedBackground } from '@/components/EnhancedBackground';
 import { LiquidButton } from '@/components/LiquidButton';
+import { supabase } from '@/integrations/supabase/client';
+import { format } from 'date-fns';
 
 export const NewsSection = () => {
-  const news = [
-    {
-      title: "2025 FIRST Impact Award Winners",
-      summary: "We are thrilled to announce that the Cyborg Cats have been selected as recipients of the prestigious FIRST Impact Award, recognizing our outstanding community outreach and STEM advocacy work throughout Missouri.",
-      date: "March 15, 2025",
-      category: "Award",
-      image: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
-      readTime: "4 min read",
-      icon: Award
-    },
-    {
-      title: "Legislative Advocacy Milestone",
-      summary: "Our team continues to make waves in Missouri politics, having now met with 20 state legislators and the Lieutenant Governor to advocate for increased STEM education funding and opportunities.",
-      date: "March 10, 2025",
-      category: "Competition",
-      image: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
-      readTime: "3 min read",
-      icon: Trophy
-    },
-    {
-      title: "Global STEM Impact Expansion",
-      summary: "Building on our international work, we've helped establish a fourth FRC team in South Korea and reached over 115 students in Ethiopia, demonstrating the global reach of Missouri's STEM initiatives.",
-      date: "February 28, 2025",
-      category: "Outreach",
-      image: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png",
-      readTime: "5 min read",
-      icon: Users
+  const [newsItems, setNewsItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
+  const fetchNews = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("news_posts")
+        .select("*")
+        .eq("is_published", true)
+        .order("published_at", { ascending: false })
+        .limit(3);
+
+      if (error) throw error;
+      
+      // If we have posts from database, use them. Otherwise, use default posts
+      if (data && data.length > 0) {
+        setNewsItems(data);
+      } else {
+        // Default fallback news items
+        setNewsItems([
+          {
+            id: "default-1",
+            title: "2025 FIRST Impact Award Winners",
+            content: "We are thrilled to announce that the Cyborg Cats have been selected as recipients of the prestigious FIRST Impact Award, recognizing our outstanding community outreach and STEM advocacy work throughout Missouri.",
+            excerpt: null,
+            image_url: "/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png",
+            published_at: "2025-03-15",
+            author: "Team 4256"
+          },
+          {
+            id: "default-2",
+            title: "Legislative Advocacy Milestone",
+            content: "Our team continues to make waves in Missouri politics, having now met with 20 state legislators and the Lieutenant Governor to advocate for increased STEM education funding and opportunities.",
+            excerpt: null,
+            image_url: "/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png",
+            published_at: "2025-03-10",
+            author: "Team 4256"
+          },
+          {
+            id: "default-3",
+            title: "Global STEM Impact Expansion",
+            content: "Building on our international work, we've helped establish a fourth FRC team in South Korea and reached over 115 students in Ethiopia, demonstrating the global reach of Missouri's STEM initiatives.",
+            excerpt: null,
+            image_url: "/lovable-uploads/40d68d3b-ba42-4e64-a83f-cb602561d4db.png",
+            published_at: "2025-02-28",
+            author: "Team 4256"
+          }
+        ]);
+      }
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  if (loading) {
+    return (
+      <section className="py-32 relative overflow-hidden">
+        <EnhancedBackground variant="particles" className="opacity-30" />
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-32 relative overflow-hidden">
@@ -62,71 +106,55 @@ export const NewsSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10 mb-20">
-          {news.map((item, index) => (
-            <ScrollReveal key={index} delay={index * 100}>
+          {newsItems.map((item, index) => (
+            <ScrollReveal key={item.id} delay={index * 100}>
               <div className="morphic-card h-full group overflow-hidden relative">
                 {/* Enhanced hover effects */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 {/* Image with advanced effects */}
-                <div className="relative overflow-hidden rounded-t-2xl">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  
-                  {/* Floating particles on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/60 rounded-full animate-glow-pulse" />
-                    <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-primary-glow/80 rounded-full animate-cyber-float" />
-                    <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-primary-electric/40 rounded-full animate-glow-pulse" style={{animationDelay: '0.5s'}} />
-                  </div>
-                  
-                  {/* Enhanced Category Badge */}
-                  <div className="absolute top-6 left-6">
-                    <div className={`glass-morphism rounded-lg px-4 py-2 font-orbitron font-bold text-sm ${
-                      item.category === 'Competition' ? 'text-primary border border-primary/30' :
-                      item.category === 'Award' ? 'text-yellow-400 border border-yellow-400/30' :
-                      'text-green-400 border border-green-400/30'
-                    }`}>
-                      <div className="flex items-center space-x-2">
-                        <item.icon className="w-4 h-4" />
-                        <span>{item.category}</span>
+                {item.image_url && (
+                  <div className="relative overflow-hidden rounded-t-2xl">
+                    <img
+                      src={item.image_url}
+                      alt={item.title}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    
+                    {/* Enhanced Date Badge */}
+                    <div className="absolute top-6 right-6 glass-morphism rounded-lg px-4 py-2">
+                      <div className="flex items-center space-x-2 text-sm font-inter">
+                        <Calendar className="w-4 h-4 text-primary" />
+                        <span className="text-foreground">
+                          {format(new Date(item.published_at), "MMM d, yyyy")}
+                        </span>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Enhanced Date Badge */}
-                  <div className="absolute top-6 right-6 glass-morphism rounded-lg px-4 py-2">
-                    <div className="flex items-center space-x-2 text-sm font-inter">
-                      <Calendar className="w-4 h-4 text-primary" />
-                      <span className="text-foreground">{item.date}</span>
-                    </div>
-                  </div>
-                </div>
+                )}
 
                 <div className="p-8 relative z-10">
                   <h3 className="text-2xl font-orbitron font-bold mb-4 text-foreground group-hover:text-glow transition-all duration-500">
                     {item.title}
                   </h3>
-                  <p className="text-muted-foreground font-inter text-lg leading-relaxed mb-8 group-hover:text-foreground transition-colors duration-500">
-                    {item.summary}
+                  <p className="text-muted-foreground font-inter text-lg leading-relaxed mb-8 group-hover:text-foreground transition-colors duration-500 line-clamp-3">
+                    {item.excerpt || item.content.substring(0, 150) + "..."}
                   </p>
                   
                   <div className="flex items-center justify-between border-t border-primary/20 pt-6">
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground group-hover:text-primary transition-colors duration-500">
-                      <Clock className="w-4 h-4" />
-                      <span>{item.readTime}</span>
-                    </div>
+                    {item.author && (
+                      <div className="text-sm text-muted-foreground">
+                        By {item.author}
+                      </div>
+                    )}
                     
                     <LiquidButton 
                       variant="ghost" 
                       size="sm" 
-                      className="group/btn hover:text-primary font-orbitron font-semibold"
+                      className="group/btn hover:text-primary font-orbitron font-semibold ml-auto"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-2 transition-transform duration-500" />

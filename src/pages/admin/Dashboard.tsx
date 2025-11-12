@@ -1,0 +1,258 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp } from "lucide-react";
+import { PageMeta } from "@/components/SEO/PageMeta";
+import { toast } from "sonner";
+
+export default function AdminDashboard() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    totalUsers: 0,
+    pendingRoles: 0,
+    totalResources: 0,
+    pendingResources: 0,
+    totalTeamMembers: 0,
+    activeTeamMembers: 0,
+    totalNews: 0,
+    publishedNews: 0,
+    totalSponsors: 0,
+    activeSponsors: 0
+  });
+
+  useEffect(() => {
+    checkAdminAndFetchStats();
+  }, []);
+
+  const checkAdminAndFetchStats = async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (!user) {
+        navigate("/auth");
+        return;
+      }
+
+      const { data: roles } = await supabase
+        .from("user_roles")
+        .select("role, approved")
+        .eq("user_id", user.id);
+
+      const isAdmin = roles?.some(r => r.role === "admin" && r.approved);
+
+      if (!isAdmin) {
+        toast.error("Admin access required");
+        navigate("/dashboard");
+        return;
+      }
+
+      await fetchStats();
+    } catch (error) {
+      console.error("Error checking admin status:", error);
+      toast.error("Failed to verify admin access");
+      navigate("/dashboard");
+    }
+  };
+
+  const fetchStats = async () => {
+    try {
+      const [
+        usersCount,
+        pendingRolesCount,
+        resourcesData,
+        teamData,
+        newsData,
+        sponsorsData
+      ] = await Promise.all([
+        supabase.from("profiles").select("id", { count: "exact", head: true }),
+        supabase.from("user_roles").select("id", { count: "exact", head: true }).eq("approved", false),
+        supabase.from("resources").select("id, is_approved", { count: "exact" }),
+        supabase.from("team_members").select("id, is_active", { count: "exact" }),
+        supabase.from("news_posts").select("id, is_published", { count: "exact" }),
+        supabase.from("sponsors").select("id, is_active", { count: "exact" })
+      ]);
+
+      setStats({
+        totalUsers: usersCount.count || 0,
+        pendingRoles: pendingRolesCount.count || 0,
+        totalResources: resourcesData.count || 0,
+        pendingResources: resourcesData.data?.filter(r => !r.is_approved).length || 0,
+        totalTeamMembers: teamData.count || 0,
+        activeTeamMembers: teamData.data?.filter(t => t.is_active).length || 0,
+        totalNews: newsData.count || 0,
+        publishedNews: newsData.data?.filter(n => n.is_published).length || 0,
+        totalSponsors: sponsorsData.count || 0,
+        activeSponsors: sponsorsData.data?.filter(s => s.is_active).length || 0
+      });
+    } catch (error) {
+      console.error("Error fetching stats:", error);
+      toast.error("Failed to load statistics");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const managementCards = [
+    {
+      title: "Manage Users",
+      description: "User roles and permissions",
+      icon: Users,
+      path: "/admin/users",
+      stat: `${stats.pendingRoles} pending requests`,
+      color: "from-blue-500/20 to-blue-600/20"
+    },
+    {
+      title: "Manage Sponsors",
+      description: "Sponsor information and logos",
+      icon: HandshakeIcon,
+      path: "/admin/sponsors",
+      stat: `${stats.activeSponsors} active sponsors`,
+      color: "from-purple-500/20 to-purple-600/20"
+    },
+    {
+      title: "Manage Resources",
+      description: "Learning materials and downloads",
+      icon: BookOpen,
+      path: "/admin/resources",
+      stat: `${stats.pendingResources} pending approvals`,
+      color: "from-green-500/20 to-green-600/20"
+    },
+    {
+      title: "Manage Team",
+      description: "Team member profiles",
+      icon: UsersIcon,
+      path: "/admin/team",
+      stat: `${stats.activeTeamMembers} active members`,
+      color: "from-orange-500/20 to-orange-600/20"
+    },
+    {
+      title: "Manage News",
+      description: "News posts and updates",
+      icon: Newspaper,
+      path: "/admin/news",
+      stat: `${stats.publishedNews} published posts`,
+      color: "from-pink-500/20 to-pink-600/20"
+    },
+    {
+      title: "View Reports",
+      description: "User reports and moderation",
+      icon: AlertTriangle,
+      path: "/admin/users",
+      stat: "Reports & Safety",
+      color: "from-red-500/20 to-red-600/20"
+    }
+  ];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <PageMeta 
+        title="Admin Control Center"
+        description="Manage your robotics team website"
+      />
+      
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 py-12 px-4">
+        <div className="max-w-7xl mx-auto space-y-8">
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              Admin Control Center
+            </h1>
+            <p className="text-muted-foreground text-lg">
+              Manage your team's website content and settings
+            </p>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-blue-500/20">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted-foreground">Total Users</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{stats.totalUsers}</div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {stats.pendingRoles} pending
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-green-500/10 to-green-600/10 border-green-500/20">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted-foreground">Resources</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{stats.totalResources}</div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {stats.pendingResources} pending
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 border-orange-500/20">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted-foreground">Team Members</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{stats.totalTeamMembers}</div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {stats.activeTeamMembers} active
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-pink-500/10 to-pink-600/10 border-pink-500/20">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted-foreground">News Posts</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-bold">{stats.totalNews}</div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {stats.publishedNews} published
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Management Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {managementCards.map((card) => (
+              <Card 
+                key={card.path}
+                className={`bg-gradient-to-br ${card.color} border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer group`}
+                onClick={() => navigate(card.path)}
+              >
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <card.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
+                    <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                  </div>
+                  <CardTitle className="text-xl mt-4">{card.title}</CardTitle>
+                  <CardDescription>{card.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm text-muted-foreground">{card.stat}</p>
+                    <Button variant="ghost" size="sm" className="group-hover:bg-primary/10">
+                      Manage
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

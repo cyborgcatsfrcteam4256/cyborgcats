@@ -32,8 +32,12 @@ const Profile = lazy(() => import("./pages/Profile"));
 const AlumniNetwork = lazy(() => import("./pages/AlumniNetwork"));
 const SubmitPhoto = lazy(() => import("./pages/SubmitPhoto"));
 const SubmitResource = lazy(() => import("./pages/SubmitResource"));
+const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
 const AdminUsers = lazy(() => import("./pages/admin/Users"));
 const AdminSponsors = lazy(() => import("./pages/admin/Sponsors"));
+const AdminResources = lazy(() => import("./pages/admin/Resources"));
+const AdminTeam = lazy(() => import("./pages/admin/Team"));
+const AdminNews = lazy(() => import("./pages/admin/News"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -92,8 +96,12 @@ const App = () => {
             <Route path="/alumni-network" element={<AlumniNetwork />} />
             <Route path="/submit-photo" element={<SubmitPhoto />} />
             <Route path="/submit-resource" element={<SubmitResource />} />
+            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/users" element={<AdminUsers />} />
             <Route path="/admin/sponsors" element={<AdminSponsors />} />
+            <Route path="/admin/resources" element={<AdminResources />} />
+            <Route path="/admin/team" element={<AdminTeam />} />
+            <Route path="/admin/news" element={<AdminNews />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />

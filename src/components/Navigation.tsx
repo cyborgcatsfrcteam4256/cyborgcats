@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Home, Users, Trophy, Camera, BookOpen, Mail, Phone, LogOut, User as UserIcon } from 'lucide-react';
+import { Menu, X, Home, Users, Trophy, Camera, BookOpen, Mail, Phone, LogOut, User as UserIcon, ShieldCheck } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
@@ -17,6 +17,7 @@ import { NotificationBadge } from '@/components/Network/NotificationBadge';
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const { getActiveClass } = useActiveRoute();
   const { t } = useTranslation();
@@ -26,15 +27,38 @@ export const Navigation = () => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
+      if (session?.user) {
+        checkAdminStatus(session.user.id);
+      }
     });
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
+      if (session?.user) {
+        checkAdminStatus(session.user.id);
+      } else {
+        setIsAdmin(false);
+      }
     });
 
     return () => subscription.unsubscribe();
   }, []);
+
+  const checkAdminStatus = async (userId: string) => {
+    try {
+      const { data } = await supabase
+        .from("user_roles")
+        .select("role, approved")
+        .eq("user_id", userId);
+
+      const adminRole = data?.some(r => r.role === "admin" && r.approved);
+      setIsAdmin(!!adminRole);
+    } catch (error) {
+      console.error("Error checking admin status:", error);
+      setIsAdmin(false);
+    }
+  };
 
   const navItems = [
     { href: '/about', label: t('nav.about'), icon: Home },
@@ -149,6 +173,15 @@ export const Navigation = () => {
                     <DropdownMenuItem onClick={() => navigate('/profile')}>
                       My Profile
                     </DropdownMenuItem>
+                    {isAdmin && (
+                      <>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem onClick={() => navigate('/admin')}>
+                          <ShieldCheck className="mr-2 h-4 w-4" />
+                          Admin Portal
+                        </DropdownMenuItem>
+                      </>
+                    )}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
                       <LogOut className="mr-2 h-4 w-4" />
@@ -230,6 +263,20 @@ export const Navigation = () => {
                       <UserIcon className="w-4 h-4 mr-2" />
                       Portal
                     </Button>
+                    {isAdmin && (
+                      <Button 
+                        variant="outline" 
+                        size="default" 
+                        className="w-full justify-start h-10"
+                        onClick={() => {
+                          setIsOpen(false);
+                          navigate('/admin');
+                        }}
+                      >
+                        <ShieldCheck className="w-4 h-4 mr-2" />
+                        Admin Portal
+                      </Button>
+                    )}
                     <Button 
                       variant="ghost" 
                       size="default" 
