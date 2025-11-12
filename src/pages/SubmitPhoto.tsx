@@ -11,7 +11,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import { Camera, Upload, Image as ImageIcon, X } from "lucide-react";
+import { Camera, Upload, Image as ImageIcon, X, AlertCircle } from "lucide-react";
+import { photoSubmissionSchema } from "@/lib/validations/photo";
 
 const PHOTO_CATEGORIES = [
   "Competition",
@@ -32,6 +33,11 @@ export default function SubmitPhoto() {
   const [category, setCategory] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState<{
+    caption?: string;
+    category?: string;
+    file?: string;
+  }>({});
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -89,24 +95,30 @@ export default function SubmitPhoto() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!selectedFile) {
+    // Validate form data
+    const validation = photoSubmissionSchema.safeParse({
+      caption: caption || '',
+      category,
+      file: selectedFile,
+    });
+
+    if (!validation.success) {
+      const errors: typeof validationErrors = {};
+      validation.error.errors.forEach((error) => {
+        const field = error.path[0] as keyof typeof validationErrors;
+        errors[field] = error.message;
+      });
+      setValidationErrors(errors);
+      
       toast({
-        title: "No photo selected",
-        description: "Please select a photo to upload",
+        title: "Validation Error",
+        description: "Please check the form for errors",
         variant: "destructive",
       });
       return;
     }
 
-    if (!category) {
-      toast({
-        title: "Category required",
-        description: "Please select a category for your photo",
-        variant: "destructive",
-      });
-      return;
-    }
-
+    setValidationErrors({});
     setUploading(true);
 
     try {
@@ -196,11 +208,16 @@ export default function SubmitPhoto() {
                   <div className="space-y-2">
                     <Label>Photo *</Label>
                     {!previewUrl ? (
-                      <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-12 text-center hover:border-primary/50 transition-colors">
+                      <div className={`border-2 border-dashed rounded-lg p-12 text-center hover:border-primary/50 transition-colors ${
+                        validationErrors.file ? 'border-destructive' : 'border-muted-foreground/25'
+                      }`}>
                         <input
                           type="file"
                           accept="image/*"
-                          onChange={handleFileSelect}
+                          onChange={(e) => {
+                            handleFileSelect(e);
+                            setValidationErrors(prev => ({ ...prev, file: undefined }));
+                          }}
                           className="hidden"
                           id="photo-upload"
                         />
@@ -232,13 +249,28 @@ export default function SubmitPhoto() {
                         </Button>
                       </div>
                     )}
+                    {validationErrors.file && (
+                      <div className="flex items-center gap-1 text-destructive text-sm">
+                        <AlertCircle className="h-4 w-4" />
+                        <span>{validationErrors.file}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Category */}
                   <div className="space-y-2">
                     <Label htmlFor="category">Category *</Label>
-                    <Select value={category} onValueChange={setCategory}>
-                      <SelectTrigger id="category">
+                    <Select 
+                      value={category} 
+                      onValueChange={(value) => {
+                        setCategory(value);
+                        setValidationErrors(prev => ({ ...prev, category: undefined }));
+                      }}
+                    >
+                      <SelectTrigger 
+                        id="category"
+                        className={validationErrors.category ? 'border-destructive' : ''}
+                      >
                         <SelectValue placeholder="Select a category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -249,6 +281,12 @@ export default function SubmitPhoto() {
                         ))}
                       </SelectContent>
                     </Select>
+                    {validationErrors.category && (
+                      <div className="flex items-center gap-1 text-destructive text-sm">
+                        <AlertCircle className="h-4 w-4" />
+                        <span>{validationErrors.category}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Caption */}
@@ -258,13 +296,27 @@ export default function SubmitPhoto() {
                       id="caption"
                       placeholder="Describe the photo, event, or moment captured..."
                       value={caption}
-                      onChange={(e) => setCaption(e.target.value)}
+                      onChange={(e) => {
+                        setCaption(e.target.value);
+                        setValidationErrors(prev => ({ ...prev, caption: undefined }));
+                      }}
                       rows={4}
                       maxLength={500}
+                      className={validationErrors.caption ? 'border-destructive' : ''}
                     />
-                    <p className="text-xs text-muted-foreground text-right">
-                      {caption.length}/500 characters
-                    </p>
+                    <div className="flex items-center justify-between text-xs">
+                      <div className="flex-1">
+                        {validationErrors.caption && (
+                          <div className="flex items-center gap-1 text-destructive">
+                            <AlertCircle className="h-3 w-3" />
+                            <span>{validationErrors.caption}</span>
+                          </div>
+                        )}
+                      </div>
+                      <span className={caption.length > 500 ? 'text-destructive font-medium' : 'text-muted-foreground'}>
+                        {caption.length}/500 characters
+                      </span>
+                    </div>
                   </div>
 
                   {/* Info Card */}
