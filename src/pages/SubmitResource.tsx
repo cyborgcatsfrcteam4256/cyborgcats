@@ -235,8 +235,12 @@ export default function SubmitResource() {
                       placeholder="e.g., Intro to PID Controllers"
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
+                      maxLength={200}
                       required
                     />
+                    <p className="text-xs text-muted-foreground text-right">
+                      {title.length}/200 characters
+                    </p>
                   </div>
 
                   {/* Category */}
@@ -323,11 +327,11 @@ export default function SubmitResource() {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       rows={4}
-                      maxLength={1000}
+                      maxLength={2000}
                       required
                     />
                     <p className="text-xs text-muted-foreground text-right">
-                      {description.length}/1000 characters
+                      {description.length}/2000 characters
                     </p>
                   </div>
 
