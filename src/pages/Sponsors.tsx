@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Card } from '@/components/ui/card';
@@ -6,10 +7,39 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Breadcrumbs } from '@/components/UI/Breadcrumbs';
-import { Trophy, Heart, Star, Zap, DollarSign, HandshakeIcon } from 'lucide-react';
+import { PageMeta } from '@/components/SEO/PageMeta';
+import { Trophy, Heart, Star, Zap, DollarSign, HandshakeIcon, Loader2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+
+interface Sponsor {
+  id: string;
+  name: string;
+  logo_url: string | null;
+  website: string | null;
+  tier: string;
+}
 
 const Sponsors = () => {
   const navigate = useNavigate();
+  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadSponsors();
+  }, []);
+
+  const loadSponsors = async () => {
+    const { data } = await supabase
+      .from('sponsors')
+      .select('*')
+      .eq('is_active', true)
+      .order('display_order', { ascending: true });
+
+    if (data) {
+      setSponsors(data);
+    }
+    setLoading(false);
+  };
 
   const sponsorTiers = [
     {
@@ -23,11 +53,6 @@ const Sponsors = () => {
         'All written communications',
         'Recognition with Feb 6th donation'
       ],
-      sponsors: [
-        { name: 'Westminster Christian Academy', logo: '/lovable-uploads/westminster-logo.png', website: 'https://wcastl.org' },
-        { name: 'Boeing', logo: '/lovable-uploads/boeing-logo.png', website: 'https://www.boeing.com' },
-        { name: 'FSI', logo: '/lovable-uploads/fsi-logo.png', website: 'https://www.fsipolyurethanes.com' },
-      ]
     },
     {
       tier: 'Sustainable Partner',
@@ -39,9 +64,6 @@ const Sponsors = () => {
         'All written communications',
         'Recognition with Feb 6th donation'
       ],
-      sponsors: [
-        { name: 'TAC Air', logo: '/lovable-uploads/tac-air-logo.jpeg', website: 'https://www.tacair.com' },
-      ]
     },
     {
       tier: 'Development Partner',
@@ -53,10 +75,6 @@ const Sponsors = () => {
         'All written communications',
         'Supports outreach programs'
       ],
-      sponsors: [
-        { name: 'TierPoint', logo: '/lovable-uploads/tierpoint-logo.webp', website: 'https://www.tierpoint.com' },
-        { name: 'LinMark Machine Products', logo: '/lovable-uploads/linmark-logo.jpeg', website: 'https://www.linmarkmachine.com' },
-      ]
     },
     {
       tier: 'Competition Partner',
@@ -67,11 +85,6 @@ const Sponsors = () => {
         'All written communications',
         'Supports materials and competition'
       ],
-      sponsors: [
-        { name: 'Agilix Solutions', logo: '/lovable-uploads/agilix-logo.webp', website: 'https://www.agilixsolutions.com' },
-        { name: 'Simons PLM Software', logo: '/lovable-uploads/siemens-plm-logo.svg', website: 'https://plm.sw.siemens.com' },
-        { name: 'Jemco Components & Fabrication, Inc.', logo: '/lovable-uploads/jemco-logo.png', website: 'https://www.jemcoinc.com' },
-      ]
     },
     {
       tier: 'Associate Partner',
@@ -82,9 +95,6 @@ const Sponsors = () => {
         'All written communications',
         'In-kind donation recognition'
       ],
-      sponsors: [
-        { name: 'Ace Hardware', logo: '/lovable-uploads/ace-hardware-logo.svg', website: 'https://www.acehardware.com' },
-      ]
     }
   ];
 
@@ -121,8 +131,20 @@ const Sponsors = () => {
     }
   ];
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Our Sponsors | Cyborg Cats"
+        description="Meet the sponsors that power our robotics team and help inspire the next generation of STEM leaders."
+      />
       <Navigation />
       
       {/* Hero Section */}
@@ -151,58 +173,62 @@ const Sponsors = () => {
 
           {/* Current Sponsors by Tier */}
           <div className="space-y-12 mb-20">
-            {sponsorTiers.map((tier, index) => (
-              <ScrollReveal key={index} delay={index * 100}>
-                <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${tier.color} rounded-lg flex items-center justify-center`}>
-                      <tier.icon className="w-8 h-8 text-white" />
+            {sponsorTiers.map((tier, index) => {
+              const tierSponsors = sponsors.filter(s => s.tier === tier.tier);
+              
+              return (
+                <ScrollReveal key={index} delay={index * 100}>
+                  <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${tier.color} rounded-lg flex items-center justify-center`}>
+                        <tier.icon className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="text-3xl font-orbitron font-bold">{tier.tier} Sponsors</h2>
+                        <p className="text-muted-foreground">Supporting excellence in robotics</p>
+                      </div>
                     </div>
-                    <div>
-                      <h2 className="text-3xl font-orbitron font-bold">{tier.tier} Sponsors</h2>
-                      <p className="text-muted-foreground">Supporting excellence in robotics</p>
-                    </div>
-                  </div>
 
-                  {tier.sponsors.length > 0 ? (
-                     <div className="grid md:grid-cols-3 gap-6 mb-6">
-                      {tier.sponsors.map((sponsor, i) => (
-                        <a 
-                          key={i} 
-                          href={sponsor.website} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="p-6 bg-background/50 rounded-lg border border-border/50 flex items-center justify-center min-h-[160px] hover:bg-background/70 hover:border-primary/30 transition-all duration-300 cursor-pointer"
-                        >
-                          {sponsor.logo ? (
-                            <img 
-                              src={sponsor.logo} 
-                              alt={`${sponsor.name} logo`}
-                              className="max-h-28 max-w-full object-contain"
-                            />
-                          ) : (
-                            <h3 className="text-xl font-semibold text-center">{sponsor.name}</h3>
-                          )}
-                        </a>
+                    {tierSponsors.length > 0 ? (
+                      <div className="grid md:grid-cols-3 gap-6 mb-6">
+                        {tierSponsors.map((sponsor) => (
+                          <a 
+                            key={sponsor.id} 
+                            href={sponsor.website || '#'} 
+                            target={sponsor.website ? "_blank" : undefined}
+                            rel={sponsor.website ? "noopener noreferrer" : undefined}
+                            className="p-6 bg-background/50 rounded-lg border border-border/50 flex items-center justify-center min-h-[160px] hover:bg-background/70 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+                          >
+                            {sponsor.logo_url ? (
+                              <img 
+                                src={sponsor.logo_url} 
+                                alt={`${sponsor.name} logo`}
+                                className="max-h-28 max-w-full object-contain"
+                              />
+                            ) : (
+                              <h3 className="text-xl font-semibold text-center">{sponsor.name}</h3>
+                            )}
+                          </a>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-8 bg-background/50 rounded-lg border border-dashed border-border/50 text-center mb-6">
+                        <p className="text-muted-foreground">Join us as a {tier.tier} sponsor!</p>
+                      </div>
+                    )}
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+                      {tier.benefits.map((benefit, i) => (
+                        <div key={i} className="text-sm flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
+                          <span>{benefit}</span>
+                        </div>
                       ))}
                     </div>
-                  ) : (
-                    <div className="p-8 bg-background/50 rounded-lg border border-dashed border-border/50 text-center mb-6">
-                      <p className="text-muted-foreground">Join us as a {tier.tier} sponsor!</p>
-                    </div>
-                  )}
-
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-                    {tier.benefits.map((benefit, i) => (
-                      <div key={i} className="text-sm flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </ScrollReveal>
-            ))}
+                  </Card>
+                </ScrollReveal>
+              );
+            })}
           </div>
 
           {/* Sponsorship Packages */}
