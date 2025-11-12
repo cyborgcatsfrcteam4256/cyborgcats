@@ -21,57 +21,59 @@ const Index = () => {
       <ProgressIndicator />
       <Navigation />
       
-      {/* Hero Section */}
-      <section id="about-us">
-        <HeroSection />
-      </section>
-
-      {/* Sponsors - Moved up to position 2 for prominence */}
-      <ScrollReveal>
-        <section id="sponsors">
-          <SponsorsSection />
+      <main>
+        {/* Hero Section */}
+        <section id="about-us">
+          <HeroSection />
         </section>
-      </ScrollReveal>
 
-      {/* Combined About FIRST + Impact in Tabs */}
-      <ScrollReveal delay={100}>
-        <section id="what-is-first">
-          <AboutImpactTabs />
-        </section>
-      </ScrollReveal>
+        {/* Sponsors - Moved up to position 2 for prominence */}
+        <ScrollReveal>
+          <section id="sponsors">
+            <SponsorsSection />
+          </section>
+        </ScrollReveal>
 
-      {/* Combined Testimonials + Alumni in Tabs */}
-      <ScrollReveal delay={100}>
-        <section id="community">
-          <CommunitySection />
-        </section>
-      </ScrollReveal>
+        {/* Combined About FIRST + Impact in Tabs */}
+        <ScrollReveal delay={100}>
+          <section id="what-is-first">
+            <AboutImpactTabs />
+          </section>
+        </ScrollReveal>
 
-      {/* Combined Photos + Instagram in Tabs */}
-      <ScrollReveal delay={100}>
-        <section id="media">
-          <MediaGallery />
-        </section>
-      </ScrollReveal>
+        {/* Combined Testimonials + Alumni in Tabs */}
+        <ScrollReveal delay={100}>
+          <section id="community">
+            <CommunitySection />
+          </section>
+        </ScrollReveal>
 
-      {/* FAQ Section */}
-      <ScrollReveal delay={100}>
-        <FAQSection />
-      </ScrollReveal>
+        {/* Combined Photos + Instagram in Tabs */}
+        <ScrollReveal delay={100}>
+          <section id="media">
+            <MediaGallery />
+          </section>
+        </ScrollReveal>
 
-      {/* Resources Section */}
-      <ScrollReveal delay={100}>
-        <section id="resources">
-          <ResourcesSection />
-        </section>
-      </ScrollReveal>
+        {/* FAQ Section */}
+        <ScrollReveal delay={100}>
+          <FAQSection />
+        </ScrollReveal>
 
-      {/* Newsletter/Contact */}
-      <ScrollReveal delay={100}>
-        <section id="contact">
-          <NewsletterSection />
-        </section>
-      </ScrollReveal>
+        {/* Resources Section */}
+        <ScrollReveal delay={100}>
+          <section id="resources">
+            <ResourcesSection />
+          </section>
+        </ScrollReveal>
+
+        {/* Newsletter/Contact */}
+        <ScrollReveal delay={100}>
+          <section id="contact">
+            <NewsletterSection />
+          </section>
+        </ScrollReveal>
+      </main>
 
       <Footer />
       <BackToTop />
