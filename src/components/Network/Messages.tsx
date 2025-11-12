@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
+import { messageSchema } from '@/lib/validations/message';
 
 interface Message {
   id: string;
@@ -53,6 +54,7 @@ export const Messages = ({ currentUserId, selectedUserId }: MessagesProps) => {
   }, [selectedUserId]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
+  const [validationError, setValidationError] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
 
@@ -173,6 +175,13 @@ export const Messages = ({ currentUserId, selectedUserId }: MessagesProps) => {
   const sendMessage = async () => {
     if (!newMessage.trim() || !selectedConversation) return;
 
+    // Validate message content
+    const validation = messageSchema.safeParse({ content: newMessage });
+    if (!validation.success) {
+      setValidationError(validation.error.errors[0].message);
+      return;
+    }
+
     try {
       const { error } = await supabase
         .from('messages')
@@ -185,6 +194,7 @@ export const Messages = ({ currentUserId, selectedUserId }: MessagesProps) => {
       if (error) throw error;
 
       setNewMessage('');
+      setValidationError('');
       fetchMessages(selectedConversation);
       fetchConversations();
     } catch (error) {
@@ -295,17 +305,38 @@ export const Messages = ({ currentUserId, selectedUserId }: MessagesProps) => {
                   e.preventDefault();
                   sendMessage();
                 }}
-                className="flex gap-2"
+                className="space-y-2"
               >
-                <Input
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  placeholder="Type a message..."
-                  className="flex-1"
-                />
-                <Button type="submit" size="icon">
-                  <Send className="h-4 w-4" />
-                </Button>
+                <div className="flex gap-2">
+                  <div className="flex-1 space-y-1">
+                    <Textarea
+                      value={newMessage}
+                      onChange={(e) => {
+                        setNewMessage(e.target.value);
+                        setValidationError('');
+                      }}
+                      placeholder="Type a message..."
+                      className="min-h-[60px] resize-none"
+                      maxLength={5000}
+                    />
+                    <div className="flex justify-between items-center text-xs">
+                      <span className={newMessage.length > 5000 ? 'text-destructive' : 'text-muted-foreground'}>
+                        {newMessage.length}/5000 characters
+                      </span>
+                      {validationError && (
+                        <span className="text-destructive">{validationError}</span>
+                      )}
+                    </div>
+                  </div>
+                  <Button 
+                    type="submit" 
+                    size="icon" 
+                    disabled={!newMessage.trim() || newMessage.length > 5000}
+                    className="self-start"
+                  >
+                    <Send className="h-4 w-4" />
+                  </Button>
+                </div>
               </form>
             </div>
           </>
