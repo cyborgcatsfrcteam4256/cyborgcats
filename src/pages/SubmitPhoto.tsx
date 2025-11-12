@@ -120,17 +120,12 @@ export default function SubmitPhoto() {
 
       if (uploadError) throw uploadError;
 
-      // Get public URL
-      const { data: { publicUrl } } = supabase.storage
-        .from("user-photos")
-        .getPublicUrl(fileName);
-
-      // Save to database
+      // Save to database - store just the file path, not the full URL
       const { error: dbError } = await supabase
         .from("user_photos")
         .insert({
           user_id: user.id,
-          photo_url: publicUrl,
+          photo_url: fileName,
           caption: caption || null,
         });
 

@@ -94,7 +94,28 @@ const Profile = () => {
         .order("display_order", { ascending: true });
 
       if (error) throw error;
-      setUserPhotos(data || []);
+      
+      // Generate signed URLs for each photo
+      const photosWithSignedUrls = await Promise.all(
+        (data || []).map(async (photo) => {
+          // Extract file path from URL or use as-is if it's already a path
+          let filePath = photo.photo_url;
+          if (photo.photo_url.includes('/user-photos/')) {
+            filePath = photo.photo_url.split('/user-photos/')[1];
+          }
+          
+          const { data: signedData } = await supabase.storage
+            .from('user-photos')
+            .createSignedUrl(filePath, 3600); // 1 hour expiration
+          
+          return {
+            ...photo,
+            photo_url: signedData?.signedUrl || photo.photo_url
+          };
+        })
+      );
+      
+      setUserPhotos(photosWithSignedUrls);
     } catch (error) {
       console.error("Error loading photos:", error);
     }
@@ -169,11 +190,8 @@ const Profile = () => {
 
       if (uploadError) throw uploadError;
 
-      const { data: { publicUrl } } = supabase.storage
-        .from('resumes')
-        .getPublicUrl(fileName);
-
-      setResumeUrl(publicUrl);
+      // Store just the file path, not the full URL
+      setResumeUrl(fileName);
       toast.success("Resume uploaded successfully!");
     } catch (error) {
       console.error("Error uploading resume:", error);
@@ -219,16 +237,12 @@ const Profile = () => {
 
         if (uploadError) throw uploadError;
 
-        const { data: { publicUrl } } = supabase.storage
-          .from('user-photos')
-          .getPublicUrl(fileName);
-
-        // Add to database
+        // Add to database - store just the file path, not the full URL
         const { error: dbError } = await supabase
           .from('user_photos')
           .insert({
             user_id: user.id,
-            photo_url: publicUrl,
+            photo_url: fileName,
             display_order: userPhotos.length + i
           });
 
@@ -249,12 +263,17 @@ const Profile = () => {
     if (!user) return;
 
     try {
-      // Extract file path from URL
-      const urlParts = photoUrl.split('/user-photos/');
-      if (urlParts.length === 2) {
-        const filePath = urlParts[1];
-        await supabase.storage.from('user-photos').remove([filePath]);
+      // Extract file path from URL or signed URL
+      let filePath = photoUrl;
+      if (photoUrl.includes('/user-photos/')) {
+        const urlParts = photoUrl.split('/user-photos/');
+        if (urlParts.length === 2) {
+          // Remove query parameters from signed URL
+          filePath = urlParts[1].split('?')[0];
+        }
       }
+
+      await supabase.storage.from('user-photos').remove([filePath]);
 
       // Delete from database
       const { error } = await supabase
@@ -493,15 +512,31 @@ const Profile = () => {
                 {resumeUrl && (
                   <div className="mt-2 flex items-center gap-2">
                     <FileText className="h-4 w-4" />
-                    <a 
-                      href={resumeUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary hover:underline flex items-center gap-1"
+                    <button
+                      onClick={async () => {
+                        try {
+                          // Extract file path if it's a full URL
+                          let filePath = resumeUrl;
+                          if (resumeUrl.includes('/resumes/')) {
+                            filePath = resumeUrl.split('/resumes/')[1];
+                          }
+                          
+                          const { data } = await supabase.storage
+                            .from('resumes')
+                            .createSignedUrl(filePath, 60); // 1 minute to download
+                          
+                          if (data?.signedUrl) {
+                            window.open(data.signedUrl, '_blank');
+                          }
+                        } catch (error) {
+                          toast.error("Failed to access resume");
+                        }
+                      }}
+                      className="text-sm text-primary hover:underline flex items-center gap-1 cursor-pointer"
                     >
                       View Current Resume
                       <Download className="h-3 w-3" />
-                    </a>
+                    </button>
                   </div>
                 )}
               </div>
