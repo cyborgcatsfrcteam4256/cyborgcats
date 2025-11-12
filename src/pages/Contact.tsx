@@ -19,7 +19,7 @@ const contactSchema = z.object({
   name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be less than 100 characters'),
   email: z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters'),
   phone: z.string().trim().optional(),
-  subject: z.string().min(1, 'Please select a subject'),
+  subject: z.string().min(1, 'Please select a subject').max(200, 'Subject must be less than 200 characters'),
   message: z.string().trim().min(10, 'Message must be at least 10 characters').max(2000, 'Message must be less than 2000 characters')
 });
 
@@ -136,12 +136,16 @@ const Contact = () => {
                         onChange={(e) => handleChange('name', e.target.value)}
                         placeholder="John Doe"
                         className={errors.name ? 'border-destructive' : ''}
+                        maxLength={100}
                       />
                       {errors.name && (
                         <p className="text-sm text-destructive mt-1 flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" /> {errors.name}
                         </p>
                       )}
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {formData.name.length}/100 characters
+                      </p>
                     </div>
 
                     <div>
@@ -207,6 +211,7 @@ const Contact = () => {
                       placeholder="Tell us about your inquiry..."
                       rows={6}
                       className={errors.message ? 'border-destructive' : ''}
+                      maxLength={2000}
                     />
                     {errors.message && (
                       <p className="text-sm text-destructive mt-1 flex items-center gap-1">
