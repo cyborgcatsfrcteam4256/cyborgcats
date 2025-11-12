@@ -117,34 +117,25 @@ export default function SubmitResource() {
         const fileName = `${user.id}/resources/${Date.now()}.${fileExt}`;
         
         const { error: uploadError } = await supabase.storage
-          .from("resumes") // Reusing resumes bucket for resources
+          .from("resumes")
           .upload(fileName, selectedFile);
 
         if (uploadError) throw uploadError;
 
-        const { data: { publicUrl } } = supabase.storage
-          .from("resumes")
-          .getPublicUrl(fileName);
-
-        resourceUrl = publicUrl;
+        // Store only the file path, not the full URL
+        resourceUrl = fileName;
       }
 
-      // For now, we'll store in contacts table as a workaround
-      // In production, you'd create a dedicated resources table
-      const { error } = await supabase.from("contacts").insert({
-        name: user.email || "Anonymous",
-        email: user.email || "noreply@cyborgcats.com",
-        subject: `Resource Submission: ${category}`,
-        message: JSON.stringify({
-          type: "resource_submission",
-          title,
-          description,
-          category,
-          tags: tags.split(",").map(t => t.trim()).filter(Boolean),
-          resource_type: resourceType,
-          resource_url: resourceUrl,
-          submitted_by: user.id,
-        }),
+      // Use the proper resources table with approval workflow
+      const { error } = await supabase.from("resources").insert({
+        title,
+        description,
+        category,
+        resource_type: resourceType,
+        file_url: resourceType === "file" ? resourceUrl : null,
+        external_url: resourceType === "link" ? resourceUrl : null,
+        tags: tags.split(",").map(t => t.trim()).filter(Boolean),
+        created_by: user.id,
       });
 
       if (error) throw error;

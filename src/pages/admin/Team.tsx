@@ -116,13 +116,13 @@ export default function AdminTeam() {
       const filePath = `${fileName}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("user-photos")
+        .from("public-images")
         .upload(filePath, file);
 
       if (uploadError) throw uploadError;
 
       const { data: { publicUrl } } = supabase.storage
-        .from("user-photos")
+        .from("public-images")
         .getPublicUrl(filePath);
 
       setFormData({ ...formData, image_url: publicUrl });
