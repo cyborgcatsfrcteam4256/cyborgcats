@@ -89,7 +89,7 @@ export const CommunitySection = () => {
                         <testimonial.icon className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-orbitron font-bold text-base text-foreground group-hover/testimonial:text-primary transition-colors duration-500">{testimonial.author}</h4>
+                        <h3 className="font-orbitron font-bold text-base text-foreground group-hover/testimonial:text-primary transition-colors duration-500">{testimonial.author}</h3>
                         <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                       </div>
                     </div>
