@@ -57,10 +57,6 @@ export const OptimizedImage = ({
     return () => observer.disconnect();
   }, [priority]);
 
-  // Generate WebP source if available
-  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-  const shouldUseWebP = 'webp' !== src.split('.').pop()?.toLowerCase();
-
   const handleLoad = () => {
     setIsLoaded(true);
   };
@@ -96,29 +92,19 @@ export const OptimizedImage = ({
 
       {/* Main image */}
       {(isInView || priority) && !hasError && (
-        <picture>
-          {/* WebP source with fallback */}
-          {shouldUseWebP && (
-            <source
-              srcSet={webpSrc}
-              type="image/webp"
-            />
-          )}
-          
-          {/* Original format fallback */}
-          <img
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
-            onLoad={handleLoad}
-            onError={handleError}
-            className={imageClasses}
-            {...props}
-          />
-        </picture>
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+          fetchPriority={priority ? 'high' : 'auto'}
+          onLoad={handleLoad}
+          onError={handleError}
+          className={imageClasses}
+          {...props}
+        />
       )}
 
       {/* Error state */}
