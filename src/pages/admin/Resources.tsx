@@ -14,6 +14,8 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Plus, Pencil, Trash2, Check, X, Download, Eye, ExternalLink, FileText } from "lucide-react";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 interface Resource {
   id: string;

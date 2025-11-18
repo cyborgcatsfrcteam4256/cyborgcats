@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp } from "lucide-react";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
