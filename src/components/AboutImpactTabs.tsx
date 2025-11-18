@@ -54,16 +54,16 @@ export const AboutImpactTabs = () => {
         </ScrollReveal>
 
         <Tabs defaultValue="first" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-16 glass-morphism border border-primary/30 p-2 shadow-luxury">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-20 glass-morphism border-2 border-primary/40 p-2.5 shadow-luxury backdrop-blur-xl bg-gradient-to-br from-background/60 via-background/40 to-primary/10 hover:border-primary/60 transition-all duration-500 rounded-2xl group">
             <TabsTrigger 
               value="first" 
-              className="text-base font-orbitron text-white data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/30 data-[state=active]:to-primary-glow/20 data-[state=active]:text-white data-[state=active]:shadow-glow transition-all duration-300 rounded-lg"
+              className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000"
             >
               {t('sections.whatIsFirst')}
             </TabsTrigger>
             <TabsTrigger 
               value="impact" 
-              className="text-base font-orbitron text-white data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary/30 data-[state=active]:to-primary-glow/20 data-[state=active]:text-white data-[state=active]:shadow-glow transition-all duration-300 rounded-lg"
+              className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000"
             >
               {t('sections.ourImpact')}
             </TabsTrigger>
