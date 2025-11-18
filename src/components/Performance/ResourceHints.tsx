@@ -12,6 +12,9 @@ const hints: ResourceHint[] = [
   { url: 'https://fonts.googleapis.com', type: 'preconnect' },
   { url: 'https://fonts.gstatic.com', type: 'preconnect', crossorigin: true },
   
+  // Backend API - establish connection early to reduce network chain
+  { url: 'https://tsjobgooiktsyergnxlk.supabase.co', type: 'preconnect', crossorigin: true },
+  
   // Common external resources
   { url: '//www.thebluealliance.com', type: 'dns-prefetch' },
   { url: '//www.firstinspires.org', type: 'dns-prefetch' },
