@@ -5,10 +5,12 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { PhotoShowcase } from '@/components/PhotoShowcase';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const ImpactSection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <section className="py-32 relative overflow-hidden">

@@ -1,28 +1,31 @@
 import { Bot, Users, Trophy, Target, Zap, Rocket } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { PremiumCard } from './PremiumCard';
+import { useTranslation } from 'react-i18next';
 
 export const AboutFIRSTSection = () => {
+  const { t } = useTranslation();
+  
   const features = [
     {
       icon: <Bot className="w-8 h-8" />,
-      title: "Design & Build",
-      description: "Teams design, build, and program industrial-sized robots to compete in challenging game scenarios"
+      title: t('features.designBuild'),
+      description: t('features.designBuildDesc')
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Collaboration",
-      description: "Students work with adult mentors from engineering and technology companies"
+      title: t('features.collaboration'),
+      description: t('features.collaborationDesc')
     },
     {
       icon: <Trophy className="w-8 h-8" />,
-      title: "Competition",
-      description: "Regional and world championship events bring teams together in exciting robot competitions"
+      title: t('features.competition'),
+      description: t('features.competitionDesc')
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Real-World Skills",
-      description: "Develops engineering, programming, project management, and leadership abilities"
+      title: t('features.realWorldSkills'),
+      description: t('features.realWorldSkillsDesc')
     }
   ];
 
@@ -50,27 +53,24 @@ export const AboutFIRSTSection = () => {
           <div className="mb-8 animate-fade-in">
             <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury">
               <Rocket className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
-              <span className="font-orbitron text-base text-primary font-bold tracking-wide">INSPIRING INNOVATION</span>
+              <span className="font-orbitron text-base text-primary font-bold tracking-wide">{t('first.inspiring')}</span>
               <Zap className="w-6 h-6 text-primary-glow animate-pulse group-hover:animate-spin" />
             </div>
           </div>
             
             <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-8 text-glow leading-tight">
-              What is <span className="text-holographic">FIRST</span> Robotics?
+              {t('first.title')}
             </h2>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed mb-12">
-              FIRST (For Inspiration and Recognition of Science and Technology) is a global robotics community 
-              that prepares young people for the future through <span className="text-primary font-semibold">team-based robot-building</span> challenges,
-              while we at Cyborg Cats integrate our <span className="text-primary-glow font-semibold">Christian faith and values</span> into everything we do.
+              {t('first.description')}
             </p>
             
             <div className="bg-glass-card/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-5xl mx-auto">
               <blockquote className="text-2xl md:text-3xl font-inter text-white/90 italic leading-relaxed">
-                "To transform our culture by creating a world where science and technology are celebrated 
-                and where young people dream of becoming science and technology leaders, while we strive to honor God in all we do."
+                {t('first.quote')}
               </blockquote>
-              <cite className="block mt-6 text-lg text-primary font-semibold">- Dean Kamen, FIRST Founder (adapted with our Christian mission)</cite>
+              <cite className="block mt-6 text-lg text-primary font-semibold">- {t('first.founder')}</cite>
             </div>
           </div>
         </ScrollReveal>
