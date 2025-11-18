@@ -95,11 +95,11 @@ export const HeroSection = () => {
               <span className="block text-6xl md:text-7xl lg:text-9xl text-glow hover:text-primary-electric transition-all duration-1000 cursor-default animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
             </h1>
 
-            <p className="text-2xl md:text-3xl font-orbitron font-light text-glow">
+            <p className="text-2xl md:text-3xl font-orbitron font-light text-glow will-change-auto">
               {t('hero.description')}
             </p>
 
-            <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed animate-slide-up" style={{animationDelay: '0.6s'}}>
+            <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed will-change-auto">
               From Westminster Christian Academy in the heart of St. Louis, Missouri, we are{' '}
               <span className="text-primary font-semibold">48 passionate students</span>{' '}
               representing the Gateway City while engineering the future through robotics with a mission to{' '}
