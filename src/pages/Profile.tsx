@@ -152,8 +152,16 @@ const Profile = () => {
         .from('avatars')
         .getPublicUrl(fileName);
 
+      // Auto-save avatar URL to database immediately
+      const { error: updateError } = await supabase
+        .from("profiles")
+        .update({ avatar_url: publicUrl })
+        .eq("id", user.id);
+
+      if (updateError) throw updateError;
+
       setAvatarUrl(publicUrl);
-      toast.success("Profile picture uploaded successfully!");
+      toast.success("Profile picture saved successfully!");
     } catch (error) {
       console.error("Error uploading avatar:", error);
       toast.error("Failed to upload profile picture");

@@ -124,20 +124,28 @@ export default function AdminUsers() {
 
       if (rolesError) throw rolesError;
 
-      // Combine data
-      const usersData: UserWithProfile[] = profiles.map(profile => ({
-        id: profile.id,
-        email: "", // We can't access auth.users emails directly
-        created_at: "",
-        profile: {
-          full_name: profile.full_name,
-          avatar_url: profile.avatar_url,
-          graduation_year: profile.graduation_year,
-        },
-        roles: userRoles?.filter(r => r.user_id === profile.id) || [],
-      }));
+      // Fetch emails for each user using the RPC function
+      const usersWithEmails = await Promise.all(
+        profiles.map(async (profile) => {
+          const { data: emailData } = await supabase
+            .rpc('get_user_email', { _user_id: profile.id });
+          
+          return {
+            id: profile.id,
+            email: emailData || "No email",
+            created_at: "",
+            profile: {
+              full_name: profile.full_name,
+              avatar_url: profile.avatar_url,
+              graduation_year: profile.graduation_year,
+            },
+            roles: userRoles?.filter(r => r.user_id === profile.id) || [],
+          };
+        })
+      );
 
-      setUsers(usersData);
+      setUsers(usersWithEmails);
+      setFilteredUsers(usersWithEmails);
     } catch (error: any) {
       toast({
         title: "Error loading users",
