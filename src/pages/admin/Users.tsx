@@ -251,17 +251,17 @@ export default function AdminUsers() {
         
         <main className="flex-1 py-16 px-4">
           <div className="container mx-auto max-w-7xl">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <div>
-                <h1 className="text-4xl font-bold mb-2 flex items-center gap-3">
-                  <Shield className="h-10 w-10 text-primary" />
+                <h1 className="text-3xl sm:text-4xl font-bold mb-2 flex items-center gap-3">
+                  <Shield className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
                   User Management
                 </h1>
                 <p className="text-muted-foreground">
                   Manage team members and assign roles
                 </p>
               </div>
-              <Button onClick={() => navigate("/dashboard")} variant="outline">
+              <Button onClick={() => navigate("/dashboard")} variant="outline" className="w-full sm:w-auto">
                 Back to Dashboard
               </Button>
             </div>
@@ -338,75 +338,80 @@ export default function AdminUsers() {
                   Manage user roles and permissions
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>User</TableHead>
-                      <TableHead>Graduation Year</TableHead>
-                      <TableHead>Roles</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredUsers.map((user) => (
-                      <TableRow key={user.id}>
-                        <TableCell>
-                          <div className="flex items-center gap-3">
-                            <Avatar>
-                              <AvatarImage src={user.profile?.avatar_url || undefined} />
-                              <AvatarFallback>
-                                {user.profile?.full_name
-                                  .split(" ")
-                                  .map((n) => n[0])
-                                  .join("")}
-                              </AvatarFallback>
-                            </Avatar>
-                            <div>
-                              <p className="font-medium">{user.profile?.full_name}</p>
-                              <p className="text-sm text-muted-foreground">{user.email || "No email"}</p>
-                            </div>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          {user.profile?.graduation_year || "N/A"}
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex flex-wrap gap-1">
-                            {user.roles.length > 0 ? (
-                              user.roles.map((r) => getRoleBadge(r.role, r.approved))
-                            ) : (
-                              <Badge variant="outline">No roles</Badge>
-                            )}
-                          </div>
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="icon">
-                                <MoreVertical className="h-4 w-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem onClick={() => navigate(`/profile?user=${user.id}`)}>
-                                View Profile
-                              </DropdownMenuItem>
-                              <DropdownMenuItem onClick={() => handleAssignRole(user.id, "student")}>
-                                Assign Student Role
-                              </DropdownMenuItem>
-                              <DropdownMenuItem onClick={() => handleAssignRole(user.id, "alumni")}>
-                                Assign Alumni Role
-                              </DropdownMenuItem>
-                              <DropdownMenuItem onClick={() => handleAssignRole(user.id, "mentor")}>
-                                Assign Mentor Role
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
-                        </TableCell>
+              <CardContent className="p-0 sm:p-6">
+                <div className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="min-w-[200px]">User</TableHead>
+                        <TableHead className="min-w-[120px]">Graduation Year</TableHead>
+                        <TableHead className="min-w-[150px]">Roles</TableHead>
+                        <TableHead className="text-right min-w-[80px]">Actions</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredUsers.map((user) => (
+                        <TableRow key={user.id}>
+                          <TableCell>
+                            <div className="flex items-center gap-3">
+                              <Avatar className="h-8 w-8 flex-shrink-0">
+                                <AvatarImage src={user.profile?.avatar_url || undefined} />
+                                <AvatarFallback>
+                                  {user.profile?.full_name
+                                    .split(" ")
+                                    .map((n) => n[0])
+                                    .join("")}
+                                </AvatarFallback>
+                              </Avatar>
+                              <div className="min-w-0 flex-1">
+                                <p className="font-medium truncate">{user.profile?.full_name}</p>
+                                <p className="text-sm text-muted-foreground truncate">{user.email || "No email"}</p>
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            {user.profile?.graduation_year || "N/A"}
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex flex-wrap gap-1">
+                              {user.roles.length > 0 ? (
+                                user.roles.map((r) => getRoleBadge(r.role, r.approved))
+                              ) : (
+                                <Badge variant="outline">No roles</Badge>
+                              )}
+                            </div>
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreVertical className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end" className="w-56">
+                                <DropdownMenuItem onClick={() => navigate(`/profile?user=${user.id}`)}>
+                                  View Profile
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleAssignRole(user.id, "student")}>
+                                  Assign Student Role
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleAssignRole(user.id, "alumni")}>
+                                  Assign Alumni Role
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleAssignRole(user.id, "mentor")}>
+                                  Assign Mentor Role
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleAssignRole(user.id, "admin")}>
+                                  Assign Admin Role
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </div>
