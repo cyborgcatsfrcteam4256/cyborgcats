@@ -178,15 +178,10 @@ export default function AdminUsers() {
 
   const handleAssignRole = async (userId: string, role: "admin" | "alumni" | "mentor" | "parent" | "student") => {
     try {
-      const { error } = await supabase
-        .from("user_roles")
-        .insert({
-          user_id: userId,
-          role: role,
-          approved: true,
-          approved_by: currentUser.id,
-          approved_at: new Date().toISOString(),
-        });
+      const { error } = await supabase.rpc("admin_assign_role", {
+        target_user_id: userId,
+        target_role: role,
+      });
 
       if (error) throw error;
 
@@ -207,6 +202,24 @@ export default function AdminUsers() {
 
   const handleRemoveRole = async (userId: string, role: "admin" | "alumni" | "mentor" | "parent" | "student") => {
     try {
+      // Prevent removing the last admin
+      if (role === "admin") {
+        const { data: adminRoles, error: adminsError } = await supabase
+          .from("user_roles")
+          .select("id")
+          .eq("role", "admin")
+          .eq("approved", true);
+
+        if (!adminsError && (adminRoles?.length || 0) <= 1) {
+          toast({
+            title: "Cannot remove last admin",
+            description: "At least one admin user is required.",
+            variant: "destructive",
+          });
+          return;
+        }
+      }
+
       const { error } = await supabase
         .from("user_roles")
         .delete()
