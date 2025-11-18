@@ -15,7 +15,15 @@
     "tagline": "St. Louis • Team 4256",
     "description": "Building robots, building futures. From Westminster Christian Academy in St. Louis, Missouri.",
     "learnMore": "Learn More",
-    "getInvolved": "Get Involved"
+    "getInvolved": "Get Involved",
+    "certifiedEbiz": "Certified E-BIZ",
+    "yearsExperience": "Years Experience",
+    "firstRobotics": "FIRST ROBOTICS"
+  },
+  "stats": {
+    "teamMembers": "Passionate Students",
+    "yearsActive": "Years of Excellence",
+    "legislatorsMet": "Legislators Met"
   },
   "sections": {
     "aboutUs": "About Us",
@@ -45,6 +53,88 @@
     "competitionDesc": "Regional and world championship events bring teams together in exciting robot competitions",
     "realWorldSkills": "Real-World Skills",
     "realWorldSkillsDesc": "Develops engineering, programming, project management, and leadership abilities"
+  },
+  "impact": {
+    "title": "Our Impact",
+    "subtitle": "From our home base in St. Louis, Missouri, we are building more than robots—we are building a better future through STEM education, community outreach, and advocacy across the Gateway State and beyond,",
+    "servingGod": "all while serving God",
+    "christianLove": "Christian love",
+    "inEverything": "in everything we do.",
+    "makingDifference": "Making a Difference",
+    "stemCompanion": "STEM Companion Initiative",
+    "stemCompanionDesc": "Connecting children with special needs to STEM education through innovative programs and dedicated outreach.",
+    "accessibilityFocus": "Accessibility Focus",
+    "womenInStem": "Women in STEM Leadership",
+    "womenInStemDesc": "Our upper leadership is predominantly female, demonstrating our commitment to empowering women in technology.",
+    "girlPowered": "Girl Powered",
+    "legislativeAdvocacy": "Legislative Advocacy",
+    "legislativeAdvocacyDesc": "Working directly with legislators to advocate for STEM education policies that benefit students across Missouri.",
+    "policyImpact": "Policy Impact",
+    "globalOutreach": "Global Outreach",
+    "globalOutreachDesc": "Expanding STEM opportunities internationally, helping establish FRC teams and programs in South Korea and Ethiopia.",
+    "worldwideReach": "Worldwide Reach",
+    "viewAllImpact": "View All Impact"
+  },
+  "community": {
+    "title": "Community Stories",
+    "subtitle": "Hear from our students and connect with our growing alumni network",
+    "studentStories": "Student Stories",
+    "alumniNetwork": "Alumni Network",
+    "joinNetwork": "Join the Network"
+  },
+  "sponsors": {
+    "title": "Our Partners",
+    "subtitle": "Building the Future Together",
+    "description": "We're grateful to our sponsors who make our mission possible. Through their support, we're able to compete, innovate, and inspire the next generation of STEM leaders.",
+    "whySponsor": "Why Sponsor Us?",
+    "communityImpact": "Community Impact",
+    "communityImpactDesc": "Support STEM education and inspire the next generation of engineers and innovators",
+    "brandVisibility": "Brand Visibility",
+    "brandVisibilityDesc": "Get your logo on our robot, team apparel, and marketing materials at competitions",
+    "talentPipeline": "Talent Pipeline",
+    "talentPipelineDesc": "Connect with motivated students who could be your future employees",
+    "corporateResponsibility": "Corporate Responsibility",
+    "corporateResponsibilityDesc": "Demonstrate your commitment to education and community development",
+    "sponsorshipTiers": "Sponsorship Opportunities",
+    "becomeASponsor": "Become a Sponsor",
+    "downloadPacket": "Download Sponsorship Packet",
+    "currentSponsors": "Current Sponsors"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common questions about joining the team, competitions, and our community impact"
+  },
+  "news": {
+    "title": "Latest News & Updates",
+    "subtitle": "Stay up to date with our team's latest achievements and announcements",
+    "latestUpdates": "Latest Updates",
+    "readMore": "Read More"
+  },
+  "newsletter": {
+    "title": "Join Our Newsletter",
+    "subtitle": "Stay up to date with our latest achievements, upcoming events, and behind-the-scenes content from the Cyborg Cats team.",
+    "stayConnected": "Stay Connected",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "thankYou": "Thank you for subscribing!",
+    "benefits": "Newsletter Benefits",
+    "competitionUpdates": "Competition Updates",
+    "competitionUpdatesDesc": "Get notified about our latest competition results and achievements",
+    "communityImpact": "Community Impact",
+    "communityImpactDesc": "Learn about our outreach programs and how you can get involved",
+    "behindScenes": "Behind the Scenes",
+    "behindScenesDesc": "Exclusive content about our robot development and team activities"
+  },
+  "resources": {
+    "title": "Resources & Learning",
+    "subtitle": "Access tools, guides, and materials for robotics teams and STEM education",
+    "explore": "Explore Resources",
+    "programming": "Programming Resources",
+    "cadDesign": "CAD & Design",
+    "teamManagement": "Team Management",
+    "stemCurriculum": "STEM Curriculum",
+    "comingSoon": "Coming Soon",
+    "resourceCategories": "Resource Categories"
   },
   "footer": {
     "quickLinks": "Quick Links",
