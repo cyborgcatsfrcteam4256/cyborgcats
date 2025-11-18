@@ -7,11 +7,19 @@ export const ProgressIndicator = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const updateProgress = () => {
-      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = window.scrollY;
-      const progress = (scrolled / scrollHeight) * 100;
-      setProgress(Math.min(progress, 100));
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrolled = window.scrollY;
+          const progress = (scrolled / scrollHeight) * 100;
+          setProgress(Math.min(progress, 100));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', updateProgress, { passive: true });
