@@ -114,14 +114,14 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav aria-label="Main navigation" className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-16 sm:h-18 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover-glow flex-shrink-0 min-w-0">
+          <Link to="/" className="flex items-center gap-2 hover-glow flex-shrink-0 min-w-0" aria-label="Cyborg Cats home page">
             <img 
               src={cyborgCatsLogo} 
-              alt="Cyborg Cats FRC Team 4256 Logo" 
+              alt="Cyborg Cats FRC Team 4256 logo" 
               className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 object-contain flex-shrink-0"
             />
             <div className="flex flex-col min-w-0 hidden sm:flex">
@@ -213,14 +213,14 @@ export const Navigation = () => {
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-2">
             {user && <NotificationBadge userId={user.id} />}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-9 w-9"
+            <button
               onClick={() => setIsOpen(!isOpen)}
+              className="h-9 w-9 p-2 rounded-xl bg-card/50 border border-border/50 hover:bg-accent hover:border-border transition-cyber"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
 

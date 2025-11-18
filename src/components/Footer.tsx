@@ -10,7 +10,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-card border-t border-border" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -28,10 +28,10 @@ export const Footer = () => {
               {t('hero.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com/cyborgcats4256" className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover-glow transition-cyber">
+              <a href="https://instagram.com/cyborgcats4256" className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover-glow transition-cyber" aria-label="Follow us on Instagram">
                 <Instagram className="w-5 h-5 text-primary" />
               </a>
-              <a href="mailto:team@cyborgcats4256.org" className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover-glow transition-cyber">
+              <a href="mailto:team@cyborgcats4256.org" className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center hover-glow transition-cyber" aria-label="Email us">
                 <Mail className="w-5 h-5 text-primary" />
               </a>
             </div>
@@ -39,7 +39,7 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-orbitron font-semibold text-lg mb-4">{t('footer.quickLinks')}</h4>
+            <h3 className="font-orbitron font-semibold text-lg mb-4">{t('footer.quickLinks')}</h3>
             <div className="space-y-2">
               <Link to="/about" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Home className="w-4 h-4" />
@@ -62,7 +62,7 @@ export const Footer = () => {
 
           {/* Support */}
           <div>
-            <h4 className="font-orbitron font-semibold text-lg mb-4">{t('footer.getInvolved')}</h4>
+            <h3 className="font-orbitron font-semibold text-lg mb-4">{t('footer.getInvolved')}</h3>
             <div className="space-y-2">
               <a href="/#media" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Camera className="w-4 h-4" />
@@ -85,7 +85,7 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-orbitron font-semibold text-lg mb-4">{t('footer.contactInfo')}</h4>
+            <h3 className="font-orbitron font-semibold text-lg mb-4">{t('footer.contactInfo')}</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-primary" />

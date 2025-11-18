@@ -21,7 +21,7 @@ const Index = () => {
       <ProgressIndicator />
       <Navigation />
       
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         <section id="about-us">
           <HeroSection />

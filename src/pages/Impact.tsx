@@ -73,8 +73,9 @@ const Impact = () => {
       />
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <main id="main-content">
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <Breadcrumbs />
         </div>
@@ -301,6 +302,7 @@ const Impact = () => {
           </ScrollReveal>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

@@ -143,15 +143,16 @@ const Team = () => {
   ];
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <PageMeta
-        title="Our Team - Cyborg Cats FRC 4256"
-        description="Meet the passionate students, dedicated mentors, and supportive alumni of FRC Team 4256, the Cyborg Cats from Westminster Christian Academy."
-        keywords="FRC team members, robotics students, STEM mentors, team leadership"
+        title="Our Team"
+        description="Meet the Cyborg Cats FRC Team 4256 members - students, mentors, and leaders driving innovation in robotics. Leadership, mechanical, electrical, programming, and business teams."
+        keywords="FRC team members, robotics team, student engineers, mentors, team leadership, STEM students"
+        canonicalPath="/team"
       />
-      <div className="min-h-screen bg-background">
-        <Navigation />
+      <Navigation />
       
+      <main id="main-content">
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <Breadcrumbs />
@@ -388,9 +389,11 @@ const Team = () => {
           )}
         </DialogContent>
       </Dialog>
+      </main>
+
+      <Footer />
     </div>
-  </>
-);
+  );
 };
 
 export default Team;

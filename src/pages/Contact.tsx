@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Breadcrumbs } from '@/components/UI/Breadcrumbs';
+import { PageMeta } from '@/components/SEO/PageMeta';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { z } from 'zod';
@@ -101,9 +102,16 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageMeta
+        title="Contact Us"
+        description="Get in touch with Cyborg Cats FRC Team 4256. Inquiries about team membership, sponsorships, partnerships, media, or general questions. St. Louis, Missouri robotics team."
+        keywords="contact Cyborg Cats, FRC team contact, join robotics team, sponsorship inquiry, robotics partnership"
+        canonicalPath="/contact"
+      />
       <Navigation />
       
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <main id="main-content">
+        <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <Breadcrumbs />
         </div>
@@ -307,6 +315,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>
