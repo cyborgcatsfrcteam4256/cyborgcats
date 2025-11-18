@@ -12,14 +12,14 @@ export const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section aria-label="Hero section" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <InteractiveBackground />
       {/* Enhanced Background with multiple accent images */}
       <div className="absolute inset-0 z-0">
         {/* Primary background image with enhanced effects */}
         <img 
           src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
-          alt="Cyborg Cats robot in competition" 
+          alt="Cyborg Cats FRC Team 4256 robot competing at FIRST Robotics Competition event" 
           className="w-full h-full object-cover opacity-25 transition-opacity duration-1000 hover:opacity-30 hover:scale-105 duration-[10s]"
         />
         

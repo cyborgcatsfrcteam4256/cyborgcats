@@ -147,6 +147,7 @@ const Sponsors = () => {
       />
       <Navigation />
       
+      <main id="main-content">
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6">
@@ -304,6 +305,7 @@ const Sponsors = () => {
           </ScrollReveal>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

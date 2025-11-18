@@ -4,6 +4,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { LazyImage } from '@/components/Performance/LazyImage';
 import { Breadcrumbs } from '@/components/UI/Breadcrumbs';
+import { PageMeta } from '@/components/SEO/PageMeta';
 import { Award, Users, Heart, Target, Lightbulb, Trophy, Calendar, TrendingUp } from 'lucide-react';
 const teamPhoto = '/lovable-uploads/impact-award-winning-photo.jpg';
 const About = () => {
@@ -54,10 +55,17 @@ const About = () => {
     description: 'Won prestigious FIRST Impact Award for outstanding community outreach and team excellence'
   }];
   return <div className="min-h-screen bg-background">
+      <PageMeta
+        title="About Us"
+        description="Learn about Cyborg Cats FRC Team 4256 - our history, mission, values, and journey from founding in 2011 to Impact Award winners. Westminster Christian Academy robotics excellence."
+        keywords="FRC Team 4256, about Cyborg Cats, robotics team history, FIRST Impact Award, Westminster robotics, Christian robotics team"
+        canonicalPath="/about"
+      />
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <main id="main-content">
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6">
           <Breadcrumbs />
         </div>
@@ -189,6 +197,7 @@ const About = () => {
           </ScrollReveal>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>;
