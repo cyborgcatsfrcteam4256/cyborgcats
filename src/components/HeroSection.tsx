@@ -95,7 +95,7 @@ export const HeroSection = () => {
               <span className="block text-6xl md:text-7xl lg:text-9xl text-glow hover:text-primary-electric transition-all duration-1000 cursor-default animate-slide-up" style={{animationDelay: '0.2s'}}>4256</span>
             </h1>
 
-            <p className="text-2xl md:text-3xl font-orbitron font-light text-glow animate-slide-up" style={{animationDelay: '0.4s'}}>
+            <p className="text-2xl md:text-3xl font-orbitron font-light text-glow">
               {t('hero.description')}
             </p>
 
