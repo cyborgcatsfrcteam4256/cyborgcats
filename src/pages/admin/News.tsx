@@ -14,6 +14,8 @@ import { Plus, Pencil, Trash2, Upload } from "lucide-react";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 interface NewsPost {
   id: string;

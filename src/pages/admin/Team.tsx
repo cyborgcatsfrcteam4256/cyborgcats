@@ -12,6 +12,8 @@ import { Plus, Pencil, Trash2, Upload, Github, Linkedin } from "lucide-react";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 interface TeamMember {
   id: string;

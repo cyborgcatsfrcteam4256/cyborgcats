@@ -7,6 +7,8 @@ import { PageMeta } from '@/components/SEO/PageMeta';
 import { RoleApprovals } from '@/components/Admin/RoleApprovals';
 import { User } from '@supabase/supabase-js';
 import { Users, Upload, FileText, Award } from 'lucide-react';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 
 interface Profile {
   full_name: string;
@@ -95,6 +97,7 @@ const Dashboard = () => {
         title="Dashboard - Cyborg Cats Member Portal"
         description="Your personal dashboard for the Cyborg Cats robotics team"
       />
+      <Navigation />
 
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
@@ -194,6 +197,7 @@ const Dashboard = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
