@@ -5,29 +5,35 @@ interface ScrollPosition {
   y: number;
 }
 
+let rafId: number = 0;
+
 export const useOptimizedScroll = (throttleMs: number = 100) => {
   const [scrollPosition, setScrollPosition] = useState<ScrollPosition>({ x: 0, y: 0 });
   const [isScrolling, setIsScrolling] = useState(false);
 
   const handleScroll = useCallback(() => {
-    setScrollPosition({
-      x: window.scrollX,
-      y: window.scrollY,
-    });
-    
-    setIsScrolling(true);
+    // Batch reads in a single animation frame to prevent forced reflows
+    if (!rafId) {
+      rafId = requestAnimationFrame(() => {
+        setScrollPosition({
+          x: window.scrollX,
+          y: window.scrollY,
+        });
+        setIsScrolling(true);
+        rafId = 0;
+      });
+    }
   }, []);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-    let rafId: number;
 
     const throttledScroll = () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
 
-      rafId = requestAnimationFrame(handleScroll);
+      handleScroll();
 
       timeoutId = setTimeout(() => {
         setIsScrolling(false);
@@ -39,7 +45,6 @@ export const useOptimizedScroll = (throttleMs: number = 100) => {
     return () => {
       window.removeEventListener('scroll', throttledScroll);
       if (timeoutId) clearTimeout(timeoutId);
-      if (rafId) cancelAnimationFrame(rafId);
     };
   }, [handleScroll, throttleMs]);
 
