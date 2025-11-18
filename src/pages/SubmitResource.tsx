@@ -13,6 +13,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { BookOpen, Link as LinkIcon, Upload, FileText, X } from "lucide-react";
+import { resourceSubmissionSchema } from "@/lib/validations/resource";
+import { z } from "zod";
 
 const RESOURCE_CATEGORIES = [
   "Programming",
@@ -42,6 +44,7 @@ export default function SubmitResource() {
   const [link, setLink] = useState("");
   const [tags, setTags] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -63,47 +66,48 @@ export default function SubmitResource() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate file size (max 25MB)
-    if (file.size > 25 * 1024 * 1024) {
-      toast({
-        title: "File too large",
-        description: "Please select a file smaller than 25MB",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setSelectedFile(file);
+    // Clear file error when a new file is selected
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors.file;
+      return newErrors;
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
 
-    if (!title || !description || !category) {
-      toast({
-        title: "Missing information",
-        description: "Please fill in all required fields",
-        variant: "destructive",
-      });
-      return;
-    }
+    // Validate form data
+    const formData = {
+      title,
+      description,
+      category,
+      resourceType,
+      externalUrl: link,
+      tags,
+      file: selectedFile,
+    };
 
-    if (resourceType === "link" && !link) {
-      toast({
-        title: "Link required",
-        description: "Please provide a link to the resource",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (resourceType === "file" && !selectedFile) {
-      toast({
-        title: "File required",
-        description: "Please select a file to upload",
-        variant: "destructive",
-      });
-      return;
+    try {
+      resourceSubmissionSchema.parse(formData);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+        toast({
+          title: "Validation Error",
+          description: "Please fix the errors in the form",
+          variant: "destructive",
+        });
+        return;
+      }
     }
 
     setSubmitting(true);
@@ -234,10 +238,21 @@ export default function SubmitResource() {
                       id="title"
                       placeholder="e.g., Intro to PID Controllers"
                       value={title}
-                      onChange={(e) => setTitle(e.target.value)}
+                      onChange={(e) => {
+                        setTitle(e.target.value);
+                        setErrors(prev => {
+                          const newErrors = { ...prev };
+                          delete newErrors.title;
+                          return newErrors;
+                        });
+                      }}
                       maxLength={200}
                       required
+                      className={errors.title ? "border-destructive" : ""}
                     />
+                    {errors.title && (
+                      <p className="text-sm text-destructive">{errors.title}</p>
+                    )}
                     <p className="text-xs text-muted-foreground text-right">
                       {title.length}/200 characters
                     </p>
@@ -246,8 +261,18 @@ export default function SubmitResource() {
                   {/* Category */}
                   <div className="space-y-2">
                     <Label htmlFor="category">Category *</Label>
-                    <Select value={category} onValueChange={setCategory}>
-                      <SelectTrigger id="category">
+                    <Select 
+                      value={category} 
+                      onValueChange={(value) => {
+                        setCategory(value);
+                        setErrors(prev => {
+                          const newErrors = { ...prev };
+                          delete newErrors.category;
+                          return newErrors;
+                        });
+                      }}
+                    >
+                      <SelectTrigger id="category" className={errors.category ? "border-destructive" : ""}>
                         <SelectValue placeholder="Select a category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -258,6 +283,9 @@ export default function SubmitResource() {
                         ))}
                       </SelectContent>
                     </Select>
+                    {errors.category && (
+                      <p className="text-sm text-destructive">{errors.category}</p>
+                    )}
                   </div>
 
                   {/* Link or File */}
@@ -269,20 +297,32 @@ export default function SubmitResource() {
                         type="url"
                         placeholder="https://example.com/tutorial"
                         value={link}
-                        onChange={(e) => setLink(e.target.value)}
+                        onChange={(e) => {
+                          setLink(e.target.value);
+                          setErrors(prev => {
+                            const newErrors = { ...prev };
+                            delete newErrors.externalUrl;
+                            return newErrors;
+                          });
+                        }}
                         required
+                        className={errors.externalUrl ? "border-destructive" : ""}
                       />
+                      {errors.externalUrl && (
+                        <p className="text-sm text-destructive">{errors.externalUrl}</p>
+                      )}
                     </div>
                   ) : (
                     <div className="space-y-2">
                       <Label>Upload File *</Label>
                       {!selectedFile ? (
-                        <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors">
+                        <div className={`border-2 border-dashed rounded-lg p-8 text-center hover:border-primary/50 transition-colors ${errors.file ? "border-destructive" : "border-muted-foreground/25"}`}>
                           <input
                             type="file"
                             onChange={handleFileSelect}
                             className="hidden"
                             id="file-upload"
+                            accept=".pdf,.doc,.docx,.xls,.xlsx,.zip,.txt,.csv"
                           />
                           <label htmlFor="file-upload" className="cursor-pointer">
                             <FileText className="w-10 h-10 mx-auto mb-3 text-muted-foreground" />
@@ -290,7 +330,7 @@ export default function SubmitResource() {
                               Click to upload or drag and drop
                             </p>
                             <p className="text-xs text-muted-foreground">
-                              PDF, DOC, PPT, ZIP up to 25MB
+                              PDF, DOC, XLS, CSV, TXT, ZIP up to 25MB
                             </p>
                           </label>
                         </div>
@@ -309,11 +349,21 @@ export default function SubmitResource() {
                             type="button"
                             variant="ghost"
                             size="icon"
-                            onClick={() => setSelectedFile(null)}
+                            onClick={() => {
+                              setSelectedFile(null);
+                              setErrors(prev => {
+                                const newErrors = { ...prev };
+                                delete newErrors.file;
+                                return newErrors;
+                              });
+                            }}
                           >
                             <X className="h-4 w-4" />
                           </Button>
                         </div>
+                      )}
+                      {errors.file && (
+                        <p className="text-sm text-destructive mt-1">{errors.file}</p>
                       )}
                     </div>
                   )}
@@ -325,13 +375,24 @@ export default function SubmitResource() {
                       id="description"
                       placeholder="Briefly describe what this resource covers and why it's helpful..."
                       value={description}
-                      onChange={(e) => setDescription(e.target.value)}
+                      onChange={(e) => {
+                        setDescription(e.target.value);
+                        setErrors(prev => {
+                          const newErrors = { ...prev };
+                          delete newErrors.description;
+                          return newErrors;
+                        });
+                      }}
                       rows={4}
-                      maxLength={2000}
+                      maxLength={5000}
                       required
+                      className={errors.description ? "border-destructive" : ""}
                     />
+                    {errors.description && (
+                      <p className="text-sm text-destructive">{errors.description}</p>
+                    )}
                     <p className="text-xs text-muted-foreground text-right">
-                      {description.length}/2000 characters
+                      {description.length}/5000 characters
                     </p>
                   </div>
 
@@ -342,8 +403,19 @@ export default function SubmitResource() {
                       id="tags"
                       placeholder="e.g., beginner, java, sensors (comma separated)"
                       value={tags}
-                      onChange={(e) => setTags(e.target.value)}
+                      onChange={(e) => {
+                        setTags(e.target.value);
+                        setErrors(prev => {
+                          const newErrors = { ...prev };
+                          delete newErrors.tags;
+                          return newErrors;
+                        });
+                      }}
+                      className={errors.tags ? "border-destructive" : ""}
                     />
+                    {errors.tags && (
+                      <p className="text-sm text-destructive">{errors.tags}</p>
+                    )}
                     <p className="text-xs text-muted-foreground">
                       Add comma-separated tags to help others find this resource
                     </p>
