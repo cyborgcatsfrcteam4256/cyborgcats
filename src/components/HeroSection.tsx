@@ -3,6 +3,7 @@ import { ArrowRight, Award, Users, Zap, Star, Cpu, Heart, Sparkles, Rocket } fro
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { OptimizedImage } from '@/components/Performance/OptimizedImage';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
@@ -17,35 +18,48 @@ export const HeroSection = () => {
       {/* Enhanced Background with multiple accent images */}
       <div className="absolute inset-0 z-0">
         {/* Primary background image with enhanced effects */}
-        <img 
+        <OptimizedImage
           src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
           alt="Cyborg Cats FRC Team 4256 robot competing at FIRST Robotics Competition event" 
-          className="w-full h-full object-cover opacity-25 transition-opacity duration-1000 hover:opacity-30 hover:scale-105 duration-[10s]"
+          width={1920}
+          height={1080}
+          priority={true}
+          className="w-full h-full opacity-25 transition-opacity duration-1000 hover:opacity-30"
+          objectFit="cover"
         />
         
         {/* Accent images as background elements */}
         <div className="absolute top-10 right-10 w-32 h-32 opacity-15 hover:opacity-25 transition-opacity duration-1000">
-          <img 
+          <OptimizedImage
             src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
             alt="" 
-            className="w-full h-full object-cover rounded-xl blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
+            width={128}
+            height={128}
+            className="w-full h-full rounded-xl blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
+            objectFit="cover"
           />
         </div>
         
         <div className="absolute bottom-20 left-10 w-40 h-24 opacity-12 hover:opacity-20 transition-opacity duration-1000">
-          <img 
+          <OptimizedImage
             src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
             alt="" 
-            className="w-full h-full object-cover rounded-lg blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
+            width={160}
+            height={96}
+            className="w-full h-full rounded-lg blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
+            objectFit="cover"
             style={{animationDelay: '2s'}}
           />
         </div>
         
         <div className="absolute top-1/3 left-1/4 w-28 h-28 opacity-8 hover:opacity-15 transition-opacity duration-1000">
-          <img 
+          <OptimizedImage
             src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
             alt="" 
-            className="w-full h-full object-cover rounded-full blur-sm hover:blur-none transition-all duration-1000 animate-glow-pulse"
+            width={112}
+            height={112}
+            className="w-full h-full rounded-full blur-sm hover:blur-none transition-all duration-1000 animate-glow-pulse"
+            objectFit="cover"
           />
         </div>
         
@@ -143,10 +157,14 @@ export const HeroSection = () => {
           {/* Enhanced Right side - Robot showcase */}
           <ScrollReveal direction="scale" delay={400} className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-luxury glow-luxury hover:glow-primary transition-all duration-700 group cursor-pointer border border-primary/20">
-              <img 
+              <OptimizedImage
                 src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
                 alt="Cyborg Cats robot showcasing engineering excellence" 
-                className="w-full h-[600px] object-cover group-hover:scale-110 transition-transform duration-700 brightness-105 contrast-110"
+                width={800}
+                height={600}
+                priority={true}
+                className="w-full h-[600px] group-hover:scale-110 transition-transform duration-700 brightness-105 contrast-110"
+                objectFit="cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-primary/20" />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary-glow/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -105,13 +105,22 @@
     <meta name="apple-mobile-web-app-title" content="Cyborg Cats" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Fonts - Optimized with display=swap and async loading -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+    
+    <!-- Preload Critical Images -->
+    <link rel="preload" as="image" href="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" imagesrcset="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" />
+    <link rel="preload" as="image" href="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" imagesrcset="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" />
   </head>
 
   <body>
