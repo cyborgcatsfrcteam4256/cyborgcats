@@ -118,7 +118,7 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-16 sm:h-18 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover-glow flex-shrink-0 min-w-0" aria-label="Cyborg Cats St. Louis Team 4256 home page">
+          <Link to="/" className="flex items-center gap-2 hover-glow flex-shrink-0 min-w-0" aria-label="Cyborg Cats St. Louis • Team 4256 - Home">
             <img 
               src={cyborgCatsLogo} 
               alt="Cyborg Cats FRC Team 4256 logo" 
