@@ -15,7 +15,15 @@
     "tagline": "圣路易斯 • 4256队",
     "description": "建造机器人，建造未来。来自密苏里州圣路易斯的威斯敏斯特基督教学院。",
     "learnMore": "了解更多",
-    "getInvolved": "参与"
+    "getInvolved": "参与",
+    "certifiedEbiz": "认证E-BIZ",
+    "yearsExperience": "年经验",
+    "firstRobotics": "FIRST机器人"
+  },
+  "stats": {
+    "teamMembers": "热情的学生",
+    "yearsActive": "卓越年份",
+    "legislatorsMet": "会见立法者"
   },
   "sections": {
     "aboutUs": "关于我们",
@@ -45,6 +53,88 @@
     "competitionDesc": "区域和世界锦标赛活动将团队聚集在激动人心的机器人竞赛中",
     "realWorldSkills": "现实世界技能",
     "realWorldSkillsDesc": "发展工程、编程、项目管理和领导能力"
+  },
+  "impact": {
+    "title": "我们的影响",
+    "subtitle": "从我们在密苏里州圣路易斯的基地，我们不仅在建造机器人——我们正在通过STEM教育、社区外展和倡导，在Gateway州及更远的地方建设更美好的未来，",
+    "servingGod": "同时服侍上帝",
+    "christianLove": "基督教的爱",
+    "inEverything": "在我们所做的一切中。",
+    "makingDifference": "创造影响",
+    "stemCompanion": "STEM伴侣计划",
+    "stemCompanionDesc": "通过创新计划和专注外展，将有特殊需求的儿童与STEM教育联系起来。",
+    "accessibilityFocus": "无障碍焦点",
+    "womenInStem": "STEM领域的女性领导力",
+    "womenInStemDesc": "我们的高层领导主要由女性组成，展示了我们致力于赋予女性在技术领域的力量。",
+    "girlPowered": "女孩驱动",
+    "legislativeAdvocacy": "立法倡导",
+    "legislativeAdvocacyDesc": "直接与立法者合作，倡导有利于密苏里州学生的STEM教育政策。",
+    "policyImpact": "政策影响",
+    "globalOutreach": "全球外展",
+    "globalOutreachDesc": "在国际上扩展STEM机会，帮助在韩国和埃塞俄比亚建立FRC团队和项目。",
+    "worldwideReach": "全球覆盖",
+    "viewAllImpact": "查看所有影响"
+  },
+  "community": {
+    "title": "社区故事",
+    "subtitle": "听取我们学生的声音，并与我们不断发展的校友网络联系",
+    "studentStories": "学生故事",
+    "alumniNetwork": "校友网络",
+    "joinNetwork": "加入网络"
+  },
+  "sponsors": {
+    "title": "我们的合作伙伴",
+    "subtitle": "共同建设未来",
+    "description": "我们感谢使我们的使命成为可能的赞助商。通过他们的支持，我们能够竞争、创新并激励下一代STEM领导者。",
+    "whySponsor": "为什么赞助我们？",
+    "communityImpact": "社区影响",
+    "communityImpactDesc": "支持STEM教育并激励下一代工程师和创新者",
+    "brandVisibility": "品牌可见性",
+    "brandVisibilityDesc": "在我们的机器人、团队服装和比赛营销材料上展示您的标志",
+    "talentPipeline": "人才管道",
+    "talentPipelineDesc": "与可能成为您未来员工的积极学生建立联系",
+    "corporateResponsibility": "企业责任",
+    "corporateResponsibilityDesc": "展示您对教育和社区发展的承诺",
+    "sponsorshipTiers": "赞助机会",
+    "becomeASponsor": "成为赞助商",
+    "downloadPacket": "下载赞助包",
+    "currentSponsors": "当前赞助商"
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "获取关于加入团队、比赛和我们社区影响的常见问题的答案"
+  },
+  "news": {
+    "title": "最新新闻与更新",
+    "subtitle": "及时了解我们团队的最新成就和公告",
+    "latestUpdates": "最新更新",
+    "readMore": "阅读更多"
+  },
+  "newsletter": {
+    "title": "订阅我们的通讯",
+    "subtitle": "及时了解我们的最新成就、即将举行的活动以及Cyborg Cats团队的幕后内容。",
+    "stayConnected": "保持联系",
+    "emailPlaceholder": "输入您的电子邮件",
+    "subscribe": "订阅",
+    "thankYou": "感谢您的订阅！",
+    "benefits": "通讯好处",
+    "competitionUpdates": "比赛更新",
+    "competitionUpdatesDesc": "获取我们最新比赛结果和成就的通知",
+    "communityImpact": "社区影响",
+    "communityImpactDesc": "了解我们的外展计划以及您如何参与",
+    "behindScenes": "幕后",
+    "behindScenesDesc": "关于我们机器人开发和团队活动的独家内容"
+  },
+  "resources": {
+    "title": "资源与学习",
+    "subtitle": "访问机器人团队和STEM教育的工具、指南和材料",
+    "explore": "探索资源",
+    "programming": "编程资源",
+    "cadDesign": "CAD与设计",
+    "teamManagement": "团队管理",
+    "stemCurriculum": "STEM课程",
+    "comingSoon": "即将推出",
+    "resourceCategories": "资源类别"
   },
   "footer": {
     "quickLinks": "快速链接",

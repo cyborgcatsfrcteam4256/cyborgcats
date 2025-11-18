@@ -38,6 +38,7 @@ const AdminSponsors = lazy(() => import("./pages/admin/Sponsors"));
 const AdminResources = lazy(() => import("./pages/admin/Resources"));
 const AdminTeam = lazy(() => import("./pages/admin/Team"));
 const AdminNews = lazy(() => import("./pages/admin/News"));
+const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -102,6 +103,7 @@ const App = () => {
             <Route path="/admin/resources" element={<AdminResources />} />
             <Route path="/admin/team" element={<AdminTeam />} />
             <Route path="/admin/news" element={<AdminNews />} />
+            <Route path="/admin/settings" element={<AdminSettings />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />

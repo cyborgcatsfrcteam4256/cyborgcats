@@ -6,11 +6,13 @@ import { PremiumCard } from '@/components/PremiumCard';
 import { PhotoShowcase } from '@/components/PhotoShowcase';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const ImpactSection = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { data: settings } = useSiteSettings();
 
   return (
     <section className="py-32 relative overflow-hidden">
@@ -46,8 +48,8 @@ export const ImpactSection = () => {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-8 mb-20">
-          <StatCounter value={48} label="Passionate Students" />
-          <StatCounter value={14} label="Years of Excellence" suffix="+" />
+          <StatCounter value={settings?.teamMembersCount || 48} label={t('stats.teamMembers')} />
+          <StatCounter value={settings?.yearsActive || 14} label={t('stats.yearsActive')} suffix="+" />
         </div>
 
         {/* Enhanced Impact Cards */}
