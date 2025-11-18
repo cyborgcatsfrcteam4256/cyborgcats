@@ -165,7 +165,7 @@ export const HeroSection = () => {
                   <Users className="w-6 h-6 text-primary" />
                   <div>
                     <div className="font-orbitron font-semibold text-glow flex items-center space-x-2">
-                      <img src={cyborgCatsLogo} alt="" className="w-6 h-6" />
+                      <img src={cyborgCatsLogo} alt="" className="w-6 h-6 object-contain" />
                       <span>Team 4256</span>
                     </div>
                     <div className="text-sm text-muted-foreground">St. Louis, Missouri</div>
