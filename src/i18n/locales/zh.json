@@ -118,23 +118,14 @@
     "instagram": "Instagram"
   },
   "news": {
+    "badge": "最新更新",
     "title": "团队新闻",
-    "readMore": "阅读更多"
-  },
-  "newsletter": {
-    "title": "订阅我们的通讯",
-    "emailPlaceholder": "输入您的电子邮件",
-    "subscribe": "订阅"
-  },
-  "faq": {
-    "title": "常见问题",
-    "subtitle": "获取关于加入团队、比赛和我们社区影响的常见问题的答案"
-  },
-  "news": {
-    "title": "最新新闻与更新",
-    "subtitle": "及时了解我们团队的最新成就和公告",
+    "subtitle": "新闻",
+    "description": "及时了解我们团队的最新成就和公告",
     "latestUpdates": "最新更新",
-    "readMore": "阅读更多"
+    "readMore": "阅读更多",
+    "allNews": "查看所有新闻",
+    "latest": "最新"
   },
   "newsletter": {
     "title": "订阅我们的通讯",
