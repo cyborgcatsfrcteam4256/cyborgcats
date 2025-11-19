@@ -47,11 +47,11 @@ export const AboutImpactTabs = () => {
         <OptimizedImage
           src={competitionArena}
           alt="FIRST Robotics Competition arena"
-          className="w-full h-full opacity-60"
+          className="w-full h-full opacity-90"
           objectFit="cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/30 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-background/20" />
       </div>
       <div className="absolute inset-0 circuit-pattern opacity-5 z-[1]" />
       
@@ -89,10 +89,10 @@ export const AboutImpactTabs = () => {
               <OptimizedImage
                 src={competitionArena}
                 alt="FIRST Robotics Competition arena background"
-                className="w-full h-full opacity-40"
+                className="w-full h-full opacity-80"
                 objectFit="cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background/85" />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/50 to-background/65" />
             </div>
             
             <div className="relative z-10">
