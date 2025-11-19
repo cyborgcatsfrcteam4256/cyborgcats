@@ -39,6 +39,8 @@ const AdminResources = lazy(() => import("./pages/admin/Resources"));
 const AdminTeam = lazy(() => import("./pages/admin/Team"));
 const AdminNews = lazy(() => import("./pages/admin/News"));
 const AdminSettings = lazy(() => import("./pages/admin/Settings"));
+const AdminContactInquiries = lazy(() => import("./pages/admin/ContactInquiries"));
+const AdminDownloadLogos = lazy(() => import("./pages/admin/DownloadLogos"));
 const News = lazy(() => import("./pages/News"));
 const NewsPost = lazy(() => import("./pages/NewsPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -108,6 +110,8 @@ const App = () => {
             <Route path="/admin/team" element={<AdminTeam />} />
             <Route path="/admin/news" element={<AdminNews />} />
             <Route path="/admin/settings" element={<AdminSettings />} />
+            <Route path="/admin/contact-inquiries" element={<AdminContactInquiries />} />
+            <Route path="/admin/download-logos" element={<AdminDownloadLogos />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
