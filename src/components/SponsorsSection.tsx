@@ -264,7 +264,7 @@ export const SponsorsSection = () => {
                 Join our mission to inspire young minds and shape the future of STEM. 
                 Your sponsorship makes a real difference in our community.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <div className="flex justify-center items-center">
                 <LiquidButton 
                   variant="premium" 
                   size="lg"
@@ -276,15 +276,6 @@ export const SponsorsSection = () => {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </LiquidButton>
-                <a href="/sponsorship-packet.jpg" download="Cyborg-Cats-Sponsorship-Packet.jpg">
-                  <LiquidButton 
-                    variant="glass" 
-                    size="lg"
-                    className="px-8 py-4"
-                  >
-                    Download Sponsorship Packet
-                  </LiquidButton>
-                </a>
               </div>
               <p className="text-muted-foreground mt-10">
                 Contact us at <span className="text-primary font-semibold">cyborgcatsfrcteam4256@gmail.com</span>
