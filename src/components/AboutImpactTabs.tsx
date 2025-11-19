@@ -47,11 +47,11 @@ export const AboutImpactTabs = () => {
         <OptimizedImage
           src={competitionArena}
           alt="FIRST Robotics Competition arena"
-          className="w-full h-full opacity-40"
+          className="w-full h-full opacity-60"
           objectFit="cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/75 to-background/85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/40" />
       </div>
       <div className="absolute inset-0 circuit-pattern opacity-5 z-[1]" />
       
