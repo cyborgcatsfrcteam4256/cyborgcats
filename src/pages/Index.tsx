@@ -12,7 +12,8 @@ import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { BackToTop } from '@/components/BackToTop';
 import { ProgressIndicator } from '@/components/Navigation/ProgressIndicator';
-import { FloatingKebabMenu } from '@/components/FloatingKebabMenu';
+import { NewsSection } from '@/components/NewsSection';
+import { ResourcesPreviewSection } from '@/components/ResourcesPreviewSection';
 
 const Index = () => {
   return (
