@@ -38,7 +38,8 @@ const AdminSponsors = lazy(() => import("./pages/admin/Sponsors"));
 const AdminResources = lazy(() => import("./pages/admin/Resources"));
 const AdminTeam = lazy(() => import("./pages/admin/Team"));
 const AdminNews = lazy(() => import("./pages/admin/News"));
-            const News = lazy(() => import("./pages/News"));
+const AdminSettings = lazy(() => import("./pages/admin/Settings"));
+const News = lazy(() => import("./pages/News"));
 const NewsPost = lazy(() => import("./pages/NewsPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
