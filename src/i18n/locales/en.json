@@ -136,7 +136,8 @@
     "subtitle": "News",
     "description": "Stay informed about our latest achievements, competitions, and community impact initiatives",
     "readMore": "Read More",
-    "allNews": "View All News"
+    "allNews": "View All News",
+    "latest": "Latest"
   },
   "testimonials": {
     "badge": "Community Voices",

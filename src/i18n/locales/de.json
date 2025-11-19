@@ -150,7 +150,8 @@
     "description": "Bleiben Sie über unsere neuesten Erfolge, Wettbewerbe und Gemeinschaftsinitiativen informiert",
     "readMore": "Mehr Lesen",
     "allNews": "Alle Nachrichten Anzeigen",
-    "latestUpdates": "Neueste Updates"
+    "latestUpdates": "Neueste Updates",
+    "latest": "Neueste"
   },
   "testimonials": {
     "badge": "Gemeinschaftsstimmen",

@@ -124,7 +124,9 @@
     "latestUpdates": "Últimas Actualizaciones",
     "readMore": "Leer Más",
     "viewAll": "Ver Todas las Noticias",
-    "latest": "Última"
+    "latest": "Última",
+    "badge": "Actualizaciones Recientes",
+    "allNews": "Ver Todas las Noticias"
   },
   "newsletter": {
     "title": "Únete a Nuestro Boletín",

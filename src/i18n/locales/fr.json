@@ -150,7 +150,8 @@
     "description": "Restez informé de nos dernières réalisations, compétitions et initiatives d'impact communautaire",
     "readMore": "Lire Plus",
     "allNews": "Voir Toutes les Actualités",
-    "latestUpdates": "Dernières Mises à Jour"
+    "latestUpdates": "Dernières Mises à Jour",
+    "latest": "Dernier"
   },
   "testimonials": {
     "badge": "Voix de la Communauté",
