@@ -103,7 +103,7 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Welcome Header */}
           <div className="glass-morphism border-2 border-primary/20 rounded-xl p-8">
-            <h1 className="text-4xl font-orbitron font-bold bg-gradient-premium bg-clip-text text-transparent mb-2">
+            <h1 className="text-4xl font-orbitron font-bold text-white mb-2">
               Welcome back, {profile?.full_name || 'Member'}!
             </h1>
             <p className="text-muted-foreground">
