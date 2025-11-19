@@ -6,7 +6,6 @@ import { SponsorsSection } from '@/components/SponsorsSection';
 import { CommunitySection } from '@/components/CommunitySection';
 import { MediaGallery } from '@/components/MediaGallery';
 import { FAQSection } from '@/components/FAQSection';
-import { ResourcesSection } from '@/components/ResourcesSection';
 import { NewsletterSection } from '@/components/NewsletterSection';
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -14,6 +13,7 @@ import { BackToTop } from '@/components/BackToTop';
 import { ProgressIndicator } from '@/components/Navigation/ProgressIndicator';
 import { NewsSection } from '@/components/NewsSection';
 import { ResourcesPreviewSection } from '@/components/ResourcesPreviewSection';
+import { FloatingKebabMenu } from '@/components/FloatingKebabMenu';
 
 const Index = () => {
   return (
@@ -56,16 +56,23 @@ const Index = () => {
           </section>
         </ScrollReveal>
 
+        {/* News Section */}
+        <ScrollReveal delay={100}>
+          <section id="news">
+            <NewsSection />
+          </section>
+        </ScrollReveal>
+
+        {/* Resources Preview Section */}
+        <ScrollReveal delay={100}>
+          <section id="resources">
+            <ResourcesPreviewSection />
+          </section>
+        </ScrollReveal>
+
         {/* FAQ Section */}
         <ScrollReveal delay={100}>
           <FAQSection />
-        </ScrollReveal>
-
-        {/* Resources Section */}
-        <ScrollReveal delay={100}>
-          <section id="resources">
-            <ResourcesSection />
-          </section>
         </ScrollReveal>
 
         {/* Newsletter/Contact */}
