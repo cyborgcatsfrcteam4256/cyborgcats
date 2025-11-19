@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
+import competitionArena from '@/assets/competition-arena.jpg';
 
 export const HeroSection = () => {
   const navigate = useNavigate();
@@ -21,12 +22,12 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         {/* Primary background image with enhanced effects */}
         <OptimizedImage
-          src="/lovable-uploads/6a730614-1628-4753-9fd6-706f9c02ddcf.png" 
-          alt="Cyborg Cats FRC Team 4256 robot competing at FIRST Robotics Competition event" 
+          src={competitionArena} 
+          alt="FIRST Robotics Competition arena filled with teams and spectators" 
           width={1920}
           height={1080}
           priority={true}
-          className="w-full h-full opacity-25 transition-opacity duration-1000 hover:opacity-30"
+          className="w-full h-full opacity-30 transition-opacity duration-1000 hover:opacity-35"
           objectFit="cover"
         />
         
