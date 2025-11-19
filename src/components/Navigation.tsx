@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Home, Users, Trophy, Camera, BookOpen, Mail, Phone, LogOut, User as UserIcon, ShieldCheck } from 'lucide-react';
+import { Menu, X, Home, Users, Trophy, Camera, BookOpen, Mail, Phone, LogOut, User as UserIcon, ShieldCheck, Newspaper } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import { SmartSearch } from '@/components/UI/SmartSearch';
@@ -66,8 +66,8 @@ export const Navigation = () => {
     { href: '/impact', label: t('nav.impact'), icon: Trophy },
     { href: '/sponsors', label: t('nav.sponsors'), icon: Trophy },
     { href: '/network', label: t('nav.network'), icon: Users },
-    { href: '/#media', label: t('nav.media'), icon: Camera },
-    { href: '/#resources', label: t('nav.resources'), icon: BookOpen },
+    { href: '/news', label: t('nav.news'), icon: Newspaper },
+    { href: '/resources', label: t('nav.resources'), icon: BookOpen },
     { href: '/contact', label: t('nav.contact'), icon: Mail },
   ];
 

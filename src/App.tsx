@@ -43,6 +43,7 @@ const AdminContactInquiries = lazy(() => import("./pages/admin/ContactInquiries"
 const AdminDownloadLogos = lazy(() => import("./pages/admin/DownloadLogos"));
 const News = lazy(() => import("./pages/News"));
 const NewsPost = lazy(() => import("./pages/NewsPost"));
+const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -96,6 +97,7 @@ const App = () => {
             <Route path="/sponsors" element={<Sponsors />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsPost />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/network" element={<Network />} />
