@@ -155,43 +155,6 @@
   body {
     @apply bg-background text-foreground font-electrolize;
   }
-
-  /* Y2K Font Hierarchy - Organized System */
-  h1 {
-    @apply font-orbitron font-black tracking-tight;
-  }
-
-  h2 {
-    @apply font-audiowide font-bold tracking-wide;
-  }
-
-  h3 {
-    @apply font-orbitron font-bold tracking-normal;
-  }
-
-  h4, h5, h6 {
-    @apply font-electrolize font-semibold tracking-wide;
-  }
-
-  /* Display text for hero sections */
-  .text-display {
-    @apply font-orbitron font-black tracking-tighter;
-  }
-
-  /* Section headers */
-  .text-section {
-    @apply font-audiowide font-bold tracking-widest uppercase;
-  }
-
-  /* Special callouts and badges */
-  .text-accent {
-    @apply font-audiowide tracking-wide;
-  }
-
-  /* Technical data and stats */
-  .text-mono {
-    @apply font-electrolize tracking-wider;
-  }
 }
 
 @layer components {
@@ -299,31 +262,6 @@
       linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px),
       linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
-  }
-
-  /* Y2K Typography Utilities */
-  .font-display {
-    @apply font-orbitron font-black tracking-tighter text-glow;
-  }
-
-  .font-heading {
-    @apply font-audiowide font-bold tracking-widest uppercase;
-  }
-
-  .font-subheading {
-    @apply font-orbitron font-bold tracking-tight;
-  }
-
-  .font-body {
-    @apply font-electrolize tracking-wide;
-  }
-
-  .font-accent {
-    @apply font-audiowide tracking-wider;
-  }
-
-  .font-tech {
-    @apply font-electrolize tracking-widest uppercase;
   }
   
   .text-glow {

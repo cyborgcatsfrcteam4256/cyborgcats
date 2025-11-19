@@ -7,7 +7,8 @@
     "media": "Media",
     "resources": "Resources",
     "contact": "Contact",
-    "joinUs": "Join Us"
+    "joinUs": "Join Us",
+    "network": "Network"
   },
   "hero": {
     "title": "Cyborg Cats",
@@ -183,14 +184,19 @@
   },
   "resources": {
     "title": "Resources & Learning",
-    "subtitle": "Access tools, guides, and materials for robotics teams and STEM education",
+    "subtitle": "Tools for Growth",
+    "description": "Access tools, guides, and materials for robotics teams and STEM education",
     "explore": "Explore Resources",
     "programming": "Programming Resources",
     "cadDesign": "CAD & Design",
     "teamManagement": "Team Management",
     "stemCurriculum": "STEM Curriculum",
     "comingSoon": "Coming Soon",
-    "resourceCategories": "Resource Categories"
+    "resourceCategories": "Resource Categories",
+    "downloads": "downloads",
+    "download": "Download",
+    "viewResource": "View Resource",
+    "viewAll": "View All Resources"
   },
   "footer": {
     "quickLinks": "Quick Links",

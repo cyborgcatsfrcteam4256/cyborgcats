@@ -55,12 +55,12 @@ export const NewsSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-20 animate-slide-up">
-          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8">
+          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8 border border-primary/20">
             <Newspaper className="w-6 h-6 text-primary" />
-            <span className="font-orbitron text-sm tracking-wider">{t('news.title')}</span>
+            <span className="font-orbitron text-sm tracking-wider text-primary">{t('news.title')}</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-orbitron font-black mb-6 text-glow">
+          <h2 className="text-5xl md:text-6xl font-orbitron font-black mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             {t('news.subtitle')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -71,7 +71,7 @@ export const NewsSection = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {newsItems.map((item, index) => (
             <ScrollReveal key={item.id} delay={index * 100}>
-              <Card className="group h-full flex flex-col bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber overflow-hidden">
+              <Card className="group h-full flex flex-col bg-card/80 backdrop-blur-lg border-primary/20 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)] transition-all duration-500 overflow-hidden">
                 {item.image_url && (
                   <div className="relative h-56 overflow-hidden">
                     <img
@@ -79,19 +79,22 @@ export const NewsSection = () => {
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                    <Badge className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm border-primary/30">
+                      {t('news.latest')}
+                    </Badge>
                   </div>
                 )}
                 
                 <CardContent className="flex-1 flex flex-col p-6">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
                     <div className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
+                      <Calendar className="w-3.5 h-3.5 text-primary" />
                       {format(new Date(item.published_at), 'MMM d, yyyy')}
                     </div>
                     {item.author && (
                       <div className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
+                        <Clock className="w-3.5 h-3.5 text-accent" />
                         {item.author}
                       </div>
                     )}
@@ -107,7 +110,7 @@ export const NewsSection = () => {
 
                   <Button
                     variant="ghost"
-                    className="w-full group/btn hover:bg-primary/10"
+                    className="w-full group/btn hover:bg-primary/10 border border-primary/20 hover:border-primary/50"
                     onClick={() => navigate(`/news/${item.id}`)}
                   >
                     {t('news.readMore')}
@@ -124,9 +127,10 @@ export const NewsSection = () => {
             variant="hero" 
             size="lg"
             onClick={() => navigate('/news')}
+            className="group relative overflow-hidden hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)]"
           >
-            {t('news.viewAll')}
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <span className="relative z-10">{t('news.viewAll')}</span>
+            <ArrowRight className="ml-2 w-5 h-5 relative z-10" />
           </Button>
         </div>
       </div>
