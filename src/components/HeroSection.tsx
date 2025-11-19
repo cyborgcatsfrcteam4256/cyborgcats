@@ -27,7 +27,7 @@ export const HeroSection = () => {
           width={1920}
           height={1080}
           priority={true}
-          className="w-full h-full opacity-30 transition-opacity duration-1000 hover:opacity-35"
+          className="w-full h-full opacity-50 transition-opacity duration-1000 hover:opacity-60"
           objectFit="cover"
         />
         
@@ -67,10 +67,9 @@ export const HeroSection = () => {
         </div>
         
         {/* Enhanced gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/8 via-transparent to-primary-glow/12" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-electric/5 via-transparent to-primary/5" />
-        <div className="absolute inset-0 circuit-pattern opacity-20 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/70 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 circuit-pattern opacity-10 animate-pulse" />
         <FloatingParticles />
         
         {/* Enhanced animated gradient orbs */}
