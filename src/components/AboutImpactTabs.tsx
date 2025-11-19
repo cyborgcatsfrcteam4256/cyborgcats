@@ -97,7 +97,7 @@ export const AboutImpactTabs = () => {
                   </div>
                 </div>
 
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-inter leading-relaxed mb-10">
+                <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto font-inter leading-relaxed mb-10">
                   {t('first.description')}
                 </p>
                 
