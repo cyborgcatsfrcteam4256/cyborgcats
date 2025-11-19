@@ -64,22 +64,24 @@ export const NewsSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8 border border-primary/20">
-            <Newspaper className="w-6 h-6 text-primary" />
-            <span className="font-orbitron text-sm tracking-wider text-primary">{t('news.badge')}</span>
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 mb-8 border border-primary/30 hover:border-primary/50 transition-all duration-500 shadow-morphic hover:shadow-luxury group">
+              <Newspaper className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform duration-500" />
+              <span className="font-orbitron text-sm tracking-wider text-primary font-bold">{t('news.badge')}</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-primary via-primary-glow to-primary-electric bg-clip-text text-transparent">
+                {t('news.title')}
+              </span>{' '}
+              <span className="text-glow">{t('news.subtitle')}</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-inter">
+              {t('news.description')}
+            </p>
           </div>
-          
-          <h2 className="text-5xl md:text-7xl font-orbitron font-black mb-6">
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
-              {t('news.title')}
-            </span>{' '}
-            <span className="text-holographic">{t('news.subtitle')}</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('news.description')}
-          </p>
-        </div>
+        </ScrollReveal>
 
         {newsItems.length === 0 ? (
           <div className="text-center py-20">
@@ -92,10 +94,11 @@ export const NewsSection = () => {
             {featuredPost && (
               <ScrollReveal className="lg:col-span-2">
                 <Card 
-                  className="group relative h-full bg-gradient-to-br from-card/95 via-card/90 to-card/95 backdrop-blur-xl border-primary/30 hover:border-primary/60 overflow-hidden transition-all duration-700 hover:shadow-[0_20px_60px_rgba(var(--primary-rgb),0.4)] cursor-pointer"
+                  className="group relative h-full glass-morphism border-2 border-primary/30 hover:border-primary/60 overflow-hidden transition-all duration-700 shadow-luxury hover:shadow-cyber cursor-pointer"
                   onClick={() => navigate(`/news/${featuredPost.id}`)}
                 >
-                  {/* Background Gradient Effect */}
+                  {/* Background Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
                   {/* Featured Image */}
@@ -104,14 +107,14 @@ export const NewsSection = () => {
                       <img
                         src={featuredPost.image_url}
                         alt={featuredPost.title}
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent" />
                       
                       {/* Featured Badge */}
                       <div className="absolute top-6 left-6">
-                        <Badge className="bg-primary/95 backdrop-blur-sm border-primary/50 text-primary-foreground font-orbitron px-4 py-2 text-sm shadow-lg">
-                          <Newspaper className="w-4 h-4 mr-2 inline" />
+                        <Badge className="bg-gradient-to-r from-primary to-primary-glow backdrop-blur-md border-2 border-primary/50 text-white font-orbitron px-5 py-2.5 text-sm shadow-glow shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-500">
+                          <Newspaper className="w-4 h-4 mr-2 inline animate-pulse" />
                           Featured
                         </Badge>
                       </div>
@@ -137,22 +140,23 @@ export const NewsSection = () => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-3xl md:text-4xl font-orbitron font-black mb-4 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                    <h3 className="text-3xl md:text-4xl font-orbitron font-black mb-4 text-foreground group-hover:text-primary transition-colors duration-500 line-clamp-2">
                       {featuredPost.title}
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-lg text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
+                    <p className="text-lg text-muted-foreground mb-8 line-clamp-3 leading-relaxed font-inter">
                       {featuredPost.excerpt || truncateText(featuredPost.content, 200)}
                     </p>
 
                     {/* Read More Button */}
                     <Button
-                      variant="ghost"
-                      className="group/btn hover:bg-primary/10 border-2 border-primary/30 hover:border-primary/60 transition-all duration-300"
+                      variant="premium"
+                      size="lg"
+                      className="group/btn"
                     >
                       {t('news.readMore')}
-                      <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
+                      <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-500 group-hover/btn:translate-x-2" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -164,7 +168,7 @@ export const NewsSection = () => {
               {sidebarPosts.map((item, index) => (
                 <ScrollReveal key={item.id} delay={index * 100}>
                   <Card 
-                    className="group relative bg-card/80 backdrop-blur-lg border-border/50 hover:border-primary/40 overflow-hidden transition-all duration-500 hover:shadow-[0_10px_40px_rgba(var(--primary-rgb),0.2)] cursor-pointer h-full"
+                    className="group relative glass-morphism border-2 border-border/50 hover:border-primary/50 overflow-hidden transition-all duration-500 shadow-morphic hover:shadow-luxury cursor-pointer h-full"
                     onClick={() => navigate(`/news/${item.id}`)}
                   >
                     <div className="flex gap-4 p-5">
