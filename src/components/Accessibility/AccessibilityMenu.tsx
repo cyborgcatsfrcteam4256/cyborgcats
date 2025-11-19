@@ -9,7 +9,8 @@ import {
   Type,
   Moon,
   Sun,
-  X
+  X,
+  Zap
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -18,16 +19,26 @@ export const AccessibilityMenu = () => {
   const [fontSize, setFontSize] = useState(100);
   const [highContrast, setHighContrast] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [dyslexicFont, setDyslexicFont] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
     // Load saved preferences
     const savedFontSize = localStorage.getItem('fontSize');
     const savedContrast = localStorage.getItem('highContrast');
     const savedTheme = localStorage.getItem('theme');
+    const savedDyslexic = localStorage.getItem('dyslexic-font');
+    const savedMotion = localStorage.getItem('reduce-motion');
 
     if (savedFontSize) setFontSize(parseInt(savedFontSize));
     if (savedContrast === 'true') setHighContrast(true);
     if (savedTheme === 'dark') setIsDark(true);
+    if (savedDyslexic === 'true') setDyslexicFont(true);
+    if (savedMotion === 'true') setReduceMotion(true);
+    
+    // Apply settings
+    if (savedDyslexic === 'true') document.documentElement.classList.add('dyslexic-font');
+    if (savedMotion === 'true') document.documentElement.classList.add('reduce-motion');
   }, []);
 
   useEffect(() => {
@@ -66,9 +77,38 @@ export const AccessibilityMenu = () => {
     setFontSize(100);
     setHighContrast(false);
     setIsDark(false);
+    setDyslexicFont(false);
+    setReduceMotion(false);
     localStorage.removeItem('fontSize');
     localStorage.removeItem('highContrast');
     localStorage.removeItem('theme');
+    localStorage.removeItem('dyslexic-font');
+    localStorage.removeItem('reduce-motion');
+    document.documentElement.classList.remove('dyslexic-font', 'reduce-motion');
+  };
+
+  const toggleDyslexicFont = () => {
+    const newValue = !dyslexicFont;
+    setDyslexicFont(newValue);
+    localStorage.setItem('dyslexic-font', String(newValue));
+    
+    if (newValue) {
+      document.documentElement.classList.add('dyslexic-font');
+    } else {
+      document.documentElement.classList.remove('dyslexic-font');
+    }
+  };
+
+  const toggleReduceMotion = () => {
+    const newValue = !reduceMotion;
+    setReduceMotion(newValue);
+    localStorage.setItem('reduce-motion', String(newValue));
+    
+    if (newValue) {
+      document.documentElement.classList.add('reduce-motion');
+    } else {
+      document.documentElement.classList.remove('reduce-motion');
+    }
   };
 
   return (
@@ -182,6 +222,56 @@ export const AccessibilityMenu = () => {
                   className={cn(
                     "inline-block h-4 w-4 transform rounded-full bg-background transition-transform",
                     isDark ? "translate-x-6" : "translate-x-1"
+                  )}
+                />
+              </button>
+            </div>
+
+            {/* Dyslexic Font Toggle */}
+            <div className="flex items-center justify-between py-3 border-t border-border">
+              <label htmlFor="dyslexic-font" className="text-sm font-semibold flex items-center gap-2">
+                <Type className="w-4 h-4 text-primary" aria-hidden="true" />
+                Dyslexia Font
+              </label>
+              <button
+                id="dyslexic-font"
+                onClick={toggleDyslexicFont}
+                className={cn(
+                  "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+                  dyslexicFont ? "bg-primary" : "bg-muted"
+                )}
+                role="switch"
+                aria-checked={dyslexicFont}
+              >
+                <span
+                  className={cn(
+                    "inline-block h-4 w-4 transform rounded-full bg-background transition-transform",
+                    dyslexicFont ? "translate-x-6" : "translate-x-1"
+                  )}
+                />
+              </button>
+            </div>
+
+            {/* Reduce Motion Toggle */}
+            <div className="flex items-center justify-between py-3 border-t border-border">
+              <label htmlFor="reduce-motion" className="text-sm font-semibold flex items-center gap-2">
+                <Zap className="w-4 h-4 text-primary" aria-hidden="true" />
+                Reduce Motion
+              </label>
+              <button
+                id="reduce-motion"
+                onClick={toggleReduceMotion}
+                className={cn(
+                  "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
+                  reduceMotion ? "bg-primary" : "bg-muted"
+                )}
+                role="switch"
+                aria-checked={reduceMotion}
+              >
+                <span
+                  className={cn(
+                    "inline-block h-4 w-4 transform rounded-full bg-background transition-transform",
+                    reduceMotion ? "translate-x-6" : "translate-x-1"
                   )}
                 />
               </button>

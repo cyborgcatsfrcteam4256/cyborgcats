@@ -107,7 +107,22 @@
     "sponsorshipTiers": "赞助机会",
     "becomeASponsor": "成为赞助商",
     "downloadPacket": "下载赞助包",
-    "currentSponsors": "当前赞助商"
+    "currentSponsors": "赞助商列表"
+  },
+  "media": {
+    "title": "媒体",
+    "subtitle": "画廊",
+    "photos": "照片",
+    "instagram": "Instagram"
+  },
+  "news": {
+    "title": "团队新闻",
+    "readMore": "阅读更多"
+  },
+  "newsletter": {
+    "title": "订阅我们的通讯",
+    "emailPlaceholder": "输入您的电子邮件",
+    "subscribe": "订阅"
   },
   "faq": {
     "title": "常见问题",

@@ -109,6 +109,53 @@
     "downloadPacket": "Download Sponsorship Packet",
     "currentSponsors": "Current Sponsors"
   },
+  "media": {
+    "title": "Media",
+    "subtitle": "Gallery",
+    "description": "Explore our journey through stunning photography and stay connected on Instagram",
+    "photos": "Photos",
+    "instagram": "Instagram Feed",
+    "followUs": "Follow Us on Instagram",
+    "viewOnInstagram": "View on Instagram"
+  },
+  "photoGallery": {
+    "badge": "Photo Gallery",
+    "title": "Behind the Scenes",
+    "subtitle": "Experience the energy and passion of our team through these captured moments",
+    "allPhotos": "All Photos",
+    "teamLife": "Team Life",
+    "competition": "Competition",
+    "outreach": "Outreach",
+    "awards": "Awards"
+  },
+  "news": {
+    "badge": "Latest Updates",
+    "title": "Team",
+    "subtitle": "News",
+    "description": "Stay informed about our latest achievements, competitions, and community impact initiatives",
+    "readMore": "Read More",
+    "allNews": "View All News"
+  },
+  "testimonials": {
+    "badge": "Community Voices",
+    "title": "Inspiring Stories",
+    "subtitle": "Hear from the students, mentors, and community members who make our mission possible",
+    "viewAllStories": "View All Stories"
+  },
+  "newsletter": {
+    "badge": "Stay Connected",
+    "title": "Join Our Newsletter",
+    "subtitle": "Stay up to date with our latest achievements, upcoming events, and behind-the-scenes content from the Cyborg Cats team",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "successMessage": "Thank you for subscribing!",
+    "competitionUpdates": "Competition Updates",
+    "competitionUpdatesDesc": "Get notified about our latest competition results and achievements",
+    "communityImpact": "Community Impact",
+    "communityImpactDesc": "Learn about our outreach programs and how you can get involved",
+    "behindTheScenes": "Behind the Scenes",
+    "behindTheScenesDesc": "Exclusive content about our robot development and team activities"
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Get answers to common questions about joining the team, competitions, and our community impact"

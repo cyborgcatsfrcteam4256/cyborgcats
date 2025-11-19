@@ -5,8 +5,10 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { EnhancedBackground } from '@/components/EnhancedBackground';
 import { LiquidButton } from '@/components/LiquidButton';
+import { useTranslation } from 'react-i18next';
 
 export const TestimonialsSection = () => {
+  const { t } = useTranslation();
   const testimonials = [
     {
       quote: "When I joined robotics, I didn't even know how to hold a wrench but then the Cyborg Cats taught me how to not only hold a wrench but engineer the future. I am so thankful for all of my amazing mentors and the huge impact they have made on me and in the lives of others. Go Cyborg Cats!",

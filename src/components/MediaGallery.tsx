@@ -5,8 +5,10 @@ import { ScrollReveal } from './ScrollReveal';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { LiquidButton } from './LiquidButton';
+import { useTranslation } from 'react-i18next';
 
 export const MediaGallery = () => {
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const photos = [
