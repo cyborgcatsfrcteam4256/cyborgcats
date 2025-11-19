@@ -210,7 +210,7 @@ export const AboutImpactTabs = () => {
                 <h3 className="text-3xl md:text-4xl font-orbitron font-black text-glow leading-tight">
                   Empowering the Next Generation
                 </h3>
-                <p className="text-lg text-muted-foreground font-inter leading-relaxed">
+                <p className="text-lg text-white font-inter leading-relaxed drop-shadow-lg">
                   Based in <span className="text-primary font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
                   community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
                   STEM education and advocacy for students across Missouri, while always seeking to 
