@@ -86,11 +86,13 @@ export const AboutImpactTabs = () => {
           <TabsContent value="first" className="space-y-12 relative">
             {/* Background Image */}
             <div className="absolute inset-0 -mx-6 -my-12 z-0 overflow-hidden rounded-3xl">
-              <div 
-                className="absolute inset-0 bg-cover bg-center opacity-10"
-                style={{ backgroundImage: "url('/lovable-uploads/impact-award-winning-photo.jpg')" }}
+              <OptimizedImage
+                src={competitionArena}
+                alt="FIRST Robotics Competition arena background"
+                className="w-full h-full opacity-40"
+                objectFit="cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/75 to-background/85" />
             </div>
             
             <div className="relative z-10">
