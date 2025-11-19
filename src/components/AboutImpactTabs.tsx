@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
+import competitionArena from '@/assets/competition-arena.jpg';
+import { OptimizedImage } from '@/components/Performance/OptimizedImage';
 
 export const AboutImpactTabs = () => {
   const navigate = useNavigate();
@@ -40,8 +42,18 @@ export const AboutImpactTabs = () => {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 circuit-pattern opacity-5 z-0" />
-      <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-background/10 to-transparent z-[1]" />
+      {/* Competition Arena Background */}
+      <div className="absolute inset-0 z-0">
+        <OptimizedImage
+          src={competitionArena}
+          alt="FIRST Robotics Competition arena"
+          className="w-full h-full opacity-40"
+          objectFit="cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/75 to-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+      </div>
+      <div className="absolute inset-0 circuit-pattern opacity-5 z-[1]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
