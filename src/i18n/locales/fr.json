@@ -75,11 +75,117 @@
     "termsOfService": "Conditions d'Utilisation",
     "firstRobotics": "FIRST Robotics"
   },
+  "impact": {
+    "title": "Notre Impact",
+    "subtitle": "Depuis notre base à St. Louis, Missouri, nous construisons plus que des robots—nous construisons un avenir meilleur grâce à l'éducation STEM, au rayonnement communautaire et au plaidoyer à travers l'État Gateway et au-delà,",
+    "servingGod": "tout en servant Dieu",
+    "christianLove": "amour chrétien",
+    "inEverything": "dans tout ce que nous faisons.",
+    "makingDifference": "Faire la Différence",
+    "stemCompanion": "Initiative Compagnon STEM",
+    "stemCompanionDesc": "Connecter les enfants ayant des besoins spéciaux à l'éducation STEM grâce à des programmes innovants et un rayonnement dédié.",
+    "accessibilityFocus": "Focus Accessibilité",
+    "womenInStem": "Femmes en Leadership STEM",
+    "womenInStemDesc": "Notre direction supérieure est majoritairement féminine, démontrant notre engagement à autonomiser les femmes dans la technologie.",
+    "girlPowered": "Propulsé par les Filles",
+    "legislativeAdvocacy": "Plaidoyer Législatif",
+    "legislativeAdvocacyDesc": "Travailler directement avec les législateurs pour plaider en faveur de politiques d'éducation STEM qui profitent aux étudiants du Missouri.",
+    "policyImpact": "Impact Politique",
+    "globalOutreach": "Rayonnement Mondial",
+    "globalOutreachDesc": "Élargir les opportunités STEM à l'échelle internationale, aidant à établir des équipes et programmes FRC en Corée du Sud et en Éthiopie.",
+    "worldwideReach": "Portée Mondiale",
+    "viewAllImpact": "Voir Tout l'Impact"
+  },
   "community": {
     "title": "Communauté",
     "subtitle": "Écoutez nos étudiants et connectez-vous à notre réseau croissant d'anciens élèves",
     "studentStories": "Histoires d'Étudiants",
     "alumniNetwork": "Réseau d'Anciens",
     "joinNetwork": "Rejoindre le Réseau"
+  },
+  "sponsors": {
+    "title": "Nos Partenaires",
+    "subtitle": "Construire l'Avenir Ensemble",
+    "description": "Nous sommes reconnaissants envers nos sponsors qui rendent notre mission possible. Grâce à leur soutien, nous pouvons concourir, innover et inspirer la prochaine génération de leaders STEM.",
+    "whySponsor": "Pourquoi Nous Sponsoriser?",
+    "communityImpact": "Impact Communautaire",
+    "communityImpactDesc": "Soutenir l'éducation STEM et inspirer la prochaine génération d'ingénieurs et d'innovateurs",
+    "brandVisibility": "Visibilité de Marque",
+    "brandVisibilityDesc": "Affichez votre logo sur notre robot, les vêtements de l'équipe et les supports marketing lors des compétitions",
+    "talentPipeline": "Pipeline de Talents",
+    "talentPipelineDesc": "Connectez-vous avec des étudiants motivés qui pourraient être vos futurs employés",
+    "corporateResponsibility": "Responsabilité d'Entreprise",
+    "corporateResponsibilityDesc": "Démontrez votre engagement envers l'éducation et le développement communautaire",
+    "sponsorshipTiers": "Opportunités de Sponsoring",
+    "becomeASponsor": "Devenir Sponsor",
+    "downloadPacket": "Télécharger le Dossier de Sponsoring",
+    "currentSponsors": "Sponsors Actuels"
+  },
+  "media": {
+    "title": "Médias",
+    "subtitle": "Galerie",
+    "description": "Explorez notre parcours à travers une photographie époustouflante et restez connecté sur Instagram",
+    "photos": "Photos",
+    "instagram": "Flux Instagram",
+    "followUs": "Suivez-Nous sur Instagram",
+    "viewOnInstagram": "Voir sur Instagram"
+  },
+  "photoGallery": {
+    "badge": "Galerie Photo",
+    "title": "Dans les Coulisses",
+    "subtitle": "Découvrez l'énergie et la passion de notre équipe à travers ces moments capturés",
+    "allPhotos": "Toutes les Photos",
+    "teamLife": "Vie d'Équipe",
+    "competition": "Compétition",
+    "outreach": "Rayonnement",
+    "awards": "Prix"
+  },
+  "news": {
+    "badge": "Dernières Actualités",
+    "title": "Nouvelles de l'Équipe",
+    "subtitle": "Actualités",
+    "description": "Restez informé de nos dernières réalisations, compétitions et initiatives d'impact communautaire",
+    "readMore": "Lire Plus",
+    "allNews": "Voir Toutes les Actualités",
+    "latestUpdates": "Dernières Mises à Jour"
+  },
+  "testimonials": {
+    "badge": "Voix de la Communauté",
+    "title": "Histoires Inspirantes",
+    "subtitle": "Écoutez les étudiants, mentors et membres de la communauté qui rendent notre mission possible",
+    "viewAllStories": "Voir Toutes les Histoires"
+  },
+  "newsletter": {
+    "badge": "Restez Connecté",
+    "title": "Rejoignez Notre Newsletter",
+    "subtitle": "Restez informé de nos dernières réalisations, événements à venir et contenu en coulisses de l'équipe Cyborg Cats",
+    "stayConnected": "Restez Connecté",
+    "emailPlaceholder": "Entrez votre email",
+    "subscribe": "S'Abonner",
+    "successMessage": "Merci de vous être abonné!",
+    "thankYou": "Merci de vous être abonné!",
+    "benefits": "Avantages de la Newsletter",
+    "competitionUpdates": "Mises à Jour des Compétitions",
+    "competitionUpdatesDesc": "Recevez des notifications sur nos derniers résultats de compétition et réalisations",
+    "communityImpact": "Impact Communautaire",
+    "communityImpactDesc": "Découvrez nos programmes de rayonnement et comment vous pouvez vous impliquer",
+    "behindScenes": "Dans les Coulisses",
+    "behindTheScenesDesc": "Contenu exclusif sur le développement de notre robot et les activités de l'équipe",
+    "behindTheScenes": "Dans les Coulisses"
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Obtenez des réponses aux questions courantes sur l'adhésion à l'équipe, les compétitions et notre impact communautaire"
+  },
+  "resources": {
+    "title": "Ressources et Apprentissage",
+    "subtitle": "Accédez aux outils, guides et supports pour les équipes de robotique et l'éducation STEM",
+    "explore": "Explorer les Ressources",
+    "programming": "Ressources de Programmation",
+    "cadDesign": "CAO et Conception",
+    "teamManagement": "Gestion d'Équipe",
+    "stemCurriculum": "Programme STEM",
+    "comingSoon": "Bientôt Disponible",
+    "resourceCategories": "Catégories de Ressources"
   }
 }
