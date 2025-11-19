@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
-import competitionArena from '@/assets/competition-arena.jpg';
+import competitionArena from '@/assets/first-champs-arena.jpg';
 import { OptimizedImage } from '@/components/Performance/OptimizedImage';
 
 export const AboutImpactTabs = () => {
