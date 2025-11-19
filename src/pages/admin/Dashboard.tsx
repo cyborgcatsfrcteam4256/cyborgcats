@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp } from "lucide-react";
+import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
 import { Navigation } from "@/components/Navigation";
@@ -170,91 +171,135 @@ export default function AdminDashboard() {
         title="Admin Control Center"
         description="Manage your robotics team website"
       />
+      <Navigation />
       
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 py-12 px-4">
-        <div className="max-w-7xl mx-auto space-y-8">
-          {/* Header */}
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-              Admin Control Center
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Manage your team's website content and settings
-            </p>
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+        <div className="relative pt-24 pb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10" />
+          
+          <div className="container mx-auto px-6 relative">
+            <div className="text-center mb-12 space-y-6">
+              <Badge variant="outline" className="mb-4 font-orbitron border-primary/50">
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Admin Portal
+              </Badge>
+              <h1 className="text-5xl md:text-7xl font-orbitron font-black mb-4">
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                  Control Center
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Manage your team's digital presence with powerful tools
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-blue-500/30 hover-glow transition-cyber">
+                <CardHeader className="pb-2 relative">
+                  <div className="flex items-center justify-between mb-2">
+                    <Users className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Total Users</CardTitle>
+                </CardHeader>
+                <CardContent className="relative">
+                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                    {stats.totalUsers}
+                  </div>
+                  {stats.pendingRoles > 0 && (
+                    <Badge variant="secondary" className="text-xs">
+                      {stats.pendingRoles} pending
+                    </Badge>
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-green-500/20 to-green-600/10 border-green-500/30 hover-glow transition-cyber">
+                <CardHeader className="pb-2 relative">
+                  <div className="flex items-center justify-between mb-2">
+                    <BookOpen className="w-8 h-8 text-green-400" />
+                  </div>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Resources</CardTitle>
+                </CardHeader>
+                <CardContent className="relative">
+                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                    {stats.totalResources}
+                  </div>
+                  {stats.pendingResources > 0 && (
+                    <Badge variant="secondary" className="text-xs">
+                      {stats.pendingResources} pending
+                    </Badge>
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-orange-500/20 to-orange-600/10 border-orange-500/30 hover-glow transition-cyber">
+                <CardHeader className="pb-2 relative">
+                  <div className="flex items-center justify-between mb-2">
+                    <UsersIcon className="w-8 h-8 text-orange-400" />
+                  </div>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Team Members</CardTitle>
+                </CardHeader>
+                <CardContent className="relative">
+                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                    {stats.totalTeamMembers}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {stats.activeTeamMembers} active
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-pink-500/20 to-pink-600/10 border-pink-500/30 hover-glow transition-cyber">
+                <CardHeader className="pb-2 relative">
+                  <div className="flex items-center justify-between mb-2">
+                    <Newspaper className="w-8 h-8 text-pink-400" />
+                  </div>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">News Posts</CardTitle>
+                </CardHeader>
+                <CardContent className="relative">
+                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                    {stats.totalNews}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {stats.publishedNews} published
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
+        </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Card className="bg-gradient-to-br from-blue-500/10 to-blue-600/10 border-blue-500/20">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">Total Users</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.totalUsers}</div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {stats.pendingRoles} pending
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-green-500/10 to-green-600/10 border-green-500/20">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">Resources</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.totalResources}</div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {stats.pendingResources} pending
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-orange-500/10 to-orange-600/10 border-orange-500/20">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">Team Members</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.totalTeamMembers}</div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {stats.activeTeamMembers} active
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-pink-500/10 to-pink-600/10 border-pink-500/20">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">News Posts</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold">{stats.totalNews}</div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {stats.publishedNews} published
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Management Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {managementCards.map((card) => (
+        <div className="container mx-auto px-6 py-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {managementCards.map((card, index) => (
               <Card 
                 key={card.path}
-                className={`bg-gradient-to-br ${card.color} border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer group`}
+                className={`group relative overflow-hidden bg-gradient-to-br ${card.color} border-border/50 hover:border-primary/50 transition-all duration-500 hover:scale-[1.02] cursor-pointer`}
                 onClick={() => navigate(card.path)}
               >
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <card.icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
-                    <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                <CardHeader className="relative">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 bg-background/50 rounded-xl backdrop-blur-sm group-hover:scale-110 transition-all duration-500">
+                      <card.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <Badge variant="secondary" className="font-orbitron text-xs">
+                      Active
+                    </Badge>
                   </div>
-                  <CardTitle className="text-xl mt-4">{card.title}</CardTitle>
-                  <CardDescription>{card.description}</CardDescription>
+                  <CardTitle className="text-2xl font-orbitron mb-2">{card.title}</CardTitle>
+                  <CardDescription className="text-sm">{card.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm text-muted-foreground">{card.stat}</p>
-                    <Button variant="ghost" size="sm" className="group-hover:bg-primary/10">
+                
+                <CardContent className="relative">
+                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                    <p className="text-sm text-muted-foreground font-medium">{card.stat}</p>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="group-hover:bg-primary/20 group-hover:text-primary transition-all"
+                    >
                       Manage
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
                 </CardContent>
@@ -263,6 +308,8 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </>
   );
 }
