@@ -78,9 +78,7 @@ const Team = () => {
     }
     if (category === 'students') {
       return teamMembers.filter(m => 
-        !m.role.toLowerCase().includes('mentor') &&
-        !m.role.toLowerCase().includes('lead') &&
-        !m.role.toLowerCase().includes('captain')
+        !m.role.toLowerCase().includes('mentor')
       );
     }
     return teamMembers;

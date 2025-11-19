@@ -50,8 +50,8 @@ export const SponsorsSection = () => {
       benefits: [
         "Makes it possible for team to enter FIRST Robotics Competition",
         "Name displayed on robot, banners, team shirts, website",
-        "Featured in all written communications",
-        "Recognition by February 6th donation deadline"
+        "Recognition by February 6th donation deadline",
+        "Premium sponsor package benefits"
       ]
     },
     {
@@ -61,8 +61,8 @@ export const SponsorsSection = () => {
       benefits: [
         "Names and logos prominently on robot and banner",
         "Featured on website and team shirts",
-        "Included in all written communications",
-        "Recognition by February 6th donation deadline"
+        "Recognition by February 6th donation deadline",
+        "Sponsor appreciation events"
       ]
     },
     {
@@ -72,8 +72,8 @@ export const SponsorsSection = () => {
       benefits: [
         "Name and logo on banner and team shirts",
         "Featured on website",
-        "Included in all written communications",
-        "Supports outreach to schools and community"
+        "Supports outreach to schools and community",
+        "Recognition at team events"
       ]
     },
     {
@@ -82,8 +82,9 @@ export const SponsorsSection = () => {
       color: "from-orange-400 to-red-500",
       benefits: [
         "Logo and name on website and team shirts",
-        "Included in all written communications",
-        "Contributes to robot materials and competition costs"
+        "Contributes to robot materials and competition costs",
+        "Recognition on social media",
+        "Community partner status"
       ]
     },
     {

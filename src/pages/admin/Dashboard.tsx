@@ -107,6 +107,14 @@ export default function AdminDashboard() {
       color: "from-blue-500/20 to-blue-600/20"
     },
     {
+      title: "Site Settings",
+      description: "Configure site-wide statistics",
+      icon: TrendingUp,
+      path: "/admin/settings",
+      stat: "Team stats & numbers",
+      color: "from-cyan-500/20 to-cyan-600/20"
+    },
+    {
       title: "Manage Sponsors",
       description: "Sponsor information and logos",
       icon: HandshakeIcon,

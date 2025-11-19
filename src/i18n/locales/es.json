@@ -109,6 +109,21 @@
     "downloadPacket": "Descargar Paquete de Patrocinio",
     "currentSponsors": "Patrocinadores Actuales"
   },
+  "media": {
+    "title": "Medios",
+    "subtitle": "Galería",
+    "photos": "Fotos",
+    "instagram": "Feed de Instagram"
+  },
+  "news": {
+    "title": "Noticias del Equipo",
+    "readMore": "Leer Más"
+  },
+  "newsletter": {
+    "title": "Únete a Nuestro Boletín",
+    "emailPlaceholder": "Ingresa tu correo",
+    "subscribe": "Suscribirse"
+  },
   "faq": {
     "title": "Preguntas Frecuentes",
     "subtitle": "Obtén respuestas a preguntas comunes sobre unirse al equipo, competencias y nuestro impacto comunitario"

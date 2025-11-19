@@ -6,8 +6,10 @@ import { ChevronLeft, ChevronRight, X, Camera, Award, Users, Wrench, Star, Spark
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedBackground } from '@/components/EnhancedBackground';
 import { LiquidButton } from '@/components/LiquidButton';
+import { useTranslation } from 'react-i18next';
 
 export const PhotoGallery = () => {
+  const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState('all');
 

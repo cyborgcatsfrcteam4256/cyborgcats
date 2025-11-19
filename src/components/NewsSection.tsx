@@ -6,10 +6,12 @@ import { Calendar, Clock, ArrowRight, Trophy, Award, Users, ExternalLink, Newspa
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedBackground } from '@/components/EnhancedBackground';
 import { LiquidButton } from '@/components/LiquidButton';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 
 export const NewsSection = () => {
+  const { t } = useTranslation();
   const [newsItems, setNewsItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
