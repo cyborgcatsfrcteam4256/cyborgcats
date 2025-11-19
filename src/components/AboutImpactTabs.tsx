@@ -84,10 +84,6 @@ export const AboutImpactTabs = () => {
           </TabsList>
 
           <TabsContent value="first" className="space-y-12 relative">
-            {/* Soft overlay only to keep a single arena background */}
-            <div className="absolute inset-0 -mx-6 -my-12 z-0 overflow-hidden rounded-3xl">
-              <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/75" />
-            </div>
             
             <div className="relative z-10">
             <ScrollReveal>
