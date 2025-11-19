@@ -76,10 +76,10 @@ export const Footer = () => {
                 <Users className="w-4 h-4" />
                 {t('nav.joinUs')}
               </a>
-              <a href="/contact?subject=partnership" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
+              <Link to="/contact" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Trophy className="w-4 h-4" />
-                Partner With Us
-              </a>
+                {t('footer.partnerWithUs')}
+              </Link>
             </div>
           </div>
 
