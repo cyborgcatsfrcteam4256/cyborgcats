@@ -14,6 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        'electrolize': ['Electrolize', 'sans-serif'],
         'rajdhani': ['Rajdhani', 'sans-serif'],
         'audiowide': ['Audiowide', 'monospace'],
         'orbitron': ['Orbitron', 'monospace'],
