@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight } from "lucide-react";
+import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight, Mail, Download } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
@@ -124,6 +124,14 @@ export default function AdminDashboard() {
       color: "from-purple-500/20 to-purple-600/20"
     },
     {
+      title: "Download Logos",
+      description: "Download all sponsor logos",
+      icon: Download,
+      path: "/admin/download-logos",
+      stat: "Export as ZIP file",
+      color: "from-violet-500/20 to-violet-600/20"
+    },
+    {
       title: "Manage Resources",
       description: "Learning materials and downloads",
       icon: BookOpen,
@@ -146,6 +154,14 @@ export default function AdminDashboard() {
       path: "/admin/news",
       stat: `${stats.publishedNews} published posts`,
       color: "from-pink-500/20 to-pink-600/20"
+    },
+    {
+      title: "Contact Inquiries",
+      description: "View contact form submissions",
+      icon: Mail,
+      path: "/admin/contact-inquiries",
+      stat: "Messages & Support",
+      color: "from-amber-500/20 to-amber-600/20"
     },
     {
       title: "View Reports",

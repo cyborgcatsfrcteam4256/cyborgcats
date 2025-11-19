@@ -7,7 +7,8 @@
     "media": "Medios",
     "resources": "Recursos",
     "contact": "Contacto",
-    "joinUs": "Únete"
+    "joinUs": "Únete",
+    "network": "Red"
   },
   "hero": {
     "title": "Cyborg Cats",
@@ -116,8 +117,13 @@
     "instagram": "Feed de Instagram"
   },
   "news": {
-    "title": "Noticias del Equipo",
-    "readMore": "Leer Más"
+    "title": "Últimas Noticias y Actualizaciones",
+    "subtitle": "Mantente Informado",
+    "description": "Mantente al día con nuestros últimos logros, anuncios y contenido detrás de escena del equipo Cyborg Cats.",
+    "latestUpdates": "Últimas Actualizaciones",
+    "readMore": "Leer Más",
+    "viewAll": "Ver Todas las Noticias",
+    "latest": "Última"
   },
   "newsletter": {
     "title": "Únete a Nuestro Boletín",

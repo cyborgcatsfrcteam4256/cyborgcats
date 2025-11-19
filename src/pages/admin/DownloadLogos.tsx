@@ -6,10 +6,13 @@ import { useToast } from "@/hooks/use-toast";
 import { Download, Loader2 } from "lucide-react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
+import { AdminLayout } from "@/components/Admin/AdminLayout";
+import { useTranslation } from "react-i18next";
 
 const DownloadLogos = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const downloadAllLogos = async () => {
     setIsDownloading(true);
@@ -23,8 +26,8 @@ const DownloadLogos = () => {
 
       if (!sponsors || sponsors.length === 0) {
         toast({
-          title: "No logos found",
-          description: "There are no active sponsors with logos",
+          title: t('downloadLogos.noLogos'),
+          description: t('downloadLogos.noLogosDesc'),
           variant: "destructive",
         });
         return;
@@ -51,13 +54,13 @@ const DownloadLogos = () => {
       saveAs(content, `sponsor-logos-${new Date().toISOString().split("T")[0]}.zip`);
 
       toast({
-        title: "Success",
-        description: `Downloaded ${sponsors.length} sponsor logos`,
+        title: t('downloadLogos.success'),
+        description: t('downloadLogos.successDesc', { count: sponsors.length }),
       });
     } catch (error: any) {
       toast({
-        title: "Error",
-        description: error.message || "Failed to download logos",
+        title: t('downloadLogos.error'),
+        description: error.message || t('downloadLogos.errorDesc'),
         variant: "destructive",
       });
     } finally {
@@ -66,12 +69,15 @@ const DownloadLogos = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 pt-24">
+    <AdminLayout 
+      title={t('downloadLogos.title')} 
+      description={t('downloadLogos.description')}
+    >
       <Card>
         <CardHeader>
-          <CardTitle className="font-display">Download Sponsor Logos</CardTitle>
+          <CardTitle className="font-display">{t('downloadLogos.cardTitle')}</CardTitle>
           <CardDescription>
-            Download all active sponsor logos as a ZIP file
+            {t('downloadLogos.cardDescription')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -84,18 +90,18 @@ const DownloadLogos = () => {
             {isDownloading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Preparing Download...
+                {t('downloadLogos.preparing')}
               </>
             ) : (
               <>
                 <Download className="mr-2 h-4 w-4" />
-                Download All Logos
+                {t('downloadLogos.downloadButton')}
               </>
             )}
           </Button>
         </CardContent>
       </Card>
-    </div>
+    </AdminLayout>
   );
 };
 

@@ -42,6 +42,20 @@ const Index = () => {
           </section>
         </ScrollReveal>
 
+        {/* News Section - Moved up for prominence */}
+        <ScrollReveal delay={100}>
+          <section id="news">
+            <NewsSection />
+          </section>
+        </ScrollReveal>
+
+        {/* Resources Preview Section */}
+        <ScrollReveal delay={100}>
+          <section id="resources">
+            <ResourcesPreviewSection />
+          </section>
+        </ScrollReveal>
+
         {/* Combined Testimonials + Alumni in Tabs */}
         <ScrollReveal delay={100}>
           <section id="community">
@@ -53,20 +67,6 @@ const Index = () => {
         <ScrollReveal delay={100}>
           <section id="media">
             <MediaGallery />
-          </section>
-        </ScrollReveal>
-
-        {/* News Section */}
-        <ScrollReveal delay={100}>
-          <section id="news">
-            <NewsSection />
-          </section>
-        </ScrollReveal>
-
-        {/* Resources Preview Section */}
-        <ScrollReveal delay={100}>
-          <section id="resources">
-            <ResourcesPreviewSection />
           </section>
         </ScrollReveal>
 
