@@ -6,11 +6,13 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { OptimizedImage } from '@/components/Performance/OptimizedImage';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const HeroSection = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { data: settings, isLoading: settingsLoading } = useSiteSettings();
 
   return (
     <section aria-label="Hero section" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -100,11 +102,13 @@ export const HeroSection = () => {
             </p>
 
             <p className="text-xl text-muted-foreground font-inter max-w-3xl leading-relaxed will-change-auto">
-              From Westminster Christian Academy in the heart of St. Louis, Missouri, we are{' '}
-              <span className="text-primary font-semibold">48 passionate students</span>{' '}
-              representing the Gateway City while engineering the future through robotics with a mission to{' '}
-              <span className="text-primary-glow font-semibold">serve God and impact our community</span>{' '}
-              through STEM education and Christian values.
+              {t('hero.intro.part1')}{' '}
+              <span className="text-primary font-semibold">
+                {settingsLoading ? '...' : settings?.teamMembersCount} {t('hero.intro.students')}
+              </span>{' '}
+              {t('hero.intro.part2')}{' '}
+              <span className="text-primary-glow font-semibold">{t('hero.intro.mission')}</span>{' '}
+              {t('hero.intro.part3')}
             </p>
 
             {/* Enhanced CTA Buttons */}
@@ -140,16 +144,22 @@ export const HeroSection = () => {
               <div className="absolute -top-px left-1/2 transform -translate-x-1/2 w-20 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
               
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">48</div>
-                <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Team Members</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">
+                  {settingsLoading ? '...' : settings?.teamMembersCount}
+                </div>
+                <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{t('stats.teamMembers')}</div>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">20</div>
-                <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Legislators Met</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">
+                  {settingsLoading ? '...' : settings?.legislatorsMet}
+                </div>
+                <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{t('stats.legislatorsMet')}</div>
               </div>
               <div className="text-center group cursor-pointer">
-                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">14</div>
-                <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Years Active</div>
+                <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary group-hover:text-primary-glow transition-colors duration-300 group-hover:scale-110 transform transition-transform">
+                  {settingsLoading ? '...' : settings?.yearsActive}
+                </div>
+                <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">{t('stats.yearsActive')}</div>
               </div>
             </div>
           </ScrollReveal>

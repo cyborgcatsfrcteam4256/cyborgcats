@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Mail, CheckCircle, Zap, Users, Award, AlertCircle } from 'lucide-react';
 import { FloatingParticles } from './FloatingParticles';
+import { useTranslation } from 'react-i18next';
 import { z } from 'zod';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
@@ -11,6 +12,7 @@ import { supabase } from '@/integrations/supabase/client';
 const emailSchema = z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters');
 
 export const NewsletterSection = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [error, setError] = useState('');

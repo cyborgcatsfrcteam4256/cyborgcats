@@ -3,6 +3,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { PremiumCard } from '@/components/PremiumCard';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import { Badge } from '@/components/ui/badge';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { 
   BookOpen, 
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 
 export const ResourcesSection = () => {
+  const { t } = useTranslation();
   const [resources, setResources] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 

@@ -18,12 +18,21 @@
     "getInvolved": "Get Involved",
     "certifiedEbiz": "Certified E-BIZ",
     "yearsExperience": "Years Experience",
-    "firstRobotics": "FIRST ROBOTICS"
+    "firstRobotics": "FIRST ROBOTICS",
+    "intro": {
+      "part1": "From Westminster Christian Academy in the heart of St. Louis, Missouri, we are",
+      "students": "passionate students",
+      "part2": "representing the Gateway City while engineering the future through robotics with a mission to",
+      "mission": "serve God and impact our community",
+      "part3": "through STEM education and Christian values."
+    }
   },
   "stats": {
-    "teamMembers": "Passionate Students",
-    "yearsActive": "Years of Excellence",
-    "legislatorsMet": "Legislators Met"
+    "teamMembers": "Team Members",
+    "yearsActive": "Years Active",
+    "yearsOfExcellence": "Years of Excellence",
+    "legislatorsMet": "Legislators Met",
+    "innovation": "Innovation"
   },
   "sections": {
     "aboutUs": "About Us",
@@ -76,7 +85,7 @@
     "viewAllImpact": "View All Impact"
   },
   "community": {
-    "title": "Community Stories",
+    "title": "Community",
     "subtitle": "Hear from our students and connect with our growing alumni network",
     "studentStories": "Student Stories",
     "alumniNetwork": "Alumni Network",

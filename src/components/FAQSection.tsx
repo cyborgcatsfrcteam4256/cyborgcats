@@ -4,10 +4,12 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { StructuredData } from '@/components/SEO/StructuredData';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ChevronDown, ChevronRight, HelpCircle, Users, Award, Lightbulb } from 'lucide-react';
 
 export const FAQSection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {

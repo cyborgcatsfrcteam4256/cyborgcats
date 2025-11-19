@@ -2,8 +2,10 @@ import { Building2, Handshake, Star, Users, Trophy, Target, ArrowRight, Heart } 
 import { ScrollReveal } from './ScrollReveal';
 import { PremiumCard } from './PremiumCard';
 import { LiquidButton } from './LiquidButton';
+import { useTranslation } from 'react-i18next';
 
 export const SponsorsSection = () => {
+  const { t } = useTranslation();
   const currentSponsors = [
     { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/westminster-logo.png", website: "https://wcastl.org" },
     { name: "Boeing", tier: "Foundational", logo: "/lovable-uploads/boeing-logo.png", website: "https://www.boeing.com" },

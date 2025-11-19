@@ -11,6 +11,8 @@
   },
   "hero": {
     "title": "Cyborg Cats",
+  "hero": {
+    "title": "Cyborg Cats",
     "subtitle": "Equipo FRC 4256",
     "tagline": "San Luis • Equipo 4256",
     "description": "Construyendo robots, construyendo futuros. De Westminster Christian Academy en San Luis, Misuri.",
@@ -18,12 +20,21 @@
     "getInvolved": "Participa",
     "certifiedEbiz": "Certificado E-BIZ",
     "yearsExperience": "Años de Experiencia",
-    "firstRobotics": "FIRST ROBOTICS"
+    "firstRobotics": "FIRST ROBOTICS",
+    "intro": {
+      "part1": "Desde Westminster Christian Academy en el corazón de St. Louis, Missouri, somos",
+      "students": "estudiantes apasionados",
+      "part2": "representando la Ciudad Puerta mientras construimos el futuro a través de la robótica con la misión de",
+      "mission": "servir a Dios e impactar nuestra comunidad",
+      "part3": "a través de la educación STEM y los valores cristianos."
+    }
   },
   "stats": {
-    "teamMembers": "Estudiantes Apasionados",
-    "yearsActive": "Años de Excelencia",
-    "legislatorsMet": "Legisladores Conocidos"
+    "teamMembers": "Miembros del Equipo",
+    "yearsActive": "Años Activos",
+    "yearsOfExcellence": "Años de Excelencia",
+    "legislatorsMet": "Legisladores Conocidos",
+    "innovation": "Innovación"
   },
   "sections": {
     "aboutUs": "Sobre Nosotros",
@@ -76,10 +87,10 @@
     "viewAllImpact": "Ver Todo el Impacto"
   },
   "community": {
-    "title": "Historias de la Comunidad",
-    "subtitle": "Escucha de nuestros estudiantes y conéctate con nuestra creciente red de exalumnos",
+    "title": "Comunidad",
+    "subtitle": "Escucha a nuestros estudiantes y conéctate con nuestra creciente red de ex-alumnos",
     "studentStories": "Historias de Estudiantes",
-    "alumniNetwork": "Red de Exalumnos",
+    "alumniNetwork": "Red de Ex-alumnos",
     "joinNetwork": "Únete a la Red"
   },
   "sponsors": {
@@ -147,5 +158,12 @@
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio",
     "firstRobotics": "FIRST Robotics"
+  },
+  "community": {
+    "title": "Comunidad",
+    "subtitle": "Escucha a nuestros estudiantes y conéctate con nuestra creciente red de ex-alumnos",
+    "studentStories": "Historias de Estudiantes",
+    "alumniNetwork": "Red de Ex-alumnos",
+    "joinNetwork": "Únete a la Red"
   }
 }

@@ -15,7 +15,24 @@
     "tagline": "St. Louis • Équipe 4256",
     "description": "Construire des robots, construire des avenirs. De Westminster Christian Academy à St. Louis, Missouri.",
     "learnMore": "En Savoir Plus",
-    "getInvolved": "S'Impliquer"
+    "getInvolved": "S'Impliquer",
+    "certifiedEbiz": "E-BIZ Certifié",
+    "yearsExperience": "Années d'Expérience",
+    "firstRobotics": "FIRST ROBOTICS",
+    "intro": {
+      "part1": "De la Westminster Christian Academy au cœur de St. Louis, Missouri, nous sommes",
+      "students": "étudiants passionnés",
+      "part2": "représentant la Gateway City tout en construisant l'avenir grâce à la robotique avec pour mission de",
+      "mission": "servir Dieu et impacter notre communauté",
+      "part3": "par l'éducation STEM et les valeurs chrétiennes."
+    }
+  },
+  "stats": {
+    "teamMembers": "Membres de l'Équipe",
+    "yearsActive": "Années Actives",
+    "yearsOfExcellence": "Années d'Excellence",
+    "legislatorsMet": "Législateurs Rencontrés",
+    "innovation": "Innovation"
   },
   "sections": {
     "aboutUs": "À Propos de Nous",
@@ -57,5 +74,12 @@
     "privacyPolicy": "Politique de Confidentialité",
     "termsOfService": "Conditions d'Utilisation",
     "firstRobotics": "FIRST Robotics"
+  },
+  "community": {
+    "title": "Communauté",
+    "subtitle": "Écoutez nos étudiants et connectez-vous à notre réseau croissant d'anciens élèves",
+    "studentStories": "Histoires d'Étudiants",
+    "alumniNetwork": "Réseau d'Anciens",
+    "joinNetwork": "Rejoindre le Réseau"
   }
 }
