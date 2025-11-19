@@ -134,6 +134,22 @@ export default {
             transform: "translateY(-10px)"
           }
         },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px) rotate(0deg)"
+          },
+          "50%": {
+            transform: "translateY(-8px) rotate(1deg)"
+          }
+        },
+        "gradient": {
+          "0%, 100%": {
+            backgroundPosition: "0% 50%"
+          },
+          "50%": {
+            backgroundPosition: "100% 50%"
+          }
+        },
         "color-morph": {
           "0%": { filter: "hue-rotate(180deg)" },
           "33%": { filter: "hue-rotate(220deg)" },
@@ -148,8 +164,13 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
         "cyber-float": "cyber-float 3s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "gradient": "gradient 3s ease infinite",
         "color-morph": "color-morph 6s linear infinite",
         "color-morph-slow": "color-morph 12s linear infinite",
+      },
+      backgroundSize: {
+        "300%": "300% 300%",
       },
     },
   },
