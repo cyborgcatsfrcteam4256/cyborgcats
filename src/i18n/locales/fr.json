@@ -7,7 +7,8 @@
     "media": "Médias",
     "resources": "Ressources",
     "contact": "Contact",
-    "joinUs": "Rejoignez-Nous"
+    "joinUs": "Rejoignez-Nous",
+    "network": "Réseau"
   },
   "hero": {
     "title": "Cyborg Cats",
@@ -187,5 +188,77 @@
     "stemCurriculum": "Programme STEM",
     "comingSoon": "Bientôt Disponible",
     "resourceCategories": "Catégories de Ressources"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Tableau de Bord Administrateur",
+      "subtitle": "Gérez le contenu et les paramètres de votre site web",
+      "overview": "Aperçu",
+      "quickActions": "Actions Rapides",
+      "recentActivity": "Activité Récente",
+      "contentManagement": "Gestion du Contenu",
+      "systemSettings": "Paramètres Système"
+    },
+    "users": {
+      "title": "Gestion des Utilisateurs",
+      "manageUsers": "Gérer les Utilisateurs",
+      "description": "Voir et gérer les comptes utilisateurs et les permissions"
+    },
+    "team": {
+      "title": "Gestion de l'Équipe",
+      "manageTeam": "Gérer les Membres de l'Équipe",
+      "description": "Ajouter, modifier et organiser les profils des membres de l'équipe"
+    },
+    "sponsors": {
+      "title": "Gestion des Sponsors",
+      "manageSponsors": "Gérer les Sponsors",
+      "description": "Gérer les informations et logos des sponsors"
+    },
+    "news": {
+      "title": "Gestion des Actualités",
+      "manageNews": "Gérer les Articles d'Actualités",
+      "description": "Créer et publier des mises à jour d'actualités"
+    },
+    "resources": {
+      "title": "Gestion des Ressources",
+      "manageResources": "Gérer les Ressources",
+      "description": "Organiser et publier des ressources éducatives"
+    },
+    "settings": {
+      "title": "Paramètres du Site",
+      "siteSettings": "Paramètres du Site",
+      "description": "Configurer les paramètres globaux du site web"
+    },
+    "contactInquiries": {
+      "title": "Demandes de Contact",
+      "viewInquiries": "Voir les Demandes",
+      "description": "Examiner et répondre aux messages de contact"
+    },
+    "downloadLogos": {
+      "title": "Télécharger les Logos",
+      "downloadAll": "Télécharger Tous les Logos",
+      "description": "Télécharger les logos des sponsors dans un fichier ZIP"
+    }
+  },
+  "contactInquiries": {
+    "title": "Demandes de Contact",
+    "subtitle": "Gérer les messages de contact du site web",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "subject": "Sujet",
+    "message": "Message",
+    "date": "Date",
+    "noInquiries": "Aucune demande pour le moment",
+    "loading": "Chargement des demandes..."
+  },
+  "downloadLogos": {
+    "title": "Télécharger les Logos des Sponsors",
+    "subtitle": "Télécharger tous les logos des sponsors dans un fichier ZIP",
+    "button": "Télécharger Tous les Logos",
+    "downloading": "Téléchargement en cours...",
+    "success": "Logos téléchargés avec succès !",
+    "error": "Erreur lors du téléchargement des logos",
+    "noLogos": "Aucun logo de sponsor disponible pour le téléchargement"
   }
 }

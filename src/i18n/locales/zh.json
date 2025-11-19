@@ -7,7 +7,8 @@
     "media": "媒体",
     "resources": "资源",
     "contact": "联系",
-    "joinUs": "加入我们"
+    "joinUs": "加入我们",
+    "network": "网络"
   },
   "hero": {
     "title": "Cyborg Cats",
@@ -178,5 +179,77 @@
     "studentStories": "学生故事",
     "alumniNetwork": "校友网络",
     "joinNetwork": "加入网络"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "管理仪表板",
+      "subtitle": "管理您的网站内容和设置",
+      "overview": "概览",
+      "quickActions": "快速操作",
+      "recentActivity": "最近活动",
+      "contentManagement": "内容管理",
+      "systemSettings": "系统设置"
+    },
+    "users": {
+      "title": "用户管理",
+      "manageUsers": "管理用户",
+      "description": "查看和管理用户账户和权限"
+    },
+    "team": {
+      "title": "团队管理",
+      "manageTeam": "管理团队成员",
+      "description": "添加、编辑和组织团队成员资料"
+    },
+    "sponsors": {
+      "title": "赞助商管理",
+      "manageSponsors": "管理赞助商",
+      "description": "管理赞助商信息和标志"
+    },
+    "news": {
+      "title": "新闻管理",
+      "manageNews": "管理新闻文章",
+      "description": "创建和发布新闻更新"
+    },
+    "resources": {
+      "title": "资源管理",
+      "manageResources": "管理资源",
+      "description": "组织和发布教育资源"
+    },
+    "settings": {
+      "title": "网站设置",
+      "siteSettings": "网站设置",
+      "description": "配置全局网站设置"
+    },
+    "contactInquiries": {
+      "title": "联系咨询",
+      "viewInquiries": "查看咨询",
+      "description": "审查和回复联系消息"
+    },
+    "downloadLogos": {
+      "title": "下载标志",
+      "downloadAll": "下载所有标志",
+      "description": "下载赞助商标志压缩文件"
+    }
+  },
+  "contactInquiries": {
+    "title": "联系咨询",
+    "subtitle": "管理来自网站的联系消息",
+    "name": "姓名",
+    "email": "电子邮件",
+    "phone": "电话",
+    "subject": "主题",
+    "message": "消息",
+    "date": "日期",
+    "noInquiries": "暂无咨询",
+    "loading": "加载咨询中..."
+  },
+  "downloadLogos": {
+    "title": "下载赞助商标志",
+    "subtitle": "下载所有赞助商标志压缩文件",
+    "button": "下载所有标志",
+    "downloading": "下载中...",
+    "success": "标志下载成功！",
+    "error": "下载标志时出错",
+    "noLogos": "没有可下载的赞助商标志"
   }
 }
