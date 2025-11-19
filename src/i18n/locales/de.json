@@ -7,7 +7,8 @@
     "media": "Medien",
     "resources": "Ressourcen",
     "contact": "Kontakt",
-    "joinUs": "Mitmachen"
+    "joinUs": "Mitmachen",
+    "network": "Netzwerk"
   },
   "hero": {
     "title": "Cyborg Cats",
@@ -187,5 +188,77 @@
     "stemCurriculum": "STEM-Lehrplan",
     "comingSoon": "Demnächst",
     "resourceCategories": "Ressourcenkategorien"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Administrator-Dashboard",
+      "subtitle": "Verwalten Sie Ihre Website-Inhalte und -Einstellungen",
+      "overview": "Übersicht",
+      "quickActions": "Schnellaktionen",
+      "recentActivity": "Letzte Aktivität",
+      "contentManagement": "Inhaltsverwaltung",
+      "systemSettings": "Systemeinstellungen"
+    },
+    "users": {
+      "title": "Benutzerverwaltung",
+      "manageUsers": "Benutzer Verwalten",
+      "description": "Benutzerkonten und Berechtigungen anzeigen und verwalten"
+    },
+    "team": {
+      "title": "Teamverwaltung",
+      "manageTeam": "Teammitglieder Verwalten",
+      "description": "Teammitgliederprofile hinzufügen, bearbeiten und organisieren"
+    },
+    "sponsors": {
+      "title": "Sponsorenverwaltung",
+      "manageSponsors": "Sponsoren Verwalten",
+      "description": "Sponsoreninformationen und -logos verwalten"
+    },
+    "news": {
+      "title": "Nachrichtenverwaltung",
+      "manageNews": "Nachrichtenartikel Verwalten",
+      "description": "Nachrichtenupdates erstellen und veröffentlichen"
+    },
+    "resources": {
+      "title": "Ressourcenverwaltung",
+      "manageResources": "Ressourcen Verwalten",
+      "description": "Bildungsressourcen organisieren und veröffentlichen"
+    },
+    "settings": {
+      "title": "Website-Einstellungen",
+      "siteSettings": "Website-Einstellungen",
+      "description": "Globale Website-Einstellungen konfigurieren"
+    },
+    "contactInquiries": {
+      "title": "Kontaktanfragen",
+      "viewInquiries": "Anfragen Anzeigen",
+      "description": "Kontaktnachrichten überprüfen und beantworten"
+    },
+    "downloadLogos": {
+      "title": "Logos Herunterladen",
+      "downloadAll": "Alle Logos Herunterladen",
+      "description": "Sponsorenlogos als ZIP-Datei herunterladen"
+    }
+  },
+  "contactInquiries": {
+    "title": "Kontaktanfragen",
+    "subtitle": "Kontaktnachrichten von der Website verwalten",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "date": "Datum",
+    "noInquiries": "Noch keine Anfragen",
+    "loading": "Lade Anfragen..."
+  },
+  "downloadLogos": {
+    "title": "Sponsorenlogos Herunterladen",
+    "subtitle": "Alle Sponsorenlogos als ZIP-Datei herunterladen",
+    "button": "Alle Logos Herunterladen",
+    "downloading": "Wird heruntergeladen...",
+    "success": "Logos erfolgreich heruntergeladen!",
+    "error": "Fehler beim Herunterladen der Logos",
+    "noLogos": "Keine Sponsorenlogos zum Herunterladen verfügbar"
   }
 }

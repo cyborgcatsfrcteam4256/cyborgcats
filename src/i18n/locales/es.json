@@ -184,5 +184,77 @@
     "studentStories": "Historias de Estudiantes",
     "alumniNetwork": "Red de Ex-alumnos",
     "joinNetwork": "Únete a la Red"
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Panel de Administración",
+      "subtitle": "Gestiona el contenido y la configuración de tu sitio web",
+      "overview": "Resumen",
+      "quickActions": "Acciones Rápidas",
+      "recentActivity": "Actividad Reciente",
+      "contentManagement": "Gestión de Contenido",
+      "systemSettings": "Configuración del Sistema"
+    },
+    "users": {
+      "title": "Gestión de Usuarios",
+      "manageUsers": "Gestionar Usuarios",
+      "description": "Ver y gestionar cuentas de usuario y permisos"
+    },
+    "team": {
+      "title": "Gestión de Equipo",
+      "manageTeam": "Gestionar Miembros del Equipo",
+      "description": "Añadir, editar y organizar perfiles de miembros del equipo"
+    },
+    "sponsors": {
+      "title": "Gestión de Patrocinadores",
+      "manageSponsors": "Gestionar Patrocinadores",
+      "description": "Gestionar información y logos de patrocinadores"
+    },
+    "news": {
+      "title": "Gestión de Noticias",
+      "manageNews": "Gestionar Artículos de Noticias",
+      "description": "Crear y publicar actualizaciones de noticias"
+    },
+    "resources": {
+      "title": "Gestión de Recursos",
+      "manageResources": "Gestionar Recursos",
+      "description": "Organizar y publicar recursos educativos"
+    },
+    "settings": {
+      "title": "Configuración del Sitio",
+      "siteSettings": "Configuración del Sitio",
+      "description": "Configurar ajustes globales del sitio web"
+    },
+    "contactInquiries": {
+      "title": "Consultas de Contacto",
+      "viewInquiries": "Ver Consultas",
+      "description": "Revisar y responder a mensajes de contacto"
+    },
+    "downloadLogos": {
+      "title": "Descargar Logos",
+      "downloadAll": "Descargar Todos los Logos",
+      "description": "Descargar logos de patrocinadores en un archivo ZIP"
+    }
+  },
+  "contactInquiries": {
+    "title": "Consultas de Contacto",
+    "subtitle": "Gestionar mensajes de contacto del sitio web",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "date": "Fecha",
+    "noInquiries": "No hay consultas aún",
+    "loading": "Cargando consultas..."
+  },
+  "downloadLogos": {
+    "title": "Descargar Logos de Patrocinadores",
+    "subtitle": "Descargar todos los logos de patrocinadores en un archivo ZIP",
+    "button": "Descargar Todos los Logos",
+    "downloading": "Descargando...",
+    "success": "¡Logos descargados exitosamente!",
+    "error": "Error al descargar logos",
+    "noLogos": "No hay logos de patrocinadores disponibles para descargar"
   }
 }
