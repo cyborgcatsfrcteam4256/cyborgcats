@@ -52,6 +52,7 @@ export const AboutImpactTabs = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/40 to-background/50 backdrop-blur-[2px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-background/30 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_40%,rgba(0,0,0,0.3)_80%,rgba(0,0,0,0.5)_100%)]" />
       </div>
       <div className="absolute inset-0 circuit-pattern opacity-5 z-[1]" />
       
