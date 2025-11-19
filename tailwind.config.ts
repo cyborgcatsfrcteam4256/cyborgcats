@@ -14,6 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        'rajdhani': ['Rajdhani', 'sans-serif'],
         'audiowide': ['Audiowide', 'monospace'],
         'orbitron': ['Orbitron', 'monospace'],
         'inter': ['Inter', 'sans-serif'],
