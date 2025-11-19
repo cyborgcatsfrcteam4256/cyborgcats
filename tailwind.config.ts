@@ -14,6 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        'audiowide': ['Audiowide', 'monospace'],
         'orbitron': ['Orbitron', 'monospace'],
         'inter': ['Inter', 'sans-serif'],
         'opendyslexic': ['OpenDyslexic', 'sans-serif'],
