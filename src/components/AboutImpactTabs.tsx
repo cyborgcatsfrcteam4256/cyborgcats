@@ -7,11 +7,13 @@ import { StatCounter } from './StatCounter';
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 
 export const AboutImpactTabs = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { data: settings } = useSiteSettings();
 
   const features = [
     {
@@ -144,8 +146,8 @@ export const AboutImpactTabs = () => {
 
           <TabsContent value="impact" className="space-y-12">
             <div className="grid grid-cols-2 gap-6 mb-12">
-              <StatCounter value={48} label="Passionate Students" />
-              <StatCounter value={14} label="Years of Excellence" suffix="+" />
+              <StatCounter value={settings?.teamMembersCount || 0} label={t('stats.teamMembers')} />
+              <StatCounter value={settings?.yearsActive || 0} label={t('stats.yearsOfExcellence')} suffix="+" />
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

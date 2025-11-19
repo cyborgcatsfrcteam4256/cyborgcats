@@ -4,9 +4,11 @@ import { ScrollReveal } from './ScrollReveal';
 import { PremiumCard } from './PremiumCard';
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const CommunitySection = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const testimonials = [
     {
@@ -43,10 +45,10 @@ export const CommunitySection = () => {
         <ScrollReveal>
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-orbitron font-black mb-6 text-glow">
-              <span className="text-holographic">Community</span> Stories
+              <span className="text-holographic">{t('community.title')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Hear from our students and connect with our growing alumni network
+              {t('community.subtitle')}
             </p>
           </div>
         </ScrollReveal>
@@ -57,13 +59,13 @@ export const CommunitySection = () => {
               value="testimonials" 
               className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000"
             >
-              Student Stories
+              {t('community.studentStories')}
             </TabsTrigger>
             <TabsTrigger 
               value="alumni" 
               className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000"
             >
-              Alumni Network
+              {t('community.alumniNetwork')}
             </TabsTrigger>
           </TabsList>
 

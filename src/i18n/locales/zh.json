@@ -11,6 +11,8 @@
   },
   "hero": {
     "title": "Cyborg Cats",
+  "hero": {
+    "title": "Cyborg Cats",
     "subtitle": "FRC 4256队",
     "tagline": "圣路易斯 • 4256队",
     "description": "建造机器人，建造未来。来自密苏里州圣路易斯的威斯敏斯特基督教学院。",
@@ -18,12 +20,21 @@
     "getInvolved": "参与",
     "certifiedEbiz": "认证E-BIZ",
     "yearsExperience": "年经验",
-    "firstRobotics": "FIRST机器人"
+    "firstRobotics": "FIRST机器人",
+    "intro": {
+      "part1": "我们来自密苏里州圣路易斯市中心的威斯敏斯特基督教学院，我们是",
+      "students": "充满激情的学生",
+      "part2": "代表着门户城市，通过机器人技术创造未来，我们的使命是",
+      "mission": "侍奉上帝并影响我们的社区",
+      "part3": "通过STEM教育和基督教价值观。"
+    }
   },
   "stats": {
-    "teamMembers": "热情的学生",
-    "yearsActive": "卓越年份",
-    "legislatorsMet": "会见立法者"
+    "teamMembers": "团队成员",
+    "yearsActive": "活跃年数",
+    "yearsOfExcellence": "卓越年数",
+    "legislatorsMet": "会见的立法者",
+    "innovation": "创新"
   },
   "sections": {
     "aboutUs": "关于我们",
@@ -76,8 +87,8 @@
     "viewAllImpact": "查看所有影响"
   },
   "community": {
-    "title": "社区故事",
-    "subtitle": "听取我们学生的声音，并与我们不断发展的校友网络联系",
+    "title": "社区",
+    "subtitle": "聆听我们的学生，并与我们不断增长的校友网络建立联系",
     "studentStories": "学生故事",
     "alumniNetwork": "校友网络",
     "joinNetwork": "加入网络"
@@ -147,5 +158,12 @@
     "privacyPolicy": "隐私政策",
     "termsOfService": "服务条款",
     "firstRobotics": "FIRST机器人"
+  },
+  "community": {
+    "title": "社区",
+    "subtitle": "聆听我们的学生，并与我们不断增长的校友网络建立联系",
+    "studentStories": "学生故事",
+    "alumniNetwork": "校友网络",
+    "joinNetwork": "加入网络"
   }
 }
