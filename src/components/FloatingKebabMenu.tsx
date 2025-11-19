@@ -9,6 +9,8 @@ export const FloatingKebabMenu = () => {
     { id: 'about-us', label: 'About Us' },
     { id: 'what-is-first', label: 'What is FIRST?' },
     { id: 'sponsors', label: 'Sponsors' },
+    { id: 'news', label: 'News' },
+    { id: 'resources', label: 'Resources' },
     { id: 'community', label: 'Community' },
     { id: 'media', label: 'Media' },
     { id: 'contact', label: 'Contact' },
