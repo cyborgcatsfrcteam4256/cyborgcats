@@ -102,17 +102,20 @@ export const MediaGallery = () => {
           </div>
         </ScrollReveal>
 
-        <Tabs defaultValue="photos" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-14 glass-morphism border border-primary/30">
-            <TabsTrigger value="photos" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">
-              <Camera className="w-4 h-4 mr-2" />
-              Photo Gallery
-            </TabsTrigger>
-            <TabsTrigger value="instagram" className="text-base font-orbitron data-[state=active]:bg-primary/20 data-[state=active]:text-primary transition-all duration-300">
-              <Instagram className="w-4 h-4 mr-2" />
-              Instagram
-            </TabsTrigger>
-          </TabsList>
+        <ScrollReveal>
+          <Tabs defaultValue="photos" className="w-full">
+            <div className="flex justify-center mb-16">
+              <TabsList className="inline-flex h-14 glass-morphism border-2 border-primary/30 shadow-lg">
+                <TabsTrigger value="photos" className="text-base font-orbitron px-8">
+                  <Camera className="w-5 h-5 mr-2" />
+                  Photo Gallery
+                </TabsTrigger>
+                <TabsTrigger value="instagram" className="text-base font-orbitron px-8">
+                  <Instagram className="w-5 h-5 mr-2" />
+                  Instagram
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
           <TabsContent value="photos" className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -211,6 +214,7 @@ export const MediaGallery = () => {
             </ScrollReveal>
           </TabsContent>
         </Tabs>
+        </ScrollReveal>
 
         {/* Enhanced Lightbox Modal */}
         {selectedImage !== null && (
