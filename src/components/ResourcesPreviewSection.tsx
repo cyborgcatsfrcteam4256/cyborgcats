@@ -178,9 +178,6 @@ export const ResourcesPreviewSection = () => {
             
             {/* Floating Stats Cards */}
             <div className="flex items-center justify-center gap-6 flex-wrap">
-              <div className="glass-morphism px-8 py-4 rounded-2xl border-2 border-primary/30 shadow-luxury hover:shadow-cyber transition-all duration-500 group hover:scale-105">
-                <StatCounter value={totalResources || 50} label="Resources" suffix="+" />
-              </div>
               <div className="glass-morphism px-8 py-4 rounded-2xl border-2 border-primary-glow/30 shadow-luxury hover:shadow-cyber transition-all duration-500 group hover:scale-105">
                 <StatCounter value={categories.length} label="Categories" />
               </div>
@@ -390,7 +387,7 @@ export const ResourcesPreviewSection = () => {
                   onClick={() => navigate('/resources')}
                 >
                   <Sparkles className="w-6 h-6 mr-2 group-hover/btn:rotate-180 transition-transform duration-700" />
-                  Explore All {totalResources || 50}+ Resources
+                  Explore All Resources
                   <ArrowRight className="ml-2 w-6 h-6 transition-transform group-hover/btn:translate-x-2" />
                 </Button>
               </div>
