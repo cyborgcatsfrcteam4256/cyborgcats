@@ -218,16 +218,19 @@ export const MediaGallery = () => {
 
         {/* Enhanced Lightbox Modal */}
         {selectedImage !== null && (
-          <div className="fixed inset-0 z-50 bg-black/98 backdrop-blur-2xl flex items-center justify-center p-4 animate-fade-in">
-            <div className="relative max-w-7xl w-full">
-              {/* Close button */}
+          <div 
+            className="fixed inset-0 z-50 bg-black/98 backdrop-blur-2xl flex items-center justify-center p-4 animate-fade-in"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-7xl w-full" onClick={(e) => e.stopPropagation()}>
+              {/* Close button - Fixed positioning for visibility */}
               <LiquidButton
                 variant="glass"
                 size="icon"
-                className="absolute -top-16 right-0 z-10 w-14 h-14 hover:rotate-90 transition-transform duration-500"
+                className="fixed top-6 right-6 z-[60] w-16 h-16 hover:rotate-90 transition-transform duration-500 shadow-luxury border-2 border-primary/40"
                 onClick={() => setSelectedImage(null)}
               >
-                <X className="w-7 h-7" />
+                <X className="w-8 h-8" />
               </LiquidButton>
 
               {/* Navigation buttons */}
