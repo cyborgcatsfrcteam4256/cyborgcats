@@ -154,6 +154,9 @@
 
   body {
     @apply bg-background text-foreground font-electrolize;
+    /* Performance optimizations to prevent forced reflows */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -297,39 +300,52 @@
     animation: holographic-rotate-text 6s ease-in-out infinite;
   }
   
-  /* Hover glow effect */
+  /* Hover glow effect with GPU acceleration */
   .hover-glow {
     transition: var(--transition-glow);
+    will-change: box-shadow, transform;
+    transform: translateZ(0);
   }
   
   .hover-glow:hover {
     box-shadow: var(--glow-electric);
-    transform: translateY(-2px);
+    transform: translateY(-2px) translateZ(0);
   }
 
-  /* Advanced animations */
+  /* Advanced animations with GPU acceleration */
   .animate-slide-up {
     animation: slideUp 0.8s ease-out forwards;
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 
   .animate-slide-left {
     animation: slideLeft 0.8s ease-out forwards;
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 
   .animate-scale-in {
     animation: scaleIn 0.6s ease-out forwards;
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 
   .animate-cyber-float {
     animation: cyberFloat 3s ease-in-out infinite;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .animate-glow-pulse {
     animation: glowPulse 2s ease-in-out infinite;
+    will-change: box-shadow;
   }
 
   .animate-matrix-rain {
     animation: matrixRain 20s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .animate-typing {
@@ -362,12 +378,14 @@
     animation: holographicRotate 3s linear infinite;
   }
 
-  /* Interactive card hover */
+  /* Interactive card hover with optimized transforms */
   .interactive-card {
     transition: var(--transition-luxury);
     transform-origin: center;
     position: relative;
     overflow: hidden;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
   }
 
   .interactive-card::before {
@@ -379,6 +397,7 @@
     height: 100%;
     background: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.1) 50%, transparent 100%);
     transition: left 0.6s ease;
+    will-change: left;
   }
 
   .interactive-card:hover::before {
@@ -386,7 +405,7 @@
   }
 
   .interactive-card:hover {
-    transform: translateY(-8px) scale(1.03);
+    transform: translateY(-8px) scale(1.03) translateZ(0);
     box-shadow: var(--shadow-luxury);
   }
 
@@ -440,12 +459,14 @@
     animation-duration: 10s;
   }
 
-  /* Advanced glass morphism */
+  /* Advanced glass morphism with GPU optimization */
   .glass-morphism {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: var(--shadow-floating);
+    will-change: transform, opacity;
+    transform: translateZ(0);
   }
 
   /* Liquid button effect */
