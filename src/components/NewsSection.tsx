@@ -46,9 +46,11 @@ export const NewsSection = () => {
 
   if (loading) {
     return (
-      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
-        <EnhancedBackground variant="particles" className="opacity-20" />
-        <div className="max-w-7xl mx-auto px-4 text-center">
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <EnhancedBackground variant="particles" className="opacity-30" />
+        <div className="max-w-7xl mx-auto px-4 text-center relative">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
         </div>
       </section>
@@ -56,8 +58,11 @@ export const NewsSection = () => {
   }
 
   return (
-    <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
-      <EnhancedBackground variant="particles" className="opacity-20" />
+    <section className="py-32 relative overflow-hidden">
+      {/* Beautiful Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <EnhancedBackground variant="particles" className="opacity-30" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
