@@ -193,10 +193,10 @@ export const AboutImpactTabs = () => {
                   Empowering the Next Generation
                 </h3>
                 <p className="text-lg text-white font-inter leading-relaxed drop-shadow-lg">
-                  Based in St. Louis, Missouri, our team continues growing and making community impact throughout the Show-Me State through STEM education and advocacy for students across Missouri, while always seeking to honor God and demonstrate Christ-like service in our community. <span className="text-primary font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
+                  Based in St. Louis, Missouri, our team continues growing and making community impact throughout the Show-Me State through STEM education and advocacy for students across Missouri, while always seeking to honor God and demonstrate Christ-like service in our community. <span className="text-primary-glow font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
                   community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
                   STEM education and advocacy for students across Missouri, while always seeking to 
-                  <span className="text-primary font-semibold"> honor God</span> and demonstrate 
+                  <span className="text-primary-glow font-semibold"> honor God</span> and demonstrate 
                   <span className="text-primary-electric font-semibold"> Christ-like service</span> in our community.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
