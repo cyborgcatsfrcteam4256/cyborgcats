@@ -7,8 +7,8 @@ export const FloatingKebabMenu = () => {
 
   const sections = [
     { id: 'about-us', label: 'About Us' },
-    { id: 'what-is-first', label: 'What is FIRST?' },
     { id: 'sponsors', label: 'Sponsors' },
+    { id: 'what-is-first', label: 'What is FIRST?' },
     { id: 'news', label: 'News' },
     { id: 'resources', label: 'Resources' },
     { id: 'community', label: 'Community' },
