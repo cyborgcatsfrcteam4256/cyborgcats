@@ -2,15 +2,17 @@ import { Button } from '@/components/ui/button';
 import { Instagram, Mail, MapPin, Phone, Zap, ArrowUp, Home, Users, Trophy, Heart, Camera, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
 export const Footer = () => {
-  const { t } = useTranslation();
+  const {
+    t
+  } = useTranslation();
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <footer className="bg-card border-t border-border" aria-label="Site footer">
+  return <footer className="bg-card border-t border-border" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -96,7 +98,7 @@ export const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary" />
                 <span className="text-muted-foreground font-inter text-sm">
-                  team@cyborgcats4256.org
+                  cyborgcatsfrcteam4256@gmail.com
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -119,16 +121,12 @@ export const Footer = () => {
             <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">{t('footer.privacyPolicy')}</Link>
             <Link to="/terms" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">{t('footer.termsOfService')}</Link>
             <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">{t('footer.firstRobotics')}</a>
-            <button 
-              onClick={scrollToTop}
-              className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-cyber font-inter text-sm"
-            >
+            <button onClick={scrollToTop} className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-cyber font-inter text-sm">
               <ArrowUp className="w-4 h-4" />
               {t('footer.backToTop')}
             </button>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
