@@ -134,44 +134,16 @@
     "badge": "Latest Updates",
     "title": "Team",
     "subtitle": "News",
-    "description": "Discover our journey through competition victories, community outreach programs, and groundbreaking STEM initiatives as we inspire the next generation of innovators",
-    "readMore": "Read More",
+    "description": "Stay informed with our latest competition victories, community outreach programs, and groundbreaking STEM initiatives",
+    "readMore": "Read Full Story",
     "allNews": "View All News",
-    "latest": "Latest"
-  },
-  "testimonials": {
-    "badge": "Community Voices",
-    "title": "Inspiring Stories",
-    "subtitle": "Hear from the students, mentors, and community members who make our mission possible",
-    "viewAllStories": "View All Stories"
+    "latest": "Latest",
+    "featured": "Featured Story",
+    "noNews": "No news posts yet. Check back soon!"
   },
   "newsletter": {
-    "badge": "Stay Connected",
     "title": "Join Our Newsletter",
     "subtitle": "Stay up to date with our latest achievements, upcoming events, and behind-the-scenes content from the Cyborg Cats team",
-    "emailPlaceholder": "Enter your email",
-    "subscribe": "Subscribe",
-    "successMessage": "Thank you for subscribing!",
-    "competitionUpdates": "Competition Updates",
-    "competitionUpdatesDesc": "Get notified about our latest competition results and achievements",
-    "communityImpact": "Community Impact",
-    "communityImpactDesc": "Learn about our outreach programs and how you can get involved",
-    "behindTheScenes": "Behind the Scenes",
-    "behindTheScenesDesc": "Exclusive content about our robot development and team activities"
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Get answers to common questions about joining the team, competitions, and our community impact"
-  },
-  "news": {
-    "title": "Latest News & Updates",
-    "subtitle": "Stay up to date with our team's latest achievements and announcements",
-    "latestUpdates": "Latest Updates",
-    "readMore": "Read More"
-  },
-  "newsletter": {
-    "title": "Join Our Newsletter",
-    "subtitle": "Stay up to date with our latest achievements, upcoming events, and behind-the-scenes content from the Cyborg Cats team.",
     "stayConnected": "Stay Connected",
     "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe",
