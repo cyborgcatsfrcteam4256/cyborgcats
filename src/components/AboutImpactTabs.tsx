@@ -11,45 +11,35 @@ import { useSiteSettings } from '@/hooks/useSiteSettings';
 import cyborgCatsLogo from '@/assets/cyborg-cats-logo.png';
 import competitionArena from '@/assets/first-champs-arena.jpg';
 import { OptimizedImage } from '@/components/Performance/OptimizedImage';
-
 export const AboutImpactTabs = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
-  const { data: settings } = useSiteSettings();
-
-  const features = [
-    {
-      icon: <Bot className="w-8 h-8" />,
-      title: t('features.designBuild'),
-      description: t('features.designBuildDesc')
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: t('features.collaboration'),
-      description: t('features.collaborationDesc')
-    },
-    {
-      icon: <Trophy className="w-8 h-8" />,
-      title: t('features.competition'),
-      description: t('features.competitionDesc')
-    },
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: t('features.realWorldSkills'),
-      description: t('features.realWorldSkillsDesc')
-    }
-  ];
-
-  return (
-    <section className="py-20 relative overflow-hidden">
+  const {
+    t
+  } = useTranslation();
+  const {
+    data: settings
+  } = useSiteSettings();
+  const features = [{
+    icon: <Bot className="w-8 h-8" />,
+    title: t('features.designBuild'),
+    description: t('features.designBuildDesc')
+  }, {
+    icon: <Users className="w-8 h-8" />,
+    title: t('features.collaboration'),
+    description: t('features.collaborationDesc')
+  }, {
+    icon: <Trophy className="w-8 h-8" />,
+    title: t('features.competition'),
+    description: t('features.competitionDesc')
+  }, {
+    icon: <Target className="w-8 h-8" />,
+    title: t('features.realWorldSkills'),
+    description: t('features.realWorldSkillsDesc')
+  }];
+  return <section className="py-20 relative overflow-hidden">
       {/* Competition Arena Background */}
       <div className="absolute inset-0 z-0">
-        <OptimizedImage
-          src={competitionArena}
-          alt="FIRST Robotics Competition arena"
-          className="w-full h-full opacity-90"
-          objectFit="cover"
-        />
+        <OptimizedImage src={competitionArena} alt="FIRST Robotics Competition arena" className="w-full h-full opacity-90" objectFit="cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/40 to-background/50 backdrop-blur-[2px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/30 backdrop-blur-[1px]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_40%,rgba(0,0,0,0.3)_80%,rgba(0,0,0,0.5)_100%)]" />
@@ -70,16 +60,10 @@ export const AboutImpactTabs = () => {
 
         <Tabs defaultValue="first" className="w-full">
           <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-20 glass-morphism border-2 border-primary/40 p-2.5 shadow-luxury backdrop-blur-xl bg-gradient-to-br from-background/60 via-background/40 to-primary/10 hover:border-primary/60 transition-all duration-500 rounded-2xl group">
-            <TabsTrigger 
-              value="first" 
-              className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000"
-            >
+            <TabsTrigger value="first" className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000">
               {t('sections.whatIsFirst')}
             </TabsTrigger>
-            <TabsTrigger 
-              value="impact" 
-              className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000"
-            >
+            <TabsTrigger value="impact" className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000">
               {t('sections.ourImpact')}
             </TabsTrigger>
           </TabsList>
@@ -111,8 +95,7 @@ export const AboutImpactTabs = () => {
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {features.map((feature, index) => (
-                <ScrollReveal key={index} delay={index * 100}>
+              {features.map((feature, index) => <ScrollReveal key={index} delay={index * 100}>
                   <PremiumCard className="h-full p-8">
                     <div className="flex items-start gap-5">
                       <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 flex-shrink-0">
@@ -130,8 +113,7 @@ export const AboutImpactTabs = () => {
                       </div>
                     </div>
                   </PremiumCard>
-                </ScrollReveal>
-              ))}
+                </ScrollReveal>)}
             </div>
 
             <ScrollReveal delay={400}>
@@ -211,7 +193,7 @@ export const AboutImpactTabs = () => {
                   Empowering the Next Generation
                 </h3>
                 <p className="text-lg text-white font-inter leading-relaxed drop-shadow-lg">
-                  Based in <span className="text-primary font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
+                  Based in St. Louis, Missouri, our team continues growing and making community impact throughout the Show-Me State through STEM education and advocacy for students across Missouri, while always seeking to honor God and demonstrate Christ-like service in our community. <span className="text-primary font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
                   community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
                   STEM education and advocacy for students across Missouri, while always seeking to 
                   <span className="text-primary font-semibold"> honor God</span> and demonstrate 
@@ -230,22 +212,11 @@ export const AboutImpactTabs = () => {
               </ScrollReveal>
 
               <ScrollReveal direction="right">
-                <PhotoShowcase 
-                  images={[
-                    "/lovable-uploads/impact-award-winning-photo.jpg",
-                    "/lovable-uploads/team-first-sign.jpg",
-                    "/lovable-uploads/team-advocacy-capitol.jpg",
-                    "/lovable-uploads/robot-action-1.jpg",
-                    "/lovable-uploads/community-event-1.jpg"
-                  ]}
-                  className="shadow-luxury hover:shadow-cyber transition-all duration-700"
-                  autoPlayInterval={4000}
-                />
+                <PhotoShowcase images={["/lovable-uploads/impact-award-winning-photo.jpg", "/lovable-uploads/team-first-sign.jpg", "/lovable-uploads/team-advocacy-capitol.jpg", "/lovable-uploads/robot-action-1.jpg", "/lovable-uploads/community-event-1.jpg"]} className="shadow-luxury hover:shadow-cyber transition-all duration-700" autoPlayInterval={4000} />
               </ScrollReveal>
             </div>
           </TabsContent>
         </Tabs>
       </div>
-    </section>
-  );
+    </section>;
 };
