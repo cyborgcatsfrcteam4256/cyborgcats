@@ -95,9 +95,9 @@ export const Footer = () => {
                   {t('footer.location')}<br />{t('footer.city')}
                 </span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary" />
-                <span className="text-muted-foreground font-inter text-sm">
+              <div className="flex items-start space-x-3">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-muted-foreground font-inter text-sm break-all">
                   cyborgcatsfrcteam4256@gmail.com
                 </span>
               </div>
