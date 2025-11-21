@@ -79,8 +79,21 @@ export const MediaGallery = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-glow-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-cyber-float" />
       
-      {/* Circuit pattern */}
-      <div className="absolute inset-0 circuit-pattern opacity-5" />
+      {/* Stunning Grid Design */}
+      <div className="absolute inset-0 z-[1]">
+        {/* Primary grid lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(var(--primary-rgb),0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(var(--primary-rgb),0.08)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        
+        {/* Secondary diagonal grid */}
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_40px,rgba(var(--primary-glow-rgb),0.05)_40px,rgba(var(--primary-glow-rgb),0.05)_41px)] opacity-60" />
+        
+        {/* Animated gradient accents on grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(var(--primary-rgb),0.15)_0%,transparent_50%)] animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(var(--primary-electric-rgb),0.12)_0%,transparent_50%)] animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+        
+        {/* Circuit pattern overlay for texture */}
+        <div className="absolute inset-0 circuit-pattern opacity-5" />
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
