@@ -76,7 +76,7 @@ export const AboutImpactTabs = () => {
                 <div className="mb-8 animate-fade-in">
                   <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury">
                     <Sparkles className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
-                    <span className="font-orbitron text-base text-primary font-bold tracking-wide">{t('first.inspiring')}</span>
+                    <span className="font-orbitron text-base text-white font-bold tracking-wide">{t('first.inspiring')}</span>
                     <Trophy className="w-6 h-6 text-primary-glow animate-pulse group-hover:animate-bounce" />
                   </div>
                 </div>
