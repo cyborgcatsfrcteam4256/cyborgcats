@@ -621,6 +621,54 @@ export type Database = {
         }
         Relationships: []
       }
+      team_member_requests: {
+        Row: {
+          bio: string | null
+          created_at: string
+          github_url: string | null
+          id: string
+          image_url: string | null
+          linkedin_url: string | null
+          name: string
+          rejection_reason: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          role: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string
+          github_url?: string | null
+          id?: string
+          image_url?: string | null
+          linkedin_url?: string | null
+          name: string
+          rejection_reason?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          role: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string
+          github_url?: string | null
+          id?: string
+          image_url?: string | null
+          linkedin_url?: string | null
+          name?: string
+          rejection_reason?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          role?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       team_members: {
         Row: {
           bio: string | null

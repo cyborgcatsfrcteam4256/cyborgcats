@@ -41,9 +41,11 @@ const AdminNews = lazy(() => import("./pages/admin/News"));
 const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const AdminContactInquiries = lazy(() => import("./pages/admin/ContactInquiries"));
 const AdminDownloadLogos = lazy(() => import("./pages/admin/DownloadLogos"));
+const AdminTeamMemberRequests = lazy(() => import("./pages/admin/TeamMemberRequests"));
 const News = lazy(() => import("./pages/News"));
 const NewsPost = lazy(() => import("./pages/NewsPost"));
 const Resources = lazy(() => import("./pages/Resources"));
+const RequestTeamMembership = lazy(() => import("./pages/RequestTeamMembership"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -114,6 +116,8 @@ const App = () => {
             <Route path="/admin/settings" element={<AdminSettings />} />
             <Route path="/admin/contact-inquiries" element={<AdminContactInquiries />} />
             <Route path="/admin/download-logos" element={<AdminDownloadLogos />} />
+            <Route path="/admin/team-requests" element={<AdminTeamMemberRequests />} />
+            <Route path="/request-team-membership" element={<RequestTeamMembership />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />

@@ -148,6 +148,14 @@ export default function AdminDashboard() {
       color: "from-orange-500/20 to-orange-600/20"
     },
     {
+      title: "Team Requests",
+      description: "Review membership requests",
+      icon: Users,
+      path: "/admin/team-requests",
+      stat: "Pending showcase requests",
+      color: "from-yellow-500/20 to-yellow-600/20"
+    },
+    {
       title: "Manage News",
       description: "News posts and updates",
       icon: Newspaper,

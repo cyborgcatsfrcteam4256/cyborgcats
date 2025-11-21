@@ -128,6 +128,14 @@ const Dashboard = () => {
               </CardHeader>
             </Card>
 
+            <Card className="glass-morphism border-2 border-primary/20 hover:border-primary/40 transition-all cursor-pointer" onClick={() => navigate('/request-team-membership')}>
+              <CardHeader>
+                <Award className="h-8 w-8 text-primary mb-2" />
+                <CardTitle className="font-orbitron">Join Team Page</CardTitle>
+                <CardDescription>Request to be featured</CardDescription>
+              </CardHeader>
+            </Card>
+
             {approvedRoles.length > 0 && (
               <>
                 <Card className="glass-morphism border-2 border-primary/20 hover:border-primary/40 transition-all cursor-pointer" onClick={() => navigate('/submit-photo')}>
