@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { PageMeta } from '@/components/SEO/PageMeta';
 import { ImagePreloader } from '@/components/Performance/ImagePreloader';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
 import { z } from 'zod';
 
 const signUpSchema = z.object({
@@ -197,6 +199,8 @@ const Auth = () => {
       
       <ImagePreloader images={['/lovable-uploads/robot-action-1.jpg']} />
       
+      <Navigation />
+      
       <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
         {/* Background with overlay */}
         <div 
@@ -350,6 +354,8 @@ const Auth = () => {
           </CardContent>
         </Card>
       </div>
+      
+      <Footer />
     </>
   );
 };
