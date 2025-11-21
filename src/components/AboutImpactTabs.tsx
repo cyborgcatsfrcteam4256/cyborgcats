@@ -67,18 +67,18 @@ export const AboutImpactTabs = () => {
             <h2 className="text-4xl md:text-6xl font-orbitron font-black mb-6 text-glow">
               {t('sections.aboutUs')}
             </h2>
-            <p className="text-lg text-foreground/95 max-w-3xl mx-auto drop-shadow-lg font-medium">
+            <p className="text-lg text-white max-w-3xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] font-semibold">
               {t('first.subtitle')}
             </p>
           </div>
         </ScrollReveal>
 
         <Tabs defaultValue="first" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-20 glass-morphism border-2 border-primary/40 p-2.5 shadow-luxury backdrop-blur-xl bg-gradient-to-br from-background/60 via-background/40 to-primary/10 hover:border-primary/60 transition-all duration-500 rounded-2xl group">
-            <TabsTrigger value="first" className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-16 h-20 glass-morphism border-2 border-primary/40 p-2.5 shadow-luxury backdrop-blur-xl bg-gradient-to-br from-background/70 via-background/60 to-primary/10 hover:border-primary/60 transition-all duration-500 rounded-2xl group">
+            <TabsTrigger value="first" className="text-base font-orbitron font-semibold text-white/80 hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000">
               {t('sections.whatIsFirst')}
             </TabsTrigger>
-            <TabsTrigger value="impact" className="text-base font-orbitron font-semibold text-muted-foreground hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000">
+            <TabsTrigger value="impact" className="text-base font-orbitron font-semibold text-white/80 hover:text-white data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/50 data-[state=active]:via-primary-glow/30 data-[state=active]:to-primary/40 data-[state=active]:text-white data-[state=active]:shadow-glow data-[state=active]:shadow-primary/50 data-[state=active]:border data-[state=active]:border-primary/60 transition-all duration-500 rounded-xl hover:scale-[1.02] data-[state=active]:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-1000">
               {t('sections.ourImpact')}
             </TabsTrigger>
           </TabsList>
@@ -96,15 +96,15 @@ export const AboutImpactTabs = () => {
                   </div>
                 </div>
 
-                <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto font-inter leading-relaxed mb-10">
+                <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto font-inter leading-relaxed mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   {t('first.description')}
                 </p>
                 
-                <div className="bg-glass-card/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-5xl mx-auto shadow-luxury">
-                  <blockquote className="text-2xl md:text-3xl font-inter text-white/90 italic leading-relaxed">
+                <div className="bg-black/40 backdrop-blur-xl border border-white/20 rounded-3xl p-8 max-w-5xl mx-auto shadow-luxury">
+                  <blockquote className="text-2xl md:text-3xl font-inter text-white italic leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                     {t('first.quote')}
                   </blockquote>
-                  <cite className="block mt-6 text-lg text-primary font-semibold">{t('first.founder')}</cite>
+                  <cite className="block mt-6 text-lg text-primary-glow font-bold drop-shadow-lg">{t('first.founder')}</cite>
                 </div>
               </div>
             </ScrollReveal>
@@ -122,7 +122,7 @@ export const AboutImpactTabs = () => {
                         <h3 className="text-2xl font-orbitron font-bold text-white mb-3">
                           {feature.title}
                         </h3>
-                        <p className="text-lg text-foreground/90 leading-relaxed drop-shadow-md">
+                        <p className="text-lg text-white leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                           {feature.description}
                         </p>
                       </div>
@@ -133,11 +133,11 @@ export const AboutImpactTabs = () => {
 
             <ScrollReveal delay={400}>
               <div className="text-center">
-                <div className="bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 p-8 rounded-3xl border border-white/10 shadow-luxury">
-                  <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-6">
+                <div className="bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/20 shadow-luxury">
+                  <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                     {t('first.moreThanRobots')}
                   </h3>
-                  <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
+                  <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                     {t('first.moreThanRobotsDesc')}
                   </p>
                 </div>
@@ -158,8 +158,8 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Heart className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:text-red-400 transition-all duration-500" />
                   </div>
-                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">STEM Companion Initiative</h3>
-                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">STEM Companion Initiative</h3>
+                   <p className="text-white font-inter text-sm leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                      Connecting children with special needs to STEM education through innovative programs and dedicated outreach.
                    </p>
                 </PremiumCard>
@@ -170,8 +170,8 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-glow/30 to-primary-electric/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Users className="w-6 h-6 text-primary group-hover/card:scale-110 transition-all duration-500" />
                   </div>
-                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Women in STEM Leadership</h3>
-                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Women in STEM Leadership</h3>
+                   <p className="text-white font-inter text-sm leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                      Empowering young women through STEM education and leadership opportunities in robotics and engineering.
                    </p>
                 </PremiumCard>
@@ -182,8 +182,8 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-electric/30 to-primary/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Globe className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
                   </div>
-                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Global STEM Outreach</h3>
-                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Global STEM Outreach</h3>
+                   <p className="text-white font-inter text-sm leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                      Expanding STEM education globally through international partnerships and collaborative robotics programs.
                    </p>
                 </PremiumCard>
@@ -194,8 +194,8 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Lightbulb className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:text-yellow-400 transition-all duration-500" />
                   </div>
-                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Legislative Advocacy</h3>
-                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Legislative Advocacy</h3>
+                   <p className="text-white font-inter text-sm leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                      Advocating for STEM education through legislative engagement and policy support initiatives.
                    </p>
                 </PremiumCard>
@@ -204,10 +204,10 @@ export const AboutImpactTabs = () => {
 
             <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
               <ScrollReveal direction="left" className="space-y-6">
-                <h3 className="text-3xl md:text-4xl font-orbitron font-black text-glow leading-tight">
+                <h3 className="text-3xl md:text-4xl font-orbitron font-black text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                   Empowering the Next Generation
                 </h3>
-                <p className="text-lg text-white font-inter leading-relaxed drop-shadow-lg">
+                <p className="text-lg text-white font-inter leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   Based in St. Louis, Missouri, our team continues growing and making community impact throughout the Show-Me State through STEM education and advocacy for students across Missouri, while always seeking to honor God and demonstrate Christ-like service in our community. <span className="text-primary-glow font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
                   community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
                   STEM education and advocacy for students across Missouri, while always seeking to 
