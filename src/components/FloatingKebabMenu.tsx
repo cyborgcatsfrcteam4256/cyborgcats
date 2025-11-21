@@ -59,7 +59,7 @@ export const FloatingKebabMenu = () => {
   };
 
   return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-8 group/menu">
+    <div className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-[200] flex flex-col gap-6 lg:gap-8 group/menu">
       {/* Connecting Line */}
       <div className="absolute right-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent transform translate-x-1/2" />
       
