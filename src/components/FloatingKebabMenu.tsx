@@ -6,13 +6,11 @@ export const FloatingKebabMenu = () => {
   const navigate = useNavigate();
 
   const sections = [
-    { id: 'about-us', label: 'About Us' },
-    { id: 'sponsors', label: 'Sponsors' },
-    { id: 'what-is-first', label: 'What is FIRST?' },
+    { id: 'about-us', label: 'About' },
+    { id: 'what-is-first', label: 'FIRST Robotics' },
     { id: 'news', label: 'News' },
     { id: 'resources', label: 'Resources' },
     { id: 'community', label: 'Community' },
-    { id: 'media', label: 'Media' },
     { id: 'contact', label: 'Contact' },
   ];
 
