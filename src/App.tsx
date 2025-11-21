@@ -48,6 +48,7 @@ const NewsPost = lazy(() => import("./pages/NewsPost"));
 const Resources = lazy(() => import("./pages/Resources"));
 const RequestTeamMembership = lazy(() => import("./pages/RequestTeamMembership"));
 const SubmitNews = lazy(() => import("./pages/SubmitNews"));
+const Debug = lazy(() => import("./pages/Debug"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback component
@@ -122,6 +123,7 @@ const App = () => {
             <Route path="/admin/news-submissions" element={<AdminNewsSubmissions />} />
             <Route path="/request-team-membership" element={<RequestTeamMembership />} />
             <Route path="/submit-news" element={<SubmitNews />} />
+            <Route path="/debug" element={<Debug />} />
             
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
