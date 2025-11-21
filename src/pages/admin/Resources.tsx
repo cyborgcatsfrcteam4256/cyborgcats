@@ -226,7 +226,8 @@ export default function AdminResources() {
       programming: "Programming",
       cad_design: "CAD & Design",
       team_management: "Team Management",
-      stem_curriculum: "STEM Curriculum"
+      stem_curriculum: "STEM Curriculum",
+      outreach: "Outreach"
     };
     return labels[category] || category;
   };
@@ -304,6 +305,7 @@ export default function AdminResources() {
                           <SelectItem value="cad_design">CAD & Design</SelectItem>
                           <SelectItem value="team_management">Team Management</SelectItem>
                           <SelectItem value="stem_curriculum">STEM Curriculum</SelectItem>
+                          <SelectItem value="outreach">Outreach</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -396,6 +398,7 @@ export default function AdminResources() {
                       <SelectItem value="cad_design">CAD & Design</SelectItem>
                       <SelectItem value="team_management">Team Management</SelectItem>
                       <SelectItem value="stem_curriculum">STEM Curriculum</SelectItem>
+                      <SelectItem value="outreach">Outreach</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
