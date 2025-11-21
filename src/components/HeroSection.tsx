@@ -69,7 +69,7 @@ export const HeroSection = () => {
         {/* Enhanced gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/70 to-background/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
-        <div className="absolute inset-0 circuit-pattern opacity-10 animate-pulse" />
+        <div className="absolute inset-0 circuit-pattern opacity-30 animate-pulse" />
         <FloatingParticles />
         
         {/* Enhanced animated gradient orbs */}
