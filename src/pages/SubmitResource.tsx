@@ -121,7 +121,7 @@ export default function SubmitResource() {
         const fileName = `${user.id}/resources/${Date.now()}.${fileExt}`;
         
         const { error: uploadError } = await supabase.storage
-          .from("resumes")
+          .from("resources")
           .upload(fileName, selectedFile);
 
         if (uploadError) throw uploadError;

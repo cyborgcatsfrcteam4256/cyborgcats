@@ -78,9 +78,9 @@ const Resources = () => {
         .update({ downloads_count: resource.downloads_count + 1 })
         .eq('id', resource.id);
 
-      // Download file
+      // Download file from public resources bucket
       const { data } = await supabase.storage
-        .from('resumes')
+        .from('resources')
         .download(resource.file_url);
       
       if (data) {
