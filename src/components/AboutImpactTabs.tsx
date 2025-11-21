@@ -76,20 +76,20 @@ export const AboutImpactTabs = () => {
                 <div className="mb-8 animate-fade-in">
                   <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-8 py-4 border border-primary/30 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury">
                     <Sparkles className="w-6 h-6 text-primary group-hover:rotate-12 group-hover:scale-110 transition-all duration-500" />
-                    <span className="font-orbitron text-base text-white font-bold tracking-wide">{t('first.inspiring')}</span>
+                    <span className="font-orbitron text-base text-primary font-bold tracking-wide">{t('first.inspiring')}</span>
                     <Trophy className="w-6 h-6 text-primary-glow animate-pulse group-hover:animate-bounce" />
                   </div>
                 </div>
 
-                <p className="text-xl md:text-2xl text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] max-w-4xl mx-auto font-inter leading-relaxed mb-10">
+                <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto font-inter leading-relaxed mb-10">
                   {t('first.description')}
                 </p>
                 
-                <div className="bg-background/80 backdrop-blur-xl border border-white/20 rounded-3xl p-8 max-w-5xl mx-auto shadow-luxury">
-                  <blockquote className="text-2xl md:text-3xl font-inter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] italic leading-relaxed">
+                <div className="bg-glass-card/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-5xl mx-auto shadow-luxury">
+                  <blockquote className="text-2xl md:text-3xl font-inter text-white/90 italic leading-relaxed">
                     {t('first.quote')}
                   </blockquote>
-                  <cite className="block mt-6 text-lg text-primary-glow font-semibold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{t('first.founder')}</cite>
+                  <cite className="block mt-6 text-lg text-primary font-semibold">{t('first.founder')}</cite>
                 </div>
               </div>
             </ScrollReveal>
@@ -103,14 +103,14 @@ export const AboutImpactTabs = () => {
                           {feature.icon}
                         </div>
                       </div>
-                       <div className="flex-1">
-                         <h3 className="text-2xl font-orbitron font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-3">
-                           {feature.title}
-                         </h3>
-                         <p className="text-lg text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed">
-                           {feature.description}
-                         </p>
-                       </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-orbitron font-bold text-white mb-3">
+                          {feature.title}
+                        </h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
                     </div>
                   </PremiumCard>
                 </ScrollReveal>)}
@@ -118,11 +118,11 @@ export const AboutImpactTabs = () => {
 
             <ScrollReveal delay={400}>
               <div className="text-center">
-                <div className="bg-background/80 backdrop-blur-xl p-8 rounded-3xl border border-primary/30 shadow-luxury">
-                  <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mb-6">
+                <div className="bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 p-8 rounded-3xl border border-white/10 shadow-luxury">
+                  <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-white mb-6">
                     {t('first.moreThanRobots')}
                   </h3>
-                  <p className="text-xl text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] max-w-3xl mx-auto leading-relaxed">
+                  <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
                     {t('first.moreThanRobotsDesc')}
                   </p>
                 </div>
@@ -143,10 +143,10 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Heart className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:text-red-400 transition-all duration-500" />
                   </div>
-                   <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">STEM Companion Initiative</h3>
-                    <p className="text-foreground font-inter text-sm leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                      Connecting children with special needs to STEM education through innovative programs and dedicated outreach.
-                    </p>
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">STEM Companion Initiative</h3>
+                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                     Connecting children with special needs to STEM education through innovative programs and dedicated outreach.
+                   </p>
                 </PremiumCard>
               </ScrollReveal>
 
@@ -155,10 +155,10 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-glow/30 to-primary-electric/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Users className="w-6 h-6 text-primary group-hover/card:scale-110 transition-all duration-500" />
                   </div>
-                   <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Women in STEM Leadership</h3>
-                    <p className="text-foreground font-inter text-sm leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                      Empowering young women through STEM education and leadership opportunities in robotics and engineering.
-                    </p>
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Women in STEM Leadership</h3>
+                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                     Empowering young women through STEM education and leadership opportunities in robotics and engineering.
+                   </p>
                 </PremiumCard>
               </ScrollReveal>
 
@@ -167,10 +167,10 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-electric/30 to-primary/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Globe className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
                   </div>
-                   <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Global STEM Outreach</h3>
-                    <p className="text-foreground font-inter text-sm leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                      Expanding STEM education globally through international partnerships and collaborative robotics programs.
-                    </p>
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Global STEM Outreach</h3>
+                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                     Expanding STEM education globally through international partnerships and collaborative robotics programs.
+                   </p>
                 </PremiumCard>
               </ScrollReveal>
 
@@ -179,26 +179,26 @@ export const AboutImpactTabs = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary/30 to-primary-glow/20 rounded-xl flex items-center justify-center mb-4 glow-subtle group-hover/card:glow-electric transition-all duration-500">
                     <Lightbulb className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:text-yellow-400 transition-all duration-500" />
                   </div>
-                   <h3 className="font-orbitron font-bold text-lg mb-3 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Legislative Advocacy</h3>
-                    <p className="text-foreground font-inter text-sm leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                      Advocating for STEM education through legislative engagement and policy support initiatives.
-                    </p>
+                  <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Legislative Advocacy</h3>
+                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                     Advocating for STEM education through legislative engagement and policy support initiatives.
+                   </p>
                 </PremiumCard>
               </ScrollReveal>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center mt-12">
               <ScrollReveal direction="left" className="space-y-6">
-                 <h3 className="text-3xl md:text-4xl font-orbitron font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] leading-tight">
-                   Empowering the Next Generation
-                 </h3>
-                 <p className="text-lg text-white font-inter leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                   Based in <span className="text-primary-glow font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">St. Louis, Missouri</span>, our team continues growing and making 
-                   community impact throughout the <span className="text-primary-glow font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Show-Me State</span> through 
-                   STEM education and advocacy for students across Missouri, while always seeking to 
-                   <span className="text-primary-glow font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"> honor God</span> and demonstrate 
-                   <span className="text-primary-electric font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"> Christ-like service</span> in our community.
-                 </p>
+                <h3 className="text-3xl md:text-4xl font-orbitron font-black text-glow leading-tight">
+                  Empowering the Next Generation
+                </h3>
+                <p className="text-lg text-white font-inter leading-relaxed drop-shadow-lg">
+                  Based in St. Louis, Missouri, our team continues growing and making community impact throughout the Show-Me State through STEM education and advocacy for students across Missouri, while always seeking to honor God and demonstrate Christ-like service in our community. <span className="text-primary-glow font-semibold">St. Louis, Missouri</span>, our team continues growing and making 
+                  community impact throughout the <span className="text-primary-glow font-semibold">Show-Me State</span> through 
+                  STEM education and advocacy for students across Missouri, while always seeking to 
+                  <span className="text-primary-glow font-semibold"> honor God</span> and demonstrate 
+                  <span className="text-primary-electric font-semibold"> Christ-like service</span> in our community.
+                </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="premium" size="lg" className="group" onClick={() => navigate('/impact')}>
                     <Trophy className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />

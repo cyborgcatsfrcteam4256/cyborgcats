@@ -150,8 +150,6 @@
 @layer base {
   * {
     @apply border-border;
-    /* Optimize layout containment to prevent forced reflows */
-    contain-intrinsic-size: auto 500px;
   }
 
   body {
@@ -159,25 +157,10 @@
     /* Performance optimizations to prevent forced reflows */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Force GPU acceleration on body */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-  
-  /* Optimize all sections and major containers */
-  section, main, article, aside, nav, div[class*="container"] {
-    contain: layout style;
-    will-change: auto;
   }
 }
 
 @layer components {
-  /* Optimize all interactive elements to prevent reflows */
-  button, a, input, textarea, select {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-  
   /* Premium gradients for enhanced visual appeal */
   .gradient-premium {
     background: linear-gradient(135deg, 
@@ -448,8 +431,6 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: var(--shadow-morphic);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-    contain: layout style paint;
-    transform: translateZ(0);
   }
 
   .morphic-card:hover {
@@ -828,12 +809,6 @@
 
 /* Background utilities */
 @layer utilities {
-  /* Optimize images to prevent layout shifts */
-  img {
-    contain: layout;
-    content-visibility: auto;
-  }
-  
   .bg-grid-white\/5 {
     background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
