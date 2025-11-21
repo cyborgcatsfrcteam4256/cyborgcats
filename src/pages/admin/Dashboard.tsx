@@ -164,6 +164,14 @@ export default function AdminDashboard() {
       color: "from-pink-500/20 to-pink-600/20"
     },
     {
+      title: "News Submissions",
+      description: "Review user news articles",
+      icon: Newspaper,
+      path: "/admin/news-submissions",
+      stat: "Pending articles",
+      color: "from-rose-500/20 to-rose-600/20"
+    },
+    {
       title: "Contact Inquiries",
       description: "View contact form submissions",
       icon: Mail,
