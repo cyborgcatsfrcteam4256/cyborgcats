@@ -16,27 +16,29 @@ export const HeroSection = () => {
   const { data: settings, isLoading: settingsLoading } = useSiteSettings();
 
   return (
-    <section aria-label="Hero section" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section aria-label="Hero section" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       <InteractiveBackground />
       {/* Enhanced Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 w-full h-full z-0">
         {/* Primary background image */}
-        <OptimizedImage
-          src={competitionArena} 
-          alt="FIRST Robotics Competition arena filled with teams and spectators" 
-          width={1920}
-          height={1080}
-          priority={true}
-          className="w-full h-full opacity-40 transition-opacity duration-1000"
-          objectFit="cover"
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <OptimizedImage
+            src={competitionArena} 
+            alt="FIRST Robotics Competition arena filled with teams and spectators" 
+            width={1920}
+            height={1080}
+            priority={true}
+            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            objectFit="cover"
+          />
+        </div>
         
         {/* Enhanced gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/75 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-background/85 via-background/75 to-background/60" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
         
         {/* Enhanced circuit pattern grid - more visible */}
-        <div className="absolute inset-0 circuit-pattern opacity-30 animate-pulse" />
+        <div className="absolute inset-0 w-full h-full circuit-pattern opacity-30 animate-pulse" />
         <FloatingParticles />
         
         {/* Enhanced animated gradient orbs */}
