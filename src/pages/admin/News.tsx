@@ -251,8 +251,9 @@ export default function AdminNews() {
   return (
     <>
       <PageMeta title="Manage News" description="Admin news management" />
+      <Navigation />
       
-      <div className="min-h-screen bg-background py-12 px-4">
+      <div className="min-h-screen bg-background py-24 px-4">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="flex items-center justify-between">
             <div>
@@ -457,6 +458,8 @@ export default function AdminNews() {
           </Card>
         </div>
       </div>
+
+      <Footer />
 
       <AlertDialog open={!!deletePostId} onOpenChange={() => setDeletePostId(null)}>
         <AlertDialogContent>
