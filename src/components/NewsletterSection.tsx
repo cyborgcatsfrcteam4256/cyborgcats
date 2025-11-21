@@ -87,7 +87,7 @@ export const NewsletterSection = () => {
       <div className="absolute inset-0 circuit-pattern opacity-20 z-[1]" />
       <FloatingParticles />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-16 animate-slide-up">
             <Badge variant="outline" className="mb-4 font-orbitron">
