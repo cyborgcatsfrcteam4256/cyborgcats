@@ -25,10 +25,8 @@ export const HeroSection = () => {
           <OptimizedImage
             src={competitionArena} 
             alt="FIRST Robotics Competition arena filled with teams and spectators" 
-            width={1920}
-            height={1080}
             priority={true}
-            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            className="w-full h-full opacity-40 transition-opacity duration-1000"
             objectFit="cover"
           />
         </div>
