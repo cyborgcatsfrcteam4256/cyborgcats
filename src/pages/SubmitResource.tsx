@@ -24,7 +24,7 @@ const RESOURCE_CATEGORIES = [
   "Strategy Guide",
   "Team Management",
   "Fundraising",
-  "Outreach Ideas",
+  "Outreach",
   "Other"
 ];
 

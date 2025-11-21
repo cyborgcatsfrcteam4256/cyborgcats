@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { FileText, Download, ExternalLink, ArrowRight, BookOpen, Sparkles, Zap, Rocket, Code, Wrench, Users, Trophy, GraduationCap, ChevronRight } from 'lucide-react';
+import { FileText, Download, ExternalLink, ArrowRight, BookOpen, Sparkles, Zap, Rocket, Code, Wrench, Users, Trophy, GraduationCap, ChevronRight, Heart } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { EnhancedBackground } from '@/components/EnhancedBackground';
 import { PremiumCard } from '@/components/PremiumCard';
@@ -105,6 +105,15 @@ export const ResourcesPreviewSection = () => {
       gradient: 'from-indigo-500/20 to-violet-500/20',
       borderColor: 'border-indigo-500/30',
       bgImage: '/lovable-uploads/robot-action-2.jpg'
+    },
+    {
+      id: 'outreach',
+      title: 'Outreach',
+      icon: Heart,
+      description: 'Community engagement, events & impact initiatives',
+      gradient: 'from-rose-500/20 to-pink-500/20',
+      borderColor: 'border-rose-500/30',
+      bgImage: '/lovable-uploads/community-event-1.jpg'
     },
   ];
 
