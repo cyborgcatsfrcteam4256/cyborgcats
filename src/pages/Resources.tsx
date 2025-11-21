@@ -25,7 +25,7 @@ interface Resource {
   created_at: string;
 }
 
-const CATEGORIES = ['All', 'Programming', 'CAD & Design', 'Team Management', 'STEM Curriculum'];
+const CATEGORIES = ['All', 'Programming', 'CAD & Design', 'Team Management', 'STEM Curriculum', 'Outreach'];
 
 const Resources = () => {
   const { t } = useTranslation();
