@@ -18,58 +18,25 @@ export const HeroSection = () => {
   return (
     <section aria-label="Hero section" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <InteractiveBackground />
-      {/* Enhanced Background with multiple accent images */}
+      {/* Enhanced Background */}
       <div className="absolute inset-0 z-0">
-        {/* Primary background image with enhanced effects */}
+        {/* Primary background image */}
         <OptimizedImage
           src={competitionArena} 
           alt="FIRST Robotics Competition arena filled with teams and spectators" 
           width={1920}
           height={1080}
           priority={true}
-          className="w-full h-full opacity-50 transition-opacity duration-1000 hover:opacity-60"
+          className="w-full h-full opacity-40 transition-opacity duration-1000"
           objectFit="cover"
         />
         
-        {/* Accent images as background elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 opacity-15 hover:opacity-25 transition-opacity duration-1000">
-          <OptimizedImage
-            src="/lovable-uploads/4a9a0ddd-912a-4220-bc38-b8818af5e963.png" 
-            alt="" 
-            width={128}
-            height={128}
-            className="w-full h-full rounded-xl blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
-            objectFit="cover"
-          />
-        </div>
-        
-        <div className="absolute bottom-20 left-10 w-40 h-24 opacity-12 hover:opacity-20 transition-opacity duration-1000">
-          <OptimizedImage
-            src="/lovable-uploads/2bef5729-53ec-4330-baa1-ac4ba5367ce2.png" 
-            alt="" 
-            width={160}
-            height={96}
-            className="w-full h-full rounded-lg blur-sm hover:blur-none transition-all duration-1000 animate-cyber-float"
-            objectFit="cover"
-            style={{animationDelay: '2s'}}
-          />
-        </div>
-        
-        <div className="absolute top-1/3 left-1/4 w-28 h-28 opacity-8 hover:opacity-15 transition-opacity duration-1000">
-          <OptimizedImage
-            src="/lovable-uploads/cc77039e-e81b-423a-a408-b9246289beeb.png" 
-            alt="" 
-            width={112}
-            height={112}
-            className="w-full h-full rounded-full blur-sm hover:blur-none transition-all duration-1000 animate-glow-pulse"
-            objectFit="cover"
-          />
-        </div>
-        
         {/* Enhanced gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/70 to-background/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
-        <div className="absolute inset-0 circuit-pattern opacity-10 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/75 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+        
+        {/* Enhanced circuit pattern grid - more visible */}
+        <div className="absolute inset-0 circuit-pattern opacity-30 animate-pulse" />
         <FloatingParticles />
         
         {/* Enhanced animated gradient orbs */}
@@ -79,8 +46,8 @@ export const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <ScrollReveal className="space-y-8" delay={200}>
             {/* Enhanced Hero Badge */}
             <div className="inline-flex items-center space-x-3 glass-morphism border border-primary/30 rounded-full px-8 py-4 hover:border-primary/50 transition-all duration-500 group hover:scale-105 shadow-morphic hover:shadow-luxury cursor-pointer backdrop-blur-xl">
