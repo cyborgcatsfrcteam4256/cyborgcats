@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { PageMeta } from '@/components/SEO/PageMeta';
 import { RoleApprovals } from '@/components/Admin/RoleApprovals';
 import { User } from '@supabase/supabase-js';
-import { Users, Upload, FileText, Award } from 'lucide-react';
+import { Users, Upload, FileText, Award, Newspaper } from 'lucide-react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 
@@ -133,6 +133,14 @@ const Dashboard = () => {
                 <Award className="h-8 w-8 text-primary mb-2" />
                 <CardTitle className="font-orbitron">Join Team Page</CardTitle>
                 <CardDescription>Request to be featured</CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="glass-morphism border-2 border-primary/20 hover:border-primary/40 transition-all cursor-pointer" onClick={() => navigate('/submit-news')}>
+              <CardHeader>
+                <Newspaper className="h-8 w-8 text-primary mb-2" />
+                <CardTitle className="font-orbitron">Submit News</CardTitle>
+                <CardDescription>Share team updates</CardDescription>
               </CardHeader>
             </Card>
 
