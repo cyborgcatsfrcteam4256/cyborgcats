@@ -22,6 +22,7 @@ export const NewsSection = () => {
 
   const fetchNews = async () => {
     try {
+      console.log("NewsSection: Fetching news posts...");
       const { data, error } = await supabase
         .from("news_posts")
         .select("*")
@@ -29,10 +30,15 @@ export const NewsSection = () => {
         .order("published_at", { ascending: false })
         .limit(3);
 
-      if (error) throw error;
+      if (error) {
+        console.error("NewsSection: Error fetching news:", error);
+        throw error;
+      }
+      
+      console.log("NewsSection: Fetched posts:", data?.length || 0, data);
       setNewsItems(data || []);
-    } catch (error) {
-      console.error("Error fetching news:", error);
+    } catch (error: any) {
+      console.error("NewsSection: Error fetching news:", error);
     } finally {
       setLoading(false);
     }
