@@ -59,17 +59,17 @@ export const FloatingKebabMenu = () => {
   };
 
   return (
-    <div className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-[200] flex flex-col gap-6 lg:gap-8 group/menu">
-      {/* Connecting Line */}
-      <div className="absolute right-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent transform translate-x-1/2" />
+    <div className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-[9999] flex flex-col gap-6 lg:gap-8 group/menu pointer-events-auto">
+      {/* Connecting Line with backdrop */}
+      <div className="absolute right-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent transform translate-x-1/2 drop-shadow-[0_0_8px_rgba(var(--primary),0.6)]" />
       
       {sections.map((section, index) => (
         <div key={index} className="relative group/dot">
-          {/* Glow Ring */}
-          <div className={`absolute inset-0 rounded-full blur-md transition-all duration-500 ${
+          {/* Glow Ring with stronger visibility */}
+          <div className={`absolute inset-0 rounded-full blur-md transition-all duration-500 drop-shadow-[0_0_12px_rgba(var(--primary),0.8)] ${
             activeDot === index 
-              ? 'bg-primary/60 scale-[3]' 
-              : 'bg-primary/0 scale-0 group-hover/dot:bg-primary/40 group-hover/dot:scale-[2.5]'
+              ? 'bg-primary/80 scale-[3]' 
+              : 'bg-primary/0 scale-0 group-hover/dot:bg-primary/60 group-hover/dot:scale-[2.5]'
           }`} />
           
           {/* Tooltip */}
@@ -83,21 +83,24 @@ export const FloatingKebabMenu = () => {
             </div>
           </div>
 
-          {/* Dot Button */}
+          {/* Dot Button with backdrop for visibility */}
           <button
             onClick={() => handleDotClick(index)}
-            className={`relative w-4 h-4 rounded-full transition-all duration-500 hover:scale-[2] group/button ${
+            className={`relative w-4 h-4 rounded-full transition-all duration-500 hover:scale-[2] group/button drop-shadow-[0_0_8px_rgba(var(--primary),0.9)] ${
               activeDot === index
                 ? 'scale-[1.5]'
                 : 'scale-100'
             }`}
             aria-label={`Go to ${section.label}`}
           >
+            {/* White backdrop ring for contrast */}
+            <div className="absolute inset-0 rounded-full bg-background/80 backdrop-blur-sm scale-[2]" />
+            
             {/* Inner gradient dot */}
             <div className={`absolute inset-0 rounded-full transition-all duration-500 ${
               activeDot === index
                 ? 'bg-gradient-to-br from-primary via-primary-glow to-primary-electric shadow-glow animate-pulse'
-                : 'bg-gradient-to-br from-primary/50 to-primary/30 group-hover/button:from-primary/80 group-hover/button:to-primary-glow/60'
+                : 'bg-gradient-to-br from-primary/70 to-primary/50 group-hover/button:from-primary/90 group-hover/button:to-primary-glow/70'
             }`} />
             
             {/* Outer ring */}
