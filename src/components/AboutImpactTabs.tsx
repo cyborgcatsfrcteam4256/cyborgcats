@@ -40,11 +40,26 @@ export const AboutImpactTabs = () => {
       {/* Competition Arena Background */}
       <div className="absolute inset-0 z-0">
         <OptimizedImage src={competitionArena} alt="FIRST Robotics Competition arena" className="w-full h-full opacity-90" objectFit="cover" />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-background/40 to-background/50 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/30 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_40%,rgba(0,0,0,0.3)_80%,rgba(0,0,0,0.5)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/50 to-background/60 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-transparent to-background/40 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_40%,rgba(0,0,0,0.4)_80%,rgba(0,0,0,0.6)_100%)]" />
       </div>
-      <div className="absolute inset-0 circuit-pattern opacity-5 z-[1]" />
+      
+      {/* Stunning Grid Design */}
+      <div className="absolute inset-0 z-[1]">
+        {/* Primary grid lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(var(--primary-rgb),0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(var(--primary-rgb),0.08)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        
+        {/* Secondary diagonal grid */}
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_40px,rgba(var(--primary-glow-rgb),0.05)_40px,rgba(var(--primary-glow-rgb),0.05)_41px)] opacity-60" />
+        
+        {/* Animated gradient accents on grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(var(--primary-rgb),0.15)_0%,transparent_50%)] animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(var(--primary-electric-rgb),0.12)_0%,transparent_50%)] animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+        
+        {/* Circuit pattern overlay for texture */}
+        <div className="absolute inset-0 circuit-pattern opacity-5" />
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
@@ -52,7 +67,7 @@ export const AboutImpactTabs = () => {
             <h2 className="text-4xl md:text-6xl font-orbitron font-black mb-6 text-glow">
               {t('sections.aboutUs')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-foreground/95 max-w-3xl mx-auto drop-shadow-lg font-medium">
               {t('first.subtitle')}
             </p>
           </div>
@@ -107,7 +122,7 @@ export const AboutImpactTabs = () => {
                         <h3 className="text-2xl font-orbitron font-bold text-white mb-3">
                           {feature.title}
                         </h3>
-                        <p className="text-lg text-muted-foreground leading-relaxed">
+                        <p className="text-lg text-foreground/90 leading-relaxed drop-shadow-md">
                           {feature.description}
                         </p>
                       </div>
@@ -144,7 +159,7 @@ export const AboutImpactTabs = () => {
                     <Heart className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:text-red-400 transition-all duration-500" />
                   </div>
                   <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">STEM Companion Initiative</h3>
-                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
                      Connecting children with special needs to STEM education through innovative programs and dedicated outreach.
                    </p>
                 </PremiumCard>
@@ -156,7 +171,7 @@ export const AboutImpactTabs = () => {
                     <Users className="w-6 h-6 text-primary group-hover/card:scale-110 transition-all duration-500" />
                   </div>
                   <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Women in STEM Leadership</h3>
-                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
                      Empowering young women through STEM education and leadership opportunities in robotics and engineering.
                    </p>
                 </PremiumCard>
@@ -168,7 +183,7 @@ export const AboutImpactTabs = () => {
                     <Globe className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:rotate-12 transition-all duration-500" />
                   </div>
                   <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Global STEM Outreach</h3>
-                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
                      Expanding STEM education globally through international partnerships and collaborative robotics programs.
                    </p>
                 </PremiumCard>
@@ -180,7 +195,7 @@ export const AboutImpactTabs = () => {
                     <Lightbulb className="w-6 h-6 text-primary group-hover/card:scale-110 group-hover/card:text-yellow-400 transition-all duration-500" />
                   </div>
                   <h3 className="font-orbitron font-bold text-lg mb-3 text-glow">Legislative Advocacy</h3>
-                   <p className="text-muted-foreground font-inter text-sm leading-relaxed">
+                   <p className="text-foreground/90 font-inter text-sm leading-relaxed drop-shadow-md">
                      Advocating for STEM education through legislative engagement and policy support initiatives.
                    </p>
                 </PremiumCard>
