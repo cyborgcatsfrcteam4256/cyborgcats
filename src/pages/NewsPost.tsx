@@ -33,6 +33,7 @@ const NewsPost = () => {
 
   const fetchPost = async () => {
     try {
+      console.log("NewsPost: Fetching post with id:", id);
       const { data, error } = await supabase
         .from('news_posts')
         .select('*')
@@ -40,11 +41,16 @@ const NewsPost = () => {
         .eq('is_published', true)
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error("NewsPost: Error fetching post:", error);
+        throw error;
+      }
+      
+      console.log("NewsPost: Fetched post:", data);
       setPost(data);
-    } catch (error) {
-      console.error('Error fetching post:', error);
-      toast.error('Post not found');
+    } catch (error: any) {
+      console.error('NewsPost: Error fetching post:', error);
+      toast.error('Post not found or unavailable');
       navigate('/news');
     } finally {
       setLoading(false);

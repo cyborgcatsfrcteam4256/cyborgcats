@@ -33,16 +33,22 @@ const News = () => {
 
   const fetchPosts = async () => {
     try {
+      console.log("News page: Fetching news posts...");
       const { data, error } = await supabase
         .from('news_posts')
         .select('*')
         .eq('is_published', true)
         .order('published_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.error("News page: Error fetching posts:", error);
+        throw error;
+      }
+      
+      console.log("News page: Fetched posts:", data?.length || 0, data);
       setPosts(data || []);
-    } catch (error) {
-      console.error('Error fetching news:', error);
+    } catch (error: any) {
+      console.error('News page: Error fetching news:', error);
     } finally {
       setLoading(false);
     }

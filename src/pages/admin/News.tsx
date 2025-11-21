@@ -82,16 +82,18 @@ export default function AdminNews() {
 
   const fetchPosts = async () => {
     try {
+      console.log("Fetching news posts...");
       const { data, error } = await supabase
         .from("news_posts")
         .select("*")
         .order("published_at", { ascending: false });
 
       if (error) throw error;
+      console.log("Fetched posts:", data?.length || 0);
       setPosts(data || []);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error fetching news posts:", error);
-      toast.error("Failed to load news posts");
+      toast.error(error.message || "Failed to load news posts");
     } finally {
       setLoading(false);
     }
@@ -140,40 +142,58 @@ export default function AdminNews() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validate required fields
+    if (!formData.title.trim()) {
+      toast.error("Title is required");
+      return;
+    }
+    
+    if (!formData.content.trim()) {
+      toast.error("Content is required");
+      return;
+    }
+    
     try {
+      console.log("Submitting news post:", { editingPost: !!editingPost, formData });
+      
       const postData = {
-        title: formData.title,
-        content: formData.content,
-        excerpt: formData.excerpt || null,
-        author: formData.author || null,
+        title: formData.title.trim(),
+        content: formData.content.trim(),
+        excerpt: formData.excerpt?.trim() || null,
+        author: formData.author?.trim() || null,
         image_url: formData.image_url || null,
         is_published: formData.is_published,
         published_at: formData.is_published ? new Date().toISOString() : new Date().toISOString()
       };
 
       if (editingPost) {
+        console.log("Updating post:", editingPost.id);
         const { error } = await supabase
           .from("news_posts")
           .update(postData)
           .eq("id", editingPost.id);
 
         if (error) throw error;
+        console.log("Post updated successfully");
         toast.success("News post updated successfully");
       } else {
-        const { error } = await supabase
+        console.log("Creating new post");
+        const { data, error } = await supabase
           .from("news_posts")
-          .insert([postData]);
+          .insert([postData])
+          .select();
 
         if (error) throw error;
+        console.log("Post created successfully:", data);
         toast.success("News post created successfully");
       }
 
       setIsDialogOpen(false);
       resetForm();
-      fetchPosts();
-    } catch (error) {
+      await fetchPosts();
+    } catch (error: any) {
       console.error("Error saving news post:", error);
-      toast.error("Failed to save news post");
+      toast.error(error.message || "Failed to save news post");
     }
   };
 
@@ -181,37 +201,50 @@ export default function AdminNews() {
     if (!deletePostId) return;
 
     try {
+      console.log("Deleting post:", deletePostId);
       const { error } = await supabase
         .from("news_posts")
         .delete()
         .eq("id", deletePostId);
 
       if (error) throw error;
+      console.log("Post deleted successfully");
       toast.success("News post deleted successfully");
       setDeletePostId(null);
-      fetchPosts();
-    } catch (error) {
+      await fetchPosts();
+    } catch (error: any) {
       console.error("Error deleting news post:", error);
-      toast.error("Failed to delete news post");
+      toast.error(error.message || "Failed to delete news post");
     }
   };
 
   const togglePublish = async (id: string, currentStatus: boolean) => {
     try {
+      const newStatus = !currentStatus;
+      console.log("Toggling publish status:", { id, currentStatus, newStatus });
+      
+      const updateData: any = { 
+        is_published: newStatus
+      };
+      
+      // Only update published_at when publishing
+      if (newStatus) {
+        updateData.published_at = new Date().toISOString();
+      }
+      
       const { error } = await supabase
         .from("news_posts")
-        .update({ 
-          is_published: !currentStatus,
-          published_at: !currentStatus ? new Date().toISOString() : new Date().toISOString()
-        })
+        .update(updateData)
         .eq("id", id);
 
       if (error) throw error;
-      toast.success(currentStatus ? "Post unpublished" : "Post published");
-      fetchPosts();
-    } catch (error) {
+      
+      console.log("Publish status updated successfully");
+      toast.success(newStatus ? "Post published successfully" : "Post unpublished");
+      await fetchPosts();
+    } catch (error: any) {
       console.error("Error updating publish status:", error);
-      toast.error("Failed to update publish status");
+      toast.error(error.message || "Failed to update publish status");
     }
   };
 
