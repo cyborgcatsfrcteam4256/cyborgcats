@@ -18,6 +18,27 @@ export const NewsSection = () => {
 
   useEffect(() => {
     fetchNews();
+
+    // Subscribe to real-time updates for news posts
+    const channel = supabase
+      .channel('news_posts_changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'news_posts'
+        },
+        (payload) => {
+          console.log('NewsSection: Real-time update received:', payload);
+          fetchNews(); // Refetch when any change occurs
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchNews = async () => {
