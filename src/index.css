@@ -39,6 +39,11 @@
     /* Electric variants for glowing effects */
     --primary-glow: 202 100% 60%;
     --primary-electric: 185 100% 50%;
+    
+    /* RGB versions for grid effects */
+    --primary-rgb: 0, 130, 201;
+    --primary-glow-rgb: 51, 187, 255;
+    --primary-electric-rgb: 0, 255, 213;
 
     --secondary: 215 25% 15%;
     --secondary-foreground: 210 20% 95%;
