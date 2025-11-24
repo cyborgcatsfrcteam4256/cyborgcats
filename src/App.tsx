@@ -38,6 +38,7 @@ const AdminSponsors = lazy(() => import("./pages/admin/Sponsors"));
 const AdminResources = lazy(() => import("./pages/admin/Resources"));
 const AdminTeam = lazy(() => import("./pages/admin/Team"));
 const AdminNews = lazy(() => import("./pages/admin/News"));
+const AdminPhotos = lazy(() => import("./pages/admin/Photos"));
 const AdminSettings = lazy(() => import("./pages/admin/Settings"));
 const AdminContactInquiries = lazy(() => import("./pages/admin/ContactInquiries"));
 const AdminDownloadLogos = lazy(() => import("./pages/admin/DownloadLogos"));
@@ -116,6 +117,7 @@ const App = () => {
             <Route path="/admin/resources" element={<AdminResources />} />
             <Route path="/admin/team" element={<AdminTeam />} />
             <Route path="/admin/news" element={<AdminNews />} />
+            <Route path="/admin/photos" element={<AdminPhotos />} />
             <Route path="/admin/settings" element={<AdminSettings />} />
             <Route path="/admin/contact-inquiries" element={<AdminContactInquiries />} />
             <Route path="/admin/download-logos" element={<AdminDownloadLogos />} />
