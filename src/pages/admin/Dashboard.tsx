@@ -215,8 +215,14 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/5">
+        <div className="text-center">
+          <div className="relative">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary/20 border-t-primary mx-auto mb-4"></div>
+            <div className="absolute inset-0 rounded-full blur-xl bg-primary/20 animate-pulse"></div>
+          </div>
+          <p className="text-muted-foreground font-orbitron">Loading Control Center...</p>
+        </div>
       </div>
     );
   }
@@ -229,94 +235,124 @@ export default function AdminDashboard() {
       />
       <Navigation />
       
-      <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
-        <div className="relative pt-24 pb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10" />
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="circuit-pattern absolute inset-0 opacity-5"></div>
+        </div>
+
+        <div className="relative pt-24 pb-16">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
           
           <div className="container mx-auto px-6 relative">
-            <div className="text-center mb-12 space-y-6">
-              <Badge variant="outline" className="mb-4 font-orbitron border-primary/50">
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Admin Portal
-              </Badge>
-              <h1 className="text-5xl md:text-7xl font-orbitron font-black mb-4">
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <div className="text-center mb-16 space-y-6 animate-fade-in">
+              <div className="inline-block">
+                <Badge variant="outline" className="mb-4 font-orbitron border-primary/50 shadow-glow">
+                  <TrendingUp className="w-4 h-4 mr-2 animate-pulse" />
+                  Admin Portal
+                </Badge>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-orbitron font-black mb-4 animate-scale-in">
+                <span className="text-holographic text-glow">
                   Control Center
                 </span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Manage your team's digital presence with powerful tools
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                Manage your team&apos;s digital presence with powerful tools
               </p>
+              <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              <Card className="group relative overflow-hidden bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-blue-500/30 hover-glow transition-cyber">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-blue-600/5 border-blue-500/20 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-glow animate-fade-in cursor-pointer">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardHeader className="pb-2 relative">
                   <div className="flex items-center justify-between mb-2">
-                    <Users className="w-8 h-8 text-blue-400" />
+                    <div className="p-3 bg-blue-500/10 rounded-xl group-hover:bg-blue-500/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Users className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors" />
+                    </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground">Total Users</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Total Users</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalUsers}
                   </div>
                   {stats.pendingRoles > 0 && (
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="text-xs animate-pulse">
+                      <span className="relative flex h-2 w-2 mr-1">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                      </span>
                       {stats.pendingRoles} pending
                     </Badge>
                   )}
                 </CardContent>
               </Card>
 
-              <Card className="group relative overflow-hidden bg-gradient-to-br from-green-500/20 to-green-600/10 border-green-500/30 hover-glow transition-cyber">
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-green-500/10 to-green-600/5 border-green-500/20 hover:border-green-500/50 transition-all duration-500 hover:scale-105 hover:shadow-glow animate-fade-in cursor-pointer" style={{ animationDelay: '0.1s' }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/0 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardHeader className="pb-2 relative">
                   <div className="flex items-center justify-between mb-2">
-                    <BookOpen className="w-8 h-8 text-green-400" />
+                    <div className="p-3 bg-green-500/10 rounded-xl group-hover:bg-green-500/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <BookOpen className="w-8 h-8 text-green-400 group-hover:text-green-300 transition-colors" />
+                    </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground">Resources</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Resources</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalResources}
                   </div>
                   {stats.pendingResources > 0 && (
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="text-xs animate-pulse">
+                      <span className="relative flex h-2 w-2 mr-1">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                      </span>
                       {stats.pendingResources} pending
                     </Badge>
                   )}
                 </CardContent>
               </Card>
 
-              <Card className="group relative overflow-hidden bg-gradient-to-br from-orange-500/20 to-orange-600/10 border-orange-500/30 hover-glow transition-cyber">
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-orange-500/10 to-orange-600/5 border-orange-500/20 hover:border-orange-500/50 transition-all duration-500 hover:scale-105 hover:shadow-glow animate-fade-in cursor-pointer" style={{ animationDelay: '0.2s' }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardHeader className="pb-2 relative">
                   <div className="flex items-center justify-between mb-2">
-                    <UsersIcon className="w-8 h-8 text-orange-400" />
+                    <div className="p-3 bg-orange-500/10 rounded-xl group-hover:bg-orange-500/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <UsersIcon className="w-8 h-8 text-orange-400 group-hover:text-orange-300 transition-colors" />
+                    </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground">Team Members</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Team Members</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalTeamMembers}
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                     {stats.activeTeamMembers} active
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="group relative overflow-hidden bg-gradient-to-br from-pink-500/20 to-pink-600/10 border-pink-500/30 hover-glow transition-cyber">
+              <Card className="group relative overflow-hidden bg-gradient-to-br from-pink-500/10 to-pink-600/5 border-pink-500/20 hover:border-pink-500/50 transition-all duration-500 hover:scale-105 hover:shadow-glow animate-fade-in cursor-pointer" style={{ animationDelay: '0.3s' }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardHeader className="pb-2 relative">
                   <div className="flex items-center justify-between mb-2">
-                    <Newspaper className="w-8 h-8 text-pink-400" />
+                    <div className="p-3 bg-pink-500/10 rounded-xl group-hover:bg-pink-500/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Newspaper className="w-8 h-8 text-pink-400 group-hover:text-pink-300 transition-colors" />
+                    </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground">News Posts</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">News Posts</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-4xl font-orbitron font-black text-holographic mb-1">
+                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalNews}
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                     {stats.publishedNews} published
                   </p>
                 </CardContent>
@@ -325,37 +361,54 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="container mx-auto px-6 py-12">
+        <div className="container mx-auto px-6 py-12 relative">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-holographic">
+              Management Tools
+            </h2>
+            <p className="text-muted-foreground">Quick access to all administrative functions</p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {managementCards.map((card, index) => (
               <Card 
                 key={card.path}
-                className={`group relative overflow-hidden bg-gradient-to-br ${card.color} border-border/50 hover:border-primary/50 transition-all duration-500 hover:scale-[1.02] cursor-pointer`}
+                className={`group relative overflow-hidden bg-gradient-to-br ${card.color} border-border/30 hover:border-primary/50 transition-all duration-500 hover:scale-[1.03] cursor-pointer animate-fade-in hover:shadow-luxury`}
+                style={{ animationDelay: `${index * 0.05}s` }}
                 onClick={() => navigate(card.path)}
               >
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </div>
+
                 <CardHeader className="relative">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 bg-background/50 rounded-xl backdrop-blur-sm group-hover:scale-110 transition-all duration-500">
-                      <card.icon className="h-8 w-8 text-primary" />
+                    <div className="p-4 bg-background/60 rounded-2xl backdrop-blur-sm group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                      <card.icon className="h-8 w-8 text-primary group-hover:text-primary-glow transition-colors" />
                     </div>
-                    <Badge variant="secondary" className="font-orbitron text-xs">
+                    <Badge variant="secondary" className="font-orbitron text-xs group-hover:bg-primary/20 transition-colors">
+                      <span className="relative flex h-2 w-2 mr-1">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                      </span>
                       Active
                     </Badge>
                   </div>
-                  <CardTitle className="text-2xl font-orbitron mb-2">{card.title}</CardTitle>
-                  <CardDescription className="text-sm">{card.description}</CardDescription>
+                  <CardTitle className="text-2xl font-orbitron mb-2 group-hover:text-primary-glow transition-colors">{card.title}</CardTitle>
+                  <CardDescription className="text-sm group-hover:text-foreground/80 transition-colors">{card.description}</CardDescription>
                 </CardHeader>
                 
                 <CardContent className="relative">
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <p className="text-sm text-muted-foreground font-medium">{card.stat}</p>
+                  <div className="flex items-center justify-between pt-4 border-t border-border/30 group-hover:border-primary/30 transition-colors">
+                    <p className="text-sm text-muted-foreground font-medium group-hover:text-foreground transition-colors">{card.stat}</p>
                     <Button 
                       variant="ghost" 
                       size="sm" 
                       className="group-hover:bg-primary/20 group-hover:text-primary transition-all"
                     >
                       Manage
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                     </Button>
                   </div>
                 </CardContent>
