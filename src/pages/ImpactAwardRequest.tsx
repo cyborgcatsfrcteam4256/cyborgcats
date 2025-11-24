@@ -58,6 +58,8 @@ export default function ImpactAwardRequest() {
   const [requestType, setRequestType] = useState<'add' | 'edit'>('add');
   const [searchQuery, setSearchQuery] = useState("");
   const [filterCategory, setFilterCategory] = useState<string>("all");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [uploadingFile, setUploadingFile] = useState(false);
 
   const [formData, setFormData] = useState({
     team_number: "",
@@ -142,12 +144,50 @@ export default function ImpactAwardRequest() {
     }
   };
 
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file
+      if (file.size > 20 * 1024 * 1024) {
+        toast.error("Image must be smaller than 20MB");
+        return;
+      }
+      if (!file.type.startsWith('image/')) {
+        toast.error("Please select an image file (JPG, PNG, etc.)");
+        return;
+      }
+      setSelectedFile(file);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
+
+      let documentationUrl = formData.documentation_url;
+
+      // Upload file if selected
+      if (selectedFile) {
+        setUploadingFile(true);
+        const fileExt = selectedFile.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+        
+        const { error: uploadError, data: uploadData } = await supabase.storage
+          .from('impact-documentation')
+          .upload(fileName, selectedFile);
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('impact-documentation')
+          .getPublicUrl(fileName);
+
+        documentationUrl = publicUrl;
+        setUploadingFile(false);
+      }
 
       const proposedChanges = {
         team_number: formData.team_number || null,
@@ -156,7 +196,7 @@ export default function ImpactAwardRequest() {
         activity_date: formData.activity_date,
         impact_category: formData.impact_category,
         documentation_type: formData.documentation_type,
-        documentation_url: formData.documentation_url || null,
+        documentation_url: documentationUrl || null,
         notes: formData.notes || null
       };
 
@@ -183,6 +223,7 @@ export default function ImpactAwardRequest() {
   };
 
   const resetForm = () => {
+    setSelectedFile(null);
     setFormData({
       team_number: "",
       activity_description: "",
@@ -352,7 +393,23 @@ export default function ImpactAwardRequest() {
                     </div>
 
                     <div>
-                      <Label htmlFor="documentation_url">Documentation URL (Optional)</Label>
+                      <Label htmlFor="file_upload">Upload Image (Optional, max 20MB)</Label>
+                      <Input
+                        id="file_upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileSelect}
+                        className="cursor-pointer"
+                      />
+                      {selectedFile && (
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Selected: {selectedFile.name} ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <Label htmlFor="documentation_url">Or enter Documentation URL</Label>
                       <Input
                         id="documentation_url"
                         type="url"
@@ -378,7 +435,9 @@ export default function ImpactAwardRequest() {
                       <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
                         Cancel
                       </Button>
-                      <Button type="submit">Submit Request</Button>
+                      <Button type="submit" disabled={uploadingFile}>
+                        {uploadingFile ? "Uploading..." : "Submit Request"}
+                      </Button>
                     </div>
                   </form>
                 </DialogContent>
