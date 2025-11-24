@@ -23,18 +23,11 @@ interface Sponsor {
   is_active: boolean;
 }
 
-const TIER_OPTIONS = [
-  'Foundational Partner',
-  'Sustainable Partner',
-  'Development Partner',
-  'Competition Partner',
-  'Associate Partner'
-];
-
 const AdminSponsors = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
+  const [tierOptions, setTierOptions] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingSponsor, setEditingSponsor] = useState<Sponsor | null>(null);
@@ -51,6 +44,7 @@ const AdminSponsors = () => {
   useEffect(() => {
     checkAdminAccess();
     loadSponsors();
+    loadTiers();
   }, []);
 
   const checkAdminAccess = async () => {
@@ -80,6 +74,14 @@ const AdminSponsors = () => {
       .order('display_order', { ascending: true });
     setSponsors(data || []);
     setLoading(false);
+  };
+
+  const loadTiers = async () => {
+    const { data } = await supabase
+      .from('sponsor_tiers')
+      .select('name')
+      .order('display_order', { ascending: true });
+    setTierOptions(data?.map(t => t.name) || []);
   };
 
   const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,7 +175,7 @@ const AdminSponsors = () => {
               <Label>Tier</Label>
               <Select value={formData.tier} onValueChange={(v) => setFormData({...formData, tier: v})}>
                 <SelectTrigger><SelectValue /></SelectTrigger>
-                <SelectContent>{TIER_OPTIONS.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
+                <SelectContent>{tierOptions.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
               </Select>
             </div>
             <div className="flex items-center gap-2">

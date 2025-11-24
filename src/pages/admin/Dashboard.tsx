@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight, Mail, Download, Images, Palette } from "lucide-react";
+import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight, Mail, Download, Images, Palette, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
@@ -122,6 +122,14 @@ export default function AdminDashboard() {
       path: "/admin/brand-kit",
       stat: "Colors, fonts, voice",
       color: "from-teal-500/20 to-teal-600/20"
+    },
+    {
+      title: "Sponsor Tiers",
+      description: "Manage sponsorship tiers",
+      icon: Trophy,
+      path: "/admin/sponsor-tiers",
+      stat: "Tier levels & benefits",
+      color: "from-emerald-500/20 to-emerald-600/20"
     },
     {
       title: "Manage Sponsors",
