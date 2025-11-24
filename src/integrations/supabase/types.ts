@@ -803,27 +803,36 @@ export type Database = {
       user_photos: {
         Row: {
           caption: string | null
+          category: string | null
           created_at: string | null
           display_order: number | null
           id: string
+          is_approved: boolean
+          is_featured: boolean
           photo_url: string
           updated_at: string | null
           user_id: string
         }
         Insert: {
           caption?: string | null
+          category?: string | null
           created_at?: string | null
           display_order?: number | null
           id?: string
+          is_approved?: boolean
+          is_featured?: boolean
           photo_url: string
           updated_at?: string | null
           user_id: string
         }
         Update: {
           caption?: string | null
+          category?: string | null
           created_at?: string | null
           display_order?: number | null
           id?: string
+          is_approved?: boolean
+          is_featured?: boolean
           photo_url?: string
           updated_at?: string | null
           user_id?: string

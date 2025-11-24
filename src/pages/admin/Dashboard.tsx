@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight, Mail, Download } from "lucide-react";
+import { Users, BookOpen, Newspaper, UsersIcon, HandshakeIcon, AlertTriangle, TrendingUp, ArrowRight, Mail, Download, Images } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
@@ -154,6 +154,14 @@ export default function AdminDashboard() {
       path: "/admin/team-requests",
       stat: "Pending showcase requests",
       color: "from-yellow-500/20 to-yellow-600/20"
+    },
+    {
+      title: "Manage Photos",
+      description: "Approve and feature photos",
+      icon: Images,
+      path: "/admin/photos",
+      stat: "Gallery management",
+      color: "from-indigo-500/20 to-indigo-600/20"
     },
     {
       title: "Manage News",
