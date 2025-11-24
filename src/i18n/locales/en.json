@@ -172,6 +172,40 @@
     "viewResource": "View Resource",
     "viewAll": "View All Resources"
   },
+  "stemCompanion": {
+    "badge": "Featured Initiative",
+    "title": "Breaking Barriers in STEM Education",
+    "subtitle": "STEM Companion: 10+ Years of Making Robotics Accessible to All Students",
+    "description": "Founded by the Cyborg Cats in 2012, STEM Companion is our non-profit dedicated to including students with disabilities in STEM through hands-on robotics experiences.",
+    "stats": {
+      "years": "Years of Impact",
+      "schools": "Schools Reached",
+      "categories": "Resource Categories",
+      "reach": "Students Inspired"
+    },
+    "programs": {
+      "demonstrations": {
+        "title": "Interactive Robotics Demonstrations",
+        "description": "From Promise Academy to schools across St. Louis, we bring hands-on robotics experiences directly to students with disabilities",
+        "highlight": "10+ years of demonstrations"
+      },
+      "resources": {
+        "title": "Digital Resource Library",
+        "description": "Free activities, worksheets, and instructional materials for educators, families, and FIRST teams",
+        "highlight": "Resources for everyone"
+      },
+      "movement": {
+        "title": "#BeACompanion Movement",
+        "description": "Inspiring FIRST teams nationwide to champion disability inclusion in their communities",
+        "highlight": "Growing movement"
+      }
+    },
+    "story": "What started as a single demonstration at Promise Academy has grown into a comprehensive non-profit advocating for disability inclusion in STEM across our community and beyond.",
+    "cta": {
+      "primary": "Explore STEM Companion",
+      "secondary": "View Digital Resources"
+    }
+  },
   "footer": {
     "quickLinks": "Quick Links",
     "getInvolved": "Get Involved",
