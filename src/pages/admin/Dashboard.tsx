@@ -277,7 +277,7 @@ export default function AdminDashboard() {
                   <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Total Users</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
+                  <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalUsers}
                   </div>
                   {stats.pendingRoles > 0 && (
@@ -303,7 +303,7 @@ export default function AdminDashboard() {
                   <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Resources</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
+                  <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalResources}
                   </div>
                   {stats.pendingResources > 0 && (
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
                   <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Team Members</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
+                  <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalTeamMembers}
                   </div>
                   <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
@@ -349,7 +349,7 @@ export default function AdminDashboard() {
                   <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">News Posts</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <div className="text-5xl font-orbitron font-black text-holographic mb-2 group-hover:scale-110 transition-transform duration-500">
+                  <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-pink-400 to-pink-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalNews}
                   </div>
                   <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
