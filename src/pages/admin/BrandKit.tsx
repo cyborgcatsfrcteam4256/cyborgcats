@@ -164,8 +164,13 @@ export default function AdminBrandKit() {
 
       toast({
         title: "Brand Kit Updated",
-        description: "Your brand guidelines have been saved successfully.",
+        description: "Your brand guidelines have been saved. Reload the page to see changes.",
       });
+      
+      // Reload the page to apply new fonts
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } catch (error) {
       console.error("Error updating brand kit:", error);
       toast({
@@ -440,9 +445,19 @@ Generated: ${new Date().toLocaleDateString()}
               <Type className="w-5 h-5" />
               Typography
             </CardTitle>
-            <CardDescription>Configure your brand fonts</CardDescription>
+            <CardDescription>Configure your brand fonts (use Google Fonts names)</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="p-4 bg-muted/50 rounded-lg mb-4">
+              <p className="text-sm text-muted-foreground mb-2">Popular Google Fonts:</p>
+              <div className="flex flex-wrap gap-2">
+                {['Orbitron', 'Audiowide', 'Rajdhani', 'Exo 2', 'Inter', 'Roboto', 'Poppins', 'Montserrat', 'Space Mono', 'IBM Plex Mono'].map(font => (
+                  <span key={font} className="text-xs px-2 py-1 bg-background rounded border border-border">
+                    {font}
+                  </span>
+                ))}
+              </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="font_display">Display Font (Headers)</Label>
@@ -460,7 +475,7 @@ Generated: ${new Date().toLocaleDateString()}
                   id="font_body"
                   value={brandData.font_body}
                   onChange={(e) => setBrandData({ ...brandData, font_body: e.target.value })}
-                  placeholder="Electrolize"
+                  placeholder="Inter"
                 />
               </div>
 
@@ -470,10 +485,13 @@ Generated: ${new Date().toLocaleDateString()}
                   id="font_mono"
                   value={brandData.font_mono}
                   onChange={(e) => setBrandData({ ...brandData, font_mono: e.target.value })}
-                  placeholder="Audiowide"
+                  placeholder="Space Mono"
                 />
               </div>
             </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              Changes take effect immediately. Reload the page to see font updates.
+            </p>
           </CardContent>
         </Card>
 

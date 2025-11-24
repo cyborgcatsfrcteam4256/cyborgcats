@@ -14,6 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
+        'display': ['var(--font-display)', 'Orbitron', 'sans-serif'],
+        'body': ['var(--font-body)', 'Inter', 'sans-serif'],
+        'mono': ['var(--font-mono)', 'Audiowide', 'monospace'],
+        // Legacy font classes for backwards compatibility
         'electrolize': ['Electrolize', 'sans-serif'],
         'rajdhani': ['Rajdhani', 'sans-serif'],
         'audiowide': ['Audiowide', 'monospace'],
