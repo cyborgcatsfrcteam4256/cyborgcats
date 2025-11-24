@@ -19,84 +19,49 @@ interface Sponsor {
   tier: string;
 }
 
+interface SponsorTier {
+  id: string;
+  name: string;
+  description: string | null;
+  display_order: number;
+  benefits: string[] | null;
+  icon: string | null;
+  color_gradient: string | null;
+}
+
 const Sponsors = () => {
   const navigate = useNavigate();
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
+  const [sponsorTiers, setSponsorTiers] = useState<SponsorTier[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadSponsors();
+    loadData();
   }, []);
 
-  const loadSponsors = async () => {
-    const { data } = await supabase
-      .from('sponsors')
-      .select('*')
-      .eq('is_active', true)
-      .order('display_order', { ascending: true });
+  const loadData = async () => {
+    const [sponsorsData, tiersData] = await Promise.all([
+      supabase.from('sponsors').select('*').eq('is_active', true).order('display_order', { ascending: true }),
+      supabase.from('sponsor_tiers').select('*').order('display_order', { ascending: true })
+    ]);
 
-    if (data) {
-      setSponsors(data);
-    }
+    if (sponsorsData.data) setSponsors(sponsorsData.data);
+    if (tiersData.data) setSponsorTiers(tiersData.data);
     setLoading(false);
   };
 
-  const sponsorTiers = [
-    {
-      tier: 'Foundational Partner',
-      icon: Trophy,
-      color: 'from-purple-400 to-indigo-600',
-      benefits: [
-        'Makes team competition entry possible',
-        'Name on robot, banners, team shirts',
-        'Featured on website',
-        'All written communications',
-        'Recognition with Feb 6th donation'
-      ],
-    },
-    {
-      tier: 'Sustainable Partner',
-      icon: Star,
-      color: 'from-blue-400 to-cyan-500',
-      benefits: [
-        'Names and logos on robot and banner',
-        'Featured on website and team shirts',
-        'All written communications',
-        'Recognition with Feb 6th donation'
-      ],
-    },
-    {
-      tier: 'Development Partner',
-      icon: Heart,
-      color: 'from-green-400 to-emerald-500',
-      benefits: [
-        'Name and logo on banner and shirts',
-        'Website feature',
-        'All written communications',
-        'Supports outreach programs'
-      ],
-    },
-    {
-      tier: 'Competition Partner',
-      icon: Zap,
-      color: 'from-orange-400 to-red-500',
-      benefits: [
-        'Logo on website and team shirts',
-        'All written communications',
-        'Supports materials and competition'
-      ],
-    },
-    {
-      tier: 'Associate Partner',
-      icon: HandshakeIcon,
-      color: 'from-gray-400 to-slate-500',
-      benefits: [
-        'Logo and name on website',
-        'All written communications',
-        'In-kind donation recognition'
-      ],
-    }
-  ];
+  const iconMap: Record<string, any> = {
+    Trophy, Star, Heart, Zap, HandshakeIcon
+  };
+
+  const getIcon = (iconName: string | null) => {
+    if (!iconName) return Trophy;
+    return iconMap[iconName] || Trophy;
+  };
+
+  const getColorGradient = (gradient: string | null) => {
+    return gradient || 'from-purple-400 to-indigo-600';
+  };
 
   const sponsorshipPackages = [
     {
@@ -175,18 +140,19 @@ const Sponsors = () => {
           {/* Current Sponsors by Tier */}
           <div className="space-y-12 mb-20">
             {sponsorTiers.map((tier, index) => {
-              const tierSponsors = sponsors.filter(s => s.tier === tier.tier);
+              const tierSponsors = sponsors.filter(s => s.tier === tier.name);
+              const TierIcon = getIcon(tier.icon);
               
               return (
-                <ScrollReveal key={index} delay={index * 100}>
+                <ScrollReveal key={tier.id} delay={index * 100}>
                   <Card className="p-8 bg-card/80 backdrop-blur-lg border-border/50 hover-glow transition-cyber">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-16 h-16 bg-gradient-to-br ${tier.color} rounded-lg flex items-center justify-center`}>
-                        <tier.icon className="w-8 h-8 text-white" />
+                      <div className={`w-16 h-16 bg-gradient-to-br ${getColorGradient(tier.color_gradient)} rounded-lg flex items-center justify-center`}>
+                        <TierIcon className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h2 className="text-3xl font-orbitron font-bold">{tier.tier} Sponsors</h2>
-                        <p className="text-muted-foreground">Supporting excellence in robotics</p>
+                        <h2 className="text-3xl font-orbitron font-bold">{tier.name} Sponsors</h2>
+                        <p className="text-muted-foreground">{tier.description || 'Supporting excellence in robotics'}</p>
                       </div>
                     </div>
 
@@ -214,18 +180,20 @@ const Sponsors = () => {
                       </div>
                     ) : (
                       <div className="p-8 bg-background/50 rounded-lg border border-dashed border-border/50 text-center mb-6">
-                        <p className="text-muted-foreground">Join us as a {tier.tier} sponsor!</p>
+                        <p className="text-muted-foreground">Join us as a {tier.name} sponsor!</p>
                       </div>
                     )}
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-                      {tier.benefits.map((benefit, i) => (
-                        <div key={i} className="text-sm flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                          <span>{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
+                    {tier.benefits && tier.benefits.length > 0 && (
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+                        {tier.benefits.map((benefit, i) => (
+                          <div key={i} className="text-sm flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
+                            <span>{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </Card>
                 </ScrollReveal>
               );

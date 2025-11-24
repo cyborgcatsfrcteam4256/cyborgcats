@@ -674,6 +674,42 @@ export type Database = {
         }
         Relationships: []
       }
+      sponsor_tiers: {
+        Row: {
+          benefits: string[] | null
+          color_gradient: string | null
+          created_at: string | null
+          description: string | null
+          display_order: number | null
+          icon: string | null
+          id: string
+          name: string
+          updated_at: string | null
+        }
+        Insert: {
+          benefits?: string[] | null
+          color_gradient?: string | null
+          created_at?: string | null
+          description?: string | null
+          display_order?: number | null
+          icon?: string | null
+          id?: string
+          name: string
+          updated_at?: string | null
+        }
+        Update: {
+          benefits?: string[] | null
+          color_gradient?: string | null
+          created_at?: string | null
+          description?: string | null
+          display_order?: number | null
+          icon?: string | null
+          id?: string
+          name?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       sponsors: {
         Row: {
           created_at: string
