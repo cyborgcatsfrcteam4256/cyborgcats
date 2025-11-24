@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
 import { StatCounter } from '@/components/StatCounter';
+import { STEMCompanionShowcase } from '@/components/STEMCompanionShowcase';
 
 export const ResourcesPreviewSection = () => {
   const { t } = useTranslation();
@@ -271,6 +272,9 @@ export const ResourcesPreviewSection = () => {
             </div>
           </div>
         </ScrollReveal>
+
+        {/* STEM Companion Showcase - Featured Initiative */}
+        <STEMCompanionShowcase />
 
         {/* Featured Resources Carousel (only if resources exist) */}
         {resources.length > 0 && (
