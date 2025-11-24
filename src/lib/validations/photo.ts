@@ -17,8 +17,8 @@ export const photoSubmissionSchema = z.object({
       'Please select an image file (JPG, PNG, etc.)'
     )
     .refine(
-      (file) => file && file.size <= 10 * 1024 * 1024,
-      'Image must be smaller than 10MB'
+      (file) => file && file.size <= 20 * 1024 * 1024,
+      'Image must be smaller than 20MB'
     ),
 });
 
