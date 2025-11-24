@@ -44,6 +44,7 @@ const AdminContactInquiries = lazy(() => import("./pages/admin/ContactInquiries"
 const AdminDownloadLogos = lazy(() => import("./pages/admin/DownloadLogos"));
 const AdminTeamMemberRequests = lazy(() => import("./pages/admin/TeamMemberRequests"));
 const AdminNewsSubmissions = lazy(() => import("./pages/admin/NewsSubmissions"));
+const AdminBrandKit = lazy(() => import("./pages/admin/BrandKit"));
 const News = lazy(() => import("./pages/News"));
 const NewsPost = lazy(() => import("./pages/NewsPost"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -123,6 +124,7 @@ const App = () => {
             <Route path="/admin/download-logos" element={<AdminDownloadLogos />} />
             <Route path="/admin/team-requests" element={<AdminTeamMemberRequests />} />
             <Route path="/admin/news-submissions" element={<AdminNewsSubmissions />} />
+            <Route path="/admin/brand-kit" element={<AdminBrandKit />} />
             <Route path="/request-team-membership" element={<RequestTeamMembership />} />
             <Route path="/submit-news" element={<SubmitNews />} />
             <Route path="/debug" element={<Debug />} />
