@@ -158,10 +158,19 @@
   }
 
   body {
-    @apply bg-background text-foreground font-orbitron;
+    @apply bg-background text-foreground;
+    font-family: var(--font-body, 'Inter', sans-serif);
     /* Performance optimizations to prevent forced reflows */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-orbitron {
+    font-family: var(--font-display, 'Orbitron', sans-serif);
+  }
+  
+  code, pre, .font-mono {
+    font-family: var(--font-mono, 'Audiowide', monospace);
   }
 }
 

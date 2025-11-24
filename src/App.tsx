@@ -14,6 +14,7 @@ import { PageViewTracker } from "@/components/Analytics/PageViewTracker";
 import { ResourceHints } from "@/components/Performance/ResourceHints";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { BackToTop } from "@/components/BackToTop";
+import { BrandLoader } from "@/components/BrandLoader";
 import { measureWebVitals } from "@/utils/performance";
 
 // Lazy load route components for better performance
@@ -86,6 +87,7 @@ const App = () => {
   return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <BrandLoader />
       <SkipToContent />
       <Toaster />
       <Sonner />
