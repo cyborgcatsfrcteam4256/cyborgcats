@@ -9,9 +9,11 @@ import { PageMeta } from "@/components/SEO/PageMeta";
 import { toast } from "sonner";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useTranslation } from 'react-i18next';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     totalUsers: 0,
@@ -100,115 +102,115 @@ export default function AdminDashboard() {
 
   const managementCards = [
     {
-      title: "Manage Users",
-      description: "User roles and permissions",
+      title: t('admin.manageUsers'),
+      description: t('admin.userRolesPermissions'),
       icon: Users,
       path: "/admin/users",
-      stat: `${stats.pendingRoles} pending requests`,
+      stat: `${stats.pendingRoles} ${t('admin.pendingRequests')}`,
       color: "from-blue-500/20 to-blue-600/20"
     },
     {
-      title: "Site Settings",
-      description: "Configure site-wide statistics",
+      title: t('admin.siteSettings'),
+      description: t('admin.configureSiteWide'),
       icon: TrendingUp,
       path: "/admin/settings",
-      stat: "Team stats & numbers",
+      stat: t('admin.teamStatsNumbers'),
       color: "from-cyan-500/20 to-cyan-600/20"
     },
     {
-      title: "Brand Kit",
-      description: "Manage brand identity & guidelines",
+      title: t('admin.brandKit'),
+      description: t('admin.manageBrandIdentity'),
       icon: Palette,
       path: "/admin/brand-kit",
-      stat: "Colors, fonts, voice",
+      stat: t('admin.colorsFontsVoice'),
       color: "from-teal-500/20 to-teal-600/20"
     },
     {
-      title: "Sponsor Tiers",
-      description: "Manage sponsorship tiers",
+      title: t('admin.sponsorTiers'),
+      description: t('admin.manageSponsorshipTiers'),
       icon: Trophy,
       path: "/admin/sponsor-tiers",
-      stat: "Tier levels & benefits",
+      stat: t('admin.tierLevelsBenefits'),
       color: "from-emerald-500/20 to-emerald-600/20"
     },
     {
-      title: "Manage Sponsors",
-      description: "Sponsor information and logos",
+      title: t('admin.manageSponsors'),
+      description: t('admin.sponsorInfoLogos'),
       icon: HandshakeIcon,
       path: "/admin/sponsors",
-      stat: `${stats.activeSponsors} active sponsors`,
+      stat: `${stats.activeSponsors} ${t('admin.activeSponsors')}`,
       color: "from-purple-500/20 to-purple-600/20"
     },
     {
-      title: "Download Logos",
-      description: "Download all sponsor logos",
+      title: t('admin.downloadLogos'),
+      description: t('admin.downloadAllLogos'),
       icon: Download,
       path: "/admin/download-logos",
-      stat: "Export as ZIP file",
+      stat: t('admin.exportZipFile'),
       color: "from-violet-500/20 to-violet-600/20"
     },
     {
-      title: "Manage Resources",
-      description: "Learning materials and downloads",
+      title: t('admin.manageResources'),
+      description: t('admin.learningMaterialsDownloads'),
       icon: BookOpen,
       path: "/admin/resources",
-      stat: `${stats.pendingResources} pending approvals`,
+      stat: `${stats.pendingResources} ${t('admin.pendingApprovals')}`,
       color: "from-green-500/20 to-green-600/20"
     },
     {
-      title: "Manage Team",
-      description: "Team member profiles",
+      title: t('admin.manageTeam'),
+      description: t('admin.teamMemberProfiles'),
       icon: UsersIcon,
       path: "/admin/team",
-      stat: `${stats.activeTeamMembers} active members`,
+      stat: `${stats.activeTeamMembers} ${t('admin.activeMembers')}`,
       color: "from-orange-500/20 to-orange-600/20"
     },
     {
-      title: "Team Requests",
-      description: "Review membership requests",
+      title: t('admin.teamRequests'),
+      description: t('admin.reviewMembershipRequests'),
       icon: Users,
       path: "/admin/team-requests",
-      stat: "Pending showcase requests",
+      stat: t('admin.pendingShowcaseRequests'),
       color: "from-yellow-500/20 to-yellow-600/20"
     },
     {
-      title: "Manage Photos",
-      description: "Approve and feature photos",
+      title: t('admin.managePhotos'),
+      description: t('admin.approveFeaturePhotos'),
       icon: Images,
       path: "/admin/photos",
-      stat: "Gallery management",
+      stat: t('admin.galleryManagement'),
       color: "from-indigo-500/20 to-indigo-600/20"
     },
     {
-      title: "Manage News",
-      description: "News posts and updates",
+      title: t('admin.manageNews'),
+      description: t('admin.newsPostsUpdates'),
       icon: Newspaper,
       path: "/admin/news",
-      stat: `${stats.publishedNews} published posts`,
+      stat: `${stats.publishedNews} ${t('admin.publishedPosts')}`,
       color: "from-pink-500/20 to-pink-600/20"
     },
     {
-      title: "News Submissions",
-      description: "Review user news articles",
+      title: t('admin.newsSubmissions'),
+      description: t('admin.reviewUserNewsArticles'),
       icon: Newspaper,
       path: "/admin/news-submissions",
-      stat: "Pending articles",
+      stat: t('admin.pendingArticles'),
       color: "from-rose-500/20 to-rose-600/20"
     },
     {
-      title: "Contact Inquiries",
-      description: "View contact form submissions",
+      title: t('admin.contactInquiries'),
+      description: t('admin.viewContactFormSubmissions'),
       icon: Mail,
       path: "/admin/contact-inquiries",
-      stat: "Messages & Support",
+      stat: t('admin.messagesSupport'),
       color: "from-amber-500/20 to-amber-600/20"
     },
     {
-      title: "View Reports",
-      description: "User reports and moderation",
+      title: t('admin.viewReports'),
+      description: t('admin.userReportsModeration'),
       icon: AlertTriangle,
       path: "/admin/users",
-      stat: "Reports & Safety",
+      stat: t('admin.reportsSafety'),
       color: "from-red-500/20 to-red-600/20"
     }
   ];
@@ -221,7 +223,7 @@ export default function AdminDashboard() {
             <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary/20 border-t-primary mx-auto mb-4"></div>
             <div className="absolute inset-0 rounded-full blur-xl bg-primary/20 animate-pulse"></div>
           </div>
-          <p className="text-muted-foreground font-orbitron">Loading Control Center...</p>
+          <p className="text-muted-foreground font-orbitron">{t('admin.loadingControlCenter')}</p>
         </div>
       </div>
     );
@@ -251,16 +253,16 @@ export default function AdminDashboard() {
               <div className="inline-block">
                 <Badge variant="outline" className="mb-4 font-orbitron border-primary/50 shadow-glow">
                   <TrendingUp className="w-4 h-4 mr-2 animate-pulse" />
-                  Admin Portal
+                  {t('admin.portal')}
                 </Badge>
               </div>
               <h1 className="text-5xl md:text-7xl font-orbitron font-black mb-4 animate-scale-in">
                 <span className="text-holographic text-glow">
-                  Control Center
+                  {t('admin.controlCenter')}
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                Manage your team&apos;s digital presence with powerful tools
+                {t('admin.managePresence')}
               </p>
               <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"></div>
             </div>
@@ -274,7 +276,7 @@ export default function AdminDashboard() {
                       <Users className="w-8 h-8 text-blue-400 group-hover:text-blue-300 transition-colors" />
                     </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Total Users</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">{t('admin.totalUsers')}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
                   <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
@@ -286,7 +288,7 @@ export default function AdminDashboard() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                       </span>
-                      {stats.pendingRoles} pending
+                      {stats.pendingRoles} {t('admin.pending')}
                     </Badge>
                   )}
                 </CardContent>
@@ -300,7 +302,7 @@ export default function AdminDashboard() {
                       <BookOpen className="w-8 h-8 text-green-400 group-hover:text-green-300 transition-colors" />
                     </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Resources</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">{t('admin.resources')}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
                   <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
@@ -312,7 +314,7 @@ export default function AdminDashboard() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                       </span>
-                      {stats.pendingResources} pending
+                      {stats.pendingResources} {t('admin.pending')}
                     </Badge>
                   )}
                 </CardContent>
@@ -326,14 +328,14 @@ export default function AdminDashboard() {
                       <UsersIcon className="w-8 h-8 text-orange-400 group-hover:text-orange-300 transition-colors" />
                     </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Team Members</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">{t('admin.teamMembers')}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
                   <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalTeamMembers}
                   </div>
                   <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                    {stats.activeTeamMembers} active
+                    {stats.activeTeamMembers} {t('admin.active')}
                   </p>
                 </CardContent>
               </Card>
@@ -346,14 +348,14 @@ export default function AdminDashboard() {
                       <Newspaper className="w-8 h-8 text-pink-400 group-hover:text-pink-300 transition-colors" />
                     </div>
                   </div>
-                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">News Posts</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">{t('admin.newsPosts')}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
                   <div className="text-5xl font-orbitron font-black bg-gradient-to-r from-pink-400 to-pink-300 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
                     {stats.totalNews}
                   </div>
                   <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                    {stats.publishedNews} published
+                    {stats.publishedNews} {t('admin.published')}
                   </p>
                 </CardContent>
               </Card>
@@ -364,9 +366,9 @@ export default function AdminDashboard() {
         <div className="container mx-auto px-6 py-12 relative">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-orbitron font-bold mb-4 text-holographic">
-              Management Tools
+              {t('admin.managementTools')}
             </h2>
-            <p className="text-muted-foreground">Quick access to all administrative functions</p>
+            <p className="text-muted-foreground">{t('admin.quickAccess')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -392,7 +394,7 @@ export default function AdminDashboard() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                       </span>
-                      Active
+                      {t('admin.active')}
                     </Badge>
                   </div>
                   <CardTitle className="text-2xl font-orbitron mb-2 group-hover:text-primary-glow transition-colors">{card.title}</CardTitle>
@@ -407,7 +409,7 @@ export default function AdminDashboard() {
                       size="sm" 
                       className="group-hover:bg-primary/20 group-hover:text-primary transition-all"
                     >
-                      Manage
+                      {t('admin.manage')}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                     </Button>
                   </div>
