@@ -180,6 +180,9 @@ export const Navigation = () => {
                           <ShieldCheck className="mr-2 h-4 w-4" />
                           Admin Portal
                         </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate('/debug')}>
+                          Debug Info
+                        </DropdownMenuItem>
                       </>
                     )}
                     <DropdownMenuSeparator />
@@ -264,18 +267,31 @@ export const Navigation = () => {
                       Portal
                     </Button>
                     {isAdmin && (
-                      <Button 
-                        variant="outline" 
-                        size="default" 
-                        className="w-full justify-start h-10"
-                        onClick={() => {
-                          setIsOpen(false);
-                          navigate('/admin');
-                        }}
-                      >
-                        <ShieldCheck className="w-4 h-4 mr-2" />
-                        Admin Portal
-                      </Button>
+                      <>
+                        <Button 
+                          variant="outline" 
+                          size="default" 
+                          className="w-full justify-start h-10"
+                          onClick={() => {
+                            setIsOpen(false);
+                            navigate('/admin');
+                          }}
+                        >
+                          <ShieldCheck className="w-4 h-4 mr-2" />
+                          Admin Portal
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="default" 
+                          className="w-full justify-start h-10"
+                          onClick={() => {
+                            setIsOpen(false);
+                            navigate('/debug');
+                          }}
+                        >
+                          Debug Info
+                        </Button>
+                      </>
                     )}
                     <Button 
                       variant="ghost" 
