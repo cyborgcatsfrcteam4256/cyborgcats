@@ -154,6 +154,30 @@ export default function AdminNews() {
     }
     
     try {
+      // Debug: Check current user and admin status
+      const { data: { user } } = await supabase.auth.getUser();
+      console.log("Current user ID:", user?.id);
+      
+      if (!user) {
+        toast.error("You must be logged in");
+        return;
+      }
+
+      // Debug: Verify admin role
+      const { data: roles, error: roleError } = await supabase
+        .from("user_roles")
+        .select("role, approved")
+        .eq("user_id", user.id);
+
+      console.log("User roles:", roles);
+      const isAdmin = roles?.some(r => r.role === "admin" && r.approved);
+      console.log("Is admin:", isAdmin);
+
+      if (!isAdmin) {
+        toast.error("Admin role required. Your admin role may not be approved yet.");
+        return;
+      }
+
       console.log("Submitting news post:", { editingPost: !!editingPost, formData });
       
       const postData = {
@@ -177,13 +201,21 @@ export default function AdminNews() {
         console.log("Post updated successfully");
         toast.success("News post updated successfully");
       } else {
-        console.log("Creating new post");
+        console.log("Creating new post with data:", postData);
         const { data, error } = await supabase
           .from("news_posts")
           .insert([postData])
           .select();
 
-        if (error) throw error;
+        if (error) {
+          console.error("Insert error details:", {
+            message: error.message,
+            details: error.details,
+            hint: error.hint,
+            code: error.code
+          });
+          throw error;
+        }
         console.log("Post created successfully:", data);
         toast.success("News post created successfully");
       }
@@ -195,7 +227,8 @@ export default function AdminNews() {
       console.error("Error saving news post:", error);
       const message = error.message || "Failed to save news post";
       if (message.includes("row-level security") || message.includes("policy")) {
-        toast.error("Permission denied: Admin role required. Check your role approval status.");
+        toast.error("Permission denied. Please contact an administrator to verify your admin role is approved.");
+        console.error("RLS Policy Error - User may not have approved admin role in user_roles table");
       } else {
         toast.error(message);
       }
