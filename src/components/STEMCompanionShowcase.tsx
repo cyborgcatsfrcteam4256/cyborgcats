@@ -63,17 +63,14 @@ export const STEMCompanionShowcase = () => {
         </div>
 
         {/* Impact Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <StatCounter value={10} label={t('stemCompanion.stats.years')} suffix="+" />
-          </div>
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <StatCounter value={5} label={t('stemCompanion.stats.schools')} suffix="+" />
           </div>
-          <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <StatCounter value={3} label={t('stemCompanion.stats.categories')} />
           </div>
-          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <StatCounter value={100} label={t('stemCompanion.stats.reach')} suffix="+" />
           </div>
         </div>
