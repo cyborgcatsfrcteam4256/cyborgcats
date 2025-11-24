@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { format } from "date-fns";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { RichTextEditor } from "@/components/RichTextEditor";
 
 interface NewsPost {
   id: string;
@@ -374,15 +375,14 @@ export default function AdminNews() {
 
                   <div>
                     <Label htmlFor="content">Content *</Label>
-                    <Textarea
-                      id="content"
-                      value={formData.content}
-                      onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                      required
-                      maxLength={10000}
-                      rows={8}
+                    <RichTextEditor
+                      content={formData.content}
+                      onChange={(content) => setFormData({ ...formData, content })}
                       placeholder="Write your news post content..."
                     />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Use the toolbar to format your content with headings, lists, bold, italic, and more.
+                    </p>
                   </div>
 
                   <div>

@@ -10,6 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { Calendar, User, ArrowLeft, Share2, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import DOMPurify from 'dompurify';
 
 interface NewsPost {
   id: string;
@@ -160,15 +161,15 @@ const NewsPost = () => {
                   </p>
                 )}
 
-                <div className="prose prose-invert prose-lg max-w-none">
-                  {post.content.split('\n').map((paragraph, index) => (
-                    paragraph.trim() && (
-                      <p key={index} className="mb-4 text-foreground/90 leading-relaxed">
-                        {paragraph}
-                      </p>
-                    )
-                  ))}
-                </div>
+                <div 
+                  className="prose prose-invert prose-lg max-w-none prose-headings:font-orbitron prose-headings:text-glow prose-a:text-primary prose-a:underline hover:prose-a:text-primary/80 prose-blockquote:border-l-primary prose-blockquote:italic"
+                  dangerouslySetInnerHTML={{ 
+                    __html: DOMPurify.sanitize(post.content, {
+                      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h2', 'h3', 'ul', 'ol', 'li', 'blockquote', 'a'],
+                      ALLOWED_ATTR: ['href', 'target', 'rel']
+                    })
+                  }}
+                />
               </div>
 
               {/* Actions */}
