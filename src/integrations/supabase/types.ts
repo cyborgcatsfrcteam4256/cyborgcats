@@ -227,6 +227,134 @@ export type Database = {
         }
         Relationships: []
       }
+      impact_award_categories: {
+        Row: {
+          category_name: string
+          created_at: string
+          description: string | null
+          display_order: number | null
+          id: string
+          is_active: boolean
+        }
+        Insert: {
+          category_name: string
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          is_active?: boolean
+        }
+        Update: {
+          category_name?: string
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          is_active?: boolean
+        }
+        Relationships: []
+      }
+      impact_award_edit_requests: {
+        Row: {
+          created_at: string
+          entry_id: string | null
+          id: string
+          proposed_changes: Json
+          reason: string
+          rejection_reason: string | null
+          request_type: string
+          requester_id: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          entry_id?: string | null
+          id?: string
+          proposed_changes: Json
+          reason: string
+          rejection_reason?: string | null
+          request_type: string
+          requester_id: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          entry_id?: string | null
+          id?: string
+          proposed_changes?: Json
+          reason?: string
+          rejection_reason?: string | null
+          request_type?: string
+          requester_id?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "impact_award_edit_requests_entry_id_fkey"
+            columns: ["entry_id"]
+            isOneToOne: false
+            referencedRelation: "impact_award_entries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      impact_award_entries: {
+        Row: {
+          activity_date: string
+          activity_description: string
+          activity_location: string | null
+          created_at: string
+          created_by: string | null
+          documentation_id: string
+          documentation_type: string
+          documentation_url: string | null
+          id: string
+          impact_category: string
+          is_active: boolean
+          notes: string | null
+          team_number: string | null
+          updated_at: string
+        }
+        Insert: {
+          activity_date: string
+          activity_description: string
+          activity_location?: string | null
+          created_at?: string
+          created_by?: string | null
+          documentation_id: string
+          documentation_type: string
+          documentation_url?: string | null
+          id?: string
+          impact_category: string
+          is_active?: boolean
+          notes?: string | null
+          team_number?: string | null
+          updated_at?: string
+        }
+        Update: {
+          activity_date?: string
+          activity_description?: string
+          activity_location?: string | null
+          created_at?: string
+          created_by?: string | null
+          documentation_id?: string
+          documentation_type?: string
+          documentation_url?: string | null
+          id?: string
+          impact_category?: string
+          is_active?: boolean
+          notes?: string | null
+          team_number?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       message_reactions: {
         Row: {
           created_at: string

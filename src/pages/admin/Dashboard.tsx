@@ -198,6 +198,14 @@ export default function AdminDashboard() {
       color: "from-rose-500/20 to-rose-600/20"
     },
     {
+      title: "Impact Award",
+      description: "Manage FIRST Impact Award documentation",
+      icon: Trophy,
+      path: "/admin/impact-award",
+      stat: "Documentation Management",
+      color: "from-amber-500/20 to-amber-600/20"
+    },
+    {
       title: t('admin.contactInquiries'),
       description: t('admin.viewContactFormSubmissions'),
       icon: Mail,
