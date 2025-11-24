@@ -41,6 +41,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Users, Search, Shield, UserCog, MoreVertical, AlertTriangle, CheckCircle, XCircle, Ban } from "lucide-react";
@@ -104,6 +105,8 @@ export default function AdminUsers() {
   const [showBlockDialog, setShowBlockDialog] = useState(false);
   const [selectedUserToBlock, setSelectedUserToBlock] = useState<string | null>(null);
   const [blockReason, setBlockReason] = useState("");
+  const [showRemoveRoleDialog, setShowRemoveRoleDialog] = useState(false);
+  const [selectedUserForRoleRemoval, setSelectedUserForRoleRemoval] = useState<UserWithProfile | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -296,6 +299,33 @@ export default function AdminUsers() {
     } catch (error: any) {
       toast({
         title: "Error reviewing report",
+        description: error.message,
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleRemoveRole = async (userId: string, role: string) => {
+    try {
+      const { error } = await supabase
+        .from("user_roles")
+        .delete()
+        .eq("user_id", userId)
+        .eq("role", role as Database["public"]["Enums"]["app_role"]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Role removed",
+        description: `Successfully removed ${role} role`,
+      });
+
+      setShowRemoveRoleDialog(false);
+      setSelectedUserForRoleRemoval(null);
+      loadUsers();
+    } catch (error: any) {
+      toast({
+        title: "Error removing role",
         description: error.message,
         variant: "destructive",
       });
@@ -526,6 +556,18 @@ export default function AdminUsers() {
                               <DropdownMenuItem onClick={() => handleAssignRole(user.id, "admin")}>
                                 Assign Admin Role
                               </DropdownMenuItem>
+                              {user.roles.length > 0 && (
+                                <DropdownMenuItem 
+                                  className="text-orange-600"
+                                  onClick={() => {
+                                    setSelectedUserForRoleRemoval(user);
+                                    setShowRemoveRoleDialog(true);
+                                  }}
+                                >
+                                  <XCircle className="h-4 w-4 mr-2" />
+                                  Remove Role
+                                </DropdownMenuItem>
+                              )}
                               <DropdownMenuItem 
                                 className="text-destructive"
                                 onClick={() => {
@@ -784,6 +826,49 @@ export default function AdminUsers() {
                 </Button>
               </>
             )}
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Remove Role Dialog */}
+      <Dialog open={showRemoveRoleDialog} onOpenChange={setShowRemoveRoleDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Remove User Role</DialogTitle>
+            <DialogDescription>
+              Select which role to remove from {selectedUserForRoleRemoval?.profile?.full_name}
+            </DialogDescription>
+          </DialogHeader>
+          {selectedUserForRoleRemoval && (
+            <div className="space-y-3">
+              {selectedUserForRoleRemoval.roles.map((userRole) => (
+                <Card key={userRole.role} className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Badge variant={userRole.approved ? "default" : "secondary"}>
+                        {userRole.role}
+                      </Badge>
+                      {!userRole.approved && (
+                        <span className="text-sm text-muted-foreground">(pending)</span>
+                      )}
+                    </div>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => handleRemoveRole(selectedUserForRoleRemoval.id, userRole.role)}
+                    >
+                      <XCircle className="h-4 w-4 mr-1" />
+                      Remove
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          )}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowRemoveRoleDialog(false)}>
+              Cancel
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

@@ -182,28 +182,41 @@ export const RoleApprovals = () => {
               )}
             </div>
           </div>
-          {!request.approved && (
-            <div className="flex gap-2 ml-4">
+          <div className="flex gap-2 ml-4">
+            {!request.approved ? (
+              <>
+                <Button
+                  size="sm"
+                  variant="default"
+                  onClick={() => handleApprove(request.id, request.user_id)}
+                  disabled={processingId === request.id}
+                >
+                  <CheckCircle2 className="h-4 w-4 mr-1" />
+                  Approve
+                </Button>
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={() => handleReject(request.id)}
+                  disabled={processingId === request.id}
+                >
+                  <XCircle className="h-4 w-4 mr-1" />
+                  Reject
+                </Button>
+              </>
+            ) : (
               <Button
                 size="sm"
-                variant="default"
-                onClick={() => handleApprove(request.id, request.user_id)}
-                disabled={processingId === request.id}
-              >
-                <CheckCircle2 className="h-4 w-4 mr-1" />
-                Approve
-              </Button>
-              <Button
-                size="sm"
-                variant="destructive"
+                variant="outline"
                 onClick={() => handleReject(request.id)}
                 disabled={processingId === request.id}
+                className="text-destructive hover:text-destructive"
               >
                 <XCircle className="h-4 w-4 mr-1" />
-                Reject
+                Revoke
               </Button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </CardContent>
     </Card>
