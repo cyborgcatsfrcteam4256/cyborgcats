@@ -193,7 +193,12 @@ export default function AdminNews() {
       await fetchPosts();
     } catch (error: any) {
       console.error("Error saving news post:", error);
-      toast.error(error.message || "Failed to save news post");
+      const message = error.message || "Failed to save news post";
+      if (message.includes("row-level security") || message.includes("policy")) {
+        toast.error("Permission denied: Admin role required. Check your role approval status.");
+      } else {
+        toast.error(message);
+      }
     }
   };
 

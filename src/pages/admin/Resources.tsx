@@ -143,9 +143,14 @@ export default function AdminResources() {
       setIsDialogOpen(false);
       resetForm();
       fetchResources();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error saving resource:", error);
-      toast.error("Failed to save resource");
+      const message = error.message || "Failed to save resource";
+      if (message.includes("row-level security") || message.includes("policy")) {
+        toast.error("Permission denied: Admin role required. Check your role approval status.");
+      } else {
+        toast.error(message);
+      }
     }
   };
 

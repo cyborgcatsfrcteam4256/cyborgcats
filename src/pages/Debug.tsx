@@ -5,7 +5,8 @@ import { Footer } from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw, CheckCircle, XCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface UserRole {
   role: string;
@@ -19,6 +20,8 @@ export default function Debug() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [roles, setRoles] = useState<UserRole[]>([]);
   const [loading, setLoading] = useState(true);
+  const [testingRole, setTestingRole] = useState(false);
+  const [roleTestResult, setRoleTestResult] = useState<boolean | null>(null);
 
   const loadDebugInfo = async () => {
     setLoading(true);
@@ -44,6 +47,29 @@ export default function Debug() {
     }
     
     setLoading(false);
+  };
+
+  const testHasRole = async () => {
+    setTestingRole(true);
+    setRoleTestResult(null);
+    
+    try {
+      const { data, error } = await supabase.rpc('has_role', {
+        _user_id: userId,
+        _role: 'admin'
+      });
+      
+      if (error) throw error;
+      
+      setRoleTestResult(data);
+      toast.success(`has_role function test: ${data ? 'PASS' : 'FAIL'}`);
+    } catch (error: any) {
+      console.error('Error testing has_role:', error);
+      toast.error(`Test failed: ${error.message}`);
+      setRoleTestResult(false);
+    } finally {
+      setTestingRole(false);
+    }
   };
 
   useEffect(() => {
@@ -139,18 +165,49 @@ export default function Debug() {
                   {loading ? (
                     <div className="text-sm text-muted-foreground">Loading...</div>
                   ) : (
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium">Has Admin Role:</span>
-                        <Badge variant={roles.some(r => r.role === 'admin') ? "default" : "secondary"}>
-                          {roles.some(r => r.role === 'admin') ? 'Yes' : 'No'}
-                        </Badge>
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium">Has Admin Role:</span>
+                          <Badge variant={roles.some(r => r.role === 'admin') ? "default" : "secondary"}>
+                            {roles.some(r => r.role === 'admin') ? 'Yes' : 'No'}
+                          </Badge>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium">Admin Approved:</span>
+                          <Badge variant={roles.some(r => r.role === 'admin' && r.approved) ? "default" : "secondary"}>
+                            {roles.some(r => r.role === 'admin' && r.approved) ? 'Yes' : 'No'}
+                          </Badge>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium">Admin Approved:</span>
-                        <Badge variant={roles.some(r => r.role === 'admin' && r.approved) ? "default" : "secondary"}>
-                          {roles.some(r => r.role === 'admin' && r.approved) ? 'Yes' : 'No'}
-                        </Badge>
+                      
+                      <div className="pt-4 border-t">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium">Test has_role() Function</span>
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={testHasRole}
+                            disabled={testingRole || !userId}
+                          >
+                            {testingRole ? 'Testing...' : 'Run Test'}
+                          </Button>
+                        </div>
+                        {roleTestResult !== null && (
+                          <div className="flex items-center gap-2 text-sm">
+                            {roleTestResult ? (
+                              <>
+                                <CheckCircle className="h-4 w-4 text-green-500" />
+                                <span className="text-green-600">Function returned TRUE - RLS should work</span>
+                              </>
+                            ) : (
+                              <>
+                                <XCircle className="h-4 w-4 text-red-500" />
+                                <span className="text-red-600">Function returned FALSE - RLS will block access</span>
+                              </>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
