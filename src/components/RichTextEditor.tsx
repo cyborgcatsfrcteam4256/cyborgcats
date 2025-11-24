@@ -13,10 +13,13 @@ import {
   Link as LinkIcon,
   Undo,
   Redo,
-  Quote
+  Quote,
+  FileText,
+  Clock
 } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
+import { useMemo } from 'react';
 
 interface RichTextEditorProps {
   content: string;
@@ -67,6 +70,14 @@ export const RichTextEditor = ({
       editor.chain().focus().setLink({ href: url }).run();
     }
   };
+
+  // Calculate word count and reading time
+  const stats = useMemo(() => {
+    const text = editor.getText();
+    const words = text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    const readingTime = Math.ceil(words / 200); // Average reading speed: 200 words/min
+    return { words, readingTime };
+  }, [editor.state.doc]);
 
   return (
     <div className={cn('border border-border rounded-lg overflow-hidden bg-background', className)}>
@@ -193,6 +204,18 @@ export const RichTextEditor = ({
 
       {/* Editor Content */}
       <EditorContent editor={editor} />
+
+      {/* Stats Bar */}
+      <div className="flex items-center gap-4 px-4 py-2 border-t border-border bg-muted/20 text-xs text-muted-foreground">
+        <div className="flex items-center gap-1.5">
+          <FileText className="w-3.5 h-3.5" />
+          <span>{stats.words} words</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <Clock className="w-3.5 h-3.5" />
+          <span>{stats.readingTime} min read</span>
+        </div>
+      </div>
     </div>
   );
 };
