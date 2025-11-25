@@ -9,7 +9,8 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { toast } from "sonner";
-import cyborgCatsLogo from "@/assets/cyborg-cat-alt-logo.png";
+import cyborgCatsLogo from "@/assets/cyborg-cats-logo.png";
+import cyborgCatsAltLogo from "@/assets/cyborg-cat-alt-logo.png";
 
 interface ImpactEntry {
   id: string;
@@ -93,7 +94,7 @@ export default function ImpactDocumentation() {
       // Load and convert logo to base64
       let logoDataUrl = '';
       try {
-        const response = await fetch(cyborgCatsLogo);
+        const response = await fetch(cyborgCatsAltLogo);
         const blob = await response.blob();
         logoDataUrl = await new Promise<string>((resolve) => {
           const reader = new FileReader();
