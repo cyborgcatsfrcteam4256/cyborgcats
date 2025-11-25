@@ -107,57 +107,82 @@ export default function ImpactDocumentation() {
       }
 
       // ========== COVER PAGE ==========
-      // Background gradient
+      // Background with subtle gradient
       pdf.setFillColor(249, 250, 251);
       pdf.rect(0, 0, 210, 297, 'F');
-
-      // Top accent bar
+      
+      // Decorative geometric shapes
+      pdf.setFillColor(239, 246, 255);
+      pdf.circle(15, 15, 20, 'F');
+      pdf.setFillColor(243, 244, 246);
+      pdf.circle(195, 280, 25, 'F');
+      
+      // Top accent gradient bars
       pdf.setFillColor(59, 130, 246);
-      pdf.rect(0, 0, 210, 6, 'F');
+      pdf.rect(0, 0, 210, 3, 'F');
+      pdf.setFillColor(147, 51, 234);
+      pdf.rect(0, 3, 210, 2, 'F');
 
-      // Team Logo (centered)
+      // Team Logo with decorative circle
       if (logoDataUrl) {
         try {
+          // Decorative circle behind logo
+          pdf.setFillColor(239, 246, 255);
+          pdf.circle(105, 55, 35, 'F');
+          
+          // Logo border
+          pdf.setDrawColor(59, 130, 246);
+          pdf.setLineWidth(1);
+          pdf.circle(105, 55, 32, 'S');
+          
           pdf.addImage(logoDataUrl, 'PNG', 75, 25, 60, 60);
         } catch (e) {
           console.error("Error adding logo:", e);
         }
       }
 
-      // Title Section
-      pdf.setFontSize(32);
+      // Title Section with enhanced typography
+      pdf.setFontSize(36);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(30, 41, 59);
-      pdf.text("Cyborg Cats 4256", 105, 105, { align: 'center' });
+      pdf.text("CYBORG CATS 4256", 105, 105, { align: 'center' });
 
-      pdf.setFontSize(18);
-      pdf.setFont(undefined, 'normal');
+      pdf.setFontSize(20);
+      pdf.setFont(undefined, 'bold');
       pdf.setTextColor(59, 130, 246);
-      pdf.text("FIRST Impact Award", 105, 115, { align: 'center' });
+      pdf.text("FIRST IMPACT AWARD", 105, 116, { align: 'center' });
 
-      pdf.setFontSize(14);
+      pdf.setFontSize(13);
+      pdf.setFont(undefined, 'normal');
       pdf.setTextColor(100, 116, 139);
-      pdf.text("Documentation Portfolio", 105, 123, { align: 'center' });
+      pdf.text("Documentation Portfolio", 105, 125, { align: 'center' });
 
-      // Decorative line
+      // Decorative double line
+      pdf.setDrawColor(59, 130, 246);
+      pdf.setLineWidth(0.8);
+      pdf.line(45, 132, 165, 132);
+      pdf.setLineWidth(0.3);
+      pdf.line(45, 134, 165, 134);
+
+      // Summary Statistics Box with enhanced design
+      pdf.setFillColor(255, 255, 255);
       pdf.setDrawColor(59, 130, 246);
       pdf.setLineWidth(0.5);
-      pdf.line(55, 130, 155, 130);
+      pdf.roundedRect(30, 142, 150, 42, 4, 4, 'FD');
+      
+      // Inner accent
+      pdf.setFillColor(239, 246, 255);
+      pdf.roundedRect(33, 145, 144, 10, 2, 2, 'F');
 
-      // Summary Statistics Box
-      pdf.setFillColor(255, 255, 255);
-      pdf.setDrawColor(226, 232, 240);
-      pdf.roundedRect(35, 140, 140, 40, 3, 3, 'FD');
-
-      pdf.setFontSize(12);
+      pdf.setFontSize(13);
       pdf.setFont(undefined, 'bold');
-      pdf.setTextColor(30, 41, 59);
-      pdf.text("Documentation Overview", 105, 150, { align: 'center' });
+      pdf.setTextColor(59, 130, 246);
+      pdf.text("DOCUMENTATION OVERVIEW", 105, 151, { align: 'center' });
 
-      pdf.setFontSize(10);
+      pdf.setFontSize(11);
       pdf.setFont(undefined, 'normal');
-      pdf.setTextColor(71, 85, 105);
-      pdf.text(`Total Documentation Entries: ${filteredEntries.length}`, 105, 160, { align: 'center' });
+      pdf.setTextColor(30, 41, 59);
+      pdf.text(`Total Entries: ${filteredEntries.length}`, 105, 163, { align: 'center' });
       
       // Parse dates properly and find range
       const validDates = filteredEntries
@@ -173,14 +198,16 @@ export default function ImpactDocumentation() {
       if (validDates.length > 0) {
         const minDate = new Date(Math.min(...validDates.map(d => d.getTime())));
         const maxDate = new Date(Math.max(...validDates.map(d => d.getTime())));
-        pdf.text(`Activities Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 168, { align: 'center' });
+        pdf.setFontSize(10);
+        pdf.setTextColor(71, 85, 105);
+        pdf.text(`Activity Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 171, { align: 'center' });
       }
       
       pdf.setFontSize(9);
       pdf.setTextColor(100, 116, 139);
-      pdf.text(`Portfolio Compiled: ${new Date().toLocaleDateString()}`, 105, 176, { align: 'center' });
+      pdf.text(`Compiled: ${new Date().toLocaleDateString()}`, 105, 179, { align: 'center' });
 
-      // Impact Categories Section
+      // Impact Categories Section with enhanced design
       const categoryCount = new Map<string, number>();
       filteredEntries.forEach(entry => {
         const categories = entry.impact_category.split(',').map(c => c.trim());
@@ -191,15 +218,20 @@ export default function ImpactDocumentation() {
 
       const sortedCategories = Array.from(categoryCount.entries()).sort((a, b) => b[1] - a[1]);
 
-      pdf.setFontSize(13);
+      pdf.setFontSize(14);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(30, 41, 59);
-      pdf.text("Impact Categories", 105, 192, { align: 'center' });
+      pdf.text("IMPACT CATEGORIES", 105, 195, { align: 'center' });
       
-      pdf.setFontSize(8);
+      pdf.setFontSize(9);
       pdf.setFont(undefined, 'normal');
       pdf.setTextColor(100, 116, 139);
-      pdf.text("Distribution of documentation across impact areas", 105, 198, { align: 'center' });
+      pdf.text("Distribution across FIRST Impact Award areas", 105, 202, { align: 'center' });
+
+      // Decorative accent line
+      pdf.setDrawColor(147, 51, 234);
+      pdf.setLineWidth(0.5);
+      pdf.line(65, 204, 145, 204);
 
       // Category cards layout (2 columns)
       let catYPos = 208;
@@ -265,17 +297,22 @@ export default function ImpactDocumentation() {
       const tocStartY = catYPos + (isLeftColumn ? 15 : 20);
       
       if (tocStartY < 270) {
-        pdf.setFontSize(13);
+        pdf.setFontSize(14);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
-        pdf.text("Documentation Index", 30, tocStartY);
+        pdf.text("DOCUMENTATION INDEX", 30, tocStartY);
 
         pdf.setDrawColor(59, 130, 246);
-        pdf.setLineWidth(0.3);
-        pdf.line(30, tocStartY + 3, 180, tocStartY + 3);
+        pdf.setLineWidth(0.8);
+        pdf.line(30, tocStartY + 2, 90, tocStartY + 2);
+        
+        pdf.setFontSize(8);
+        pdf.setFont(undefined, 'normal');
+        pdf.setTextColor(100, 116, 139);
+        pdf.text("Complete listing of all documentation entries", 30, tocStartY + 7);
       }
 
-      let tocYPos = tocStartY + 11;
+      let tocYPos = tocStartY < 270 ? tocStartY + 13 : 42;
       let tocPageNum = 1;
       pdf.setFontSize(9);
       pdf.setFont(undefined, 'normal');
@@ -302,17 +339,25 @@ export default function ImpactDocumentation() {
           pdf.setFillColor(249, 250, 251);
           pdf.rect(0, 0, 210, 297, 'F');
           pdf.setFillColor(59, 130, 246);
-          pdf.rect(0, 0, 210, 4, 'F');
+          pdf.rect(0, 0, 210, 3, 'F');
+          pdf.setFillColor(147, 51, 234);
+          pdf.rect(0, 3, 210, 2, 'F');
           
-          pdf.setFontSize(14);
+          pdf.setFontSize(16);
           pdf.setFont(undefined, 'bold');
           pdf.setTextColor(30, 41, 59);
-          pdf.text("Table of Contents (continued)", 30, 25);
-          pdf.setDrawColor(59, 130, 246);
-          pdf.setLineWidth(0.3);
-          pdf.line(30, 28, 180, 28);
+          pdf.text("DOCUMENTATION INDEX", 30, 25);
           
-          tocYPos = 38;
+          pdf.setFontSize(10);
+          pdf.setFont(undefined, 'normal');
+          pdf.setTextColor(100, 116, 139);
+          pdf.text("(continued)", 30, 32);
+          
+          pdf.setDrawColor(59, 130, 246);
+          pdf.setLineWidth(0.8);
+          pdf.line(30, 35, 90, 35);
+          
+          tocYPos = 42;
           pdf.setFontSize(9);
           pdf.setFont(undefined, 'normal');
         }
@@ -321,17 +366,21 @@ export default function ImpactDocumentation() {
         pdf.text(`${index + 1 + tocPageNum}`, 35, tocYPos);
         
         pdf.setTextColor(30, 41, 59);
-        const truncatedDesc = entry.activity_description.length > 60 
-          ? entry.activity_description.substring(0, 57) + '...'
-          : entry.activity_description;
-        pdf.text(truncatedDesc, 45, tocYPos);
+        pdf.setFont(undefined, 'normal');
+        // Use text wrapping for long descriptions
+        const wrappedDesc = pdf.splitTextToSize(entry.activity_description, 115);
+        pdf.text(wrappedDesc, 45, tocYPos);
         
         pdf.setTextColor(100, 116, 139);
         pdf.setFont(undefined, 'italic');
-        pdf.text(entry.documentation_id, 165, tocYPos, { align: 'right' });
+        pdf.setFontSize(8);
+        pdf.text(entry.documentation_id, 178, tocYPos, { align: 'right' });
+        pdf.setFontSize(9);
         pdf.setFont(undefined, 'normal');
         
-        tocYPos += 6;
+        // Account for wrapped text height
+        const lineHeight = wrappedDesc.length * 4;
+        tocYPos += Math.max(lineHeight, 6) + 2;
       });
 
       // Footer for last TOC page
