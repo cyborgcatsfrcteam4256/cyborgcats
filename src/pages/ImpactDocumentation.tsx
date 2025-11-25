@@ -114,6 +114,22 @@ export default function ImpactDocumentation() {
         }
         isFirstPage = false;
 
+        // Load documentation image if available
+        let entryImageDataUrl = '';
+        if (entry.documentation_url) {
+          try {
+            const imgResponse = await fetch(entry.documentation_url);
+            const imgBlob = await imgResponse.blob();
+            entryImageDataUrl = await new Promise<string>((resolve) => {
+              const reader = new FileReader();
+              reader.onloadend = () => resolve(reader.result as string);
+              reader.readAsDataURL(imgBlob);
+            });
+          } catch (e) {
+            console.error("Error loading entry image:", e);
+          }
+        }
+
         // Page background gradient effect (light)
         pdf.setFillColor(249, 250, 251);
         pdf.rect(0, 0, 210, 297, 'F');
@@ -154,75 +170,95 @@ export default function ImpactDocumentation() {
 
         // Main content card background
         pdf.setFillColor(255, 255, 255);
-        pdf.roundedRect(12, yPos - 5, 186, 210, 3, 3, 'F');
+        pdf.roundedRect(12, yPos - 5, 186, 230, 3, 3, 'F');
         
         // Card border
         pdf.setDrawColor(226, 232, 240);
         pdf.setLineWidth(0.3);
-        pdf.roundedRect(12, yPos - 5, 186, 210, 3, 3, 'S');
+        pdf.roundedRect(12, yPos - 5, 186, 230, 3, 3, 'S');
 
         // Activity title
-        pdf.setFontSize(18);
+        pdf.setFontSize(16);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
         const titleLines = pdf.splitTextToSize(entry.activity_description, 170);
         pdf.text(titleLines, 20, yPos);
-        yPos += titleLines.length * 8 + 8;
+        yPos += titleLines.length * 7 + 8;
 
-        // Metadata section with icons
+        // Two-column layout: Image on left, metadata on right
+        const leftColX = 20;
+        const rightColX = 110;
+        let leftYPos = yPos;
+        let rightYPos = yPos;
+
+        // Add documentation image if available (left column)
+        if (entryImageDataUrl) {
+          try {
+            pdf.setDrawColor(226, 232, 240);
+            pdf.setLineWidth(0.5);
+            pdf.roundedRect(leftColX - 2, leftYPos - 2, 84, 84, 2, 2, 'S');
+            pdf.addImage(entryImageDataUrl, 'JPEG', leftColX, leftYPos, 80, 80);
+            leftYPos += 90;
+          } catch (e) {
+            console.error("Error adding entry image:", e);
+          }
+        }
+
+        // Metadata section (right column)
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
         
         // Type
         pdf.setFillColor(243, 244, 246);
-        pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+        pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
         pdf.setTextColor(75, 85, 99);
-        pdf.text("Type:", 21, yPos);
+        pdf.text("Type:", rightColX, rightYPos);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
-        pdf.text(entry.documentation_type, 35, yPos);
+        pdf.text(entry.documentation_type, rightColX + 14, rightYPos);
         pdf.setFont(undefined, 'normal');
-        yPos += 10;
+        rightYPos += 10;
 
         // Date
         pdf.setFillColor(243, 244, 246);
-        pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+        pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
         pdf.setTextColor(75, 85, 99);
-        pdf.text("Date:", 21, yPos);
+        pdf.text("Date:", rightColX, rightYPos);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
-        pdf.text(entry.activity_date, 35, yPos);
+        pdf.text(entry.activity_date, rightColX + 14, rightYPos);
         pdf.setFont(undefined, 'normal');
-        yPos += 10;
+        rightYPos += 10;
         
         if (entry.activity_location) {
           pdf.setFillColor(243, 244, 246);
-          pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+          pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
           pdf.setTextColor(75, 85, 99);
-          pdf.text("Location:", 21, yPos);
+          pdf.text("Location:", rightColX, rightYPos);
           pdf.setFont(undefined, 'bold');
           pdf.setTextColor(30, 41, 59);
-          const locationText = pdf.splitTextToSize(entry.activity_location, 130);
-          pdf.text(locationText, 43, yPos);
-          yPos += locationText.length * 5 + 5;
+          const locationText = pdf.splitTextToSize(entry.activity_location, 60);
+          pdf.text(locationText, rightColX + 22, rightYPos);
+          rightYPos += locationText.length * 5 + 5;
           pdf.setFont(undefined, 'normal');
         }
 
         if (entry.team_number && entry.team_number !== '4256') {
           pdf.setFillColor(243, 244, 246);
-          pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+          pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
           pdf.setTextColor(75, 85, 99);
-          pdf.text("Collaboration:", 21, yPos);
+          pdf.text("Collab:", rightColX, rightYPos);
           pdf.setFont(undefined, 'bold');
           pdf.setTextColor(30, 41, 59);
-          pdf.text(`Team ${entry.team_number}`, 49, yPos);
+          pdf.text(`Team ${entry.team_number}`, rightColX + 18, rightYPos);
           pdf.setFont(undefined, 'normal');
-          yPos += 10;
+          rightYPos += 10;
         }
 
-        yPos += 5;
+        // Continue after both columns
+        yPos = Math.max(leftYPos, rightYPos) + 5;
 
-        // Impact category section
+        // Impact category section (full width)
         if (entry.impact_category) {
           pdf.setFontSize(9);
           pdf.setFont(undefined, 'bold');
