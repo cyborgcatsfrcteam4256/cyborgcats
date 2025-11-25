@@ -45,6 +45,26 @@ export default function NewsSubmissions() {
 
   useEffect(() => {
     checkAdminAndFetch();
+
+    // Set up realtime subscription for automatic updates
+    const channel = supabase
+      .channel('news-submissions-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'news_submissions'
+        },
+        () => {
+          fetchSubmissions();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const checkAdminAndFetch = async () => {
