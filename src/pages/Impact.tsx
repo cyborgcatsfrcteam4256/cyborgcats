@@ -274,6 +274,32 @@ const Impact = () => {
             </div>
           </ScrollReveal>
 
+          {/* Impact Award Documentation Link */}
+          <ScrollReveal>
+            <Card className="p-8 bg-gradient-to-r from-primary/10 via-primary/5 to-background border-primary/20">
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+                  <Award className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-medium text-primary">FIRST Impact Award</span>
+                </div>
+                <h3 className="text-2xl font-orbitron font-bold mb-4">
+                  View Our Complete Impact Documentation
+                </h3>
+                <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  Explore our comprehensive collection of 60+ documented community outreach activities, STEM advocacy initiatives, 
+                  and educational programs that demonstrate our commitment to FIRST values and community impact.
+                </p>
+                <a 
+                  href="/impact/documentation"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors hover-glow"
+                >
+                  View Documentation
+                  <Award className="ml-2 w-5 h-5" />
+                </a>
+              </div>
+            </Card>
+          </ScrollReveal>
+
           {/* Call to Action */}
           <ScrollReveal>
             <Card className="p-12 bg-gradient-to-br from-primary/20 to-accent/20 border-primary/30 text-center">
