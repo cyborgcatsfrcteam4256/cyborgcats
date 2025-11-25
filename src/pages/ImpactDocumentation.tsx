@@ -89,14 +89,19 @@ export default function ImpactDocumentation() {
       toast.info("Generating PDF... This may take a moment");
       const pdf = new jsPDF("p", "mm", "a4");
       
-      // Load Cyborg Cats logo
-      const logoImg = document.createElement('img');
-      logoImg.src = "/lovable-uploads/cyborg-cats-logo.png";
-      
-      await new Promise((resolve, reject) => {
-        logoImg.onload = resolve;
-        logoImg.onerror = reject;
-      });
+      // Load and convert logo to base64
+      let logoDataUrl = '';
+      try {
+        const response = await fetch("/lovable-uploads/cyborg-cats-logo.png");
+        const blob = await response.blob();
+        logoDataUrl = await new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(blob);
+        });
+      } catch (e) {
+        console.error("Error loading logo:", e);
+      }
 
       let isFirstPage = true;
 
@@ -115,10 +120,12 @@ export default function ImpactDocumentation() {
         pdf.rect(0, 0, 210, 4, 'F');
 
         // Header section with logo
-        try {
-          pdf.addImage(logoImg, 'PNG', 15, 12, 25, 25);
-        } catch (e) {
-          console.error("Error adding logo:", e);
+        if (logoDataUrl) {
+          try {
+            pdf.addImage(logoDataUrl, 'PNG', 15, 12, 25, 25);
+          } catch (e) {
+            console.error("Error adding logo:", e);
+          }
         }
 
         // Team name and title
