@@ -356,16 +356,20 @@ export default function ImpactDocumentation() {
                     <div className="relative p-10 md:p-14">
                       {/* Official Header Bar with Logo */}
                       <div className="mb-10">
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
-                              🤖
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center gap-4">
+                              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+                                <img 
+                                  src="/lovable-uploads/cyborg-cats-logo.png" 
+                                  alt="Cyborg Cats Logo" 
+                                  className="w-full h-full object-contain p-1"
+                                />
+                              </div>
+                              <div>
+                                <h3 className="text-sm font-medium text-muted-foreground">FIRST Impact Award</h3>
+                                <p className="text-xl font-bold font-orbitron text-primary">Cyborg Cats 4256</p>
+                              </div>
                             </div>
-                            <div>
-                              <h3 className="text-sm font-medium text-muted-foreground">FIRST Impact Award</h3>
-                              <p className="text-xl font-bold font-orbitron text-primary">Cyborg Cats 4256</p>
-                            </div>
-                          </div>
                           <div className="text-right">
                             <Badge variant="secondary" className="text-base font-mono px-4 py-2 bg-primary/10 text-primary border-primary/30 shadow-md">
                               {currentEntry?.documentation_id}
