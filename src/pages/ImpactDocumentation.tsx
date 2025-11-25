@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { toast } from "sonner";
+import cyborgCatsLogo from "@/assets/cyborg-cats-logo.png";
 
 interface ImpactEntry {
   id: string;
@@ -102,17 +103,47 @@ export default function ImpactDocumentation() {
 
       let yPos = margin;
 
-      // Header with Documentation ID
-      pdf.setFillColor(59, 130, 246); // primary color
-      pdf.rect(margin, yPos, contentWidth, 15, 'F');
-      pdf.setTextColor(255, 255, 255);
-      pdf.setFontSize(14);
+      // Add Cyborg Cats Logo
+      try {
+        const logoImg = new window.Image();
+        await new Promise((resolve) => {
+          logoImg.onload = () => {
+            pdf.addImage(logoImg, 'PNG', margin, yPos, 15, 15);
+            resolve(true);
+          };
+          logoImg.onerror = () => resolve(false);
+          logoImg.src = cyborgCatsLogo;
+        });
+      } catch (error) {
+        console.error('Logo load error:', error);
+      }
+
+      // Header with Team Name and Documentation ID
+      pdf.setTextColor(59, 130, 246);
+      pdf.setFontSize(12);
       pdf.setFont(undefined, 'bold');
-      pdf.text(entry.documentation_id, margin + 5, yPos + 10);
+      pdf.text('Cyborg Cats 4256', margin + 18, yPos + 6);
+      pdf.setTextColor(100, 100, 100);
+      pdf.setFontSize(8);
+      pdf.setFont(undefined, 'normal');
+      pdf.text('FIRST Impact Award', margin + 18, yPos + 11);
+      
+      // Documentation ID on the right
+      pdf.setFillColor(59, 130, 246);
+      const idWidth = 30;
+      pdf.rect(pageWidth - margin - idWidth, yPos, idWidth, 10, 'F');
+      pdf.setTextColor(255, 255, 255);
       pdf.setFontSize(10);
-      pdf.text(entry.documentation_type, pageWidth - margin - 5, yPos + 10, { align: 'right' });
+      pdf.setFont(undefined, 'bold');
+      pdf.text(entry.documentation_id, pageWidth - margin - idWidth/2, yPos + 7, { align: 'center' });
       
       yPos += 20;
+      
+      // Divider line
+      pdf.setDrawColor(59, 130, 246);
+      pdf.setLineWidth(0.5);
+      pdf.line(margin, yPos, pageWidth - margin, yPos);
+      yPos += 8;
 
       // Date
       pdf.setTextColor(100, 100, 100);
@@ -138,9 +169,9 @@ export default function ImpactDocumentation() {
         yPos += 8;
       }
 
-      // Team Number
-      if (entry.team_number) {
-        pdf.text(`Team: FRC ${entry.team_number}`, margin, yPos);
+      // Team Number (only if different from 4256)
+      if (entry.team_number && entry.team_number !== '4256') {
+        pdf.text(`Collaboration with Team: ${entry.team_number}`, margin, yPos);
         yPos += 8;
       }
 
@@ -314,16 +345,18 @@ export default function ImpactDocumentation() {
                     
                     {/* Page Content */}
                     <div className="relative p-10 md:p-14">
-                      {/* Official Header Bar */}
+                      {/* Official Header Bar with Logo */}
                       <div className="mb-10">
                         <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-3">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
-                              <Award className="w-6 h-6 text-white" />
-                            </div>
+                          <div className="flex items-center gap-4">
+                            <img 
+                              src={cyborgCatsLogo} 
+                              alt="Cyborg Cats Logo" 
+                              className="w-16 h-16 object-contain"
+                            />
                             <div>
                               <h3 className="text-sm font-medium text-muted-foreground">FIRST Impact Award</h3>
-                              <p className="text-lg font-bold font-orbitron text-primary">Cyborg Cats 4256</p>
+                              <p className="text-xl font-bold font-orbitron text-primary">Cyborg Cats 4256</p>
                             </div>
                           </div>
                           <div className="text-right">
@@ -413,15 +446,15 @@ export default function ImpactDocumentation() {
                               </div>
                             )}
 
-                            {currentEntry?.team_number && (
+                            {currentEntry?.team_number && currentEntry.team_number !== '4256' && (
                               <div className="group p-5 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20 hover:border-primary/40 transition-all hover:shadow-md">
                                 <div className="flex items-start gap-4">
                                   <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                                     <BookOpen className="w-5 h-5 text-primary" />
                                   </div>
                                   <div className="flex-1">
-                                    <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-1.5">Team Number</p>
-                                    <p className="text-base font-semibold text-foreground">FRC {currentEntry.team_number}</p>
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-1.5">Collaboration</p>
+                                    <p className="text-base font-semibold text-foreground">With Team {currentEntry.team_number}</p>
                                   </div>
                                 </div>
                               </div>
