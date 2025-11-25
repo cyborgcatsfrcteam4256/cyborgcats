@@ -432,25 +432,25 @@ export default function ImpactDocumentation() {
         }
 
         // Team name and title
-        pdf.setFontSize(24);
+        pdf.setFontSize(22);
         pdf.setFont(undefined, 'bold');
-        pdf.setTextColor(59, 130, 246);
-        pdf.text("CYBORG CATS 4256", 45, 22);
+        pdf.setTextColor(30, 58, 138);
+        pdf.text("CYBORG CATS 4256", 45, 21);
         
-        pdf.setFontSize(11);
+        pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
         pdf.setTextColor(100, 116, 139);
         pdf.text("FIRST Impact Award Documentation", 45, 29);
 
         // Documentation ID badge
         pdf.setFillColor(239, 246, 255);
-        pdf.roundedRect(145, 15, 50, 12, 2, 2, 'F');
+        pdf.roundedRect(147, 14, 48, 13, 2, 2, 'F');
         pdf.setFontSize(9);
         pdf.setFont(undefined, 'bold');
-        pdf.setTextColor(59, 130, 246);
-        pdf.text(entry.documentation_id, 170, 22, { align: 'center' });
+        pdf.setTextColor(30, 58, 138);
+        pdf.text(entry.documentation_id, 171, 22, { align: 'center' });
 
-        let yPos = 50;
+        let yPos = 52;
 
         // Main content card background
         pdf.setFillColor(255, 255, 255);
@@ -462,12 +462,12 @@ export default function ImpactDocumentation() {
         pdf.roundedRect(12, yPos - 5, 186, 230, 3, 3, 'S');
 
         // Activity title
-        pdf.setFontSize(16);
+        pdf.setFontSize(15);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
         const titleLines = pdf.splitTextToSize(entry.activity_description, 170);
         pdf.text(titleLines, 20, yPos);
-        yPos += titleLines.length * 7 + 8;
+        yPos += titleLines.length * 7 + 10;
 
         // Two-column layout: Image on left, metadata on right
         const leftColX = 20;
@@ -494,95 +494,95 @@ export default function ImpactDocumentation() {
         
         // Type
         pdf.setFillColor(243, 244, 246);
-        pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
+        pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 9, 1, 1, 'F');
         pdf.setTextColor(75, 85, 99);
         pdf.text("Type:", rightColX, rightYPos);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
         pdf.text(entry.documentation_type, rightColX + 14, rightYPos);
         pdf.setFont(undefined, 'normal');
-        rightYPos += 10;
+        rightYPos += 11;
 
         // Date
         pdf.setFillColor(243, 244, 246);
-        pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
+        pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 9, 1, 1, 'F');
         pdf.setTextColor(75, 85, 99);
         pdf.text("Date:", rightColX, rightYPos);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
         pdf.text(entry.activity_date, rightColX + 14, rightYPos);
         pdf.setFont(undefined, 'normal');
-        rightYPos += 10;
+        rightYPos += 11;
         
         if (entry.activity_location) {
           pdf.setFillColor(243, 244, 246);
-          pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
+          pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 9, 1, 1, 'F');
           pdf.setTextColor(75, 85, 99);
           pdf.text("Location:", rightColX, rightYPos);
           pdf.setFont(undefined, 'bold');
           pdf.setTextColor(30, 41, 59);
           const locationText = pdf.splitTextToSize(entry.activity_location, 60);
           pdf.text(locationText, rightColX + 22, rightYPos);
-          rightYPos += locationText.length * 5 + 5;
+          rightYPos += locationText.length * 5 + 6;
           pdf.setFont(undefined, 'normal');
         }
 
         if (entry.team_number && entry.team_number !== '4256') {
           pdf.setFillColor(243, 244, 246);
-          pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 8, 1, 1, 'F');
+          pdf.roundedRect(rightColX - 2, rightYPos - 4, 80, 9, 1, 1, 'F');
           pdf.setTextColor(75, 85, 99);
           pdf.text("Collab:", rightColX, rightYPos);
           pdf.setFont(undefined, 'bold');
           pdf.setTextColor(30, 41, 59);
           pdf.text(`Team ${entry.team_number}`, rightColX + 18, rightYPos);
           pdf.setFont(undefined, 'normal');
-          rightYPos += 10;
+          rightYPos += 11;
         }
 
         // Continue after both columns
-        yPos = Math.max(leftYPos, rightYPos) + 5;
+        yPos = Math.max(leftYPos, rightYPos) + 8;
 
         // Impact category section (full width)
         if (entry.impact_category) {
           pdf.setFontSize(9);
           pdf.setFont(undefined, 'bold');
-          pdf.setTextColor(147, 51, 234);
+          pdf.setTextColor(30, 58, 138);
           pdf.text("IMPACT CATEGORY", 20, yPos);
-          yPos += 6;
+          yPos += 7;
 
           const categories = entry.impact_category.split(',');
           categories.forEach((cat) => {
-            pdf.setFillColor(250, 245, 255);
-            pdf.setDrawColor(233, 213, 255);
-            pdf.setLineWidth(0.2);
+            pdf.setFillColor(239, 246, 255);
+            pdf.setDrawColor(191, 219, 254);
+            pdf.setLineWidth(0.3);
             const catText = cat.trim();
             const textWidth = pdf.getTextWidth(catText);
-            pdf.roundedRect(20, yPos - 4, textWidth + 6, 6, 1, 1, 'FD');
+            pdf.roundedRect(20, yPos - 4, textWidth + 8, 7, 1.5, 1.5, 'FD');
             pdf.setFontSize(8);
             pdf.setFont(undefined, 'normal');
-            pdf.setTextColor(126, 34, 206);
-            pdf.text(catText, 23, yPos);
-            yPos += 8;
+            pdf.setTextColor(59, 130, 246);
+            pdf.text(catText, 24, yPos);
+            yPos += 9;
           });
-          yPos += 5;
+          yPos += 6;
         }
 
         // Notes section
         if (entry.notes && !entry.notes.includes('📸')) {
           pdf.setFontSize(9);
           pdf.setFont(undefined, 'bold');
-          pdf.setTextColor(100, 116, 139);
+          pdf.setTextColor(30, 58, 138);
           pdf.text("ADDITIONAL NOTES", 20, yPos);
-          yPos += 6;
+          yPos += 7;
           
           pdf.setFillColor(248, 250, 252);
-          pdf.roundedRect(18, yPos - 3, 170, 30, 2, 2, 'F');
+          pdf.roundedRect(18, yPos - 3, 170, 32, 2, 2, 'F');
           
           pdf.setFontSize(9);
           pdf.setFont(undefined, 'normal');
           pdf.setTextColor(71, 85, 105);
           const notesLines = pdf.splitTextToSize(entry.notes, 160);
-          pdf.text(notesLines, 22, yPos + 2);
+          pdf.text(notesLines, 22, yPos + 3);
         }
 
         // Footer with gradient bar
