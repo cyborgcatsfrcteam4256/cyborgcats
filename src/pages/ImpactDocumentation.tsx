@@ -106,13 +106,124 @@ export default function ImpactDocumentation() {
         toast.error("Failed to load logo for PDF");
       }
 
-      let isFirstPage = true;
+      // ========== COVER PAGE ==========
+      // Background gradient
+      pdf.setFillColor(249, 250, 251);
+      pdf.rect(0, 0, 210, 297, 'F');
 
-      for (const entry of filteredEntries) {
-        if (!isFirstPage) {
-          pdf.addPage();
+      // Top accent bar
+      pdf.setFillColor(59, 130, 246);
+      pdf.rect(0, 0, 210, 6, 'F');
+
+      // Team Logo (centered)
+      if (logoDataUrl) {
+        try {
+          pdf.addImage(logoDataUrl, 'PNG', 75, 25, 60, 60);
+        } catch (e) {
+          console.error("Error adding logo:", e);
         }
-        isFirstPage = false;
+      }
+
+      // Title Section
+      pdf.setFontSize(32);
+      pdf.setFont(undefined, 'bold');
+      pdf.setTextColor(30, 41, 59);
+      pdf.text("Cyborg Cats 4256", 105, 105, { align: 'center' });
+
+      pdf.setFontSize(18);
+      pdf.setFont(undefined, 'normal');
+      pdf.setTextColor(59, 130, 246);
+      pdf.text("FIRST Impact Award", 105, 115, { align: 'center' });
+
+      pdf.setFontSize(14);
+      pdf.setTextColor(100, 116, 139);
+      pdf.text("Documentation Portfolio", 105, 123, { align: 'center' });
+
+      // Decorative line
+      pdf.setDrawColor(59, 130, 246);
+      pdf.setLineWidth(0.5);
+      pdf.line(55, 130, 155, 130);
+
+      // Summary Statistics Box
+      pdf.setFillColor(255, 255, 255);
+      pdf.setDrawColor(226, 232, 240);
+      pdf.roundedRect(40, 140, 130, 35, 3, 3, 'FD');
+
+      pdf.setFontSize(11);
+      pdf.setFont(undefined, 'bold');
+      pdf.setTextColor(30, 41, 59);
+      pdf.text("Documentation Summary", 105, 150, { align: 'center' });
+
+      pdf.setFontSize(10);
+      pdf.setFont(undefined, 'normal');
+      pdf.setTextColor(71, 85, 105);
+      pdf.text(`Total Entries: ${filteredEntries.length}`, 105, 158, { align: 'center' });
+      
+      const dates = filteredEntries.map(e => new Date(e.activity_date));
+      const minDate = new Date(Math.min(...dates.map(d => d.getTime())));
+      const maxDate = new Date(Math.max(...dates.map(d => d.getTime())));
+      pdf.text(`Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 165, { align: 'center' });
+      
+      pdf.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 172, { align: 'center' });
+
+      // Table of Contents
+      pdf.setFontSize(14);
+      pdf.setFont(undefined, 'bold');
+      pdf.setTextColor(30, 41, 59);
+      pdf.text("Table of Contents", 30, 195);
+
+      pdf.setDrawColor(59, 130, 246);
+      pdf.setLineWidth(0.3);
+      pdf.line(30, 198, 180, 198);
+
+      let tocYPos = 208;
+      pdf.setFontSize(9);
+      pdf.setFont(undefined, 'normal');
+
+      filteredEntries.slice(0, 12).forEach((entry, index) => {
+        if (tocYPos > 270) return; // Don't overflow the page
+        
+        pdf.setTextColor(71, 85, 105);
+        pdf.text(`${index + 2}`, 35, tocYPos); // Page numbers start at 2 (after cover)
+        
+        pdf.setTextColor(30, 41, 59);
+        const truncatedDesc = entry.activity_description.length > 60 
+          ? entry.activity_description.substring(0, 57) + '...'
+          : entry.activity_description;
+        pdf.text(truncatedDesc, 45, tocYPos);
+        
+        pdf.setTextColor(100, 116, 139);
+        pdf.setFont(undefined, 'italic');
+        pdf.text(entry.documentation_id, 165, tocYPos, { align: 'right' });
+        pdf.setFont(undefined, 'normal');
+        
+        tocYPos += 6;
+      });
+
+      if (filteredEntries.length > 12) {
+        pdf.setTextColor(100, 116, 139);
+        pdf.setFont(undefined, 'italic');
+        pdf.text(`... and ${filteredEntries.length - 12} more entries`, 105, tocYPos + 5, { align: 'center' });
+      }
+
+      // Footer
+      pdf.setFillColor(241, 245, 249);
+      pdf.rect(0, 280, 210, 17, 'F');
+      
+      pdf.setDrawColor(226, 232, 240);
+      pdf.setLineWidth(0.3);
+      pdf.line(15, 280, 195, 280);
+      
+      pdf.setFontSize(8);
+      pdf.setTextColor(100, 116, 139);
+      pdf.text("Westminster Christian Academy", 15, 288);
+      pdf.text("St. Louis, Missouri", 105, 288, { align: 'center' });
+      pdf.text("Page 1", 195, 288, { align: 'right' });
+
+      // ========== ENTRY PAGES ==========
+      for (let i = 0; i < filteredEntries.length; i++) {
+        const entry = filteredEntries[i];
+        pdf.addPage();
 
         // Load documentation image if available
         let entryImageDataUrl = '';
@@ -313,7 +424,7 @@ export default function ImpactDocumentation() {
         pdf.setTextColor(100, 116, 139);
         pdf.text("Team 4256 Cyborg Cats", 15, 288);
         pdf.text("FIRST Impact Award Documentation", 105, 288, { align: 'center' });
-        pdf.text(`Page ${filteredEntries.indexOf(entry) + 1} of ${filteredEntries.length}`, 195, 288, { align: 'right' });
+        pdf.text(`Page ${i + 2} of ${filteredEntries.length + 1}`, 195, 288, { align: 'right' });
         
         pdf.setFontSize(7);
         pdf.setTextColor(148, 163, 184);
