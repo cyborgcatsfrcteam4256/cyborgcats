@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
@@ -65,6 +65,8 @@ export default function AdminImpactAward() {
   const [sortBy, setSortBy] = useState<string>("recent");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadingFile, setUploadingFile] = useState(false);
+  const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
+  const [exportSortBy, setExportSortBy] = useState<string>("recent");
 
   const [formData, setFormData] = useState({
     team_number: "",
@@ -371,10 +373,41 @@ export default function AdminImpactAward() {
     });
   };
 
+  const getExportEntries = (sortOption: string) => {
+    let entriesToExport = [...entries];
+    
+    // Apply sorting
+    if (sortOption === "recent") {
+      entriesToExport.sort((a, b) => 
+        new Date(b.activity_date).getTime() - new Date(a.activity_date).getTime()
+      );
+    } else if (sortOption === "oldest") {
+      entriesToExport.sort((a, b) => 
+        new Date(a.activity_date).getTime() - new Date(b.activity_date).getTime()
+      );
+    } else if (sortOption === "past3years") {
+      const threeYearsAgo = new Date();
+      threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
+      entriesToExport = entriesToExport.filter(entry => 
+        new Date(entry.activity_date) >= threeYearsAgo
+      ).sort((a, b) => 
+        new Date(b.activity_date).getTime() - new Date(a.activity_date).getTime()
+      );
+    } else if (sortOption === "category") {
+      entriesToExport.sort((a, b) => 
+        a.impact_category.localeCompare(b.impact_category)
+      );
+    }
+    
+    return entriesToExport;
+  };
+
   const handleExport = async () => {
-    const result = await exportToExcel(filteredEntries);
+    const entriesToExport = getExportEntries(exportSortBy);
+    const result = await exportToExcel(entriesToExport);
     if (result.success) {
-      toast.success(`Exported ${filteredEntries.length} entries successfully`);
+      toast.success(`Exported ${entriesToExport.length} entries successfully`);
+      setIsExportDialogOpen(false);
     } else {
       toast.error("Failed to export data");
     }
@@ -543,7 +576,7 @@ export default function AdminImpactAward() {
                 <Upload className="mr-2 h-4 w-4" />
                 Import Data
               </Button>
-              <Button variant="outline" onClick={handleExport}>
+              <Button variant="outline" onClick={() => setIsExportDialogOpen(true)}>
                 <Download className="mr-2 h-4 w-4" />
                 Export to CSV
               </Button>
@@ -907,6 +940,49 @@ export default function AdminImpactAward() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Export Options Dialog */}
+      <Dialog open={isExportDialogOpen} onOpenChange={setIsExportDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Export to CSV</DialogTitle>
+            <DialogDescription>
+              Choose how you want to sort and filter the exported data
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label>Sort & Filter Options</Label>
+              <Select value={exportSortBy} onValueChange={setExportSortBy}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select sorting option" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="recent">Most Recent</SelectItem>
+                  <SelectItem value="oldest">Oldest First</SelectItem>
+                  <SelectItem value="past3years">Past 3 Years Only</SelectItem>
+                  <SelectItem value="category">By Category</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="text-sm text-muted-foreground">
+              {getExportEntries(exportSortBy).length} entries will be exported
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setIsExportDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleExport}>
+              <Download className="h-4 w-4 mr-2" />
+              Export
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
