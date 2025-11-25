@@ -159,14 +159,26 @@ export default function ImpactDocumentation() {
       pdf.setTextColor(71, 85, 105);
       pdf.text(`Total Entries: ${filteredEntries.length}`, 105, 158, { align: 'center' });
       
-      const dates = filteredEntries.map(e => new Date(e.activity_date));
-      const minDate = new Date(Math.min(...dates.map(d => d.getTime())));
-      const maxDate = new Date(Math.max(...dates.map(d => d.getTime())));
-      pdf.text(`Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 165, { align: 'center' });
+      // Parse dates properly and find range
+      const validDates = filteredEntries
+        .map(e => {
+          const parts = e.activity_date.split(/[-/]/);
+          if (parts.length === 3) {
+            return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+          }
+          return null;
+        })
+        .filter(d => d && !isNaN(d.getTime()));
+      
+      if (validDates.length > 0) {
+        const minDate = new Date(Math.min(...validDates.map(d => d.getTime())));
+        const maxDate = new Date(Math.max(...validDates.map(d => d.getTime())));
+        pdf.text(`Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 165, { align: 'center' });
+      }
       
       pdf.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 172, { align: 'center' });
 
-      // Table of Contents
+      // Table of Contents (with pagination for many entries)
       pdf.setFontSize(14);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(30, 41, 59);
@@ -177,14 +189,49 @@ export default function ImpactDocumentation() {
       pdf.line(30, 198, 180, 198);
 
       let tocYPos = 208;
+      let tocPageNum = 1;
       pdf.setFontSize(9);
       pdf.setFont(undefined, 'normal');
 
-      filteredEntries.slice(0, 12).forEach((entry, index) => {
-        if (tocYPos > 270) return; // Don't overflow the page
+      filteredEntries.forEach((entry, index) => {
+        // Check if we need a new page for TOC
+        if (tocYPos > 270) {
+          // Add footer to current TOC page before moving to next
+          pdf.setFillColor(241, 245, 249);
+          pdf.rect(0, 280, 210, 17, 'F');
+          pdf.setDrawColor(226, 232, 240);
+          pdf.setLineWidth(0.3);
+          pdf.line(15, 280, 195, 280);
+          pdf.setFontSize(8);
+          pdf.setTextColor(100, 116, 139);
+          pdf.text("Westminster Christian Academy", 15, 288);
+          pdf.text("St. Louis, Missouri", 105, 288, { align: 'center' });
+          pdf.text(`Page ${tocPageNum}`, 195, 288, { align: 'right' });
+          
+          pdf.addPage();
+          tocPageNum++;
+          
+          // Repeat header on new TOC page
+          pdf.setFillColor(249, 250, 251);
+          pdf.rect(0, 0, 210, 297, 'F');
+          pdf.setFillColor(59, 130, 246);
+          pdf.rect(0, 0, 210, 4, 'F');
+          
+          pdf.setFontSize(14);
+          pdf.setFont(undefined, 'bold');
+          pdf.setTextColor(30, 41, 59);
+          pdf.text("Table of Contents (continued)", 30, 25);
+          pdf.setDrawColor(59, 130, 246);
+          pdf.setLineWidth(0.3);
+          pdf.line(30, 28, 180, 28);
+          
+          tocYPos = 38;
+          pdf.setFontSize(9);
+          pdf.setFont(undefined, 'normal');
+        }
         
         pdf.setTextColor(71, 85, 105);
-        pdf.text(`${index + 2}`, 35, tocYPos); // Page numbers start at 2 (after cover)
+        pdf.text(`${index + 1 + tocPageNum}`, 35, tocYPos);
         
         pdf.setTextColor(30, 41, 59);
         const truncatedDesc = entry.activity_description.length > 60 
@@ -200,13 +247,7 @@ export default function ImpactDocumentation() {
         tocYPos += 6;
       });
 
-      if (filteredEntries.length > 12) {
-        pdf.setTextColor(100, 116, 139);
-        pdf.setFont(undefined, 'italic');
-        pdf.text(`... and ${filteredEntries.length - 12} more entries`, 105, tocYPos + 5, { align: 'center' });
-      }
-
-      // Footer
+      // Footer for last TOC page
       pdf.setFillColor(241, 245, 249);
       pdf.rect(0, 280, 210, 17, 'F');
       
@@ -218,7 +259,7 @@ export default function ImpactDocumentation() {
       pdf.setTextColor(100, 116, 139);
       pdf.text("Westminster Christian Academy", 15, 288);
       pdf.text("St. Louis, Missouri", 105, 288, { align: 'center' });
-      pdf.text("Page 1", 195, 288, { align: 'right' });
+      pdf.text(`Page ${tocPageNum}`, 195, 288, { align: 'right' });
 
       // ========== ENTRY PAGES ==========
       for (let i = 0; i < filteredEntries.length; i++) {
@@ -424,7 +465,7 @@ export default function ImpactDocumentation() {
         pdf.setTextColor(100, 116, 139);
         pdf.text("Team 4256 Cyborg Cats", 15, 288);
         pdf.text("FIRST Impact Award Documentation", 105, 288, { align: 'center' });
-        pdf.text(`Page ${i + 2} of ${filteredEntries.length + 1}`, 195, 288, { align: 'right' });
+        pdf.text(`Page ${i + tocPageNum + 1}`, 195, 288, { align: 'right' });
         
         pdf.setFontSize(7);
         pdf.setTextColor(148, 163, 184);
