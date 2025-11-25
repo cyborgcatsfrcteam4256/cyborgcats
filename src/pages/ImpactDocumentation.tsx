@@ -369,7 +369,7 @@ export default function ImpactDocumentation() {
                             <div className="flex items-center gap-4">
                               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
                                 <img 
-                                  src="/lovable-uploads/cyborg-cats-logo.png" 
+                                  src={cyborgCatsLogo}
                                   alt="Cyborg Cats Logo" 
                                   className="w-full h-full object-contain p-1"
                                 />
