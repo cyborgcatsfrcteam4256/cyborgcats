@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { toast } from "sonner";
+import html2canvas from "html2canvas";
 import cyborgCatsLogo from "@/assets/cyborg-cats-logo.png";
 
 interface ImpactEntry {
@@ -29,6 +30,7 @@ export default function ImpactDocumentation() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
+  const hiddenPageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchData();
@@ -81,333 +83,217 @@ export default function ImpactDocumentation() {
   };
 
   const exportToPDF = async () => {
-    toast.info("Generating PDF...");
+    if (!hiddenPageRef.current) return;
     
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'mm',
-      format: 'a4'
-    });
-
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const pageHeight = pdf.internal.pageSize.getHeight();
-    const margin = 15;
-    const contentWidth = pageWidth - (margin * 2);
-
-    for (let i = 0; i < filteredEntries.length; i++) {
-      const entry = filteredEntries[i];
-      
-      if (i > 0) {
-        pdf.addPage();
-      }
-
-      let yPos = margin;
-
-      // Subtle background decoration
-      pdf.setFillColor(59, 130, 246, 0.03);
-      pdf.circle(margin - 5, margin - 5, 20, 'F');
-      pdf.circle(pageWidth - margin + 5, pageHeight - margin + 5, 20, 'F');
-
-      // Add Cyborg Cats Logo
-      try {
-        const logoImg = new window.Image();
-        await new Promise((resolve) => {
-          logoImg.onload = () => {
-            pdf.addImage(logoImg, 'PNG', margin, yPos, 18, 18);
-            resolve(true);
-          };
-          logoImg.onerror = () => resolve(false);
-          logoImg.src = cyborgCatsLogo;
-        });
-      } catch (error) {
-        console.error('Logo load error:', error);
-      }
-
-      // Header with Team Name
-      pdf.setTextColor(59, 130, 246);
-      pdf.setFontSize(14);
-      pdf.setFont(undefined, 'bold');
-      pdf.text('Cyborg Cats 4256', margin + 22, yPos + 8);
-      pdf.setTextColor(120, 120, 120);
-      pdf.setFontSize(9);
-      pdf.setFont(undefined, 'normal');
-      pdf.text('FIRST Impact Award Documentation', margin + 22, yPos + 14);
-      
-      // Documentation ID Badge
-      const badgeWidth = 28;
-      const badgeHeight = 10;
-      const badgeX = pageWidth - margin - badgeWidth;
-      pdf.setFillColor(239, 246, 255);
-      pdf.roundedRect(badgeX, yPos + 4, badgeWidth, badgeHeight, 2, 2, 'F');
-      pdf.setDrawColor(59, 130, 246);
-      pdf.setLineWidth(0.3);
-      pdf.roundedRect(badgeX, yPos + 4, badgeWidth, badgeHeight, 2, 2, 'S');
-      pdf.setTextColor(59, 130, 246);
-      pdf.setFontSize(10);
-      pdf.setFont(undefined, 'bold');
-      pdf.text(entry.documentation_id, badgeX + badgeWidth/2, yPos + 10, { align: 'center' });
-      
-      yPos += 24;
-      
-      // Gradient-style divider
-      pdf.setDrawColor(59, 130, 246);
-      pdf.setLineWidth(1);
-      pdf.line(margin, yPos, pageWidth - margin, yPos);
-      pdf.setDrawColor(59, 130, 246, 0.3);
-      pdf.setLineWidth(0.3);
-      pdf.line(margin, yPos + 0.5, pageWidth - margin, yPos + 0.5);
-      yPos += 8;
-
-      // Metadata badges
-      const badgeY = yPos;
-      let badgeXPos = margin;
-      
-      // Documentation Type Badge
-      pdf.setFillColor(249, 250, 251);
-      pdf.roundedRect(badgeXPos, badgeY, 35, 7, 1.5, 1.5, 'F');
-      pdf.setDrawColor(229, 231, 235);
-      pdf.setLineWidth(0.2);
-      pdf.roundedRect(badgeXPos, badgeY, 35, 7, 1.5, 1.5, 'S');
-      pdf.setTextColor(75, 85, 99);
-      pdf.setFontSize(8);
-      pdf.setFont(undefined, 'normal');
-      pdf.text(entry.documentation_type, badgeXPos + 17.5, badgeY + 4.5, { align: 'center' });
-      
-      // Date Badge
-      badgeXPos += 38;
-      const dateWidth = pdf.getTextWidth(entry.activity_date) + 6;
-      pdf.setFillColor(249, 250, 251);
-      pdf.roundedRect(badgeXPos, badgeY, dateWidth, 7, 1.5, 1.5, 'F');
-      pdf.setDrawColor(229, 231, 235);
-      pdf.roundedRect(badgeXPos, badgeY, dateWidth, 7, 1.5, 1.5, 'S');
-      pdf.text(entry.activity_date, badgeXPos + dateWidth/2, badgeY + 4.5, { align: 'center' });
-      
-      yPos += 15;
-
-      // Title Section with background
-      pdf.setFillColor(248, 250, 252);
-      pdf.roundedRect(margin, yPos, contentWidth, 0, 2, 2, 'F');
-      
-      pdf.setTextColor(30, 41, 59);
-      pdf.setFontSize(16);
-      pdf.setFont(undefined, 'bold');
-      const titleLines = pdf.splitTextToSize(entry.activity_description, contentWidth - 8);
-      const titleHeight = titleLines.length * 8;
-      
-      // Draw background box for title
-      pdf.setFillColor(248, 250, 252);
-      pdf.roundedRect(margin, yPos, contentWidth, titleHeight + 8, 2, 2, 'F');
-      pdf.text(titleLines, margin + 4, yPos + 6);
-      yPos += titleHeight + 14;
-
-      // Info boxes section
-      const boxesStartY = yPos;
-      const boxWidth = (contentWidth - 6) / 2;
-      let currentBoxX = margin;
-      let maxBoxHeight = 0;
-
-      // Location Box (if exists)
-      if (entry.activity_location) {
-        const boxHeight = 22;
-        maxBoxHeight = Math.max(maxBoxHeight, boxHeight);
-        
-        pdf.setFillColor(254, 249, 242);
-        pdf.roundedRect(currentBoxX, yPos, boxWidth, boxHeight, 2, 2, 'F');
-        pdf.setDrawColor(251, 191, 36, 0.3);
-        pdf.setLineWidth(0.5);
-        pdf.roundedRect(currentBoxX, yPos, boxWidth, boxHeight, 2, 2, 'S');
-        
-        pdf.setTextColor(146, 64, 14);
-        pdf.setFontSize(7);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('LOCATION', currentBoxX + 3, yPos + 5);
-        
-        pdf.setTextColor(30, 41, 59);
-        pdf.setFontSize(10);
-        pdf.setFont(undefined, 'bold');
-        const locLines = pdf.splitTextToSize(entry.activity_location, boxWidth - 6);
-        pdf.text(locLines, currentBoxX + 3, yPos + 11);
-        
-        currentBoxX += boxWidth + 3;
-      }
-
-      // Collaboration Box (if different team)
-      if (entry.team_number && entry.team_number !== '4256') {
-        const boxHeight = 22;
-        maxBoxHeight = Math.max(maxBoxHeight, boxHeight);
-        
-        pdf.setFillColor(239, 246, 255);
-        pdf.roundedRect(currentBoxX, yPos, boxWidth, boxHeight, 2, 2, 'F');
-        pdf.setDrawColor(59, 130, 246, 0.3);
-        pdf.setLineWidth(0.5);
-        pdf.roundedRect(currentBoxX, yPos, boxWidth, boxHeight, 2, 2, 'S');
-        
-        pdf.setTextColor(30, 64, 175);
-        pdf.setFontSize(7);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('COLLABORATION', currentBoxX + 3, yPos + 5);
-        
-        pdf.setTextColor(30, 41, 59);
-        pdf.setFontSize(10);
-        pdf.setFont(undefined, 'bold');
-        pdf.text(`Team ${entry.team_number}`, currentBoxX + 3, yPos + 12);
-      }
-
-      yPos += maxBoxHeight + 8;
-
-      // Category Tags
-      pdf.setTextColor(100, 116, 139);
-      pdf.setFontSize(7);
-      pdf.setFont(undefined, 'bold');
-      pdf.text('IMPACT CATEGORIES', margin, yPos);
-      yPos += 5;
-
-      const categories = entry.impact_category.split(',').map(c => c.trim());
-      let tagX = margin;
-      let tagY = yPos;
-      
-      categories.forEach((cat) => {
-        const tagWidth = pdf.getTextWidth(cat) + 5;
-        
-        if (tagX + tagWidth > pageWidth - margin) {
-          tagX = margin;
-          tagY += 7;
-        }
-        
-        pdf.setFillColor(243, 244, 246);
-        pdf.roundedRect(tagX, tagY, tagWidth, 5, 1, 1, 'F');
-        pdf.setDrawColor(209, 213, 219);
-        pdf.setLineWidth(0.2);
-        pdf.roundedRect(tagX, tagY, tagWidth, 5, 1, 1, 'S');
-        
-        pdf.setTextColor(75, 85, 99);
-        pdf.setFontSize(7);
-        pdf.setFont(undefined, 'normal');
-        pdf.text(cat, tagX + 2.5, tagY + 3.5);
-        
-        tagX += tagWidth + 2;
+    toast.info("Generating PDF... This may take a moment");
+    
+    try {
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
       });
-      
-      yPos = tagY + 10;
 
-      // Image Section with professional border
-      if (entry.documentation_url) {
-        try {
-          const img = document.createElement('img');
-          img.crossOrigin = 'anonymous';
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      for (let i = 0; i < filteredEntries.length; i++) {
+        const entry = filteredEntries[i];
+        
+        // Render the entry in the hidden div
+        if (hiddenPageRef.current) {
+          hiddenPageRef.current.innerHTML = '';
           
-          await new Promise((resolve) => {
-            img.onload = () => {
-              try {
-                const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                const ctx = canvas.getContext('2d');
-                ctx?.drawImage(img, 0, 0);
-                const imgData = canvas.toDataURL('image/jpeg', 0.9);
-                
-                const imgWidth = contentWidth - 4;
-                const imgHeight = (img.height * imgWidth) / img.width;
-                const maxImgHeight = pageHeight - yPos - margin - 20;
-                
-                let finalHeight = imgHeight;
-                let finalWidth = imgWidth;
-                
-                if (imgHeight > maxImgHeight) {
-                  finalHeight = maxImgHeight;
-                  finalWidth = (img.width * finalHeight) / img.height;
-                }
-                
-                // Image container with shadow effect
-                pdf.setFillColor(255, 255, 255);
-                pdf.roundedRect(margin, yPos, contentWidth, finalHeight + 4, 2, 2, 'F');
-                pdf.setDrawColor(226, 232, 240);
-                pdf.setLineWidth(0.5);
-                pdf.roundedRect(margin, yPos, contentWidth, finalHeight + 4, 2, 2, 'S');
-                
-                // Add image
-                pdf.addImage(imgData, 'JPEG', margin + 2, yPos + 2, finalWidth, finalHeight);
-                yPos += finalHeight + 8;
-                
-                resolve(true);
-              } catch (error) {
-                console.error('Error processing image:', error);
-                resolve(false);
-              }
-            };
-            img.onerror = () => resolve(false);
-            img.src = entry.documentation_url;
+          // Create the page structure
+          const pageDiv = document.createElement('div');
+          pageDiv.style.width = '1240px'; // A4 width at 150 DPI
+          pageDiv.style.minHeight = '1754px'; // A4 height at 150 DPI
+          pageDiv.style.padding = '80px';
+          pageDiv.style.backgroundColor = 'white';
+          pageDiv.style.position = 'relative';
+          
+          pageDiv.innerHTML = `
+            <div style="position: relative; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%); border-radius: 24px; box-shadow: 0 20px 60px -15px rgba(0,0,0,0.3); border: 1px solid rgba(226, 232, 240, 0.5); overflow: hidden; min-height: 1000px; padding: 60px;">
+              <!-- Corner decorations -->
+              <div style="position: absolute; top: 0; left: 0; width: 128px; height: 128px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%); border-radius: 0 0 100% 0;"></div>
+              <div style="position: absolute; bottom: 0; right: 0; width: 128px; height: 128px; background: linear-gradient(315deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%); border-radius: 100% 0 0 0;"></div>
+              
+              <!-- Page Content -->
+              <div style="position: relative; z-index: 1;">
+                <!-- Official Header -->
+                <div style="margin-bottom: 48px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                      <img src="${cyborgCatsLogo}" alt="Cyborg Cats Logo" style="width: 64px; height: 64px; object-fit: contain;" />
+                      <div>
+                        <h3 style="font-size: 14px; font-weight: 500; color: #64748b; margin: 0;">FIRST Impact Award</h3>
+                        <p style="font-size: 24px; font-weight: bold; color: #3b82f6; margin: 4px 0 0 0; font-family: 'Orbitron', sans-serif;">Cyborg Cats 4256</p>
+                      </div>
+                    </div>
+                    <div style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; font-weight: bold; padding: 12px 20px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3); font-family: monospace; font-size: 18px;">
+                      ${entry.documentation_id}
+                    </div>
+                  </div>
+                  <div style="height: 4px; background: linear-gradient(to right, #3b82f6 0%, rgba(59, 130, 246, 0.5) 50%, transparent 100%); border-radius: 2px;"></div>
+                </div>
+
+                <!-- Metadata Bar -->
+                <div style="display: flex; gap: 12px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(226, 232, 240, 0.5);">
+                  <span style="background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+                    <span style="color: #3b82f6;">📄</span> ${entry.documentation_type}
+                  </span>
+                  <span style="background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+                    <span style="color: #fbbf24;">📅</span> ${entry.activity_date}
+                  </span>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 48px; margin-bottom: 48px;">
+                  <!-- Left - Image -->
+                  <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="position: relative; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, rgba(226, 232, 240, 0.5) 0%, rgba(226, 232, 240, 0.3) 100%); border: 2px solid rgba(226, 232, 240, 0.5); aspect-ratio: 3/4; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.2);">
+                      ${entry.documentation_url ? `
+                        <img src="${entry.documentation_url}" alt="Documentation" style="width: 100%; height: 100%; object-fit: cover;" />
+                      ` : `
+                        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(148, 163, 184, 0.4);">
+                          <div style="padding: 24px; border-radius: 50%; background: rgba(0, 0, 0, 0.05); margin-bottom: 16px;">
+                            <span style="font-size: 64px;">📷</span>
+                          </div>
+                          <p style="font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">Proof Image Pending</p>
+                          <p style="font-size: 12px; margin: 0; text-align: center; padding: 0 24px;">Documentation photo will be uploaded soon</p>
+                        </div>
+                      `}
+                    </div>
+                    
+                    <!-- Category Tags -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                      ${entry.impact_category.split(',').map(cat => `
+                        <span style="background: linear-gradient(to right, rgba(59, 130, 246, 0.05) 0%, rgba(251, 191, 36, 0.05) 100%); border: 1px solid rgba(59, 130, 246, 0.3); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">
+                          ${cat.trim()}
+                        </span>
+                      `).join('')}
+                    </div>
+                  </div>
+
+                  <!-- Right - Description -->
+                  <div style="display: flex; flex-direction: column; gap: 32px;">
+                    <div>
+                      <h3 style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #3b82f6; margin: 0 0 8px 0;">Activity Description</h3>
+                      <div style="height: 2px; width: 64px; background: linear-gradient(to right, #3b82f6 0%, transparent 100%); margin-bottom: 16px;"></div>
+                      <h2 style="font-size: 28px; font-weight: bold; color: #1e293b; margin: 0; line-height: 1.3;">
+                        ${entry.activity_description}
+                      </h2>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                      ${entry.activity_location ? `
+                        <div style="padding: 20px; background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(251, 191, 36, 0.1) 100%); border-radius: 12px; border: 1px solid rgba(251, 191, 36, 0.2);">
+                          <div style="display: flex; align-items: flex-start; gap: 16px;">
+                            <div style="padding: 10px; border-radius: 8px; background: rgba(251, 191, 36, 0.1);">
+                              <span style="font-size: 20px;">🏆</span>
+                            </div>
+                            <div style="flex: 1;">
+                              <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #92400e; margin: 0 0 6px 0;">Location</p>
+                              <p style="font-size: 16px; font-weight: 600; color: #1e293b; margin: 0;">${entry.activity_location}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ` : ''}
+
+                      ${entry.team_number && entry.team_number !== '4256' ? `
+                        <div style="padding: 20px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%); border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                          <div style="display: flex; align-items: flex-start; gap: 16px;">
+                            <div style="padding: 10px; border-radius: 8px; background: rgba(59, 130, 246, 0.1);">
+                              <span style="font-size: 20px;">📖</span>
+                            </div>
+                            <div style="flex: 1;">
+                              <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #1e40af; margin: 0 0 6px 0;">Collaboration</p>
+                              <p style="font-size: 16px; font-weight: 600; color: #1e293b; margin: 0;">With Team ${entry.team_number}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ` : ''}
+
+                      ${entry.notes && !entry.notes.includes('📸') ? `
+                        <div style="padding: 20px; background: linear-gradient(135deg, rgba(226, 232, 240, 0.3) 0%, rgba(226, 232, 240, 0.5) 100%); border-radius: 12px; border: 1px solid rgba(226, 232, 240, 0.5);">
+                          <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin: 0 0 8px 0;">Additional Notes</p>
+                          <p style="font-size: 14px; line-height: 1.6; color: rgba(30, 41, 59, 0.9); margin: 0; font-style: italic;">
+                            ${entry.notes}
+                          </p>
+                        </div>
+                      ` : ''}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer -->
+                <div style="padding-top: 32px; margin-top: 32px; border-top: 1px solid rgba(226, 232, 240, 0.3);">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748b;">
+                      <div style="width: 8px; height: 8px; border-radius: 50%; background: #3b82f6;"></div>
+                      <span style="font-weight: 500;">Cyborg Cats 4256</span>
+                    </div>
+                    <span style="font-size: 14px; font-family: monospace; color: #64748b; font-weight: 500;">
+                      ${i + 1} / ${filteredEntries.length}
+                    </span>
+                    <span style="font-size: 12px; color: #64748b;">
+                      FIRST Impact Award
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          hiddenPageRef.current.appendChild(pageDiv);
+          
+          // Wait for images to load
+          const images = pageDiv.querySelectorAll('img');
+          await Promise.all(
+            Array.from(images).map(img => {
+              if (img.complete) return Promise.resolve();
+              return new Promise(resolve => {
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(true);
+              });
+            })
+          );
+          
+          // Small delay for rendering
+          await new Promise(resolve => setTimeout(resolve, 100));
+          
+          // Capture with html2canvas
+          const canvas = await html2canvas(pageDiv, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            imageTimeout: 0,
+            allowTaint: true
           });
-        } catch (error) {
-          console.error('Image load error:', error);
-        }
-      } else {
-        // Professional placeholder
-        const placeholderHeight = 100;
-        pdf.setFillColor(249, 250, 251);
-        pdf.roundedRect(margin, yPos, contentWidth, placeholderHeight, 2, 2, 'F');
-        pdf.setDrawColor(229, 231, 235);
-        pdf.setLineWidth(0.5);
-        pdf.roundedRect(margin, yPos, contentWidth, placeholderHeight, 2, 2, 'S');
-        
-        // Inner border
-        pdf.setDrawColor(203, 213, 225);
-        pdf.roundedRect(margin + 3, yPos + 3, contentWidth - 6, placeholderHeight - 6, 2, 2, 'S');
-        
-        pdf.setTextColor(148, 163, 184);
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('Proof Image Pending', pageWidth / 2, yPos + placeholderHeight/2 - 4, { align: 'center' });
-        pdf.setFontSize(9);
-        pdf.setFont(undefined, 'normal');
-        pdf.text('Documentation photo will be uploaded soon', pageWidth / 2, yPos + placeholderHeight/2 + 4, { align: 'center' });
-        
-        yPos += placeholderHeight + 8;
-      }
-
-      // Notes section
-      if (entry.notes && !entry.notes.includes('📸')) {
-        pdf.setFillColor(254, 252, 232);
-        const notesLines = pdf.splitTextToSize(entry.notes, contentWidth - 8);
-        const notesHeight = notesLines.length * 5 + 10;
-        
-        if (yPos + notesHeight < pageHeight - margin - 15) {
-          pdf.roundedRect(margin, yPos, contentWidth, notesHeight, 2, 2, 'F');
-          pdf.setDrawColor(250, 204, 21, 0.3);
-          pdf.setLineWidth(0.5);
-          pdf.roundedRect(margin, yPos, contentWidth, notesHeight, 2, 2, 'S');
           
-          pdf.setTextColor(133, 77, 14);
-          pdf.setFontSize(7);
-          pdf.setFont(undefined, 'bold');
-          pdf.text('NOTES', margin + 3, yPos + 5);
+          const imgData = canvas.toDataURL('image/jpeg', 0.95);
           
-          pdf.setTextColor(30, 41, 59);
-          pdf.setFontSize(9);
-          pdf.setFont(undefined, 'italic');
-          pdf.text(notesLines, margin + 3, yPos + 10);
+          if (i > 0) {
+            pdf.addPage();
+          }
           
-          yPos += notesHeight;
+          // Add the captured image to PDF
+          const imgWidth = pageWidth;
+          const imgHeight = (canvas.height * pageWidth) / canvas.width;
+          
+          pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
         }
       }
 
-      // Professional Footer
-      pdf.setDrawColor(226, 232, 240);
-      pdf.setLineWidth(0.3);
-      pdf.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
+      const year = new Date().getFullYear();
+      pdf.save(`Cyborg_Cats_4256_Impact_Award_${year}.pdf`);
+      toast.success("PDF exported successfully!");
       
-      pdf.setTextColor(148, 163, 184);
-      pdf.setFontSize(8);
-      pdf.setFont(undefined, 'normal');
-      pdf.text('Cyborg Cats 4256 • FIRST Impact Award Documentation', margin, pageHeight - 7);
-      
-      pdf.setFont(undefined, 'bold');
-      pdf.text(`${i + 1} / ${filteredEntries.length}`, pageWidth - margin, pageHeight - 7, { align: 'right' });
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      toast.error("Failed to generate PDF. Please try again.");
     }
-
-    const year = new Date().getFullYear();
-    pdf.save(`Cyborg_Cats_4256_Impact_Award_${year}.pdf`);
-    toast.success("PDF exported successfully!");
   };
 
   return (
@@ -420,6 +306,19 @@ export default function ImpactDocumentation() {
       
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-background via-background/95 to-background">
         <Navigation />
+        
+        {/* Hidden rendering area for PDF generation */}
+        <div 
+          ref={hiddenPageRef}
+          style={{
+            position: 'fixed',
+            left: '-9999px',
+            top: 0,
+            width: '1240px',
+            visibility: 'hidden'
+          }}
+          aria-hidden="true"
+        />
         
         <main id="main-content" className="flex-1 pt-24 pb-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
