@@ -112,9 +112,9 @@ export default function ImpactDocumentation() {
       pdf.rect(0, 0, 210, 297, 'F');
       
       // Top accent gradient bars
-      pdf.setFillColor(59, 130, 246);
+      pdf.setFillColor(30, 64, 175);
       pdf.rect(0, 0, 210, 3, 'F');
-      pdf.setFillColor(147, 51, 234);
+      pdf.setFillColor(59, 130, 246);
       pdf.rect(0, 3, 210, 2, 'F');
 
       // Team Logo with decorative circle
@@ -465,9 +465,10 @@ export default function ImpactDocumentation() {
         pdf.setFontSize(15);
         pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
+        yPos += 4; // slight padding before title
         const titleLines = pdf.splitTextToSize(entry.activity_description, 170);
         pdf.text(titleLines, 20, yPos);
-        yPos += titleLines.length * 7 + 10;
+        yPos += titleLines.length * 7 + 6;
 
         // Two-column layout: Image on left, metadata on right
         const leftColX = 20;
