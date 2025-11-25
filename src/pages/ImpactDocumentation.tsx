@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { toast } from "sonner";
-import cyborgCatsLogo from "@/assets/cyborg-cats-logo.png";
+import cyborgCatsLogo from "@/assets/cyborg-cat-alt-logo.png";
 
 interface ImpactEntry {
   id: string;
