@@ -301,6 +301,7 @@
   },
   "contactInquiries": {
     "title": "Demandes de Contact",
+    "description": "Voir et gérer les soumissions du formulaire de contact",
     "subtitle": "Gérer les messages de contact du site web",
     "name": "Nom",
     "email": "Email",
