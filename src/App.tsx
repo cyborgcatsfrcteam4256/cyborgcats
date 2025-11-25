@@ -49,6 +49,7 @@ const AdminBrandKit = lazy(() => import("./pages/admin/BrandKit"));
 const AdminSponsorTiers = lazy(() => import("./pages/admin/SponsorTiers"));
 const AdminImpactAward = lazy(() => import("./pages/admin/ImpactAward"));
 const ImpactAwardRequest = lazy(() => import("./pages/ImpactAwardRequest"));
+const ImpactDocumentation = lazy(() => import("./pages/ImpactDocumentation"));
 const News = lazy(() => import("./pages/News"));
 const NewsPost = lazy(() => import("./pages/NewsPost"));
 const Resources = lazy(() => import("./pages/Resources"));
@@ -133,6 +134,7 @@ const App = () => {
             <Route path="/admin/sponsor-tiers" element={<AdminSponsorTiers />} />
             <Route path="/admin/impact-award" element={<Suspense fallback={<PageLoader />}><AdminImpactAward /></Suspense>} />
             <Route path="/impact-award-request" element={<Suspense fallback={<PageLoader />}><ImpactAwardRequest /></Suspense>} />
+            <Route path="/impact/documentation" element={<ImpactDocumentation />} />
             <Route path="/request-team-membership" element={<RequestTeamMembership />} />
             <Route path="/submit-news" element={<SubmitNews />} />
             <Route path="/debug" element={<Debug />} />
