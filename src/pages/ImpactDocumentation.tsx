@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -9,8 +9,6 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { toast } from "sonner";
-import html2canvas from "html2canvas";
-import cyborgCatsLogo from "@/assets/cyborg-cats-logo.png";
 
 interface ImpactEntry {
   id: string;
@@ -30,7 +28,6 @@ export default function ImpactDocumentation() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
-  const hiddenPageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchData();
@@ -83,216 +80,82 @@ export default function ImpactDocumentation() {
   };
 
   const exportToPDF = async () => {
-    if (!hiddenPageRef.current) return;
-    
-    toast.info("Generating PDF... This may take a moment");
-    
+    if (!filteredEntries || filteredEntries.length === 0) {
+      toast.error("No entries to export");
+      return;
+    }
+
     try {
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
-      });
+      toast.info("Generating PDF... This may take a moment");
+      const pdf = new jsPDF("p", "mm", "a4");
+      let isFirstPage = true;
 
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-
-      for (let i = 0; i < filteredEntries.length; i++) {
-        const entry = filteredEntries[i];
-        
-        // Render the entry in the hidden div
-        if (hiddenPageRef.current) {
-          hiddenPageRef.current.innerHTML = '';
-          
-          // Create the page structure
-          const pageDiv = document.createElement('div');
-          pageDiv.style.width = '1240px'; // A4 width at 150 DPI
-          pageDiv.style.minHeight = '1754px'; // A4 height at 150 DPI
-          pageDiv.style.padding = '80px';
-          pageDiv.style.backgroundColor = 'white';
-          pageDiv.style.position = 'relative';
-          
-          pageDiv.innerHTML = `
-            <div style="position: relative; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%); border-radius: 24px; box-shadow: 0 20px 60px -15px rgba(0,0,0,0.3); border: 1px solid rgba(226, 232, 240, 0.5); overflow: hidden; min-height: 1000px; padding: 60px;">
-              <!-- Corner decorations -->
-              <div style="position: absolute; top: 0; left: 0; width: 128px; height: 128px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%); border-radius: 0 0 100% 0;"></div>
-              <div style="position: absolute; bottom: 0; right: 0; width: 128px; height: 128px; background: linear-gradient(315deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%); border-radius: 100% 0 0 0;"></div>
-              
-              <!-- Page Content -->
-              <div style="position: relative; z-index: 1;">
-                <!-- Official Header -->
-                <div style="margin-bottom: 48px;">
-                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                    <div style="display: flex; align-items: center; gap: 16px;">
-                      <img src="${cyborgCatsLogo}" alt="Cyborg Cats Logo" style="width: 64px; height: 64px; object-fit: contain;" />
-                      <div>
-                        <h3 style="font-size: 14px; font-weight: 500; color: #64748b; margin: 0;">FIRST Impact Award</h3>
-                        <p style="font-size: 24px; font-weight: bold; color: #3b82f6; margin: 4px 0 0 0; font-family: 'Orbitron', sans-serif;">Cyborg Cats 4256</p>
-                      </div>
-                    </div>
-                    <div style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; font-weight: bold; padding: 12px 20px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.3); font-family: monospace; font-size: 18px;">
-                      ${entry.documentation_id}
-                    </div>
-                  </div>
-                  <div style="height: 4px; background: linear-gradient(to right, #3b82f6 0%, rgba(59, 130, 246, 0.5) 50%, transparent 100%); border-radius: 2px;"></div>
-                </div>
-
-                <!-- Metadata Bar -->
-                <div style="display: flex; gap: 12px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(226, 232, 240, 0.5);">
-                  <span style="background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                    <span style="color: #3b82f6;">📄</span> ${entry.documentation_type}
-                  </span>
-                  <span style="background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                    <span style="color: #fbbf24;">📅</span> ${entry.activity_date}
-                  </span>
-                </div>
-
-                <!-- Main Content Grid -->
-                <div style="display: grid; grid-template-columns: 2fr 3fr; gap: 48px; margin-bottom: 48px;">
-                  <!-- Left - Image -->
-                  <div style="display: flex; flex-direction: column; gap: 16px;">
-                    <div style="position: relative; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, rgba(226, 232, 240, 0.5) 0%, rgba(226, 232, 240, 0.3) 100%); border: 2px solid rgba(226, 232, 240, 0.5); aspect-ratio: 3/4; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.2);">
-                      ${entry.documentation_url ? `
-                        <img src="${entry.documentation_url}" alt="Documentation" style="width: 100%; height: 100%; object-fit: cover;" />
-                      ` : `
-                        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(148, 163, 184, 0.4);">
-                          <div style="padding: 24px; border-radius: 50%; background: rgba(0, 0, 0, 0.05); margin-bottom: 16px;">
-                            <span style="font-size: 64px;">📷</span>
-                          </div>
-                          <p style="font-size: 14px; font-weight: 600; margin: 0 0 4px 0;">Proof Image Pending</p>
-                          <p style="font-size: 12px; margin: 0; text-align: center; padding: 0 24px;">Documentation photo will be uploaded soon</p>
-                        </div>
-                      `}
-                    </div>
-                    
-                    <!-- Category Tags -->
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                      ${entry.impact_category.split(',').map(cat => `
-                        <span style="background: linear-gradient(to right, rgba(59, 130, 246, 0.05) 0%, rgba(251, 191, 36, 0.05) 100%); border: 1px solid rgba(59, 130, 246, 0.3); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;">
-                          ${cat.trim()}
-                        </span>
-                      `).join('')}
-                    </div>
-                  </div>
-
-                  <!-- Right - Description -->
-                  <div style="display: flex; flex-direction: column; gap: 32px;">
-                    <div>
-                      <h3 style="font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #3b82f6; margin: 0 0 8px 0;">Activity Description</h3>
-                      <div style="height: 2px; width: 64px; background: linear-gradient(to right, #3b82f6 0%, transparent 100%); margin-bottom: 16px;"></div>
-                      <h2 style="font-size: 28px; font-weight: bold; color: #1e293b; margin: 0; line-height: 1.3;">
-                        ${entry.activity_description}
-                      </h2>
-                    </div>
-
-                    <div style="display: flex; flex-direction: column; gap: 16px;">
-                      ${entry.activity_location ? `
-                        <div style="padding: 20px; background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(251, 191, 36, 0.1) 100%); border-radius: 12px; border: 1px solid rgba(251, 191, 36, 0.2);">
-                          <div style="display: flex; align-items: flex-start; gap: 16px;">
-                            <div style="padding: 10px; border-radius: 8px; background: rgba(251, 191, 36, 0.1);">
-                              <span style="font-size: 20px;">🏆</span>
-                            </div>
-                            <div style="flex: 1;">
-                              <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #92400e; margin: 0 0 6px 0;">Location</p>
-                              <p style="font-size: 16px; font-weight: 600; color: #1e293b; margin: 0;">${entry.activity_location}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ` : ''}
-
-                      ${entry.team_number && entry.team_number !== '4256' ? `
-                        <div style="padding: 20px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%); border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.2);">
-                          <div style="display: flex; align-items: flex-start; gap: 16px;">
-                            <div style="padding: 10px; border-radius: 8px; background: rgba(59, 130, 246, 0.1);">
-                              <span style="font-size: 20px;">📖</span>
-                            </div>
-                            <div style="flex: 1;">
-                              <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #1e40af; margin: 0 0 6px 0;">Collaboration</p>
-                              <p style="font-size: 16px; font-weight: 600; color: #1e293b; margin: 0;">With Team ${entry.team_number}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ` : ''}
-
-                      ${entry.notes && !entry.notes.includes('📸') ? `
-                        <div style="padding: 20px; background: linear-gradient(135deg, rgba(226, 232, 240, 0.3) 0%, rgba(226, 232, 240, 0.5) 100%); border-radius: 12px; border: 1px solid rgba(226, 232, 240, 0.5);">
-                          <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin: 0 0 8px 0;">Additional Notes</p>
-                          <p style="font-size: 14px; line-height: 1.6; color: rgba(30, 41, 59, 0.9); margin: 0; font-style: italic;">
-                            ${entry.notes}
-                          </p>
-                        </div>
-                      ` : ''}
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Footer -->
-                <div style="padding-top: 32px; margin-top: 32px; border-top: 1px solid rgba(226, 232, 240, 0.3);">
-                  <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748b;">
-                      <div style="width: 8px; height: 8px; border-radius: 50%; background: #3b82f6;"></div>
-                      <span style="font-weight: 500;">Cyborg Cats 4256</span>
-                    </div>
-                    <span style="font-size: 14px; font-family: monospace; color: #64748b; font-weight: 500;">
-                      ${i + 1} / ${filteredEntries.length}
-                    </span>
-                    <span style="font-size: 12px; color: #64748b;">
-                      FIRST Impact Award
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          
-          hiddenPageRef.current.appendChild(pageDiv);
-          
-          // Wait for images to load
-          const images = pageDiv.querySelectorAll('img');
-          await Promise.all(
-            Array.from(images).map(img => {
-              if (img.complete) return Promise.resolve();
-              return new Promise(resolve => {
-                img.onload = () => resolve(true);
-                img.onerror = () => resolve(true);
-              });
-            })
-          );
-          
-          // Small delay for rendering
-          await new Promise(resolve => setTimeout(resolve, 100));
-          
-          // Capture with html2canvas
-          const canvas = await html2canvas(pageDiv, {
-            scale: 2,
-            useCORS: true,
-            backgroundColor: '#ffffff',
-            logging: false,
-            imageTimeout: 0,
-            allowTaint: true
-          });
-          
-          const imgData = canvas.toDataURL('image/jpeg', 0.95);
-          
-          if (i > 0) {
-            pdf.addPage();
-          }
-          
-          // Add the captured image to PDF
-          const imgWidth = pageWidth;
-          const imgHeight = (canvas.height * pageWidth) / canvas.width;
-          
-          pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+      for (const entry of filteredEntries) {
+        if (!isFirstPage) {
+          pdf.addPage();
         }
+        isFirstPage = false;
+
+        let yPos = 20;
+
+        // Header
+        pdf.setFontSize(20);
+        pdf.setTextColor(59, 130, 246);
+        pdf.text("Cyborg Cats 4256 - FIRST Impact Award", 20, yPos);
+        yPos += 10;
+
+        // Documentation ID
+        pdf.setFontSize(10);
+        pdf.setTextColor(100, 116, 139);
+        pdf.text(`Documentation ID: ${entry.documentation_id}`, 20, yPos);
+        yPos += 15;
+
+        // Title
+        pdf.setFontSize(16);
+        pdf.setTextColor(30, 41, 59);
+        const titleLines = pdf.splitTextToSize(entry.activity_description, 170);
+        pdf.text(titleLines, 20, yPos);
+        yPos += titleLines.length * 8 + 5;
+
+        // Metadata
+        pdf.setFontSize(10);
+        pdf.setTextColor(100, 116, 139);
+        pdf.text(`Type: ${entry.documentation_type}`, 20, yPos);
+        yPos += 6;
+        pdf.text(`Date: ${entry.activity_date}`, 20, yPos);
+        yPos += 6;
+        
+        if (entry.activity_location) {
+          pdf.text(`Location: ${entry.activity_location}`, 20, yPos);
+          yPos += 6;
+        }
+        
+        if (entry.impact_category) {
+          pdf.text(`Category: ${entry.impact_category}`, 20, yPos);
+          yPos += 10;
+        }
+
+        // Notes
+        if (entry.notes && !entry.notes.includes('📸')) {
+          pdf.setFontSize(9);
+          pdf.setTextColor(71, 85, 105);
+          const notesLines = pdf.splitTextToSize(entry.notes, 170);
+          pdf.text(notesLines, 20, yPos);
+          yPos += notesLines.length * 5;
+        }
+
+        // Footer
+        pdf.setFontSize(8);
+        pdf.setTextColor(148, 163, 184);
+        pdf.text("Team 4256 Cyborg Cats | FIRST Impact Award Documentation", 20, 285);
       }
 
-      const year = new Date().getFullYear();
-      pdf.save(`Cyborg_Cats_4256_Impact_Award_${year}.pdf`);
+      const fileName = `Cyborg-Cats-Impact-Documentation-${new Date().getFullYear()}.pdf`;
+      pdf.save(fileName);
       toast.success("PDF exported successfully!");
-      
     } catch (error) {
-      console.error('PDF generation error:', error);
-      toast.error("Failed to generate PDF. Please try again.");
+      console.error("Error generating PDF:", error);
+      toast.error("Failed to export PDF. Please try again.");
     }
   };
 
@@ -306,19 +169,6 @@ export default function ImpactDocumentation() {
       
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-background via-background/95 to-background">
         <Navigation />
-        
-        {/* Hidden rendering area for PDF generation */}
-        <div 
-          ref={hiddenPageRef}
-          style={{
-            position: 'fixed',
-            left: '-9999px',
-            top: 0,
-            width: '1240px',
-            visibility: 'hidden'
-          }}
-          aria-hidden="true"
-        />
         
         <main id="main-content" className="flex-1 pt-24 pb-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -384,11 +234,9 @@ export default function ImpactDocumentation() {
                       <div className="mb-10">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-4">
-                            <img 
-                              src={cyborgCatsLogo} 
-                              alt="Cyborg Cats Logo" 
-                              className="w-16 h-16 object-contain"
-                            />
+                            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
+                              🤖
+                            </div>
                             <div>
                               <h3 className="text-sm font-medium text-muted-foreground">FIRST Impact Award</h3>
                               <p className="text-xl font-bold font-orbitron text-primary">Cyborg Cats 4256</p>
