@@ -178,17 +178,71 @@ export default function ImpactDocumentation() {
       
       pdf.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 172, { align: 'center' });
 
-      // Table of Contents (with pagination for many entries)
-      pdf.setFontSize(14);
+      // Category Breakdown Section
+      const categoryCount = new Map<string, number>();
+      filteredEntries.forEach(entry => {
+        const categories = entry.impact_category.split(',').map(c => c.trim());
+        categories.forEach(cat => {
+          categoryCount.set(cat, (categoryCount.get(cat) || 0) + 1);
+        });
+      });
+
+      const sortedCategories = Array.from(categoryCount.entries()).sort((a, b) => b[1] - a[1]);
+
+      pdf.setFontSize(12);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(30, 41, 59);
-      pdf.text("Table of Contents", 30, 195);
+      pdf.text("Impact Category Breakdown", 105, 185, { align: 'center' });
 
-      pdf.setDrawColor(59, 130, 246);
-      pdf.setLineWidth(0.3);
-      pdf.line(30, 198, 180, 198);
+      // Draw category bars
+      let catYPos = 195;
+      const maxWidth = 120;
+      const maxCount = Math.max(...Array.from(categoryCount.values()));
 
-      let tocYPos = 208;
+      sortedCategories.forEach(([category, count]) => {
+        const barWidth = (count / maxCount) * maxWidth;
+        
+        // Background bar
+        pdf.setFillColor(243, 244, 246);
+        pdf.roundedRect(45, catYPos - 5, maxWidth, 8, 1, 1, 'F');
+        
+        // Filled bar (gradient effect with purple)
+        pdf.setFillColor(147, 51, 234);
+        pdf.roundedRect(45, catYPos - 5, barWidth, 8, 1, 1, 'F');
+        
+        // Category label
+        pdf.setFontSize(8);
+        pdf.setFont(undefined, 'normal');
+        pdf.setTextColor(30, 41, 59);
+        const truncatedCat = category.length > 30 ? category.substring(0, 27) + '...' : category;
+        pdf.text(truncatedCat, 47, catYPos);
+        
+        // Count badge
+        pdf.setFont(undefined, 'bold');
+        pdf.setTextColor(147, 51, 234);
+        pdf.text(`${count}`, 167, catYPos);
+        
+        catYPos += 10;
+        
+        // Limit display to avoid overflow
+        if (catYPos > 270) return;
+      });
+
+      // Table of Contents (with pagination for many entries)
+      const tocStartY = Math.min(catYPos + 10, 280);
+      
+      if (tocStartY < 280) {
+        pdf.setFontSize(14);
+        pdf.setFont(undefined, 'bold');
+        pdf.setTextColor(30, 41, 59);
+        pdf.text("Table of Contents", 30, tocStartY);
+
+        pdf.setDrawColor(59, 130, 246);
+        pdf.setLineWidth(0.3);
+        pdf.line(30, tocStartY + 3, 180, tocStartY + 3);
+      }
+
+      let tocYPos = tocStartY + 13;
       let tocPageNum = 1;
       pdf.setFontSize(9);
       pdf.setFont(undefined, 'normal');
