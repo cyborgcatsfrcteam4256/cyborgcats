@@ -33,6 +33,26 @@ export default function ImpactDocumentation() {
 
   useEffect(() => {
     fetchData();
+
+    // Set up realtime subscription for automatic updates
+    const channel = supabase
+      .channel('impact-entries-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'impact_award_entries'
+        },
+        () => {
+          fetchData(); // Refetch when any change occurs
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchData = async () => {
@@ -82,6 +102,9 @@ export default function ImpactDocumentation() {
   };
 
   const exportToPDF = async () => {
+    // Refetch latest data before generating PDF
+    await fetchData();
+    
     if (!filteredEntries || filteredEntries.length === 0) {
       toast.error("No entries to export");
       return;
