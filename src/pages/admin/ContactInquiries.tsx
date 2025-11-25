@@ -26,6 +26,26 @@ const ContactInquiries = () => {
 
   useEffect(() => {
     fetchInquiries();
+
+    // Set up realtime subscription for automatic updates
+    const channel = supabase
+      .channel('contact-inquiries-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'contact_inquiries'
+        },
+        () => {
+          fetchInquiries(); // Refetch when any change occurs
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchInquiries = async () => {

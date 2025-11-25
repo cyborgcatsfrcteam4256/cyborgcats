@@ -276,5 +276,11 @@
     "termsOfService": "Terms of Service",
     "firstRobotics": "FIRST Robotics",
     "partnerWithUs": "Partner With Us"
+  },
+  "contactInquiries": {
+    "title": "Contact Inquiries",
+    "description": "View and manage contact form submissions",
+    "loading": "Loading inquiries...",
+    "noInquiries": "No contact inquiries yet"
   }
 }

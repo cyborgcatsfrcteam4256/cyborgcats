@@ -282,6 +282,7 @@
   },
   "contactInquiries": {
     "title": "联系咨询",
+    "description": "查看和管理联系表单提交",
     "subtitle": "管理来自网站的联系消息",
     "name": "姓名",
     "email": "电子邮件",

@@ -301,6 +301,7 @@
   },
   "contactInquiries": {
     "title": "Kontaktanfragen",
+    "description": "Kontaktformular-Einsendungen anzeigen und verwalten",
     "subtitle": "Kontaktnachrichten von der Website verwalten",
     "name": "Name",
     "email": "E-Mail",

@@ -298,6 +298,7 @@
   },
   "contactInquiries": {
     "title": "Consultas de Contacto",
+    "description": "Ver y gestionar envíos de formularios de contacto",
     "subtitle": "Gestionar mensajes de contacto del sitio web",
     "name": "Nombre",
     "email": "Correo Electrónico",
