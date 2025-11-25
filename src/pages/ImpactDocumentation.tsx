@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { toast } from "sonner";
+import cyborgCatsLogo from "@/assets/cyborg-cats-logo.png";
 
 interface ImpactEntry {
   id: string;
@@ -92,7 +93,7 @@ export default function ImpactDocumentation() {
       // Load and convert logo to base64
       let logoDataUrl = '';
       try {
-        const response = await fetch("/lovable-uploads/cyborg-cats-logo.png");
+        const response = await fetch(cyborgCatsLogo);
         const blob = await response.blob();
         logoDataUrl = await new Promise<string>((resolve) => {
           const reader = new FileReader();
@@ -101,6 +102,7 @@ export default function ImpactDocumentation() {
         });
       } catch (e) {
         console.error("Error loading logo:", e);
+        toast.error("Failed to load logo for PDF");
       }
 
       let isFirstPage = true;
