@@ -2,17 +2,11 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PageMeta } from "@/components/SEO/PageMeta";
-import { Breadcrumbs } from "@/components/UI/Breadcrumbs";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { Award, Search, Calendar, MapPin, FileText, Image, ArrowUpDown } from "lucide-react";
+import { Award, Calendar, FileText, Image, ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { AnimatedNumber } from "@/components/AnimatedNumber";
 
 interface ImpactEntry {
   id: string;
@@ -27,17 +21,10 @@ interface ImpactEntry {
   notes: string | null;
 }
 
-interface Category {
-  category_name: string;
-}
-
 export default function ImpactDocumentation() {
   const [entries, setEntries] = useState<ImpactEntry[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filterCategory, setFilterCategory] = useState<string>("all");
-  const [sortBy, setSortBy] = useState<string>("recent");
+  const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,21 +33,14 @@ export default function ImpactDocumentation() {
 
   const fetchData = async () => {
     try {
-      const [entriesResult, categoriesResult] = await Promise.all([
-        supabase
-          .from("impact_award_entries")
-          .select("*")
-          .eq("is_active", true)
-          .order("activity_date", { ascending: false }),
-        supabase
-          .from("impact_award_categories")
-          .select("category_name")
-          .eq("is_active", true)
-          .order("display_order")
-      ]);
+      const { data, error } = await supabase
+        .from("impact_award_entries")
+        .select("*")
+        .eq("is_active", true)
+        .order("activity_date", { ascending: true });
 
-      if (entriesResult.data) setEntries(entriesResult.data);
-      if (categoriesResult.data) setCategories(categoriesResult.data);
+      if (error) throw error;
+      if (data) setEntries(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -68,6 +48,7 @@ export default function ImpactDocumentation() {
     }
   };
 
+  // Filter to only show past 3 years
   const parseYear = (dateStr: string): number => {
     const yearMatch = dateStr.match(/\b(19|20)\d{2}\b/);
     if (yearMatch) return parseInt(yearMatch[0]);
@@ -75,45 +56,26 @@ export default function ImpactDocumentation() {
     return 0;
   };
 
-  const isWithinPastThreeYears = (dateStr: string): boolean => {
+  const filteredEntries = entries.filter(entry => {
     const currentYear = new Date().getFullYear();
-    const year = parseYear(dateStr);
-    return year >= currentYear - 3 && year <= currentYear;
+    const entryYear = parseYear(entry.activity_date);
+    return entryYear >= currentYear - 3 && entryYear <= currentYear;
+  });
+
+  const currentEntry = filteredEntries[currentPage];
+  const totalPages = filteredEntries.length;
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(prev => prev + 1);
+    }
   };
 
-  const filteredEntries = entries
-    .filter(entry => {
-      const matchesSearch = entry.activity_description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           entry.documentation_id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                           (entry.activity_location?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
-      const matchesCategory = filterCategory === "all" || entry.impact_category.toLowerCase().includes(filterCategory.toLowerCase());
-      
-      let matchesSort = true;
-      if (sortBy === "past3years") {
-        matchesSort = isWithinPastThreeYears(entry.activity_date);
-      }
-      
-      return matchesSearch && matchesCategory && matchesSort;
-    })
-    .sort((a, b) => {
-      switch (sortBy) {
-        case "recent":
-          return parseYear(b.activity_date) - parseYear(a.activity_date);
-        case "oldest":
-          return parseYear(a.activity_date) - parseYear(b.activity_date);
-        case "category":
-          return a.impact_category.localeCompare(b.impact_category);
-        case "past3years":
-          return parseYear(b.activity_date) - parseYear(a.activity_date);
-        default:
-          return 0;
-      }
-    });
-
-  const stats = [
-    { label: "Activities", value: 62, icon: Award, color: "text-primary" },
-    { label: "Categories", value: 15, icon: FileText, color: "text-accent" }
-  ];
+  const goToPrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(prev => prev - 1);
+    }
+  };
 
   return (
     <>
@@ -127,193 +89,188 @@ export default function ImpactDocumentation() {
         <Navigation />
         
         <main id="main-content" className="flex-1 pt-24 pb-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Breadcrumbs />
-            
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header */}
-            <ScrollReveal>
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-                  <Award className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium text-primary">FIRST Impact Award</span>
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold mb-4 text-glow">
-                  Impact Documentation
-                </h1>
-                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Our comprehensive collection of community outreach, STEM advocacy, and educational programs that demonstrate our commitment to FIRST values.
-                </p>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
+                <BookOpen className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium text-primary">FIRST Impact Award</span>
               </div>
-            </ScrollReveal>
+              <h1 className="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-glow">
+                Impact Documentation
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-2">
+                Documenting our journey of community impact from the past three years
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {totalPages} {totalPages === 1 ? 'entry' : 'entries'} • Oldest to Most Recent
+              </p>
+            </div>
 
-            {/* Stats */}
-            <ScrollReveal>
-              <div className="grid grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
-                {stats.map((stat, index) => (
-                  <Card key={index} className="text-center bg-gradient-to-br from-card via-card/95 to-card/90 border-border/50 hover:shadow-xl transition-all hover:scale-[1.02]">
-                    <CardContent className="pt-8 pb-8">
-                      <stat.icon className={`w-12 h-12 mx-auto mb-3 ${stat.color}`} />
-                      <div className="text-5xl font-orbitron font-bold text-glow mb-2">
-                        <AnimatedNumber value={stat.value} />
-                      </div>
-                      <div className="text-base font-medium text-muted-foreground">{stat.label}</div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </ScrollReveal>
-
-            {/* Filters and Sorting */}
-            <ScrollReveal>
-              <Card className="mb-8 bg-gradient-to-r from-card via-card/95 to-card/90 border-border/50">
-                <CardContent className="pt-6">
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="relative">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                      <Input
-                        placeholder="Search activities..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="pl-10 h-11"
-                      />
-                    </div>
-                    <Select value={filterCategory} onValueChange={setFilterCategory}>
-                      <SelectTrigger className="h-11">
-                        <SelectValue placeholder="All Categories" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Categories</SelectItem>
-                        <SelectItem value="advocacy">Advocacy</SelectItem>
-                        <SelectItem value="hosted">Hosted</SelectItem>
-                        <SelectItem value="mentored">Mentored</SelectItem>
-                        <SelectItem value="ran">Ran</SelectItem>
-                        <SelectItem value="reached">Reached</SelectItem>
-                        <SelectItem value="supported">Supported</SelectItem>
-                        <SelectItem value="assisted">Assisted</SelectItem>
-                        <SelectItem value="provided published resources">Provided Resources</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <Select value={sortBy} onValueChange={setSortBy}>
-                      <SelectTrigger className="h-11">
-                        <ArrowUpDown className="w-4 h-4 mr-2" />
-                        <SelectValue placeholder="Sort by..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="recent">Most Recent</SelectItem>
-                        <SelectItem value="oldest">Oldest First</SelectItem>
-                        <SelectItem value="past3years">Past 3 Years</SelectItem>
-                        <SelectItem value="category">By Category</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between text-sm text-muted-foreground">
-                    <span>Showing {filteredEntries.length} {filteredEntries.length === 1 ? 'activity' : 'activities'}</span>
-                    {(searchQuery || filterCategory !== "all" || sortBy !== "recent") && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => {
-                          setSearchQuery("");
-                          setFilterCategory("all");
-                          setSortBy("recent");
-                        }}
-                      >
-                        Clear Filters
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-
-            {/* Entries Grid */}
             {loading ? (
-              <div className="text-center py-12">
+              <div className="text-center py-24">
                 <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
                 <p className="text-muted-foreground">Loading documentation...</p>
               </div>
-            ) : filteredEntries.length === 0 ? (
-              <Card className="text-center py-12">
-                <CardContent>
-                  <Award className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-                  <h3 className="text-xl font-bold mb-2">No entries found</h3>
-                  <p className="text-muted-foreground">Try adjusting your search or filter criteria.</p>
-                </CardContent>
-              </Card>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {filteredEntries.map((entry, index) => (
-                  <ScrollReveal key={entry.id} delay={Math.min(index * 0.03, 0.5)}>
-                    <Card className="h-full hover:shadow-2xl transition-all hover:scale-[1.03] group bg-gradient-to-br from-card via-card/98 to-card/95 border-border/50">
-                      {entry.documentation_url && (
-                        <div className="relative overflow-hidden rounded-t-lg">
-                          <img 
-                            src={entry.documentation_url} 
-                            alt={`Documentation for ${entry.documentation_id}`}
-                            className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
-                            loading="lazy"
-                          />
-                          <div className="absolute top-3 right-3">
-                            <Badge variant="secondary" className="text-xs font-mono backdrop-blur-sm bg-background/80">
-                              {entry.documentation_id}
-                            </Badge>
-                          </div>
-                        </div>
-                      )}
-                      <CardHeader className={!entry.documentation_url ? 'pt-6' : 'pt-4'}>
-                        {!entry.documentation_url && (
-                          <div className="flex items-start justify-between mb-3">
-                            <Badge variant="secondary" className="text-xs font-mono">
-                              {entry.documentation_id}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {entry.documentation_type}
-                            </Badge>
-                          </div>
-                        )}
-                        <CardTitle className="text-lg leading-tight line-clamp-3 group-hover:text-primary transition-colors">
-                          {entry.activity_description}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-3">
-                        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-                          <Calendar className="w-4 h-4 text-primary" />
-                          <span>{entry.activity_date}</span>
-                        </div>
-                        {entry.activity_location && (
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <MapPin className="w-4 h-4 text-accent" />
-                            <span className="line-clamp-1">{entry.activity_location}</span>
-                          </div>
-                        )}
-                        <div className="flex flex-wrap gap-1.5 pt-2">
-                          {entry.impact_category.split(',').slice(0, 3).map((cat, i) => (
-                            <Badge key={i} variant="outline" className="text-xs">
-                              {cat.trim()}
-                            </Badge>
-                          ))}
-                        </div>
-                        {!entry.documentation_url && entry.notes?.includes('📸') && (
-                          <div className="flex items-center gap-2 text-xs text-muted-foreground/70 italic pt-2">
-                            <Image className="w-3.5 h-3.5" />
-                            <span>Proof image pending upload</span>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </ScrollReveal>
-                ))}
+            ) : totalPages === 0 ? (
+              <div className="text-center py-24">
+                <Award className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
+                <h3 className="text-xl font-bold mb-2">No entries found</h3>
+                <p className="text-muted-foreground">No documentation entries from the past three years.</p>
               </div>
-            )}
+            ) : (
+              <>
+                {/* Book Page */}
+                <div className="relative mb-8">
+                  <div className="bg-gradient-to-br from-card/90 via-card to-card/95 rounded-2xl shadow-2xl border-2 border-border/50 overflow-hidden backdrop-blur-sm min-h-[600px] relative">
+                    {/* Page texture overlay */}
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDIpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50 pointer-events-none" />
+                    
+                    {/* Page Content */}
+                    <div className="relative p-8 md:p-12">
+                      {/* Page Header */}
+                      <div className="flex items-start justify-between mb-8 pb-6 border-b-2 border-primary/20">
+                        <div className="flex items-center gap-3">
+                          <Badge variant="secondary" className="text-base font-mono px-4 py-1.5 bg-primary/10 text-primary border-primary/30">
+                            {currentEntry?.documentation_id}
+                          </Badge>
+                          <Badge variant="outline" className="text-sm px-3 py-1">
+                            <FileText className="w-3.5 h-3.5 mr-1.5" />
+                            {currentEntry?.documentation_type}
+                          </Badge>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Calendar className="w-4 h-4 text-primary" />
+                          <span className="font-medium">{currentEntry?.activity_date}</span>
+                        </div>
+                      </div>
 
-            {/* CTA for Logged-in Users */}
-            <ScrollReveal>
-              <Card className="bg-gradient-to-r from-primary/10 via-primary/5 to-background border-primary/20">
-                <CardContent className="text-center py-12">
-                  <Award className="w-16 h-16 mx-auto mb-4 text-primary" />
-                  <h2 className="text-2xl font-bold mb-4">Request Changes or Additions</h2>
+                      {/* Main Content Area */}
+                      <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        {/* Left Side - Image */}
+                        <div className="space-y-4">
+                          <div className="relative rounded-xl overflow-hidden bg-muted/30 border-2 border-border/50 aspect-[4/3] shadow-lg">
+                            {currentEntry?.documentation_url ? (
+                              <img 
+                                src={currentEntry.documentation_url} 
+                                alt={`Documentation for ${currentEntry.documentation_id}`}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/50">
+                                <Image className="w-20 h-20 mb-4" />
+                                <p className="text-sm font-medium">Proof Image Pending</p>
+                                <p className="text-xs mt-2 px-4 text-center">Documentation photo will be uploaded soon</p>
+                              </div>
+                            )}
+                          </div>
+                          
+                          {/* Category Tags */}
+                          <div className="flex flex-wrap gap-2">
+                            {currentEntry?.impact_category.split(',').map((cat, i) => (
+                              <Badge key={i} variant="outline" className="text-xs font-medium px-3 py-1">
+                                {cat.trim()}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Right Side - Description */}
+                        <div className="space-y-6">
+                          <div>
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground leading-tight">
+                              {currentEntry?.activity_description}
+                            </h2>
+                          </div>
+
+                          {currentEntry?.activity_location && (
+                            <div className="flex items-start gap-3 p-4 bg-accent/5 rounded-lg border border-accent/20">
+                              <Award className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                              <div>
+                                <p className="text-sm font-medium text-muted-foreground mb-1">Location</p>
+                                <p className="text-base font-medium">{currentEntry.activity_location}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          {currentEntry?.team_number && (
+                            <div className="flex items-start gap-3 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                              <BookOpen className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                              <div>
+                                <p className="text-sm font-medium text-muted-foreground mb-1">Team</p>
+                                <p className="text-base font-medium">FRC {currentEntry.team_number}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          {currentEntry?.notes && !currentEntry.notes.includes('📸') && (
+                            <div className="p-4 bg-muted/30 rounded-lg border border-border/50">
+                              <p className="text-sm leading-relaxed text-muted-foreground italic">
+                                {currentEntry.notes}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Page Footer */}
+                      <div className="pt-6 mt-6 border-t-2 border-border/30 flex items-center justify-center text-sm text-muted-foreground">
+                        <span className="font-mono">
+                          Page {currentPage + 1} of {totalPages}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Navigation Controls */}
+                <div className="flex items-center justify-between gap-4 mb-8">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={goToPrevPage}
+                    disabled={currentPage === 0}
+                    className="group"
+                  >
+                    <ChevronLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+                    Previous
+                  </Button>
+
+                  <div className="flex-1 flex justify-center">
+                    <div className="flex gap-2 flex-wrap justify-center">
+                      {filteredEntries.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentPage(index)}
+                          className={`w-2 h-2 rounded-full transition-all ${
+                            index === currentPage 
+                              ? 'bg-primary w-8' 
+                              : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                          }`}
+                          aria-label={`Go to page ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={goToNextPage}
+                    disabled={currentPage === totalPages - 1}
+                    className="group"
+                  >
+                    Next
+                    <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+
+                {/* CTA */}
+                <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-background border-2 border-primary/20 rounded-xl p-8 text-center">
+                  <Award className="w-12 h-12 mx-auto mb-4 text-primary" />
+                  <h2 className="text-2xl font-bold mb-3">Request Changes or Additions</h2>
                   <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                    Team members and students can submit requests to add new documentation entries or suggest edits to existing ones.
+                    Team members and students can submit requests to add new documentation entries or suggest edits.
                   </p>
                   <Button 
                     size="lg" 
@@ -322,9 +279,9 @@ export default function ImpactDocumentation() {
                   >
                     Submit a Request
                   </Button>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
+                </div>
+              </>
+            )}
           </div>
         </main>
 
