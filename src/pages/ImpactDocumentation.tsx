@@ -111,12 +111,6 @@ export default function ImpactDocumentation() {
       pdf.setFillColor(249, 250, 251);
       pdf.rect(0, 0, 210, 297, 'F');
       
-      // Decorative geometric shapes
-      pdf.setFillColor(239, 246, 255);
-      pdf.circle(15, 15, 20, 'F');
-      pdf.setFillColor(243, 244, 246);
-      pdf.circle(195, 280, 25, 'F');
-      
       // Top accent gradient bars
       pdf.setFillColor(59, 130, 246);
       pdf.rect(0, 0, 210, 3, 'F');
@@ -128,61 +122,59 @@ export default function ImpactDocumentation() {
         try {
           // Decorative circle behind logo
           pdf.setFillColor(239, 246, 255);
-          pdf.circle(105, 55, 35, 'F');
+          pdf.circle(105, 50, 28, 'F');
           
           // Logo border
           pdf.setDrawColor(59, 130, 246);
-          pdf.setLineWidth(1);
-          pdf.circle(105, 55, 32, 'S');
+          pdf.setLineWidth(0.8);
+          pdf.circle(105, 50, 26, 'S');
           
-          pdf.addImage(logoDataUrl, 'PNG', 75, 25, 60, 60);
+          pdf.addImage(logoDataUrl, 'PNG', 80, 24, 50, 50);
         } catch (e) {
           console.error("Error adding logo:", e);
         }
       }
 
       // Title Section with enhanced typography
-      pdf.setFontSize(36);
+      pdf.setFontSize(32);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(30, 41, 59);
-      pdf.text("CYBORG CATS 4256", 105, 105, { align: 'center' });
+      pdf.text("CYBORG CATS 4256", 105, 90, { align: 'center' });
 
-      pdf.setFontSize(20);
+      pdf.setFontSize(18);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(59, 130, 246);
-      pdf.text("FIRST IMPACT AWARD", 105, 116, { align: 'center' });
+      pdf.text("FIRST IMPACT AWARD", 105, 100, { align: 'center' });
 
-      pdf.setFontSize(13);
+      pdf.setFontSize(12);
       pdf.setFont(undefined, 'normal');
       pdf.setTextColor(100, 116, 139);
-      pdf.text("Documentation Portfolio", 105, 125, { align: 'center' });
+      pdf.text("Documentation Portfolio", 105, 108, { align: 'center' });
 
       // Decorative double line
       pdf.setDrawColor(59, 130, 246);
-      pdf.setLineWidth(0.8);
-      pdf.line(45, 132, 165, 132);
-      pdf.setLineWidth(0.3);
-      pdf.line(45, 134, 165, 134);
+      pdf.setLineWidth(0.5);
+      pdf.line(50, 113, 160, 113);
 
       // Summary Statistics Box with enhanced design
       pdf.setFillColor(255, 255, 255);
       pdf.setDrawColor(59, 130, 246);
       pdf.setLineWidth(0.5);
-      pdf.roundedRect(30, 142, 150, 42, 4, 4, 'FD');
+      pdf.roundedRect(35, 120, 140, 35, 3, 3, 'FD');
       
       // Inner accent
       pdf.setFillColor(239, 246, 255);
-      pdf.roundedRect(33, 145, 144, 10, 2, 2, 'F');
-
-      pdf.setFontSize(13);
-      pdf.setFont(undefined, 'bold');
-      pdf.setTextColor(59, 130, 246);
-      pdf.text("DOCUMENTATION OVERVIEW", 105, 151, { align: 'center' });
+      pdf.roundedRect(38, 123, 134, 8, 2, 2, 'F');
 
       pdf.setFontSize(11);
+      pdf.setFont(undefined, 'bold');
+      pdf.setTextColor(59, 130, 246);
+      pdf.text("DOCUMENTATION OVERVIEW", 105, 128, { align: 'center' });
+
+      pdf.setFontSize(10);
       pdf.setFont(undefined, 'normal');
       pdf.setTextColor(30, 41, 59);
-      pdf.text(`Total Entries: ${filteredEntries.length}`, 105, 163, { align: 'center' });
+      pdf.text(`Total Entries: ${filteredEntries.length}`, 105, 138, { align: 'center' });
       
       // Parse dates properly and find range
       const validDates = filteredEntries
@@ -198,14 +190,14 @@ export default function ImpactDocumentation() {
       if (validDates.length > 0) {
         const minDate = new Date(Math.min(...validDates.map(d => d.getTime())));
         const maxDate = new Date(Math.max(...validDates.map(d => d.getTime())));
-        pdf.setFontSize(10);
+        pdf.setFontSize(9);
         pdf.setTextColor(71, 85, 105);
-        pdf.text(`Activity Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 171, { align: 'center' });
+        pdf.text(`Period: ${minDate.toLocaleDateString()} - ${maxDate.toLocaleDateString()}`, 105, 145, { align: 'center' });
       }
       
-      pdf.setFontSize(9);
+      pdf.setFontSize(8);
       pdf.setTextColor(100, 116, 139);
-      pdf.text(`Compiled: ${new Date().toLocaleDateString()}`, 105, 179, { align: 'center' });
+      pdf.text(`Compiled: ${new Date().toLocaleDateString()}`, 105, 151, { align: 'center' });
 
       // Impact Categories Section with enhanced design
       const categoryCount = new Map<string, number>();
@@ -218,32 +210,28 @@ export default function ImpactDocumentation() {
 
       const sortedCategories = Array.from(categoryCount.entries()).sort((a, b) => b[1] - a[1]);
 
-      pdf.setFontSize(14);
+      pdf.setFontSize(12);
       pdf.setFont(undefined, 'bold');
       pdf.setTextColor(30, 41, 59);
-      pdf.text("IMPACT CATEGORIES", 105, 195, { align: 'center' });
+      pdf.text("IMPACT CATEGORIES", 105, 165, { align: 'center' });
       
-      pdf.setFontSize(9);
+      pdf.setFontSize(8);
       pdf.setFont(undefined, 'normal');
       pdf.setTextColor(100, 116, 139);
-      pdf.text("Distribution across FIRST Impact Award areas", 105, 202, { align: 'center' });
+      pdf.text("Distribution across impact areas", 105, 171, { align: 'center' });
 
-      // Decorative accent line
-      pdf.setDrawColor(147, 51, 234);
-      pdf.setLineWidth(0.5);
-      pdf.line(65, 204, 145, 204);
-
-      // Category cards layout (2 columns)
-      let catYPos = 208;
+      // Category cards layout (2 columns) - limit to fit on page
+      let catYPos = 180;
       const leftColX = 30;
       const rightColX = 110;
       let isLeftColumn = true;
+      const maxCatYPos = 235; // Leave room for TOC
 
       for (let index = 0; index < sortedCategories.length; index++) {
         const [category, count] = sortedCategories[index];
         
-        // Start new page if needed (leaving room for TOC)
-        if (catYPos > 260) {
+        // Check if we have room for this category
+        if (catYPos > maxCatYPos) {
           break;
         }
         
@@ -253,74 +241,80 @@ export default function ImpactDocumentation() {
         // Category card background
         pdf.setFillColor(250, 245, 255);
         pdf.setDrawColor(233, 213, 255);
-        pdf.setLineWidth(0.5);
-        pdf.roundedRect(colX, catYPos - 7, boxWidth, 12, 2, 2, 'FD');
+        pdf.setLineWidth(0.3);
+        pdf.roundedRect(colX, catYPos - 6, boxWidth, 10, 2, 2, 'FD');
         
-        // Category icon (colored square)
+        // Category icon
         pdf.setFillColor(147, 51, 234);
-        pdf.roundedRect(colX + 2, catYPos - 5, 4, 8, 1, 1, 'F');
+        pdf.roundedRect(colX + 2, catYPos - 4, 3, 6, 1, 1, 'F');
         
         // Category name
-        pdf.setFontSize(9);
+        pdf.setFontSize(8);
         pdf.setFont(undefined, 'normal');
         pdf.setTextColor(30, 41, 59);
-        const truncatedCat = category.length > 22 ? category.substring(0, 19) + '...' : category;
-        pdf.text(truncatedCat, colX + 8, catYPos - 1);
+        const truncatedCat = category.length > 24 ? category.substring(0, 21) + '...' : category;
+        pdf.text(truncatedCat, colX + 7, catYPos - 0.5);
         
-        // Count badge with circle background
-        const countStr = count.toString();
-        const badgeX = colX + boxWidth - 10;
-        pdf.setFillColor(147, 51, 234);
-        pdf.circle(badgeX, catYPos - 1.5, 4, 'F');
-        pdf.setFontSize(8);
+        // Count badge
+        pdf.setFontSize(7);
         pdf.setFont(undefined, 'bold');
-        pdf.setTextColor(255, 255, 255);
-        pdf.text(countStr, badgeX, catYPos, { align: 'center' });
+        pdf.setTextColor(147, 51, 234);
+        pdf.text(`${count}`, colX + boxWidth - 8, catYPos - 0.5);
         
         // Percentage
         const percentage = ((count / filteredEntries.length) * 100).toFixed(0);
-        pdf.setFontSize(7);
+        pdf.setFontSize(6);
         pdf.setFont(undefined, 'normal');
         pdf.setTextColor(100, 116, 139);
-        pdf.text(`${percentage}%`, colX + 8, catYPos + 3);
+        pdf.text(`${percentage}%`, colX + 7, catYPos + 2.5);
         
         // Toggle column
         isLeftColumn = !isLeftColumn;
         
         // Move to next row after every 2 items
         if (!isLeftColumn) {
-          catYPos += 15;
+          catYPos += 12;
         }
       }
 
-      // Table of Contents
-      const tocStartY = catYPos + (isLeftColumn ? 15 : 20);
-      
-      if (tocStartY < 270) {
-        pdf.setFontSize(14);
-        pdf.setFont(undefined, 'bold');
-        pdf.setTextColor(30, 41, 59);
-        pdf.text("DOCUMENTATION INDEX", 30, tocStartY);
-
-        pdf.setDrawColor(59, 130, 246);
-        pdf.setLineWidth(0.8);
-        pdf.line(30, tocStartY + 2, 90, tocStartY + 2);
-        
-        pdf.setFontSize(8);
-        pdf.setFont(undefined, 'normal');
-        pdf.setTextColor(100, 116, 139);
-        pdf.text("Complete listing of all documentation entries", 30, tocStartY + 7);
-      }
-
-      let tocYPos = tocStartY < 270 ? tocStartY + 13 : 42;
+      // Table of Contents - starts on new page if not enough room
+      const tocStartY = catYPos + (isLeftColumn ? 12 : 20);
       let tocPageNum = 1;
+      
+      // Always start TOC on a new page for cleaner layout
+      pdf.addPage();
+      tocPageNum++;
+      
+      // TOC Page header
+      pdf.setFillColor(249, 250, 251);
+      pdf.rect(0, 0, 210, 297, 'F');
+      pdf.setFillColor(59, 130, 246);
+      pdf.rect(0, 0, 210, 3, 'F');
+      pdf.setFillColor(147, 51, 234);
+      pdf.rect(0, 3, 210, 2, 'F');
+      
+      pdf.setFontSize(16);
+      pdf.setFont(undefined, 'bold');
+      pdf.setTextColor(30, 41, 59);
+      pdf.text("DOCUMENTATION INDEX", 30, 25);
+
+      pdf.setDrawColor(59, 130, 246);
+      pdf.setLineWidth(0.8);
+      pdf.line(30, 28, 100, 28);
+      
+      pdf.setFontSize(9);
+      pdf.setFont(undefined, 'normal');
+      pdf.setTextColor(100, 116, 139);
+      pdf.text("Complete listing of all entries", 30, 34);
+
+      let tocYPos = 45;
       pdf.setFontSize(9);
       pdf.setFont(undefined, 'normal');
 
       filteredEntries.forEach((entry, index) => {
         // Check if we need a new page for TOC
-        if (tocYPos > 270) {
-          // Add footer to current TOC page before moving to next
+        if (tocYPos > 265) {
+          // Add footer to current TOC page
           pdf.setFillColor(241, 245, 249);
           pdf.rect(0, 280, 210, 17, 'F');
           pdf.setDrawColor(226, 232, 240);
@@ -355,32 +349,34 @@ export default function ImpactDocumentation() {
           
           pdf.setDrawColor(59, 130, 246);
           pdf.setLineWidth(0.8);
-          pdf.line(30, 35, 90, 35);
+          pdf.line(30, 35, 100, 35);
           
-          tocYPos = 42;
+          tocYPos = 45;
           pdf.setFontSize(9);
           pdf.setFont(undefined, 'normal');
         }
         
         pdf.setTextColor(71, 85, 105);
-        pdf.text(`${index + 1 + tocPageNum}`, 35, tocYPos);
+        pdf.setFontSize(8);
+        pdf.text(`${index + 1 + tocPageNum}`, 32, tocYPos);
         
         pdf.setTextColor(30, 41, 59);
         pdf.setFont(undefined, 'normal');
-        // Use text wrapping for long descriptions
-        const wrappedDesc = pdf.splitTextToSize(entry.activity_description, 115);
-        pdf.text(wrappedDesc, 45, tocYPos);
+        pdf.setFontSize(9);
+        // Use text wrapping for long descriptions - max width 105
+        const wrappedDesc = pdf.splitTextToSize(entry.activity_description, 105);
+        pdf.text(wrappedDesc, 42, tocYPos);
         
         pdf.setTextColor(100, 116, 139);
         pdf.setFont(undefined, 'italic');
-        pdf.setFontSize(8);
+        pdf.setFontSize(7);
         pdf.text(entry.documentation_id, 178, tocYPos, { align: 'right' });
         pdf.setFontSize(9);
         pdf.setFont(undefined, 'normal');
         
-        // Account for wrapped text height
-        const lineHeight = wrappedDesc.length * 4;
-        tocYPos += Math.max(lineHeight, 6) + 2;
+        // Account for wrapped text height - add spacing between entries
+        const lineHeight = wrappedDesc.length * 4.5;
+        tocYPos += Math.max(lineHeight + 3, 8);
       });
 
       // Footer for last TOC page
