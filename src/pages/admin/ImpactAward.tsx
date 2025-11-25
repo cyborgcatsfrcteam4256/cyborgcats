@@ -62,6 +62,7 @@ export default function AdminImpactAward() {
   const [deleteEntryId, setDeleteEntryId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterCategory, setFilterCategory] = useState<string>("all");
+  const [sortBy, setSortBy] = useState<string>("recent");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadingFile, setUploadingFile] = useState(false);
 
@@ -371,9 +372,9 @@ export default function AdminImpactAward() {
   };
 
   const handleExport = async () => {
-    const result = await exportToExcel(entries);
+    const result = await exportToExcel(filteredEntries);
     if (result.success) {
-      toast.success("Export completed successfully");
+      toast.success(`Exported ${filteredEntries.length} entries successfully`);
     } else {
       toast.error("Failed to export data");
     }
@@ -475,13 +476,47 @@ export default function AdminImpactAward() {
     }
   };
 
-  const filteredEntries = entries.filter(entry => {
-    const matchesSearch = entry.activity_description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         entry.documentation_id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         (entry.team_number?.toLowerCase() || "").includes(searchQuery.toLowerCase());
-    const matchesCategory = filterCategory === "all" || entry.impact_category === filterCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const parseYear = (dateStr: string): number => {
+    const yearMatch = dateStr.match(/\b(19|20)\d{2}\b/);
+    if (yearMatch) return parseInt(yearMatch[0]);
+    if (dateStr.toLowerCase().includes('present')) return new Date().getFullYear();
+    return 0;
+  };
+
+  const isWithinPastThreeYears = (dateStr: string): boolean => {
+    const currentYear = new Date().getFullYear();
+    const year = parseYear(dateStr);
+    return year >= currentYear - 3 && year <= currentYear;
+  };
+
+  const filteredEntries = entries
+    .filter(entry => {
+      const matchesSearch = entry.activity_description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           entry.documentation_id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                           (entry.team_number?.toLowerCase() || "").includes(searchQuery.toLowerCase());
+      const matchesCategory = filterCategory === "all" || entry.impact_category.toLowerCase().includes(filterCategory.toLowerCase());
+      
+      let matchesSort = true;
+      if (sortBy === "past3years") {
+        matchesSort = isWithinPastThreeYears(entry.activity_date);
+      }
+      
+      return matchesSearch && matchesCategory && matchesSort;
+    })
+    .sort((a, b) => {
+      switch (sortBy) {
+        case "recent":
+          return parseYear(b.activity_date) - parseYear(a.activity_date);
+        case "oldest":
+          return parseYear(a.activity_date) - parseYear(b.activity_date);
+        case "category":
+          return a.impact_category.localeCompare(b.impact_category);
+        case "past3years":
+          return parseYear(b.activity_date) - parseYear(a.activity_date);
+        default:
+          return 0;
+      }
+    });
 
   if (loading) {
     return (
@@ -725,10 +760,10 @@ export default function AdminImpactAward() {
           {/* Filters */}
           <Card>
             <CardHeader>
-              <CardTitle>Filters</CardTitle>
+              <CardTitle>Filters & Sorting</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-3 gap-4">
                 <div>
                   <Label>Search</Label>
                   <Input
@@ -745,14 +780,47 @@ export default function AdminImpactAward() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">All Categories</SelectItem>
-                      {categories.map((cat) => (
-                        <SelectItem key={cat.category_name} value={cat.category_name}>
-                          {cat.category_name}
-                        </SelectItem>
-                      ))}
+                      <SelectItem value="advocacy">Advocacy</SelectItem>
+                      <SelectItem value="hosted">Hosted</SelectItem>
+                      <SelectItem value="mentored">Mentored</SelectItem>
+                      <SelectItem value="ran">Ran</SelectItem>
+                      <SelectItem value="reached">Reached</SelectItem>
+                      <SelectItem value="supported">Supported</SelectItem>
+                      <SelectItem value="assisted">Assisted</SelectItem>
+                      <SelectItem value="provided published resources">Provided Resources</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
+                <div>
+                  <Label>Sort By</Label>
+                  <Select value={sortBy} onValueChange={setSortBy}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="recent">Most Recent</SelectItem>
+                      <SelectItem value="oldest">Oldest First</SelectItem>
+                      <SelectItem value="past3years">Past 3 Years</SelectItem>
+                      <SelectItem value="category">By Category</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-sm text-muted-foreground pt-2">
+                <span>Showing {filteredEntries.length} of {entries.length} entries</span>
+                {(searchQuery || filterCategory !== "all" || sortBy !== "recent") && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setSearchQuery("");
+                      setFilterCategory("all");
+                      setSortBy("recent");
+                    }}
+                  >
+                    Clear All Filters
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>
