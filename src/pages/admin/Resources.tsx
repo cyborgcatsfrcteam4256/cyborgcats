@@ -56,6 +56,26 @@ export default function AdminResources() {
 
   useEffect(() => {
     checkAdminAndFetchResources();
+
+    // Set up realtime subscription for automatic updates
+    const channel = supabase
+      .channel('resources-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'resources'
+        },
+        () => {
+          fetchResources();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const checkAdminAndFetchResources = async () => {
