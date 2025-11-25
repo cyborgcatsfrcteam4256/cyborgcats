@@ -88,6 +88,16 @@ export default function ImpactDocumentation() {
     try {
       toast.info("Generating PDF... This may take a moment");
       const pdf = new jsPDF("p", "mm", "a4");
+      
+      // Load Cyborg Cats logo
+      const logoImg = document.createElement('img');
+      logoImg.src = "/lovable-uploads/cyborg-cats-logo.png";
+      
+      await new Promise((resolve, reject) => {
+        logoImg.onload = resolve;
+        logoImg.onerror = reject;
+      });
+
       let isFirstPage = true;
 
       for (const entry of filteredEntries) {
@@ -96,58 +106,172 @@ export default function ImpactDocumentation() {
         }
         isFirstPage = false;
 
-        let yPos = 20;
+        // Page background gradient effect (light)
+        pdf.setFillColor(249, 250, 251);
+        pdf.rect(0, 0, 210, 297, 'F');
 
-        // Header
-        pdf.setFontSize(20);
+        // Top accent bar
+        pdf.setFillColor(59, 130, 246);
+        pdf.rect(0, 0, 210, 4, 'F');
+
+        // Header section with logo
+        try {
+          pdf.addImage(logoImg, 'PNG', 15, 12, 25, 25);
+        } catch (e) {
+          console.error("Error adding logo:", e);
+        }
+
+        // Team name and title
+        pdf.setFontSize(24);
+        pdf.setFont(undefined, 'bold');
         pdf.setTextColor(59, 130, 246);
-        pdf.text("Cyborg Cats 4256 - FIRST Impact Award", 20, yPos);
-        yPos += 10;
-
-        // Documentation ID
-        pdf.setFontSize(10);
+        pdf.text("CYBORG CATS 4256", 45, 22);
+        
+        pdf.setFontSize(11);
+        pdf.setFont(undefined, 'normal');
         pdf.setTextColor(100, 116, 139);
-        pdf.text(`Documentation ID: ${entry.documentation_id}`, 20, yPos);
-        yPos += 15;
+        pdf.text("FIRST Impact Award Documentation", 45, 29);
 
-        // Title
-        pdf.setFontSize(16);
+        // Documentation ID badge
+        pdf.setFillColor(239, 246, 255);
+        pdf.roundedRect(145, 15, 50, 12, 2, 2, 'F');
+        pdf.setFontSize(9);
+        pdf.setFont(undefined, 'bold');
+        pdf.setTextColor(59, 130, 246);
+        pdf.text(entry.documentation_id, 170, 22, { align: 'center' });
+
+        let yPos = 50;
+
+        // Main content card background
+        pdf.setFillColor(255, 255, 255);
+        pdf.roundedRect(12, yPos - 5, 186, 210, 3, 3, 'F');
+        
+        // Card border
+        pdf.setDrawColor(226, 232, 240);
+        pdf.setLineWidth(0.3);
+        pdf.roundedRect(12, yPos - 5, 186, 210, 3, 3, 'S');
+
+        // Activity title
+        pdf.setFontSize(18);
+        pdf.setFont(undefined, 'bold');
         pdf.setTextColor(30, 41, 59);
         const titleLines = pdf.splitTextToSize(entry.activity_description, 170);
         pdf.text(titleLines, 20, yPos);
-        yPos += titleLines.length * 8 + 5;
+        yPos += titleLines.length * 8 + 8;
 
-        // Metadata
+        // Metadata section with icons
         pdf.setFontSize(10);
-        pdf.setTextColor(100, 116, 139);
-        pdf.text(`Type: ${entry.documentation_type}`, 20, yPos);
-        yPos += 6;
-        pdf.text(`Date: ${entry.activity_date}`, 20, yPos);
-        yPos += 6;
+        pdf.setFont(undefined, 'normal');
+        
+        // Type
+        pdf.setFillColor(243, 244, 246);
+        pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+        pdf.setTextColor(75, 85, 99);
+        pdf.text("Type:", 21, yPos);
+        pdf.setFont(undefined, 'bold');
+        pdf.setTextColor(30, 41, 59);
+        pdf.text(entry.documentation_type, 35, yPos);
+        pdf.setFont(undefined, 'normal');
+        yPos += 10;
+
+        // Date
+        pdf.setFillColor(243, 244, 246);
+        pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+        pdf.setTextColor(75, 85, 99);
+        pdf.text("Date:", 21, yPos);
+        pdf.setFont(undefined, 'bold');
+        pdf.setTextColor(30, 41, 59);
+        pdf.text(entry.activity_date, 35, yPos);
+        pdf.setFont(undefined, 'normal');
+        yPos += 10;
         
         if (entry.activity_location) {
-          pdf.text(`Location: ${entry.activity_location}`, 20, yPos);
-          yPos += 6;
+          pdf.setFillColor(243, 244, 246);
+          pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+          pdf.setTextColor(75, 85, 99);
+          pdf.text("Location:", 21, yPos);
+          pdf.setFont(undefined, 'bold');
+          pdf.setTextColor(30, 41, 59);
+          const locationText = pdf.splitTextToSize(entry.activity_location, 130);
+          pdf.text(locationText, 43, yPos);
+          yPos += locationText.length * 5 + 5;
+          pdf.setFont(undefined, 'normal');
         }
-        
-        if (entry.impact_category) {
-          pdf.text(`Category: ${entry.impact_category}`, 20, yPos);
+
+        if (entry.team_number && entry.team_number !== '4256') {
+          pdf.setFillColor(243, 244, 246);
+          pdf.roundedRect(18, yPos - 4, 80, 8, 1, 1, 'F');
+          pdf.setTextColor(75, 85, 99);
+          pdf.text("Collaboration:", 21, yPos);
+          pdf.setFont(undefined, 'bold');
+          pdf.setTextColor(30, 41, 59);
+          pdf.text(`Team ${entry.team_number}`, 49, yPos);
+          pdf.setFont(undefined, 'normal');
           yPos += 10;
         }
 
-        // Notes
-        if (entry.notes && !entry.notes.includes('📸')) {
+        yPos += 5;
+
+        // Impact category section
+        if (entry.impact_category) {
           pdf.setFontSize(9);
-          pdf.setTextColor(71, 85, 105);
-          const notesLines = pdf.splitTextToSize(entry.notes, 170);
-          pdf.text(notesLines, 20, yPos);
-          yPos += notesLines.length * 5;
+          pdf.setFont(undefined, 'bold');
+          pdf.setTextColor(147, 51, 234);
+          pdf.text("IMPACT CATEGORY", 20, yPos);
+          yPos += 6;
+
+          const categories = entry.impact_category.split(',');
+          categories.forEach((cat) => {
+            pdf.setFillColor(250, 245, 255);
+            pdf.setDrawColor(233, 213, 255);
+            pdf.setLineWidth(0.2);
+            const catText = cat.trim();
+            const textWidth = pdf.getTextWidth(catText);
+            pdf.roundedRect(20, yPos - 4, textWidth + 6, 6, 1, 1, 'FD');
+            pdf.setFontSize(8);
+            pdf.setFont(undefined, 'normal');
+            pdf.setTextColor(126, 34, 206);
+            pdf.text(catText, 23, yPos);
+            yPos += 8;
+          });
+          yPos += 5;
         }
 
-        // Footer
+        // Notes section
+        if (entry.notes && !entry.notes.includes('📸')) {
+          pdf.setFontSize(9);
+          pdf.setFont(undefined, 'bold');
+          pdf.setTextColor(100, 116, 139);
+          pdf.text("ADDITIONAL NOTES", 20, yPos);
+          yPos += 6;
+          
+          pdf.setFillColor(248, 250, 252);
+          pdf.roundedRect(18, yPos - 3, 170, 30, 2, 2, 'F');
+          
+          pdf.setFontSize(9);
+          pdf.setFont(undefined, 'normal');
+          pdf.setTextColor(71, 85, 105);
+          const notesLines = pdf.splitTextToSize(entry.notes, 160);
+          pdf.text(notesLines, 22, yPos + 2);
+        }
+
+        // Footer with gradient bar
+        pdf.setFillColor(241, 245, 249);
+        pdf.rect(0, 280, 210, 17, 'F');
+        
+        pdf.setDrawColor(226, 232, 240);
+        pdf.setLineWidth(0.3);
+        pdf.line(15, 280, 195, 280);
+        
         pdf.setFontSize(8);
+        pdf.setTextColor(100, 116, 139);
+        pdf.text("Team 4256 Cyborg Cats", 15, 288);
+        pdf.text("FIRST Impact Award Documentation", 105, 288, { align: 'center' });
+        pdf.text(`Page ${filteredEntries.indexOf(entry) + 1} of ${filteredEntries.length}`, 195, 288, { align: 'right' });
+        
+        pdf.setFontSize(7);
         pdf.setTextColor(148, 163, 184);
-        pdf.text("Team 4256 Cyborg Cats | FIRST Impact Award Documentation", 20, 285);
+        pdf.text(new Date().toLocaleDateString(), 195, 293, { align: 'right' });
       }
 
       const fileName = `Cyborg-Cats-Impact-Documentation-${new Date().getFullYear()}.pdf`;
