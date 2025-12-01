@@ -53,6 +53,26 @@ const AdminPhotos = () => {
 
   useEffect(() => {
     checkAdminAndFetchPhotos();
+
+    // Set up realtime subscription for automatic updates
+    const channel = supabase
+      .channel('user-photos-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'user_photos'
+        },
+        () => {
+          fetchPhotos();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const checkAdminAndFetchPhotos = async () => {
