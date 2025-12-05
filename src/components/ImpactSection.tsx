@@ -153,9 +153,9 @@ export const ImpactSection = () => {
                 <Trophy className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
                 Learn More About Our Mission
               </Button>
-              <Button variant="glass" size="lg" className="group relative z-20 cursor-pointer" onClick={() => navigate('/team')}>
+              <Button variant="glass" size="lg" className="group relative z-20 cursor-pointer" onClick={() => navigate('/about')}>
                 <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-500" />
-                Meet Our Team
+                Learn About Us
               </Button>
             </div>
           </ScrollReveal>

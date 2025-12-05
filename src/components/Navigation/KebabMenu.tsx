@@ -37,11 +37,6 @@ export const KebabMenu = () => {
           <span>About Us</span>
         </DropdownMenuItem>
         
-        <DropdownMenuItem onClick={() => navigate('/team')} className="cursor-pointer">
-          <Users className="mr-2 h-4 w-4" />
-          <span>Our Team</span>
-        </DropdownMenuItem>
-        
         <DropdownMenuItem onClick={() => navigate('/impact')} className="cursor-pointer">
           <Heart className="mr-2 h-4 w-4" />
           <span>Our Impact</span>
