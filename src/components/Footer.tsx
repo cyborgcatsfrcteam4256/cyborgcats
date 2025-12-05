@@ -47,10 +47,6 @@ export const Footer = () => {
                 <Home className="w-4 h-4" />
                 {t('nav.about')}
               </Link>
-              <Link to="/team" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
-                <Users className="w-4 h-4" />
-                {t('nav.team')}
-              </Link>
               <Link to="/impact" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-cyber font-inter">
                 <Heart className="w-4 h-4" />
                 {t('nav.impact')}

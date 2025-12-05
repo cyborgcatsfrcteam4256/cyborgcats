@@ -62,7 +62,6 @@ export const Navigation = () => {
 
   const navItems = [
     { href: '/about', label: t('nav.about'), icon: Home },
-    { href: '/team', label: t('nav.team'), icon: Users },
     { href: '/impact', label: t('nav.impact'), icon: Trophy },
     { href: '/sponsors', label: t('nav.sponsors'), icon: Trophy },
     { href: '/network', label: t('nav.network'), icon: Users },

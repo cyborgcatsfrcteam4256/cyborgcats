@@ -36,15 +36,6 @@ const searchData: SearchResult[] = [
     priority: 2
   },
   {
-    id: '3',
-    title: 'Team Members',
-    description: 'Meet our 48 passionate students and mentors',
-    category: 'team',
-    url: '/team',
-    tags: ['students', 'mentors', 'members'],
-    priority: 1
-  },
-  {
     id: '4',
     title: 'Community Impact',
     description: 'Our outreach programs and STEM education initiatives',

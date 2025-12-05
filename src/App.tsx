@@ -20,7 +20,7 @@ import { measureWebVitals } from "@/utils/performance";
 // Lazy load route components for better performance
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
-const Team = lazy(() => import("./pages/Team"));
+// Team page removed from public navigation
 const Impact = lazy(() => import("./pages/Impact"));
 const Sponsors = lazy(() => import("./pages/Sponsors"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -105,7 +105,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/team" element={<Team />} />
+            {/* Team page removed from public navigation */}
             <Route path="/impact" element={<Impact />} />
             <Route path="/sponsors" element={<Sponsors />} />
             <Route path="/news" element={<News />} />
