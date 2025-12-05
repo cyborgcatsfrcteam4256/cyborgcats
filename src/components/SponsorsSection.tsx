@@ -1,23 +1,65 @@
-import { Building2, Handshake, Star, Users, Trophy, Target, ArrowRight, Heart } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Building2, Handshake, Star, Users, Trophy, Target, ArrowRight, Heart, Loader2 } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { PremiumCard } from './PremiumCard';
 import { LiquidButton } from './LiquidButton';
 import { useTranslation } from 'react-i18next';
+import { supabase } from '@/integrations/supabase/client';
+
+interface Sponsor {
+  id: string;
+  name: string;
+  logo_url: string | null;
+  website: string | null;
+  tier: string;
+}
+
+interface SponsorTier {
+  id: string;
+  name: string;
+  description: string | null;
+  display_order: number;
+  benefits: string[] | null;
+  icon: string | null;
+  color_gradient: string | null;
+}
 
 export const SponsorsSection = () => {
   const { t } = useTranslation();
-  const currentSponsors = [
-    { name: "Westminster Christian Academy", tier: "Foundational", logo: "/lovable-uploads/westminster-logo.png", website: "https://wcastl.org" },
-    { name: "Boeing", tier: "Foundational", logo: "/lovable-uploads/boeing-logo.png", website: "https://www.boeing.com" },
-    { name: "FSI", tier: "Foundational", logo: "/lovable-uploads/fsi-logo.png", website: "https://www.fsipolyurethanes.com" },
-    { name: "TAC Air", tier: "Sustainable", logo: "/lovable-uploads/tac-air-logo.jpeg", website: "https://www.tacair.com" },
-    { name: "TierPoint", tier: "Development", logo: "/lovable-uploads/tierpoint-logo.webp", website: "https://www.tierpoint.com" },
-    { name: "LinMark Machine Products", tier: "Development", logo: "/lovable-uploads/linmark-logo.jpeg", website: "https://www.linmarkmachine.com" },
-    { name: "Agilix Solutions", tier: "Competition", logo: "/lovable-uploads/agilix-logo.webp", website: "https://www.agilixsolutions.com" },
-    { name: "Simons PLM Software", tier: "Competition", logo: "/lovable-uploads/siemens-plm-logo.svg", website: "https://plm.sw.siemens.com" },
-    { name: "Jemco Components & Fabrication, Inc.", tier: "Competition", logo: "/lovable-uploads/jemco-logo.png", website: "https://www.jemcoinc.com" },
-    { name: "Ace Hardware", tier: "Associate", logo: "/lovable-uploads/ace-hardware-logo.svg", website: "https://www.acehardware.com" },
-  ];
+  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
+  const [sponsorTiers, setSponsorTiers] = useState<SponsorTier[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+      const [sponsorsData, tiersData] = await Promise.all([
+        supabase.from('sponsors').select('*').eq('is_active', true).order('display_order', { ascending: true }),
+        supabase.from('sponsor_tiers').select('*').order('display_order', { ascending: true })
+      ]);
+
+      if (sponsorsData.data) setSponsors(sponsorsData.data);
+      if (tiersData.data) setSponsorTiers(tiersData.data);
+    } catch (error) {
+      console.error('Error loading sponsors:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getTierColor = (tierName: string) => {
+    const tierColors: Record<string, string> = {
+      'Foundational Partner': 'glass-morphism border border-purple-400/30 text-purple-200 group-hover/sponsor:text-purple-100 group-hover/sponsor:shadow-glow',
+      'Sustainable Partner': 'glass-morphism border border-blue-400/30 text-blue-200 group-hover/sponsor:text-blue-100 group-hover/sponsor:shadow-glow',
+      'Development Partner': 'glass-morphism border border-green-400/30 text-green-200 group-hover/sponsor:text-green-100 group-hover/sponsor:shadow-glow',
+      'Competition Partner': 'glass-morphism border border-orange-400/30 text-orange-200 group-hover/sponsor:text-orange-100 group-hover/sponsor:shadow-glow',
+      'Associate Partner': 'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow'
+    };
+    return tierColors[tierName] || tierColors['Associate Partner'];
+  };
 
   const sponsorshipBenefits = [
     {
@@ -42,7 +84,13 @@ export const SponsorsSection = () => {
     }
   ];
 
-  const sponsorshipTiers = [
+  // Use tiers from database or fallback to default
+  const displayTiers = sponsorTiers.length > 0 ? sponsorTiers.map(tier => ({
+    name: tier.name,
+    amount: tier.description || '',
+    color: tier.color_gradient || 'from-gray-400 to-slate-500',
+    benefits: tier.benefits || []
+  })) : [
     {
       name: "Foundational Partner",
       amount: "$10,000/year+",
@@ -99,6 +147,16 @@ export const SponsorsSection = () => {
     }
   ];
 
+  if (loading) {
+    return (
+      <section className="py-32 relative overflow-hidden">
+        <div className="container mx-auto px-6 flex items-center justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Full-screen background accent photo */}
@@ -144,46 +202,50 @@ export const SponsorsSection = () => {
           </div>
         </ScrollReveal>
 
-        {/* Current Sponsors */}
+        {/* Current Sponsors - Fetched from Database */}
         <ScrollReveal delay={200}>
           <div className="mb-28">
             <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-center text-white mb-20">
               Thank You to Our Current Sponsors
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
-              {currentSponsors.map((sponsor, index) => (
-                 <ScrollReveal key={index} delay={index * 50}>
-                   <a 
-                     href={sponsor.website} 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     className="block"
-                   >
-                     <PremiumCard className="p-8 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700 cursor-pointer">
-                      <div className="aspect-square glass-morphism rounded-2xl mb-5 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
-                        <img 
-                          src={sponsor.logo} 
-                          alt={`${sponsor.name} logo`}
-                          className="w-24 h-24 object-contain rounded-lg group-hover/sponsor:brightness-110 transition-all duration-500"
-                        />
-                      </div>
-                      <h4 className="font-orbitron font-semibold text-white text-sm mb-4 group-hover/sponsor:text-glow transition-all duration-500">
-                        {sponsor.name}
-                      </h4>
-                      <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${
-                        sponsor.tier === 'Foundational' ? 'glass-morphism border border-purple-400/30 text-purple-200 group-hover/sponsor:text-purple-100 group-hover/sponsor:shadow-glow' :
-                        sponsor.tier === 'Sustainable' ? 'glass-morphism border border-blue-400/30 text-blue-200 group-hover/sponsor:text-blue-100 group-hover/sponsor:shadow-glow' :
-                        sponsor.tier === 'Development' ? 'glass-morphism border border-green-400/30 text-green-200 group-hover/sponsor:text-green-100 group-hover/sponsor:shadow-glow' :
-                        sponsor.tier === 'Competition' ? 'glass-morphism border border-orange-400/30 text-orange-200 group-hover/sponsor:text-orange-100 group-hover/sponsor:shadow-glow' :
-                        'glass-morphism border border-gray-400/30 text-gray-200 group-hover/sponsor:text-gray-100 group-hover/sponsor:shadow-glow'
-                      }`}>
-                        {sponsor.tier}
-                      </span>
-                    </PremiumCard>
-                   </a>
-                </ScrollReveal>
-              ))}
-            </div>
+            {sponsors.length > 0 ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
+                {sponsors.map((sponsor, index) => (
+                   <ScrollReveal key={sponsor.id} delay={index * 50}>
+                     <a 
+                       href={sponsor.website || '#'} 
+                       target={sponsor.website ? "_blank" : undefined}
+                       rel={sponsor.website ? "noopener noreferrer" : undefined}
+                       className="block"
+                     >
+                       <PremiumCard className="p-8 text-center hover-scale group/sponsor hover:shadow-luxury transition-all duration-700 cursor-pointer">
+                        <div className="aspect-square glass-morphism rounded-2xl mb-5 flex items-center justify-center group-hover/sponsor:scale-110 transition-all duration-500 shadow-morphic">
+                          {sponsor.logo_url ? (
+                            <img 
+                              src={sponsor.logo_url} 
+                              alt={`${sponsor.name} logo`}
+                              className="w-24 h-24 object-contain rounded-lg group-hover/sponsor:brightness-110 transition-all duration-500"
+                            />
+                          ) : (
+                            <span className="text-lg font-semibold text-center px-2">{sponsor.name}</span>
+                          )}
+                        </div>
+                        <h4 className="font-orbitron font-semibold text-white text-sm mb-4 group-hover/sponsor:text-glow transition-all duration-500">
+                          {sponsor.name}
+                        </h4>
+                        <span className={`inline-block px-4 py-2 rounded-full text-xs font-bold transition-all duration-500 group-hover/sponsor:scale-105 ${getTierColor(sponsor.tier)}`}>
+                          {sponsor.tier.replace(' Partner', '')}
+                        </span>
+                      </PremiumCard>
+                     </a>
+                  </ScrollReveal>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 glass-morphism rounded-2xl">
+                <p className="text-muted-foreground">Our sponsor roster is coming soon!</p>
+              </div>
+            )}
           </div>
         </ScrollReveal>
 
@@ -226,7 +288,7 @@ export const SponsorsSection = () => {
               Sponsorship Opportunities
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
-              {sponsorshipTiers.map((tier, index) => (
+              {displayTiers.map((tier, index) => (
                 <ScrollReveal key={index} delay={index * 100}>
                   <PremiumCard className="text-center relative overflow-hidden">
                     <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${tier.color}`} />
