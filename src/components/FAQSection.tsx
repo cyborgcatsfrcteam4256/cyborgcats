@@ -1,93 +1,87 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { StructuredData } from '@/components/SEO/StructuredData';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ChevronDown, ChevronRight, HelpCircle, Users, Award, Lightbulb } from 'lucide-react';
+import { ChevronDown, ChevronRight, HelpCircle, Users, Award, Lightbulb, Loader2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+
+interface FAQ {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+  display_order: number;
+}
 
 export const FAQSection = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [openItems, setOpenItems] = useState<number[]>([]);
+  const [openItems, setOpenItems] = useState<string[]>([]);
+  const [faqs, setFaqs] = useState<FAQ[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const toggleItem = (index: number) => {
+  useEffect(() => {
+    loadFAQs();
+  }, []);
+
+  const loadFAQs = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('faqs')
+        .select('*')
+        .eq('is_active', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setFaqs(data || []);
+    } catch (error) {
+      console.error('Error loading FAQs:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleItem = (id: string) => {
     setOpenItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
+      prev.includes(id) 
+        ? prev.filter(i => i !== id)
+        : [...prev, id]
     );
   };
 
-  const faqs = [
-    {
-      category: "Joining the Team",
-      icon: Users,
-      questions: [
-        {
-          question: "How can I join the Cyborg Cats?",
-          answer: "We welcome students from Westminster Christian Academy who are passionate about STEM, robotics, and making a positive impact. Applications are typically open at the beginning of each school year. No prior robotics experience is required - we provide comprehensive training across all subteams including engineering, business, and outreach."
-        },
-        {
-          question: "What time commitment is required?",
-          answer: "Time commitment varies based on your leadership role and personal level of involvement. We believe in flexible participation that works with your academic schedule and other commitments. Whether you're looking for a few hours a week or want to dive deep into intensive project work, we'll help you find the right balance to maximize your learning and contribution to the team."
-        },
-        {
-          question: "Do I need prior robotics or engineering experience?",
-          answer: "Absolutely not! We welcome students from all backgrounds and skill levels. Our experienced mentors and student leaders provide comprehensive training in everything from CAD design and programming to business planning and public speaking."
-        }
-      ]
-    },
-    {
-      category: "Competition & Awards",
-      icon: Award,
-      questions: [
-        {
-          question: "What competitions does the team participate in?",
-          answer: "We compete year-round to maximize our growth and impact! During the regular season, we participate in the St. Louis area FIRST Regional and at least one additional regional competition. Our ultimate goal is qualifying for the FIRST Championship (Worlds) where we can compete against the best teams globally. We also engage in off-season competitions throughout the year to continue developing our skills, test new strategies, and build lasting relationships with teams from across the region."
-        },
-        {
-          question: "How can I support the team?",
-          answer: "There are many ways to support our team - from sponsorship opportunities to volunteering at events. We welcome community partnerships and are always looking for mentors with technical or business expertise."
-        }
-      ]
-    },
-    {
-      category: "Community Impact",
-      icon: Lightbulb,
-      questions: [
-        {
-          question: "What are your Women in STEM seminars?",
-          answer: "Our Women in STEM seminars are public workshops held at Westminster Christian Academy, featuring industry professionals and hands-on activities. We've welcomed over 100 attendees over the past three years. All of our business and engineering upper leadership is female, demonstrating our commitment to women in STEM leadership."
-        },
-        {
-          question: "How does your legislative advocacy work?",
-          answer: "We actively engage with Missouri state legislators to advocate for STEM education policy. Our team has met with 19 representatives and the Lieutenant Governor, supporting bills like HB 256 that expand STEM opportunities statewide."
-        },
-        {
-          question: "What is the STEM Companion Initiative?",
-          answer: "The STEM Companion Initiative is our flagship program connecting children with special needs to STEM education. We've hosted over 5 demonstrations and events, including Easter egg hunts, offering STEM-related games and robot demonstrations. We also created stemcompanion.org with publicly accessible resources."
-        },
-        {
-          question: "Tell me about your international partnerships.",
-          answer: "We've helped establish South Korea's 4th FRC team at Samuel School after visiting and demonstrating STEM activities in 2023. In Ethiopia, a team member's family led STEM activities for 115 students, creating water bottle cars to highlight sustainability while providing robotics jerseys. Before our work, only 2 active FRC teams existed in all of Africa."
-        },
-        {
-          question: "What other community programs do you run?",
-          answer: "We host the annual St. Louis FLL Season Kickoff (900+ people over 3 years), conduct FIRST Robotics classes at Camp Westminster (120 students over 3 years), organize Team Planting Workshops, mentor multiple FLL teams including the Champion's Award-winning Hedgehog Hackers, and provide practice fields for 70+ FRC teams at regionals."
-        }
-      ]
+  // Group FAQs by category
+  const groupedFaqs = faqs.reduce((acc, faq) => {
+    if (!acc[faq.category]) {
+      acc[faq.category] = [];
     }
-  ];
+    acc[faq.category].push(faq);
+    return acc;
+  }, {} as Record<string, FAQ[]>);
+
+  const categoryIcons: Record<string, any> = {
+    'Joining the Team': Users,
+    'Competition & Awards': Award,
+    'Community Impact': Lightbulb
+  };
 
   // Flatten FAQs for structured data
-  const allFAQs = faqs.flatMap(category => 
-    category.questions.map(q => ({
-      question: q.question,
-      answer: q.answer
-    }))
-  );
+  const allFAQs = faqs.map(faq => ({
+    question: faq.question,
+    answer: faq.answer
+  }));
+
+  if (loading) {
+    return (
+      <section className="py-24 bg-card/30 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-center py-20">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24 bg-card/30 relative overflow-hidden">
@@ -109,63 +103,72 @@ export const FAQSection = () => {
           </p>
         </div>
 
-        <div className="space-y-8">
-          {faqs.map((category, categoryIndex) => (
-            <Card 
-              key={categoryIndex}
-              className="bg-card/80 backdrop-blur-lg border-border/50 overflow-hidden"
-            >
-              <div className="p-8">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center glow-subtle">
-                    <category.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-orbitron font-bold text-glow">
-                    {category.category}
-                  </h3>
-                </div>
-
-                <div className="space-y-4">
-                  {category.questions.map((faq, index) => {
-                    const globalIndex = categoryIndex * 10 + index;
-                    const isOpen = openItems.includes(globalIndex);
-                    
-                    return (
-                      <div 
-                        key={index}
-                        className="border border-border/30 rounded-lg bg-card/40 hover:bg-card/60 transition-cyber"
-                      >
-                        <button
-                          onClick={() => toggleItem(globalIndex)}
-                          className="w-full p-6 text-left flex items-center justify-between hover:text-primary transition-cyber"
-                        >
-                          <h4 className="font-orbitron font-semibold text-lg pr-4">
-                            {faq.question}
-                          </h4>
-                          {isOpen ? (
-                            <ChevronDown className="w-5 h-5 text-primary flex-shrink-0" />
-                          ) : (
-                            <ChevronRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                          )}
-                        </button>
-                        
-                        {isOpen && (
-                          <div className="px-6 pb-6 animate-slide-up">
-                            <div className="border-t border-border/30 pt-4">
-                              <p className="text-muted-foreground font-inter leading-relaxed">
-                                {faq.answer}
-                              </p>
-                            </div>
-                          </div>
-                        )}
+        {faqs.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">No FAQs available at this time.</p>
+          </div>
+        ) : (
+          <div className="space-y-8">
+            {Object.entries(groupedFaqs).map(([category, categoryFaqs], categoryIndex) => {
+              const CategoryIcon = categoryIcons[category] || HelpCircle;
+              
+              return (
+                <Card 
+                  key={category}
+                  className="bg-card/80 backdrop-blur-lg border-border/50 overflow-hidden"
+                >
+                  <div className="p-8">
+                    <div className="flex items-center space-x-3 mb-6">
+                      <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center glow-subtle">
+                        <CategoryIcon className="w-6 h-6 text-primary" />
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+                      <h3 className="text-2xl font-orbitron font-bold text-glow">
+                        {category}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-4">
+                      {categoryFaqs.map((faq) => {
+                        const isOpen = openItems.includes(faq.id);
+                        
+                        return (
+                          <div 
+                            key={faq.id}
+                            className="border border-border/30 rounded-lg bg-card/40 hover:bg-card/60 transition-cyber"
+                          >
+                            <button
+                              onClick={() => toggleItem(faq.id)}
+                              className="w-full p-6 text-left flex items-center justify-between hover:text-primary transition-cyber"
+                            >
+                              <h4 className="font-orbitron font-semibold text-lg pr-4">
+                                {faq.question}
+                              </h4>
+                              {isOpen ? (
+                                <ChevronDown className="w-5 h-5 text-primary flex-shrink-0" />
+                              ) : (
+                                <ChevronRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                              )}
+                            </button>
+                            
+                            {isOpen && (
+                              <div className="px-6 pb-6 animate-slide-up">
+                                <div className="border-t border-border/30 pt-4">
+                                  <p className="text-muted-foreground font-inter leading-relaxed">
+                                    {faq.answer}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
         <div className="text-center mt-16">
           <div className="bg-card border border-border rounded-xl p-8 hover-glow transition-cyber">
